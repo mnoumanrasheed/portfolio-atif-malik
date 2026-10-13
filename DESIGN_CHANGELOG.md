@@ -31,3 +31,4 @@
   - Section 6 (360 Technologies): Rendered as an archival foundation with an open client directory index.
   - Section 7 (Collaboration): Replaced repetitive tiles with an intuitive interactive audience pathway selector.
 - **Restrained Motion:** GSAP + ScrollTrigger handles graceful section reveals with full `prefers-reduced-motion` fallbacks and context cleanup; Framer Motion powers smooth micro-interactions.
+

@@ -1,27 +1,35 @@
-/* White-first executive design tokens. Mirrored in tailwind.config.js. */
+/* Executive Sapphire & Deep Navy design tokens. Mirrored in tailwind.config.js. */
 :root {
   --color-bg-base: #ffffff;
-  --color-bg-surface: #f7f9f8;
-  --color-bg-surface-warm: #f2f6f5;
+  --color-bg-surface: #f8fafc;
+  --color-bg-surface-warm: #f1f5f9;
 
-  --color-text-primary: #19272d;
-  --color-text-body: #4f5d63;
-  --color-text-muted: #5f6f76;
+  --color-text-primary: #0f172a; /* Deep midnight ink - commanding, bold */
+  --color-text-body: #334155;    /* Crisp slate-700 body copy */
+  --color-text-muted: #64748b;   /* Slate-500 secondary text */
 
-  --color-accent: #377a8a;
-  --color-accent-hover: #286472;
-  --color-accent-wash: #e9f3f4;
+  /* Executive Brand Theme Color: Royal Sapphire */
+  --color-brand: #1e40af;
+  --color-brand-hover: #1d4ed8;
+  --color-brand-wash: #eff6ff;
 
-  --color-border: #dfe7e8;
-  --color-border-strong: #c9d5d7;
+  --color-accent: #0284c7;       /* Dynamic executive sapphire */
+  --color-accent-hover: #0369a1;
+  --color-accent-wash: #f0f9ff;
 
-  --color-deep: #193039;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
 
-  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  --color-deep: #0a192f;        /* Luxury midnight navy */
+  --color-deep-surface: #0f2537;
+
+  --font-display: 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --radius-card: 14px;
-  --shadow-soft: 0 1px 2px rgba(25, 39, 45, 0.04), 0 4px 16px rgba(25, 39, 45, 0.04);
+  --radius-card: 16px;
+  --shadow-soft: 0 1px 3px rgba(15, 23, 42, 0.05), 0 6px 20px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 12px 24px -2px rgba(15, 23, 42, 0.05);
 
   color-scheme: light;
 }

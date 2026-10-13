@@ -51,11 +51,11 @@ export const About: React.FC = () => {
 
             {/* Editorial Pull Quote */}
             <ScrollReveal delay={0.08}>
-              <div className="p-8 border-l-2 border-accent bg-canvas-subtle rounded-r-lg space-y-3">
-                <blockquote className="font-display font-medium text-lg sm:text-xl text-ink italic leading-snug">
+              <div className="p-8 border-l-4 border-brand bg-brand-wash/50 rounded-r-2xl space-y-3 shadow-xs">
+                <blockquote className="font-serif font-semibold text-xl sm:text-2xl text-slate-900 italic leading-snug">
                   &ldquo;{PERSPECTIVE.headline}&rdquo;
                 </blockquote>
-                <p className="text-sm text-ink-muted leading-relaxed">
+                <p className="text-sm text-slate-700 leading-relaxed font-normal">
                   {PERSPECTIVE.body}
                 </p>
               </div>
@@ -65,8 +65,8 @@ export const About: React.FC = () => {
             <ScrollReveal delay={0.1}>
               <div className="space-y-6">
                 <div>
-                  <div className="eyebrow text-accent mb-1">Pillars of Execution</div>
-                  <h3 className="font-display font-bold text-2xl text-ink">
+                  <div className="eyebrow text-brand mb-1">Pillars of Execution</div>
+                  <h3 className="font-display font-extrabold text-2xl text-slate-900">
                     Leadership Principles
                   </h3>
                 </div>
@@ -75,15 +75,15 @@ export const About: React.FC = () => {
                   {LEADERSHIP_PRINCIPLES.map((pillar, idx) => (
                     <div 
                       key={idx}
-                      className="p-5 bg-white border border-line rounded-lg shadow-soft space-y-2.5"
+                      className="p-5 bg-white border border-slate-200/90 rounded-xl shadow-soft space-y-2.5 hover:border-brand/40 hover:shadow-card transition-all"
                     >
-                      <div className="w-8 h-8 rounded bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+                      <div className="w-8 h-8 rounded-lg bg-brand text-white font-extrabold text-xs flex items-center justify-center shadow-xs">
                         0{idx + 1}
                       </div>
-                      <h4 className="text-sm font-bold text-ink">
+                      <h4 className="text-sm font-bold text-slate-900">
                         {pillar.title}
                       </h4>
-                      <p className="text-xs text-ink-muted leading-relaxed">
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
                         {pillar.description}
                       </p>
                     </div>

@@ -34,23 +34,23 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel
 }) => {
   const sizeClasses = {
-    sm: 'text-xs px-4 py-2 gap-2 tracking-normal font-medium',
-    md: 'text-xs sm:text-sm px-5 py-2.5 gap-2.5 tracking-normal font-medium',
-    lg: 'text-sm sm:text-base px-6 py-3.5 gap-3 tracking-normal font-semibold'
+    sm: 'text-xs px-4 py-2 gap-2 tracking-normal font-semibold',
+    md: 'text-xs sm:text-sm px-5 py-2.5 gap-2.5 tracking-normal font-semibold',
+    lg: 'text-sm sm:text-base px-7 py-3.5 gap-3 tracking-normal font-bold'
   };
 
   const variantClasses = {
     primary:
-      'bg-accent text-white border border-accent hover:bg-accent-hover hover:border-accent-hover shadow-sm transition-colors duration-200',
+      'bg-brand text-white border border-brand hover:bg-brand-hover hover:border-brand-hover shadow-sm hover:shadow-md transition-all duration-200',
     secondary:
-      'bg-white text-ink border border-line hover:border-accent hover:text-accent shadow-soft transition-all duration-200',
+      'bg-white text-ink border border-line hover:border-brand hover:text-brand shadow-soft transition-all duration-200',
     outline:
-      'bg-transparent text-ink border border-line hover:border-ink-muted hover:bg-canvas-subtle transition-colors duration-200',
+      'bg-transparent text-ink border border-line hover:border-brand hover:text-brand hover:bg-brand-wash/50 transition-colors duration-200',
     ghost:
-      'bg-transparent text-ink-muted hover:text-ink hover:bg-canvas-subtle transition-colors duration-200'
+      'bg-transparent text-ink-body hover:text-brand hover:bg-brand-wash/50 transition-colors duration-200'
   };
 
-  const baseClasses = `inline-flex items-center justify-center font-sans transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 disabled:opacity-40 disabled:pointer-events-none rounded-pill ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+  const baseClasses = `inline-flex items-center justify-center font-display transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:opacity-40 disabled:pointer-events-none rounded-pill ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
   const content = (
     <>

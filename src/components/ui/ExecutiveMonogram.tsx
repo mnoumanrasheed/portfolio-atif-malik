@@ -33,20 +33,20 @@ export const ExecutiveMonogram: React.FC<ExecutiveMonogramProps> = ({
 
           {/* Central Monogram */}
           <div className="my-auto text-center space-y-4">
-            <div className="w-20 h-20 mx-auto rounded-full bg-white border border-line flex items-center justify-center shadow-soft">
-              <span className="font-display font-bold text-2xl tracking-wider text-ink">
+            <div className="w-20 h-20 mx-auto rounded-full bg-white border-2 border-brand/25 flex items-center justify-center shadow-md">
+              <span className="font-display font-extrabold text-2xl tracking-wider text-brand">
                 A<span className="text-accent font-light">/</span>M
               </span>
             </div>
             <div>
-              <div className="font-display font-bold text-xl text-ink tracking-tight">Atif I. Malik</div>
-              <div className="text-xs text-ink-muted mt-1">Chief Executive Officer, M3 Hive</div>
+              <div className="font-display font-extrabold text-xl text-ink tracking-tight">Atif I. Malik</div>
+              <div className="text-xs text-brand font-semibold mt-1">Chief Executive Officer, M3 Hive</div>
             </div>
           </div>
 
           {/* Bottom Caption */}
           <div className="pt-4 border-t border-line/60 text-center">
-            <span className="text-[11px] text-ink-subtle">
+            <span className="text-[11px] text-ink-muted font-medium">
               Technology Leadership · Applied AI
             </span>
           </div>
@@ -56,12 +56,12 @@ export const ExecutiveMonogram: React.FC<ExecutiveMonogramProps> = ({
       {/* Brief Credentials Bar */}
       <div className="p-5 bg-white border-t border-line space-y-2">
         <div className="flex items-center justify-between text-xs">
-          <span className="font-semibold text-ink">Primary Role:</span>
-          <span className="text-accent font-medium">Chief Executive Officer, M3 Hive</span>
+          <span className="font-bold text-ink">Primary Role:</span>
+          <span className="text-brand font-semibold">Chief Executive Officer, M3 Hive</span>
         </div>
         <div className="flex items-center justify-between text-xs">
           <span className="text-ink-muted">Corporate Affiliation:</span>
-          <span className="text-ink-body">Co-Founder, Director & Shareholder, 360 Technologies</span>
+          <span className="text-ink-body font-medium">Co-Founder, Director & Shareholder, 360 Technologies</span>
         </div>
       </div>
     </div>

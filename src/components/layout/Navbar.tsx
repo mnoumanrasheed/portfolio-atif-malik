@@ -64,11 +64,11 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 group focus-visible:outline-none"
             aria-label="Atif I. Malik - Home"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-white font-display font-bold text-xs tracking-wider group-hover:bg-accent-hover transition-colors shadow-sm">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-white font-display font-bold text-xs tracking-wider group-hover:bg-brand-hover transition-colors shadow-sm">
               AIM
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-bold text-sm tracking-tight text-ink group-hover:text-accent transition-colors">
+              <span className="font-display font-bold text-sm tracking-tight text-ink group-hover:text-brand transition-colors">
                 Atif I. Malik
               </span>
               <span className="text-[11px] text-ink-muted leading-none">
@@ -83,9 +83,9 @@ export const Navbar: React.FC = () => {
               to="/"
               end
               className={({ isActive }) =>
-                `px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
+                `px-3 py-1.5 text-xs font-semibold transition-colors rounded-md ${
                   isActive
-                    ? 'text-accent font-semibold bg-accent-wash'
+                    ? 'text-brand font-bold bg-brand-wash shadow-sm'
                     : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
                 }`
               }
@@ -102,35 +102,35 @@ export const Navbar: React.FC = () => {
                 type="button"
                 onClick={() => setProductsOpen(!productsOpen)}
                 onMouseEnter={() => setProductsOpen(true)}
-                className={`flex items-center gap-1 px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
+                className={`flex items-center gap-1 px-3 py-1.5 text-xs font-semibold transition-colors rounded-md ${
                   location.pathname.startsWith('/products')
-                    ? 'text-accent font-semibold bg-accent-wash'
+                    ? 'text-brand font-bold bg-brand-wash shadow-sm'
                     : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
                 }`}
                 aria-expanded={productsOpen}
               >
                 <span>Products</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180 text-brand' : ''}`} />
               </button>
 
               {productsOpen && (
                 <div
                   className="absolute top-full left-0 mt-1.5 w-64 border border-line bg-white rounded-card p-2 shadow-card z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                 >
-                  <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-ink-subtle font-medium border-b border-line mb-1">
+                  <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-brand font-bold border-b border-line mb-1">
                     Priority M3 Hive Products
                   </div>
                   {productLinks.map((p) => (
                     <Link
                       key={p.path}
                       to={p.path}
-                      className="block px-3 py-2 rounded-md hover:bg-canvas-subtle transition-colors group"
+                      className="block px-3 py-2 rounded-md hover:bg-brand-wash/60 transition-colors group"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-ink group-hover:text-accent transition-colors">
+                        <span className="text-xs font-semibold text-ink group-hover:text-brand transition-colors">
                           {p.name}
                         </span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-ink-subtle group-hover:text-accent transition-colors" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-ink-subtle group-hover:text-brand transition-colors" />
                       </div>
                       <span className="text-[11px] text-ink-muted block mt-0.5">
                         {p.desc}
@@ -146,9 +146,9 @@ export const Navbar: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
+                  `px-3 py-1.5 text-xs font-semibold transition-colors rounded-md ${
                     isActive
-                      ? 'text-accent font-semibold bg-accent-wash'
+                      ? 'text-brand font-bold bg-brand-wash shadow-sm'
                       : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
                   }`
                 }

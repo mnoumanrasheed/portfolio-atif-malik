@@ -4,48 +4,60 @@ export default {
   theme: {
     extend: {
       colors: {
-        // White-first executive palette. Values mirror CSS variables in tokens.css.
+        // Executive Royal Sapphire & Midnight Navy palette.
         canvas: {
           DEFAULT: '#FFFFFF',
-          subtle: '#F7F9F8',
-          warm: '#F2F6F5'
+          subtle: '#F8FAFC',
+          warm: '#F1F5F9'
         },
         ink: {
-          DEFAULT: '#19272D', // headings
-          body: '#4F5D63', // body copy
-          muted: '#5F6F76' // secondary text (AA on white and #F7F9F8)
+          DEFAULT: '#0F172A', // headings - deep slate/midnight
+          body: '#334155',    // body copy - crisp and high-contrast
+          muted: '#64748B',   // secondary text
+          subtle: '#94A3B8'
+        },
+        brand: {
+          DEFAULT: '#1E40AF', // Primary Executive Royal Blue
+          hover: '#1D4ED8',
+          dark: '#1E3A8A',
+          wash: '#EFF6FF',
+          accent: '#3B82F6'
         },
         accent: {
-          DEFAULT: '#377A8A',
-          hover: '#286472',
-          wash: '#E9F3F4'
+          DEFAULT: '#0284C7', // Executive Sapphire
+          hover: '#0369A1',
+          wash: '#F0F9FF'
         },
         line: {
-          DEFAULT: '#DFE7E8',
-          strong: '#C9D5D7'
+          DEFAULT: '#E2E8F0',
+          strong: '#CBD5E1'
         },
         deep: {
-          DEFAULT: '#193039', // single contrast band / footer only
-          soft: '#22404B'
+          DEFAULT: '#0A192F', // Luxury Midnight Navy contrast band / footer
+          surface: '#0F2537',
+          soft: '#1E293B'
         }
       },
       fontFamily: {
-        display: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Manrope', 'Inter', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif']
       },
       fontSize: {
-        // Minimum readable metadata size is 12px.
         meta: ['0.75rem', { lineHeight: '1.1rem' }]
       },
       maxWidth: {
-        page: '76rem' // ~1216px
+        page: '78rem' // ~1248px
       },
       borderRadius: {
-        card: '14px'
+        card: '16px',
+        pill: '9999px'
       },
       boxShadow: {
-        soft: '0 1px 2px rgba(25, 39, 45, 0.04), 0 4px 16px rgba(25, 39, 45, 0.04)',
-        lift: '0 2px 4px rgba(25, 39, 45, 0.05), 0 12px 32px rgba(25, 39, 45, 0.08)'
+        soft: '0 1px 3px rgba(15, 23, 42, 0.05), 0 6px 20px rgba(15, 23, 42, 0.04)',
+        card: '0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 12px 24px -2px rgba(15, 23, 42, 0.05)',
+        lift: '0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04)',
+        glow: '0 0 25px -5px rgba(30, 64, 175, 0.25)'
       },
       transitionTimingFunction: {
         calm: 'cubic-bezier(0.22, 1, 0.36, 1)'
