@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { 
   ChevronDown, 
   ChevronUp, 
-  Check
+  CheckCircle2
 } from 'lucide-react';
 import { M3_HIVE_ADDITIONAL_WORK } from '../content/portfolio';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 
 export const Work: React.FC = () => {
@@ -38,19 +39,19 @@ export const Work: React.FC = () => {
   };
 
   return (
-    <div className="py-16 sm:py-24 bg-black text-white">
+    <div className="py-12 sm:py-20 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
-          <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-3 mb-4">
             <AttributionBadge type="M3 Hive company project" />
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-              CORPORATE CASE STUDY ARCHIVE
+            <span className="text-xs text-ink-muted font-medium">
+              Documented Engineering Case Studies
             </span>
           </div>
 
           <SectionHeader
-            eyebrow="PORTFOLIO ARCHIVE"
+            eyebrow="Delivery Portfolio"
             title="Selected Additional Work"
             description="Seven documented project initiatives demonstrating M3 Hive's technical breadth across market intelligence, computational biology, retail analytics, and digital platforms."
           />
@@ -58,28 +59,28 @@ export const Work: React.FC = () => {
 
         {/* Corporate Attribution Notice */}
         <ScrollReveal delay={0.05}>
-          <div className="p-6 border border-neutral-800 bg-mono-900 mb-12 font-mono text-xs text-neutral-400 space-y-1">
-            <span className="text-white uppercase font-bold">[ CORPORATE ATTRIBUTION SPECIFICATION ]</span>
-            <p className="font-sans leading-relaxed text-neutral-300">
+          <div className="p-5 rounded-card border border-line bg-canvas-subtle mb-10 text-xs text-ink-muted space-y-1">
+            <span className="font-semibold text-ink uppercase tracking-wider">Attribution Notice</span>
+            <p className="leading-relaxed">
               All case studies below are documented <em>M3 Hive company projects</em>. They reflect the company’s engineering capability and data engineering range rather than personally led individual assignments or commercial endorsement claims.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Working Category Filter Chips */}
+        {/* Filter Pills */}
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap items-center gap-2 mb-12 pb-6 border-b border-neutral-800">
-            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 mr-3">
-              DOMAIN:
+          <div className="flex flex-wrap items-center gap-2 mb-10 pb-6 border-b border-line">
+            <span className="text-xs uppercase tracking-wider text-ink-subtle font-medium mr-2">
+              Domain:
             </span>
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveFilter(cat.id)}
-                className={`px-4 py-2 text-xs font-mono uppercase tracking-wider transition-colors border ${
+                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all ${
                   activeFilter === cat.id
-                    ? 'bg-white text-black border-white font-bold'
-                    : 'bg-black text-neutral-400 border-neutral-800 hover:border-neutral-500 hover:text-white'
+                    ? 'bg-accent text-white shadow-sm'
+                    : 'bg-white text-ink-body border border-line hover:border-accent/40 hover:bg-canvas-subtle'
                 }`}
               >
                 {cat.label}
@@ -94,47 +95,47 @@ export const Work: React.FC = () => {
             const isExpanded = expandedId === project.id;
             return (
               <ScrollReveal key={project.id} delay={idx * 0.05}>
-                <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-10 flex flex-col justify-between hover:border-neutral-500 transition-colors">
-                  <div className="space-y-5">
-                    <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="border border-line bg-white rounded-card p-7 sm:p-8 flex flex-col justify-between shadow-soft hover:shadow-card hover:border-accent/40 transition-all">
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                       <AttributionBadge type={project.attribution} />
-                      <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-widest border border-neutral-800 px-2.5 py-1">
+                      <span className="text-xs text-ink-subtle font-medium">
                         {project.category}
                       </span>
                     </div>
 
-                    <h3 className="font-editorial-heading text-2xl sm:text-3xl text-white uppercase tracking-tight">
+                    <h3 className="font-display font-bold text-xl sm:text-2xl text-ink">
                       {project.title}
                     </h3>
 
                     <div>
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-                        [ CHALLENGE ]
+                      <span className="text-[11px] font-semibold uppercase tracking-wider text-accent block mb-1">
+                        Operational Challenge
                       </span>
-                      <p className="text-sm text-neutral-300 font-editorial-body leading-relaxed">
+                      <p className="text-xs sm:text-sm text-ink-body leading-relaxed">
                         {project.challenge}
                       </p>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1">
-                        [ VALUE PROPOSITION ]
+                      <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-muted block mb-1">
+                        Value Proposition
                       </span>
-                      <p className="text-sm text-neutral-200 font-editorial-body leading-relaxed">
+                      <p className="text-xs sm:text-sm text-ink-body leading-relaxed">
                         {project.valueProposition}
                       </p>
                     </div>
 
                     {/* Expandable Details */}
                     {isExpanded && project.details && (
-                      <div className="pt-4 border-t border-neutral-800 space-y-2 font-mono text-xs">
-                        <span className="text-neutral-500 uppercase tracking-widest block mb-2">
-                          [ DOCUMENTED SOLUTION ELEMENTS ]
+                      <div className="pt-4 border-t border-line space-y-2 text-xs">
+                        <span className="font-semibold text-ink uppercase tracking-wider block mb-1">
+                          Delivered Capabilities
                         </span>
-                        <ul className="space-y-1.5 text-neutral-300">
+                        <ul className="space-y-1.5 text-ink-muted">
                           {project.details.map((detail, dIdx) => (
                             <li key={dIdx} className="flex items-start gap-2">
-                              <span className="text-white">•</span>
+                              <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
                               <span>{detail}</span>
                             </li>
                           ))}
@@ -143,21 +144,21 @@ export const Work: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-                    <span className="text-[11px] text-neutral-500 uppercase">
-                      STATUS: {project.status}
+                  <div className="pt-5 mt-5 border-t border-line flex flex-wrap items-center justify-between gap-4 text-xs">
+                    <span className="text-ink-subtle">
+                      Status: <strong className="text-ink font-medium">{project.status}</strong>
                     </span>
 
                     <button
                       type="button"
                       onClick={() => toggleExpand(project.id)}
-                      className="text-white hover:underline uppercase tracking-wider inline-flex items-center gap-1"
+                      className="text-accent font-semibold hover:text-accent-hover inline-flex items-center gap-1"
                       aria-expanded={isExpanded}
                     >
                       {isExpanded ? (
-                        <>COLLAPSE <ChevronUp className="w-3.5 h-3.5" /></>
+                        <>Collapse <ChevronUp className="w-3.5 h-3.5" /></>
                       ) : (
-                        <>EXPAND DETAILS <ChevronDown className="w-3.5 h-3.5" /></>
+                        <>Expand Details <ChevronDown className="w-3.5 h-3.5" /></>
                       )}
                     </button>
                   </div>
@@ -167,19 +168,19 @@ export const Work: React.FC = () => {
           })}
         </div>
 
-        {/* CTA Footer */}
+        {/* CTA Banner */}
         <ScrollReveal>
-          <div className="mt-20 p-8 sm:p-12 border border-neutral-800 bg-black flex flex-col sm:flex-row items-center justify-between gap-8">
+          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-canvas-subtle flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
             <div>
-              <h3 className="text-xl font-bold text-white uppercase tracking-tight">
+              <h3 className="font-display font-bold text-xl text-ink">
                 Have a Complex Enterprise or Data Engineering Requirement?
               </h3>
-              <p className="text-xs text-neutral-400 font-mono mt-1">
+              <p className="text-sm text-ink-muted mt-1">
                 Discuss problem scoping, feasibility analysis, or custom architecture with M3 Hive.
               </p>
             </div>
             <Button to="/contact" variant="primary" size="md" showArrow>
-              Discuss a Project
+              Discuss an Engagement
             </Button>
           </div>
         </ScrollReveal>

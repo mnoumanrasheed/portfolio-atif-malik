@@ -2,9 +2,9 @@ import React from 'react';
 import { EXECUTIVE_PROFILE } from '../content/portfolio';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { ExecutiveMonogram } from '../components/ui/ExecutiveMonogram';
-import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { Card } from '../components/ui/Card';
 
 export const About: React.FC = () => {
   const leadershipPillars = [
@@ -26,29 +26,28 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <div className="py-16 sm:py-24 bg-black text-white">
+    <div className="py-12 sm:py-20 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
           <SectionHeader
-            eyebrow="EXECUTIVE DOSSIER"
+            eyebrow="Executive Profile"
             title="Technology Leadership & Applied AI"
             description="Atif I. Malik connects business problems with product thinking, applied AI, and disciplined technology delivery."
           />
         </ScrollReveal>
 
         {/* Narrative & Monogram Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-8">
           {/* Left Narrative: Full Depth Long Biography */}
-          <div className="lg:col-span-7 space-y-12">
+          <div className="lg:col-span-7 space-y-10">
             <ScrollReveal>
-              <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-12 space-y-8">
-                <div className="flex items-center justify-between border-b border-neutral-800 pb-4 font-mono text-xs uppercase tracking-widest text-neutral-400">
-                  <span>[ AUTHORITATIVE BIOGRAPHY ]</span>
-                  <span>RECORD REF: AIM-BIO-01</span>
+              <div className="bg-white border border-line rounded-card p-8 sm:p-10 shadow-soft space-y-6">
+                <div className="text-xs font-semibold uppercase tracking-wider text-accent border-b border-line pb-3">
+                  Authoritative Biography & Background
                 </div>
 
-                <div className="space-y-6 text-neutral-300 font-editorial-body text-base sm:text-lg leading-relaxed">
+                <div className="space-y-5 text-ink-body text-base leading-relaxed">
                   <p>
                     {EXECUTIVE_PROFILE.longBio.approach}
                   </p>
@@ -61,9 +60,10 @@ export const About: React.FC = () => {
                     {EXECUTIVE_PROFILE.longBio.technologies360Context}
                   </p>
 
-                  <p className="text-neutral-400 pt-4 border-t border-neutral-800 text-sm font-mono">
+                  <div className="p-4 rounded-lg bg-canvas-subtle border border-line text-xs text-ink-muted leading-relaxed">
+                    <span className="font-semibold text-ink">Scope Notice: </span>
                     {EXECUTIVE_PROFILE.longBio.portfolioIntent}
-                  </p>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -71,85 +71,61 @@ export const About: React.FC = () => {
             {/* Leadership Approach Pillars */}
             <ScrollReveal delay={0.1}>
               <div className="space-y-6">
-                <div className="font-mono text-xs tracking-widest uppercase text-neutral-400">
-                  [ PHILOSOPHICAL PILLARS ]
+                <div>
+                  <div className="eyebrow text-accent mb-2">Pillars of Execution</div>
+                  <h3 className="font-display font-bold text-2xl text-ink">
+                    Leadership Principles
+                  </h3>
                 </div>
-                <h3 className="font-editorial-heading text-3xl text-white uppercase tracking-tight">
-                  Leadership Approach
-                </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                   {leadershipPillars.map((pillar) => (
-                    <div 
+                    <Card 
                       key={pillar.index}
-                      className="p-6 border border-neutral-800 bg-mono-900 space-y-3"
+                      className="p-5 bg-white border-line shadow-soft space-y-3"
                     >
-                      <div className="font-mono text-xs font-bold text-neutral-500">
-                        [{pillar.index}]
+                      <div className="w-8 h-8 rounded bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+                        {pillar.index}
                       </div>
-                      <h4 className="text-base font-bold text-white uppercase tracking-tight">
+                      <h4 className="text-sm font-bold text-ink">
                         {pillar.title}
                       </h4>
-                      <p className="text-xs text-neutral-400 font-editorial-body leading-relaxed">
+                      <p className="text-xs text-ink-muted leading-relaxed">
                         {pillar.description}
                       </p>
-                    </div>
+                    </Card>
                   ))}
                 </div>
               </div>
             </ScrollReveal>
+
+            {/* Engagement Action */}
+            <div className="flex flex-wrap items-center gap-4 pt-4">
+              <Button to="/contact" variant="primary" showArrow>
+                Discuss an Engagement
+              </Button>
+              <Button to="/m3-hive" variant="secondary">
+                View M3 Hive Products
+              </Button>
+            </div>
           </div>
 
-          {/* Right Column: Identity Plaque & Affiliations */}
+          {/* Right Column: Executive Credentials & Governance */}
           <div className="lg:col-span-5 space-y-8">
             <ScrollReveal delay={0.15}>
               <ExecutiveMonogram />
             </ScrollReveal>
 
-            {/* Verified Corporate Affiliations */}
             <ScrollReveal delay={0.2}>
-              <div className="border border-neutral-800 bg-mono-900 p-8 space-y-6">
-                <div className="flex items-center justify-between border-b border-neutral-800 pb-3 font-mono text-xs uppercase tracking-widest text-neutral-400">
-                  <span>[ CORPORATE AFFILIATIONS ]</span>
-                  <span>VERIFIED</span>
+              <div className="bg-canvas-subtle border border-line rounded-card p-6 shadow-soft space-y-4">
+                <div className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+                  Institutional Governance
                 </div>
-
-                {/* M3 Hive */}
-                <div className="p-5 border border-white/30 bg-black space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-white uppercase">
-                      M3 Hive
-                    </span>
-                    <AttributionBadge type="M3 Hive product" />
-                  </div>
-                  <p className="font-mono text-xs text-white uppercase font-semibold">
-                    Chief Executive Officer
-                  </p>
-                  <p className="text-xs text-neutral-400 font-editorial-body leading-relaxed">
-                    Primary operational leadership. Focused on AI-led products (NourDoc, LeadHive AI, Smart Animal) and custom engineering solutions.
-                  </p>
-                </div>
-
-                {/* 360 Technologies */}
-                <div className="p-5 border border-neutral-800 bg-black/60 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-neutral-300 uppercase">
-                      360 Technologies
-                    </span>
-                    <AttributionBadge type="360 Technologies company portfolio" />
-                  </div>
-                  <p className="font-mono text-xs text-neutral-300 uppercase font-semibold">
-                    Co-Founder, Director & Shareholder
-                  </p>
-                  <p className="text-xs text-neutral-400 font-editorial-body leading-relaxed">
-                    Separate technology-services company. Historical enterprise systems, public-sector digitisation, and capability development.
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  <Button to="/contact" variant="primary" size="md" className="w-full" showArrow>
-                    Discuss Collaboration
-                  </Button>
+                <p className="text-xs text-ink-body leading-relaxed">
+                  Clear legal and operational boundaries are maintained between active M3 Hive proprietary initiatives and historical enterprise portfolio engagements delivered by 360 Technologies.
+                </p>
+                <div className="pt-2 border-t border-line text-xs text-ink-muted">
+                  Official inquiries are routed directly to executive leadership through the contact folio.
                 </div>
               </div>
             </ScrollReveal>

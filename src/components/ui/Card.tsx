@@ -11,14 +11,17 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({
   children,
   className = '',
+  elevated = false,
   hoverEffect = true,
   onClick
 }) => {
   return (
     <div
       onClick={onClick}
-      className={`relative overflow-hidden bg-mono-900 border border-neutral-800 transition-colors duration-200 ${
-        hoverEffect ? 'hover:border-neutral-500 hover:bg-neutral-950' : ''
+      className={`relative overflow-hidden bg-white border border-line rounded-card transition-all duration-200 ${
+        elevated ? 'shadow-card' : 'shadow-soft'
+      } ${
+        hoverEffect ? 'hover:border-accent/50 hover:shadow-card' : ''
       } ${className}`}
     >
       {children}

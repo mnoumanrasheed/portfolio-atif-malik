@@ -34,23 +34,23 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel
 }) => {
   const sizeClasses = {
-    sm: 'text-xs px-4 py-2 gap-2 tracking-wide font-medium',
-    md: 'text-xs sm:text-sm px-6 py-3 gap-2.5 tracking-wide font-medium',
-    lg: 'text-sm sm:text-base px-8 py-4 gap-3 tracking-wide font-semibold'
+    sm: 'text-xs px-4 py-2 gap-2 tracking-normal font-medium',
+    md: 'text-xs sm:text-sm px-5 py-2.5 gap-2.5 tracking-normal font-medium',
+    lg: 'text-sm sm:text-base px-6 py-3.5 gap-3 tracking-normal font-semibold'
   };
 
   const variantClasses = {
     primary:
-      'bg-white text-black border border-white hover:bg-neutral-200 transition-colors duration-200',
+      'bg-accent text-white border border-accent hover:bg-accent-hover hover:border-accent-hover shadow-sm transition-colors duration-200',
     secondary:
-      'bg-black text-white border border-white/20 hover:border-white hover:bg-neutral-950 transition-colors duration-200',
+      'bg-white text-ink border border-line hover:border-accent hover:text-accent shadow-soft transition-all duration-200',
     outline:
-      'bg-transparent text-neutral-300 border border-neutral-800 hover:border-neutral-400 hover:text-white transition-colors duration-200',
+      'bg-transparent text-ink border border-line hover:border-ink-muted hover:bg-canvas-subtle transition-colors duration-200',
     ghost:
-      'bg-transparent text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-colors duration-200'
+      'bg-transparent text-ink-muted hover:text-ink hover:bg-canvas-subtle transition-colors duration-200'
   };
 
-  const baseClasses = `inline-flex items-center justify-center font-sans uppercase tracking-[0.08em] transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white disabled:opacity-40 disabled:pointer-events-none rounded-none ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+  const baseClasses = `inline-flex items-center justify-center font-sans transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 disabled:opacity-40 disabled:pointer-events-none rounded-pill ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
   const content = (
     <>

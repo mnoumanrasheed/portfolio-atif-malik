@@ -31,82 +31,80 @@ export const SmartAnimalWorkflowDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="border border-neutral-800 bg-mono-900 p-6 sm:p-10">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-neutral-800 gap-4">
+    <div className="bg-white border border-line rounded-card p-6 sm:p-8 shadow-soft">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-line gap-4">
         <div>
-          <span className="font-mono text-[10px] tracking-[0.2em] text-neutral-400 uppercase">
-            [ TELEMETRY & IOT PIPELINE ]
+          <span className="eyebrow text-accent block">
+            Telemetry & IoT Architecture
           </span>
-          <h3 className="text-xl font-bold text-white uppercase tracking-tight mt-1">
+          <h3 className="font-display font-bold text-xl text-ink mt-0.5">
             Smart Animal Continuous Monitoring Loop
           </h3>
         </div>
-        <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 border border-neutral-800 px-3 py-1 bg-black">
-          NON-INVASIVE COLLAR TELEMETRY
+        <div className="inline-flex items-center text-xs font-semibold text-accent bg-accent-wash border border-accent/20 px-3 py-1 rounded-full self-start sm:self-auto">
+          Non-Invasive Collar Telemetry
         </div>
       </div>
 
       {/* Module Navigation */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-8">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-6">
         {modules.map((mod) => {
           const isSelected = activeTelemetry === mod.id;
           return (
             <button
               key={mod.id}
               onClick={() => setActiveTelemetry(mod.id)}
-              className={`p-4 text-left transition-all border ${
+              className={`p-3.5 rounded-lg text-left transition-all border ${
                 isSelected
-                  ? 'bg-white text-black border-white'
-                  : 'bg-black text-white border-neutral-800 hover:border-neutral-500'
+                  ? 'bg-accent text-white border-accent shadow-sm'
+                  : 'bg-canvas-subtle text-ink border-line hover:border-accent/40 hover:bg-white'
               }`}
             >
-              <div className="font-mono text-xs font-bold mb-1 opacity-70">
+              <div className={`text-xs font-bold mb-1 ${isSelected ? 'text-white/80' : 'text-accent'}`}>
                 {mod.number}
               </div>
-              <p className="text-xs font-bold uppercase tracking-tight">{mod.title}</p>
+              <p className="text-xs font-semibold leading-tight">{mod.title}</p>
             </button>
           );
         })}
       </div>
 
       {/* Detail Showcase */}
-      <div className="border border-neutral-800 bg-black p-6 sm:p-8 space-y-4 font-mono text-xs">
-        <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
-          <span className="uppercase text-neutral-400">
-            [ TELEMETRY LAYER {modules[activeTelemetry].number} ]: {modules[activeTelemetry].title.toUpperCase()}
+      <div className="bg-canvas-subtle border border-line rounded-lg p-5 sm:p-6 space-y-3 text-xs">
+        <div className="flex items-center justify-between border-b border-line pb-2.5">
+          <span className="font-semibold text-accent uppercase tracking-wider text-xs">
+            Layer {modules[activeTelemetry].number}: {modules[activeTelemetry].title}
           </span>
-          <span className="text-neutral-500 text-[10px]">
-            LAYER {activeTelemetry + 1} OF 4
+          <span className="text-ink-subtle text-[11px]">
+            Layer {activeTelemetry + 1} of 4
           </span>
         </div>
 
-        <p className="text-sm text-neutral-200 font-sans leading-relaxed pt-1">
+        <p className="text-sm text-ink-body leading-relaxed">
           {modules[activeTelemetry].desc}
         </p>
 
         {activeTelemetry === 2 && (
-          <div className="mt-4 p-4 border border-neutral-800 bg-mono-900 space-y-2 text-neutral-300">
-            <div className="text-neutral-500 border-b border-neutral-800 pb-1 text-[10px] uppercase">
-              METRIC ANALYSIS WINDOW: HERD #042
+          <div className="mt-3 p-4 rounded-md bg-white border border-line space-y-2 text-ink">
+            <div className="text-ink-subtle border-b border-line pb-1 text-[11px] font-semibold uppercase tracking-wider">
+              Sample Herd Metric Stream: Herd #042
             </div>
-            <div className="flex items-center justify-between">
-              <span>RUMINATION DURATION:</span>
-              <span className="text-white font-bold">480 MIN / DAY (BASELINE OK)</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span>HEAT DETECTION ACTIVITY:</span>
-              <span className="text-white font-bold">+38% OVER ROLLING AVERAGE</span>
-            </div>
-            <div className="pt-2 text-[10px] text-neutral-400 uppercase">
-              * Behavior trigger logged for herd manager review
+            <div className="text-xs space-y-1.5 text-ink-body">
+              <div className="flex items-center justify-between">
+                <span>Rumination Duration:</span>
+                <span className="font-semibold text-ink">480 min/day (Normal Baseline)</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Estrus Activity Indication:</span>
+                <span className="font-semibold text-accent">+38% Above Rolling 7-Day Average</span>
+              </div>
+              <div className="text-[11px] text-ink-muted pt-1">
+                Triggered Automated Mobile Notification &rarr; Livestock Manager
+              </div>
             </div>
           </div>
         )}
       </div>
-
-      <p className="mt-5 text-center font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
-        Illustrative IoT telemetry architecture. Field validation and sensor specifications configured for trial scope.
-      </p>
     </div>
   );
 };

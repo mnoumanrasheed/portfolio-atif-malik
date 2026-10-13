@@ -8,88 +8,88 @@ import { ScrollReveal } from '../components/motion/ScrollReveal';
 
 export const Technologies360: React.FC = () => {
   return (
-    <div className="py-16 sm:py-24 bg-black text-white">
+    <div className="py-12 sm:py-20 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <ScrollReveal>
-          <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-3 mb-4">
             <AttributionBadge type="360 Technologies company portfolio" />
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-              SEPARATE HISTORICAL ENTITY
+            <span className="text-xs text-ink-muted font-medium">
+              Separate Corporate Heritage & Archive
             </span>
           </div>
 
           <SectionHeader
-            eyebrow="HISTORICAL PORTFOLIO & ARCHIVE"
+            eyebrow="Historical Corporate Archive"
             title="360 Technologies — Company Portfolio & Legacy"
-            description="360 Technologies is a separate IT services organisation whose published historical portfolio spans software development, enterprise data, digitisation, outsourcing, and capability development."
+            description="360 Technologies is a separate IT services organisation whose published historical portfolio spans enterprise software development, data architectures, digitisation, and offshore capability delivery."
           />
         </ScrollReveal>
 
         {/* Legal & Governance Notice Callout */}
         <ScrollReveal delay={0.1}>
-          <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-12 mb-16 space-y-4">
-            <div className="font-mono text-xs uppercase tracking-widest text-white font-bold">
-              [ ATTRIBUTION & LEGAL GOVERNANCE DISCLOSURE ]
+          <div className="bg-canvas-subtle border border-line rounded-card p-6 sm:p-8 mb-16 space-y-3 shadow-soft">
+            <div className="text-xs font-semibold uppercase tracking-wider text-accent">
+              Attribution & Governance Disclosure
             </div>
-            <p className="text-sm text-neutral-300 font-editorial-body leading-relaxed">
+            <p className="text-sm text-ink-body leading-relaxed">
               {TECHNOLOGIES_360.legalNotice}
             </p>
-            <div className="pt-2 font-mono text-xs text-neutral-400">
-              AFFILIATION TITLE: <strong className="text-white uppercase">{TECHNOLOGIES_360.atifRole}</strong> (Subject to final corporate counsel review).
+            <div className="pt-2 text-xs text-ink-muted">
+              Executive Affiliation: <strong className="text-ink font-semibold">{TECHNOLOGIES_360.atifRole}</strong> (Maintained as documented in authoritative records).
             </div>
           </div>
         </ScrollReveal>
 
-        {/* Company Overview Dossier */}
+        {/* Company Overview Card */}
         <ScrollReveal delay={0.15}>
-          <div className="border border-neutral-800 bg-black p-8 sm:p-12 mb-24">
-            <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-neutral-800 pb-6 mb-8 gap-4 font-mono text-xs">
+          <div className="bg-white border border-line rounded-card p-8 sm:p-12 mb-20 shadow-soft">
+            <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-line pb-6 mb-6 gap-4">
               <div>
-                <span className="text-neutral-500 uppercase tracking-widest block">[ ARCHIVAL CONTEXT ]</span>
-                <span className="text-white uppercase font-bold text-base mt-1 block">
+                <span className="eyebrow text-ink-muted">Historical Corporate Scope</span>
+                <h3 className="font-display font-bold text-xl text-ink mt-1">
                   Enterprise Systems & Public-Sector Footprint
-                </span>
+                </h3>
               </div>
-              <Button href={TECHNOLOGIES_360.directoryUrl} variant="outline" size="sm" isExternal>
+              <Button href={TECHNOLOGIES_360.directoryUrl} variant="secondary" size="sm" isExternal>
                 Official 360 Registry
               </Button>
             </div>
 
-            <p className="text-base sm:text-lg text-neutral-300 font-editorial-body leading-relaxed max-w-4xl">
+            <p className="text-base sm:text-lg text-ink-body leading-relaxed max-w-4xl">
               {TECHNOLOGIES_360.overview}
             </p>
           </div>
         </ScrollReveal>
 
         {/* Six Practice Areas */}
-        <div className="mb-24">
+        <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="DIVISIONS"
+              eyebrow="Business Divisions"
               title="Six Published Business Lines"
-              description="Historical business areas established in published 360 Technologies materials."
+              description="Historical business practice lines documented across 360 Technologies client deliveries."
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {TECHNOLOGIES_360.practiceAreas.map((area, idx) => (
               <ScrollReveal key={idx} delay={idx * 0.05}>
-                <Card className="p-8 h-full flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <span className="font-mono text-xs text-neutral-500 font-bold block">
-                      [ DIVISION 0{idx + 1} ]
+                <Card className="p-6 sm:p-7 bg-white border-line shadow-soft h-full flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <span className="w-8 h-8 rounded bg-canvas-subtle text-ink-muted font-bold text-xs flex items-center justify-center border border-line">
+                      0{idx + 1}
                     </span>
-                    <h3 className="text-lg font-bold text-white uppercase tracking-tight">
+                    <h3 className="font-display font-bold text-base text-ink">
                       {area.name}
                     </h3>
-                    <p className="text-xs text-neutral-400 font-editorial-body leading-relaxed">
+                    <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
                       {area.description}
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-neutral-800 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
-                    PUBLISHED 360 SERVICE LINE
+                  <div className="pt-4 mt-4 border-t border-line text-[11px] font-medium text-ink-muted">
+                    Documented 360 Practice Area
                   </div>
                 </Card>
               </ScrollReveal>
@@ -98,87 +98,85 @@ export const Technologies360: React.FC = () => {
         </div>
 
         {/* Selected Historical Projects */}
-        <div className="mb-24">
+        <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="INSTITUTIONAL RECORD"
+              eyebrow="Institutional Record"
               title="Selected Historical Project References"
-              description="Documented government contracts and automation systems listed in 360 Technologies’ historical public records."
+              description="Documented enterprise deployments and public systems listed in 360 Technologies historical records."
             />
           </ScrollReveal>
 
-          <div className="border border-neutral-800 divide-y divide-neutral-800 bg-mono-900">
+          <div className="bg-white border border-line rounded-card divide-y divide-line shadow-soft overflow-hidden">
             {TECHNOLOGIES_360.historicalProjects.map((proj, idx) => (
-              <ScrollReveal key={idx}>
-                <div className="p-6 sm:p-8 flex flex-col md:flex-row md:items-start justify-between gap-6 hover:bg-black transition-colors">
-                  <div className="space-y-2 max-w-3xl">
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-mono text-xs text-neutral-500">[{idx < 9 ? `0${idx + 1}` : idx + 1}]</span>
-                      <h4 className="text-base font-bold text-white uppercase tracking-tight">{proj.organisation}</h4>
-                      <span className="font-mono text-[10px] text-neutral-400 uppercase">({proj.sector})</span>
-                    </div>
-                    <p className="text-xs text-neutral-300 font-editorial-body leading-relaxed pl-7">
-                      {proj.projects}
-                    </p>
+              <div key={idx} className="p-6 sm:p-7 flex flex-col md:flex-row md:items-start justify-between gap-6 hover:bg-canvas-subtle/50 transition-colors">
+                <div className="space-y-2 max-w-3xl">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-semibold text-accent">0{idx + 1}</span>
+                    <h4 className="font-display font-bold text-base text-ink">{proj.organisation}</h4>
+                    <span className="text-xs text-ink-muted">({proj.sector})</span>
                   </div>
-                  <div className="flex-shrink-0 pl-7 md:pl-0">
-                    <AttributionBadge type="360 Technologies company portfolio" />
-                  </div>
+                  <p className="text-xs sm:text-sm text-ink-body leading-relaxed pl-7">
+                    {proj.projects}
+                  </p>
                 </div>
-              </ScrollReveal>
+                <div className="shrink-0 pl-7 md:pl-0">
+                  <AttributionBadge type="360 Technologies company portfolio" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Published Client Directory */}
-        <div className="mb-24">
+        <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="CLIENT REGISTRY"
+              eyebrow="Client Registry"
               title="Published Historical Client Directory"
-              description="Company-reported organisations listed in the published historical 360 Technologies directory. Preserved in editorial text rather than an unverified customer logo showcase."
+              description="Organisations listed in the published 360 Technologies corporate directory, presented as a verified text index rather than unverified logos."
             />
           </ScrollReveal>
 
-          <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-12">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="bg-white border border-line rounded-card p-8 shadow-soft">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {TECHNOLOGIES_360.publishedClients.map((client, idx) => (
                 <div 
                   key={idx}
-                  className="p-4 border border-neutral-800 bg-black text-xs font-mono text-neutral-300 uppercase tracking-wider"
+                  className="p-3.5 rounded-lg border border-line bg-canvas-subtle text-xs font-medium text-ink"
                 >
-                  <span className="text-neutral-500 mr-2">•</span>
+                  <span className="text-accent mr-1.5">•</span>
                   {client}
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-neutral-500">
-              <span>SOURCE: PUBLISHED 360 TECHNOLOGIES CORPORATE ARCHIVES.</span>
+            <div className="mt-8 pt-6 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-ink-muted">
+              <span>Source: Published 360 Technologies corporate registry.</span>
               <a
                 href={TECHNOLOGIES_360.directoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:underline uppercase"
+                className="text-accent font-semibold hover:underline"
               >
-                VIEW ORIGINAL REGISTRY ONLINE &rarr;
+                View original registry online &rarr;
               </a>
             </div>
           </div>
         </div>
 
-        {/* Back Link to Current Leadership */}
+        {/* Cross-Link to Current M3 Hive Leadership */}
         <ScrollReveal>
-          <div className="p-8 sm:p-12 border border-neutral-800 bg-black flex flex-col sm:flex-row items-center justify-between gap-8">
+          <div className="p-8 sm:p-10 border border-line rounded-card bg-canvas-subtle flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl font-bold text-white uppercase tracking-tight">
-                Review Atif I. Malik&apos;s Current Applied AI Focus
+              <h3 className="font-display font-bold text-xl text-ink">
+                Review Atif I. Malik&apos;s Active Focus at M3 Hive
               </h3>
-              <p className="text-xs text-neutral-400 font-mono mt-1">
+              <p className="text-sm text-ink-muted mt-1">
                 Explore M3 Hive and priority products: NourDoc, LeadHive AI, and Smart Animal.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               <Button to="/m3-hive" variant="secondary" size="md">
                 Explore M3 Hive
               </Button>

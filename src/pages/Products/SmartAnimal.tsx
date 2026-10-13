@@ -4,36 +4,37 @@ import { AttributionBadge } from '../../components/ui/AttributionBadge';
 import { Button } from '../../components/ui/Button';
 import { SmartAnimalWorkflowDiagram } from '../../components/diagrams/SmartAnimalWorkflowDiagram';
 import { ScrollReveal } from '../../components/motion/ScrollReveal';
+import { CheckCircle2 } from 'lucide-react';
 
 export const SmartAnimal: React.FC = () => {
   const product = PRODUCTS.find((p) => p.id === 'smart-animal')!;
 
   return (
-    <div className="py-16 sm:py-24 bg-black text-white">
+    <div className="py-12 sm:py-20 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial Hero */}
         <ScrollReveal>
           <div className="space-y-6 max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">
               <AttributionBadge type={product.attribution} />
-              <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-                PRIORITY 03 / AGRITECH AI & IOT
+              <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+                Priority 03 · AgriTech AI & IoT Platform
               </span>
             </div>
 
-            <h1 className="font-editorial-heading text-5xl sm:text-6xl lg:text-7xl text-white tracking-tighter uppercase leading-[0.9]">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-ink tracking-tight">
               {product.name}
             </h1>
 
-            <p className="font-mono text-lg sm:text-xl text-neutral-300">
+            <p className="text-lg sm:text-xl text-accent font-medium">
               &quot;{product.positioningLine}&quot;
             </p>
 
-            <p className="font-editorial-body text-base sm:text-lg text-neutral-300 leading-relaxed pt-2">
+            <p className="text-base sm:text-lg text-ink-body leading-relaxed">
               {product.overview}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button to="/contact?interest=smart-animal" variant="primary" size="lg" showArrow>
                 Discuss a Smart Animal Pilot
               </Button>
@@ -47,25 +48,25 @@ export const SmartAnimal: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Bespoke Interactive Workflow Diagram */}
-        <div className="my-20">
+        {/* Workflow Diagram */}
+        <div className="my-16">
           <ScrollReveal delay={0.1}>
             <SmartAnimalWorkflowDiagram />
           </ScrollReveal>
         </div>
 
         {/* Problem vs Solution Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-16">
           {/* Challenge Box */}
           <ScrollReveal delay={0.15}>
-            <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-10 h-full space-y-4">
-              <div className="font-mono text-[10px] tracking-[0.2em] text-neutral-400 uppercase">
-                [ THE HERD MANAGEMENT CHALLENGE ]
+            <div className="bg-white border border-line rounded-card p-8 sm:p-10 h-full space-y-4 shadow-soft">
+              <div className="eyebrow text-amber-700">
+                The Herd Management Challenge
               </div>
-              <h3 className="font-editorial-heading text-2xl text-white uppercase tracking-tight">
-                Delayed Observation in Large or Dispersed Herds
+              <h3 className="font-display font-bold text-2xl text-ink">
+                Delayed Observation in Dispersed Herds
               </h3>
-              <p className="text-sm sm:text-base text-neutral-300 font-editorial-body leading-relaxed">
+              <p className="text-sm sm:text-base text-ink-body leading-relaxed">
                 {product.challenge}
               </p>
             </div>
@@ -73,17 +74,17 @@ export const SmartAnimal: React.FC = () => {
 
           {/* Value Proposition Box */}
           <ScrollReveal delay={0.2}>
-            <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-10 h-full space-y-4">
-              <div className="font-mono text-[10px] tracking-[0.2em] text-neutral-400 uppercase">
-                [ VALUE PROPOSITION ]
+            <div className="bg-white border border-line rounded-card p-8 sm:p-10 h-full space-y-4 shadow-soft">
+              <div className="eyebrow text-accent">
+                Architectural Value Proposition
               </div>
-              <h3 className="font-editorial-heading text-2xl text-white uppercase tracking-tight">
+              <h3 className="font-display font-bold text-2xl text-ink">
                 Connected Sensing to Timely Digital Alerts
               </h3>
               <ul className="space-y-3 pt-2">
                 {product.valueProposition.map((vp, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-neutral-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white mt-2 flex-shrink-0" />
+                  <li key={idx} className="flex items-start gap-3 text-sm text-ink-body">
+                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     <span>{vp}</span>
                   </li>
                 ))}
@@ -93,18 +94,18 @@ export const SmartAnimal: React.FC = () => {
         </div>
 
         {/* Audiences & Collaboration Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
           {/* Who May Benefit */}
           <ScrollReveal delay={0.1}>
-            <div className="border border-neutral-800 bg-black p-8 space-y-4 font-mono text-xs">
-              <div className="text-neutral-500 uppercase tracking-widest">
-                [ BENEFICIARIES ]
+            <div className="bg-canvas-subtle border border-line rounded-card p-8 space-y-4 shadow-soft">
+              <div className="text-xs font-semibold uppercase tracking-wider text-ink-subtle">
+                Target Operators
               </div>
-              <h4 className="text-lg font-bold text-white uppercase font-sans">Livestock Stakeholders</h4>
-              <ul className="space-y-2 pt-2">
+              <h4 className="font-display font-bold text-lg text-ink">Intended Beneficiaries</h4>
+              <ul className="space-y-2.5 pt-1">
                 {product.intendedUsers.map((user, idx) => (
-                  <li key={idx} className="text-xs text-neutral-300 flex items-center gap-2">
-                    <span className="text-neutral-500">•</span>
+                  <li key={idx} className="text-sm text-ink-body flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     <span>{user}</span>
                   </li>
                 ))}
@@ -114,15 +115,15 @@ export const SmartAnimal: React.FC = () => {
 
           {/* Collaboration Opportunities */}
           <ScrollReveal delay={0.15}>
-            <div className="border border-neutral-800 bg-black p-8 space-y-4 font-mono text-xs">
-              <div className="text-neutral-500 uppercase tracking-widest">
-                [ PARTNER ROUTES ]
+            <div className="bg-canvas-subtle border border-line rounded-card p-8 space-y-4 shadow-soft">
+              <div className="text-xs font-semibold uppercase tracking-wider text-ink-subtle">
+                Research & Trials
               </div>
-              <h4 className="text-lg font-bold text-white uppercase font-sans">Field Alliances</h4>
-              <ul className="space-y-2 pt-2">
+              <h4 className="font-display font-bold text-lg text-ink">Partner Opportunities</h4>
+              <ul className="space-y-2.5 pt-1">
                 {product.collaborationOpportunities.map((collab, idx) => (
-                  <li key={idx} className="text-xs text-neutral-300 flex items-center gap-2">
-                    <span className="text-neutral-500">•</span>
+                  <li key={idx} className="text-sm text-ink-body flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     <span>{collab}</span>
                   </li>
                 ))}
@@ -131,37 +132,32 @@ export const SmartAnimal: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        {/* Publication Guardrail / Notice */}
+        {/* Guardrail / Notice */}
         <ScrollReveal>
-          <div className="border border-neutral-800 bg-mono-900 p-8 my-16 font-mono text-xs text-neutral-400 space-y-2">
-            <div className="text-white uppercase font-bold tracking-widest">
-              [ SCIENTIFIC RIGOR & STATUS GUARDRAIL ]
+          <div className="bg-white border border-line rounded-card p-6 sm:p-8 my-14 text-xs text-ink-muted space-y-2 shadow-soft">
+            <div className="font-semibold text-ink uppercase tracking-wider">
+              Agronomic & Veterinary Scope Notice
             </div>
-            <p className="font-sans leading-relaxed">
-              {product.publicationGuardrail} Predictive models, activity thresholds, and behavioral indicators are validated iteratively against specific herd profiles and telemetry environments.
+            <p className="leading-relaxed">
+              {product.publicationGuardrail} Smart Animal provides observational telemetry and behavioral indicator support for farm managers. It does not replace professional on-site veterinary diagnosis or treatment.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Concluding CTA Banner */}
         <ScrollReveal>
-          <div className="p-8 sm:p-12 border border-neutral-800 bg-mono-900 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="p-8 sm:p-12 border border-line rounded-card bg-canvas-subtle flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
             <div className="space-y-1">
-              <h3 className="text-xl font-bold text-white uppercase tracking-tight">
-                Structure a Livestock Pilot or Research Trial
+              <h3 className="font-display font-bold text-xl text-ink">
+                Initiate a Livestock Telemetry Trial
               </h3>
-              <p className="text-xs text-neutral-400 font-mono">
-                Engage with M3 Hive to explore farm trials, hardware telemetry, or veterinary evaluation protocols.
+              <p className="text-sm text-ink-muted">
+                Connect with M3 Hive to review device specifications, gateway setup, and field trial parameters.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <Button to="/contact?interest=smart-animal" variant="primary" size="md" showArrow>
-                Discuss Farm Pilot
-              </Button>
-              <Button to="/collaboration" variant="outline" size="md">
-                Collaboration Pathways
-              </Button>
-            </div>
+            <Button to="/contact?interest=smart-animal" variant="primary" size="md" showArrow>
+              Discuss Smart Animal
+            </Button>
           </div>
         </ScrollReveal>
       </div>

@@ -6,75 +6,70 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    background-color: var(--color-bg-base);
+  }
+
   body {
     background-color: var(--color-bg-base);
-    color: var(--color-text-primary);
+    color: var(--color-text-body);
     font-family: var(--font-sans);
+    font-size: 1rem;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+    letter-spacing: -0.018em;
   }
 
   ::selection {
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: var(--color-accent-wash);
+    color: var(--color-text-primary);
   }
 
   :focus-visible {
-    outline: 1px solid #FFFFFF;
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
-@layer utilities {
-  .border-hairline {
-    border: 1px solid rgba(255, 255, 255, 0.12);
+@layer components {
+  /* Page container */
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
   }
 
-  .border-hairline-subtle {
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Section rhythm: 56–72px mobile, 80–112px desktop */
+  .section {
+    @apply py-16 sm:py-20 lg:py-28;
   }
 
-  .border-hairline-hover {
-    border: 1px solid rgba(255, 255, 255, 0.35);
+  /* Text link with accessible underline affordance */
+  .text-link {
+    @apply font-medium text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:text-accent-hover hover:decoration-accent-hover;
   }
 
-  .hairline-b {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .hairline-t {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .hairline-r {
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .hairline-l {
-    border-left: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .editorial-card {
-    background-color: #0A0A0A;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .editorial-card:hover {
-    border-color: rgba(255, 255, 255, 0.30);
-    background-color: #0F0F0F;
-  }
-
-  .editorial-paper {
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+  /* Small neutral pill for categories/labels */
+  .pill {
+    @apply inline-flex items-center rounded-full border border-line bg-white px-3 py-1 text-meta font-medium text-ink-muted;
   }
 }
 
-/* Reduced motion preference */
+/* Reduced motion: neutralise CSS transitions/animations. GSAP and Framer
+   Motion check the same media query in JS. */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

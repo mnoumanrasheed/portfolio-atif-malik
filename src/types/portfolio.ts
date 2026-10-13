@@ -1,17 +1,16 @@
-export type AttributionType = 
+export type AttributionType =
   | 'M3 Hive product'
   | 'M3 Hive company project'
   | '360 Technologies company portfolio'
   | 'Atif I. Malik — role confirmed';
 
-export type ProductStatus = 'Pilot & Active Development' | 'In Development & Pilot Scoping' | 'Concept & Architecture';
-
 export interface ExecutiveProfile {
   name: string;
-  titles: string[];
   currentRole: string;
   separateAffiliation: string;
   tagline: string;
+  heroStatement: string;
+  homepageIntro: string;
   shortBio: string;
   longBio: {
     approach: string;
@@ -31,61 +30,96 @@ export interface ProductData {
   id: 'nourdoc' | 'leadhive-ai' | 'smart-animal';
   name: string;
   tagline: string;
+  domain: string;
   category: string;
   positioningLine: string;
   attribution: AttributionType;
   officialUrl?: string;
   overview: string;
   challenge: string;
+  problemSolved?: string;
+  aiApproach?: string;
+  capabilities?: string[];
   valueProposition: string[];
+  intendedUsersSummary: string;
   intendedUsers: string[];
   collaborationOpportunities: string[];
+  miniFlow: [string, string, string];
   statusNote: string;
+  publicCaveat: string;
   publicationGuardrail: string;
-  ctaText: string;
-  secondaryCtaText: string;
+  primaryCta: { label: string; to: string };
+  secondaryCta: { label: string; to: string };
 }
+
+export type CaseStudyGroup = 'analytics' | 'research' | 'platforms' | 'explorations';
 
 export interface CaseStudy {
   id: string;
   title: string;
   category: string;
+  sector?: string;
+  architecture?: string;
+  outcome?: string;
+  group: CaseStudyGroup;
   attribution: AttributionType;
   challenge: string;
   valueProposition: string;
-  presentationGuidance: string;
   status: string;
-  details?: string[];
+  details: string[];
 }
 
 export interface PracticeArea {
   name: string;
   description: string;
-  attribution: AttributionType;
+  summary?: string;
 }
 
 export interface HistoricalProject {
   organisation: string;
-  sector: string;
+  sector?: string;
   projects: string;
-  attribution: AttributionType;
 }
 
 export interface CollaborationPathway {
   id: string;
   name: string;
+  title?: string;
+  category?: string;
+  overview?: string;
+  scope?: string;
+  engagementModel?: string;
   audience: string;
   likelyChallenge: string;
   whatWeCommunicate: string;
-  potentialContribution: string;
   possibleFirstStep: string;
   ctaText: string;
+}
+
+export interface AudienceRecord {
+  audience: string;
+  challenge: string;
+  communicate: string;
+  cta: { label: string; to: string };
+}
+
+export interface LeadershipPrinciple {
+  title: string;
+  description: string;
+}
+
+export interface EngagementStep {
+  phase: string;
+  title: string;
+  detail: string;
+  description?: string;
+  commitment?: string;
 }
 
 export interface ExternalSource {
   title: string;
   category: string;
+  group: string;
   url: string;
   note: string;
 }
-

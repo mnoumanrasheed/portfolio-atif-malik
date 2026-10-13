@@ -37,94 +37,73 @@ export const NourDocWorkflowDiagram: React.FC = () => {
   ];
 
   return (
-    <div className="border border-neutral-800 bg-mono-900 p-6 sm:p-10">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-neutral-800 gap-4">
+    <div className="bg-white border border-line rounded-card p-6 sm:p-8 shadow-soft">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-line gap-4">
         <div>
-          <span className="font-mono text-[10px] tracking-[0.2em] text-neutral-400 uppercase">
-            [ ARCHITECTURAL SPECIFICATION ]
+          <span className="eyebrow text-accent block">
+            Architectural Specification
           </span>
-          <h3 className="text-xl font-bold text-white uppercase tracking-tight mt-1">
+          <h3 className="font-display font-bold text-xl text-ink mt-0.5">
             NourDoc Clinical Documentation Workflow
           </h3>
         </div>
-        <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 border border-neutral-800 px-3 py-1 bg-black">
-          PHYSICIAN-IN-THE-LOOP PROTOCOL
+        <div className="inline-flex items-center text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full self-start sm:self-auto">
+          Physician-in-the-Loop Protocol
         </div>
       </div>
 
       {/* Interactive Step Track */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 my-8">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 my-6">
         {steps.map((s) => {
           const isSelected = activeStep === s.id;
           return (
             <button
               key={s.id}
               onClick={() => setActiveStep(s.id)}
-              className={`p-4 text-left transition-all border ${
+              className={`p-3.5 rounded-lg text-left transition-all border ${
                 isSelected
-                  ? 'bg-white text-black border-white'
-                  : 'bg-black text-white border-neutral-800 hover:border-neutral-500'
+                  ? 'bg-accent text-white border-accent shadow-sm'
+                  : 'bg-canvas-subtle text-ink border-line hover:border-accent/40 hover:bg-white'
               }`}
             >
-              <div className="font-mono text-xs font-bold mb-1 opacity-70">
+              <div className={`text-xs font-bold mb-1 ${isSelected ? 'text-white/80' : 'text-accent'}`}>
                 {s.number}
               </div>
-              <p className="text-xs font-bold uppercase tracking-tight">{s.title}</p>
+              <p className="text-xs font-semibold leading-tight">{s.title}</p>
             </button>
           );
         })}
       </div>
 
       {/* Dynamic Detail Viewer */}
-      <div className="border border-neutral-800 bg-black p-6 sm:p-8 space-y-4 font-mono text-xs">
-        <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
-          <span className="uppercase text-neutral-400">
-            [ PHASE {steps[activeStep].number} ]: {steps[activeStep].title.toUpperCase()}
+      <div className="bg-canvas-subtle border border-line rounded-lg p-5 sm:p-6 space-y-3 text-xs">
+        <div className="flex items-center justify-between border-b border-line pb-2.5">
+          <span className="font-semibold text-accent uppercase tracking-wider text-xs">
+            Phase {steps[activeStep].number}: {steps[activeStep].title}
           </span>
-          <span className="text-neutral-500 text-[10px]">
-            STEP {activeStep + 1} OF {steps.length}
+          <span className="text-ink-subtle text-[11px]">
+            Step {activeStep + 1} of {steps.length}
           </span>
         </div>
 
-        <p className="text-sm text-neutral-200 font-sans leading-relaxed pt-1">
+        <p className="text-sm text-ink-body leading-relaxed">
           {steps[activeStep].desc}
         </p>
 
         {activeStep === 2 && (
-          <div className="mt-4 p-4 border border-neutral-800 bg-mono-900 space-y-2 text-neutral-300">
-            <div className="text-neutral-500 border-b border-neutral-800 pb-1 text-[10px] uppercase">
-              SCHEMA DRAFT: CLINICAL ENCOUNTER
+          <div className="mt-3 p-4 rounded-md bg-white border border-line space-y-2 text-ink">
+            <div className="text-ink-subtle border-b border-line pb-1 text-[11px] font-semibold uppercase tracking-wider">
+              Sample Schema Output: Clinical Encounter
             </div>
-            <div>
-              <span className="text-white font-bold">[SUBJECTIVE]</span> Patient reports 3-day history of fatigue and mild cough...
+            <div className="text-xs space-y-1 text-ink-body">
+              <div><strong className="text-ink">[Subjective]</strong> Patient reports 3-day history of fatigue and mild cough...</div>
+              <div><strong className="text-ink">[Objective]</strong> BP 120/80, HR 72 bpm, chest clear to auscultation...</div>
+              <div><strong className="text-ink">[Assessment]</strong> Acute viral upper respiratory infection...</div>
+              <div><strong className="text-ink">[Plan]</strong> Symptomatic relief, hydration, follow-up if symptoms persist...</div>
             </div>
-            <div>
-              <span className="text-white font-bold">[OBJECTIVE]</span> Vital signs stable; auscultation clear bilaterally...
-            </div>
-            <div>
-              <span className="text-white font-bold">[ASSESSMENT & PLAN]</span> Prescribed conservative care; follow-up in 10 days.
-            </div>
-            <div className="pt-2 text-[10px] text-neutral-400 uppercase">
-              * ICD-10 & CPT coding assistance flagged for clinician review
-            </div>
-          </div>
-        )}
-
-        {activeStep === 3 && (
-          <div className="mt-4 p-4 border border-white/40 bg-mono-900 text-neutral-200">
-            <div className="text-white font-bold text-xs uppercase mb-1">
-              [ MANDATORY PHYSICIAN SIGN-OFF ]
-            </div>
-            <p className="text-neutral-400 text-xs">
-              Draft clinical records remain uncommitted to health records until explicitly verified and signed off by the attending clinician.
-            </p>
           </div>
         )}
       </div>
-      
-      <p className="mt-5 text-center font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
-        Schematic illustration. Deployment subject to institution EHR configuration and clinical protocols.
-      </p>
     </div>
   );
 };

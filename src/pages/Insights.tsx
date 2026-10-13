@@ -8,58 +8,58 @@ import { ScrollReveal } from '../components/motion/ScrollReveal';
 
 export const Insights: React.FC = () => {
   return (
-    <div className="py-16 sm:py-24 bg-black text-white">
+    <div className="py-12 sm:py-20 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
-          <div className="flex items-center gap-2 mb-6">
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral-400 border border-neutral-800 px-3 py-1">
-              VERIFIED INSTITUTIONAL RECORDS
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xs font-semibold uppercase tracking-wider text-accent bg-accent-wash px-3 py-1 rounded-full border border-accent/20">
+              Verified Institutional Sources
             </span>
           </div>
 
           <SectionHeader
-            eyebrow="BIBLIOGRAPHY & AUDIT"
+            eyebrow="Documentation & Verification"
             title="Selected References & Further Reading"
-            description="Verified external documentation, official product portals, corporate publications, and public institutional registers."
+            description="Verified external documentation, official product platforms, corporate publications, and public institutional directories."
           />
         </ScrollReveal>
 
         {/* Editorial Standards Notice */}
         <ScrollReveal delay={0.1}>
-          <div className="p-8 border border-neutral-800 bg-mono-900 mb-16 space-y-2 font-mono text-xs">
-            <div className="text-white uppercase font-bold tracking-widest">
-              [ EDITORIAL TRANSPARENCY POLICY ]
+          <div className="p-6 sm:p-8 rounded-card border border-line bg-canvas-subtle mb-14 space-y-2 shadow-soft">
+            <div className="text-xs font-semibold uppercase tracking-wider text-accent">
+              Editorial Integrity Policy
             </div>
-            <p className="font-sans text-neutral-300 text-sm leading-relaxed">
-              In alignment with executive governance standards, this portfolio links exclusively to verified corporate profiles, official product domains, and published institutional directories. We do not manufacture synthetic blog articles, unverified press quotes, or fictional thought leadership timestamps.
+            <p className="text-sm text-ink-body leading-relaxed">
+              In alignment with executive governance standards, this portfolio links exclusively to verified corporate profiles, official product domains, and published institutional registries. We do not manufacture synthetic blog articles, unverified press quotes, or fictional thought leadership timestamps.
             </p>
           </div>
         </ScrollReveal>
 
         {/* References Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {EXTERNAL_SOURCES.map((source, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.05}>
-              <Card className="p-8 h-full flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-neutral-800 pb-3 font-mono text-xs">
-                    <span className="text-neutral-400 uppercase tracking-widest">
+              <Card className="p-6 sm:p-7 bg-white border-line shadow-soft h-full flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between border-b border-line pb-3">
+                    <span className="text-xs font-medium text-accent">
                       {source.category}
                     </span>
-                    <ArrowUpRight className="w-4 h-4 text-neutral-500" />
+                    <ArrowUpRight className="w-4 h-4 text-ink-subtle" />
                   </div>
 
-                  <h3 className="text-base font-bold text-white uppercase tracking-tight">
+                  <h3 className="font-display font-bold text-base text-ink">
                     {source.title}
                   </h3>
 
-                  <p className="text-xs text-neutral-400 font-mono leading-relaxed">
+                  <p className="text-xs text-ink-muted leading-relaxed">
                     {source.note}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-neutral-800">
+                <div className="pt-5 mt-5 border-t border-line">
                   <Button
                     href={source.url}
                     variant="secondary"
@@ -77,12 +77,12 @@ export const Insights: React.FC = () => {
 
         {/* Connect Directly Banner */}
         <ScrollReveal>
-          <div className="mt-20 p-8 sm:p-12 border border-neutral-800 bg-mono-900 flex flex-col sm:flex-row items-center justify-between gap-8">
+          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-canvas-subtle flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
             <div>
-              <h3 className="text-xl font-bold text-white uppercase tracking-tight">
+              <h3 className="font-display font-bold text-xl text-ink">
                 Connect Directly with Atif I. Malik
               </h3>
-              <p className="text-xs text-neutral-400 font-mono mt-1">
+              <p className="text-sm text-ink-muted mt-1">
                 Verified professional background and executive network on LinkedIn.
               </p>
             </div>

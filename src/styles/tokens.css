@@ -1,19 +1,27 @@
+/* White-first executive design tokens. Mirrored in tailwind.config.js. */
 :root {
-  --color-bg-base: #000000;
-  --color-bg-surface: #0A0A0A;
-  --color-bg-surface-elevated: #121212;
-  --color-bg-surface-subtle: #171717;
-  
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #D4D4D4;
-  --color-text-muted: #8A8A8A;
-  --color-text-dim: #525252;
+  --color-bg-base: #ffffff;
+  --color-bg-surface: #f7f9f8;
+  --color-bg-surface-warm: #f2f6f5;
 
-  --color-border-hairline: rgba(255, 255, 255, 0.12);
-  --color-border-subtle: rgba(255, 255, 255, 0.20);
-  --color-border-bold: rgba(255, 255, 255, 0.40);
-  --color-border-solid: #FFFFFF;
-  
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --color-text-primary: #19272d;
+  --color-text-body: #4f5d63;
+  --color-text-muted: #5f6f76;
+
+  --color-accent: #377a8a;
+  --color-accent-hover: #286472;
+  --color-accent-wash: #e9f3f4;
+
+  --color-border: #dfe7e8;
+  --color-border-strong: #c9d5d7;
+
+  --color-deep: #193039;
+
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --radius-card: 14px;
+  --shadow-soft: 0 1px 2px rgba(25, 39, 45, 0.04), 0 4px 16px rgba(25, 39, 45, 0.04);
+
+  color-scheme: light;
 }

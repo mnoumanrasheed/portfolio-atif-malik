@@ -10,81 +10,82 @@ import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const M3Hive: React.FC = () => {
   return (
-    <div className="py-16 sm:py-24 bg-black text-white">
+    <div className="py-12 sm:py-20 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
         <ScrollReveal>
-          <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-3 mb-4">
             <AttributionBadge type="M3 Hive product" />
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
-              OPERATIONAL EXECUTION VEHICLE
+            <span className="text-xs text-accent font-medium">
+              Primary Executive Operating Vehicle
             </span>
           </div>
 
           <SectionHeader
-            eyebrow="COMPANY PROFILE"
+            eyebrow="Company Overview"
             title="M3 Hive — Execution & Engineering Capability"
-            description="M3 Hive is a technology development company focused on translating business needs into digital products, intelligent workflows and applied AI solutions."
+            description="M3 Hive is a technology development company focused on translating complex business needs into digital products, intelligent workflows, and applied AI solutions."
           />
         </ScrollReveal>
 
-        {/* Corporate Overview Dossier */}
+        {/* Corporate Overview Card */}
         <ScrollReveal delay={0.1}>
-          <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-14 mb-20">
-            <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-neutral-800 pb-6 mb-8 gap-4 font-mono text-xs">
+          <div className="bg-white border border-line rounded-card p-8 sm:p-12 mb-16 shadow-soft">
+            <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-line pb-6 mb-6 gap-4">
               <div>
-                <span className="text-neutral-500 uppercase tracking-widest block">[ CORPORATE SPECIFICATION ]</span>
-                <span className="text-white uppercase font-bold text-base mt-1 block">
-                  Delivery Practice & Product Engineering
-                </span>
+                <span className="eyebrow text-accent">Delivery Practice & Product Engineering</span>
+                <h3 className="font-display font-bold text-xl text-ink mt-1">
+                  Technology Solutions Grounded in Operational Reality
+                </h3>
               </div>
               <div className="flex items-center gap-3">
-                <Button href={EXECUTIVE_PROFILE.verifiedLinks.m3hive} variant="outline" size="sm" isExternal>
-                  m3hive.com
+                <Button href={EXECUTIVE_PROFILE.verifiedLinks.m3hive} variant="secondary" size="sm" isExternal>
+                  Visit m3hive.com
                 </Button>
-                <Button href={EXECUTIVE_PROFILE.verifiedLinks.nourdoc} variant="secondary" size="sm" isExternal>
-                  NourDoc Portal
+                <Button href={EXECUTIVE_PROFILE.verifiedLinks.nourdoc} variant="primary" size="sm" isExternal>
+                  NourDoc Official Site
                 </Button>
               </div>
             </div>
 
-            <p className="text-base sm:text-lg text-neutral-300 font-editorial-body leading-relaxed max-w-4xl">
+            <p className="text-base sm:text-lg text-ink-body leading-relaxed max-w-4xl">
               M3 Hive is a technology development company focused on translating business needs into digital products, intelligent workflows and applied AI solutions. Its company portfolio spans product engineering, customer experience, intelligent automation, data engineering and analytics, cloud platforms, connected systems and digital design. M3 Hive works across product-led initiatives and custom engagements, with the aim of aligning technical choices to the problem, users and operating environment.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Six Capability Areas */}
-        <div className="mb-24">
+        <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="TECHNICAL DISCIPLINES"
-              title="Six Core Capability Areas"
-              description="Aligned to operational reality, user expectations, and modern cloud/edge environments."
+              eyebrow="Core Competencies"
+              title="Six Capability Practices"
+              description="Aligned to operational requirements, user workflows, and modern cloud/edge architectures."
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {M3_HIVE_CAPABILITIES.map((cap, idx) => (
               <ScrollReveal key={idx} delay={idx * 0.05}>
-                <Card className="p-8 h-full flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <span className="font-mono text-xs text-neutral-500 font-bold block">
-                      [ 0{idx + 1} ]
+                <Card className="p-6 sm:p-7 bg-white border-line shadow-soft h-full flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <span className="w-8 h-8 rounded bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+                      0{idx + 1}
                     </span>
-                    <h3 className="text-lg font-bold text-white uppercase tracking-tight">
+                    <h3 className="font-display font-bold text-base text-ink">
                       {cap.title}
                     </h3>
-                    <p className="text-xs text-neutral-400 font-editorial-body leading-relaxed">
+                    <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
                       {cap.description}
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-neutral-800 font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
-                    M3 HIVE CORE PRACTICE
+                  <div className="pt-4 mt-4 border-t border-line text-[11px] font-medium text-accent">
+                    M3 Hive Core Practice
                   </div>
                 </Card>
               </ScrollReveal>
@@ -93,33 +94,50 @@ export const M3Hive: React.FC = () => {
         </div>
 
         {/* Priority Products Showcase */}
-        <div className="mb-24">
+        <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="PRODUCT ROSTER"
+              eyebrow="Proprietary Platforms"
               title="Three Priority Product Initiatives"
-              description="Flagship systems developed within M3 Hive targeting distinct high-friction sectors."
+              description="Proprietary platforms incubated and driven by M3 Hive under Atif's strategic direction."
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PRODUCTS.map((p) => (
-              <ScrollReveal key={p.id}>
-                <div className="border border-neutral-800 bg-mono-900 p-8 flex flex-col justify-between h-full hover:border-white transition-colors">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs text-neutral-400 uppercase font-semibold">{p.tagline}</span>
-                      <AttributionBadge type="M3 Hive product" />
+          <div className="space-y-8">
+            {PRODUCTS.map((product) => (
+              <ScrollReveal key={product.id}>
+                <div className="bg-white border border-line rounded-card p-8 shadow-soft">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-line mb-6">
+                    <div>
+                      <div className="flex items-center gap-3 mb-2">
+                        <AttributionBadge type={product.attribution} />
+                        <span className="text-xs text-ink-subtle">{product.category}</span>
+                      </div>
+                      <h3 className="font-display font-bold text-2xl text-ink">
+                        {product.name}
+                      </h3>
+                      <p className="text-sm text-accent font-medium mt-0.5">
+                        {product.tagline}
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold text-white uppercase tracking-tight">{p.name}</h3>
-                    <p className="text-xs text-neutral-300 font-mono">&quot;{p.positioningLine}&quot;</p>
-                    <p className="text-xs text-neutral-400 font-editorial-body leading-relaxed">{p.overview}</p>
+                    <Button to={`/products/${product.id}`} variant="secondary" size="md" showArrow>
+                      Explore {product.name}
+                    </Button>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-neutral-800">
-                    <Button to={`/products/${p.id}`} variant="secondary" size="sm" className="w-full" showArrow>
-                      Examine Product Spec
-                    </Button>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="space-y-1">
+                      <div className="text-xs font-semibold text-ink uppercase tracking-wider">Operational Challenge</div>
+                      <p className="text-xs text-ink-muted leading-relaxed">{product.challenge}</p>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-xs font-semibold text-ink uppercase tracking-wider">Solution Approach</div>
+                      <p className="text-xs text-ink-muted leading-relaxed">{product.valueProposition[0] || product.overview}</p>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-xs font-semibold text-ink uppercase tracking-wider">Current Status</div>
+                      <p className="text-xs text-ink-muted leading-relaxed">{product.statusNote}</p>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
@@ -128,59 +146,44 @@ export const M3Hive: React.FC = () => {
         </div>
 
         {/* Engagement Models */}
-        <div className="mb-24">
+        <div>
           <ScrollReveal>
             <SectionHeader
-              eyebrow="GOVERNANCE"
-              title="Engagement & Delivery Structure"
-              description="Structuring client engagements with defined data boundaries and transparent commercial models."
+              eyebrow="Partnership Structure"
+              title="How M3 Hive Engages"
+              description="Flexible collaboration models designed for corporate enterprise, venture builders, and product organizations."
             />
           </ScrollReveal>
 
-          <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-12 space-y-8">
-            <p className="text-sm sm:text-base text-neutral-300 font-editorial-body leading-relaxed max-w-4xl">
-              Depending on the problem and stage of maturity, a project may begin with discovery and feasibility, proceed through a proof of concept or pilot, or move directly into a defined engineering engagement. Potential structures include fixed-scope delivery, time-and-materials, embedded specialist teams, integration projects and strategic product collaboration. Scope, ownership, data access, success measures and commercial terms should be agreed before delivery begins.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {M3_HIVE_ENGAGEMENT_MODELS.map((model, idx) => (
+              <ScrollReveal key={idx} delay={idx * 0.05}>
+                <Card className="p-6 bg-white border-line shadow-soft h-full flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="w-7 h-7 rounded bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+                      0{idx + 1}
+                    </div>
+                    <h3 className="font-display font-bold text-base text-ink">
+                      {model.title}
+                    </h3>
+                    <p className="text-xs text-ink-body leading-relaxed">
+                      {model.detail}
+                    </p>
+                  </div>
+                  <div className="pt-4 mt-4 border-t border-line text-xs font-medium text-accent">
+                    {model.phase}
+                  </div>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6 border-t border-neutral-800">
-              {M3_HIVE_ENGAGEMENT_MODELS.map((m, idx) => (
-                <div key={idx} className="border border-neutral-800 bg-black p-5 space-y-2 font-mono text-xs">
-                  <span className="text-neutral-500 uppercase block">
-                    {m.phase.split(':')[0]}
-                  </span>
-                  <h4 className="text-xs font-bold text-white uppercase">
-                    {m.phase.split(':')[1]}
-                  </h4>
-                  <p className="text-[11px] text-neutral-400 font-sans leading-relaxed pt-1">
-                    {m.detail}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="mt-12 text-center">
+            <Button to="/contact" variant="primary" size="lg" showArrow>
+              Start an M3 Hive Engagement Discussion
+            </Button>
           </div>
         </div>
-
-        {/* Concluding Action Banner */}
-        <ScrollReveal>
-          <div className="p-8 sm:p-12 border border-neutral-800 bg-black flex flex-col sm:flex-row items-center justify-between gap-8">
-            <div>
-              <h3 className="text-xl font-bold text-white uppercase tracking-tight">
-                Initiate an M3 Hive Engineering Engagement
-              </h3>
-              <p className="text-xs text-neutral-400 font-mono mt-1">
-                Discovery sessions, feasibility architecture, or commercial pilots.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <Button to="/work" variant="outline" size="md">
-                Selected Work
-              </Button>
-              <Button to="/contact" variant="primary" size="md" showArrow>
-                Discuss a Project
-              </Button>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </div>
   );

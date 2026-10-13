@@ -16,18 +16,17 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`mb-16 ${align === 'center' ? 'text-center mx-auto max-w-3xl' : 'max-w-4xl'} ${className}`}>
+    <div className={`mb-12 sm:mb-16 ${align === 'center' ? 'text-center mx-auto max-w-3xl' : 'max-w-4xl'} ${className}`}>
       {eyebrow && (
-        <div className="font-editorial-eyebrow mb-4 flex items-center gap-3">
-          <span>[{eyebrow}]</span>
-          <span className="h-px flex-1 max-w-[60px] bg-neutral-800" />
+        <div className="eyebrow mb-3 flex items-center gap-2">
+          <span>{eyebrow}</span>
         </div>
       )}
-      <h2 className="font-editorial-heading text-3xl sm:text-4xl lg:text-5xl text-white tracking-tighter">
+      <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink tracking-tight">
         {title}
       </h2>
       {description && (
-        <p className="mt-5 text-base sm:text-lg text-neutral-400 font-editorial-body leading-relaxed max-w-3xl">
+        <p className="mt-4 text-base sm:text-lg text-ink-muted leading-relaxed max-w-3xl">
           {description}
         </p>
       )}

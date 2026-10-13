@@ -5,43 +5,43 @@ import { EXECUTIVE_PROFILE } from '../../content/portfolio';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-neutral-800 bg-black text-neutral-400 pt-20 pb-16 mt-32">
+    <footer className="bg-deep text-slate-300 pt-16 pb-12 mt-24 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-neutral-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
           {/* Executive Bio Column */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-7 w-7 items-center justify-center border border-white bg-black text-white">
-                <span className="font-mono text-xs font-bold">AIM</span>
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent text-white font-display font-bold text-xs tracking-wider">
+                AIM
               </div>
-              <span className="font-sans font-bold text-base text-white uppercase tracking-tight">
+              <span className="font-display font-bold text-lg text-white">
                 {EXECUTIVE_PROFILE.name}
               </span>
             </div>
             
-            <p className="font-mono text-xs uppercase tracking-wider text-neutral-300">
+            <p className="text-sm text-slate-300 font-medium">
               {EXECUTIVE_PROFILE.tagline}
             </p>
 
-            <p className="text-xs text-neutral-400 font-editorial-body leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               Connecting business problems with product thinking, applied AI, and disciplined technology delivery.
             </p>
 
-            <div className="pt-2 text-xs font-mono text-neutral-500 space-y-1">
+            <div className="pt-2 text-xs text-slate-400 space-y-1">
               <div>• {EXECUTIVE_PROFILE.currentRole}</div>
               <div>• {EXECUTIVE_PROFILE.separateAffiliation}</div>
             </div>
           </div>
 
           {/* Core Routes Column */}
-          <div className="space-y-4">
-            <h4 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-white">
-              Index
+          <div className="space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Navigation
             </h4>
-            <ul className="space-y-2.5 text-xs font-mono uppercase tracking-wider">
+            <ul className="space-y-2 text-sm text-slate-400">
               <li><Link to="/" className="hover:text-white transition-colors">Overview</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About Atif</Link></li>
-              <li><Link to="/m3-hive" className="hover:text-white transition-colors">M3 Hive Company</Link></li>
+              <li><Link to="/m3-hive" className="hover:text-white transition-colors">M3 Hive</Link></li>
               <li><Link to="/work" className="hover:text-white transition-colors">Selected Work</Link></li>
               <li><Link to="/360-technologies" className="hover:text-white transition-colors">360 Technologies</Link></li>
               <li><Link to="/collaboration" className="hover:text-white transition-colors">Collaboration</Link></li>
@@ -50,38 +50,38 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Priority Products Column */}
-          <div className="space-y-4">
-            <h4 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-white">
+          <div className="space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
               Products
             </h4>
-            <ul className="space-y-3 text-xs font-mono uppercase tracking-wider">
+            <ul className="space-y-2.5 text-sm text-slate-400">
               <li>
                 <Link to="/products/nourdoc" className="hover:text-white transition-colors block">
-                  <span className="text-white">NourDoc</span>
-                  <span className="text-[10px] text-neutral-500 block">HealthTech AI</span>
+                  <span className="text-slate-200 font-medium">NourDoc</span>
+                  <span className="text-xs text-slate-400 block">Clinical Documentation AI</span>
                 </Link>
               </li>
               <li>
                 <Link to="/products/leadhive-ai" className="hover:text-white transition-colors block">
-                  <span className="text-white">LeadHive AI</span>
-                  <span className="text-[10px] text-neutral-500 block">Qualification</span>
+                  <span className="text-slate-200 font-medium">LeadHive AI</span>
+                  <span className="text-xs text-slate-400 block">Lead Qualification & CRM</span>
                 </Link>
               </li>
               <li>
                 <Link to="/products/smart-animal" className="hover:text-white transition-colors block">
-                  <span className="text-white">Smart Animal</span>
-                  <span className="text-[10px] text-neutral-500 block">AgriTech IoT</span>
+                  <span className="text-slate-200 font-medium">Smart Animal</span>
+                  <span className="text-xs text-slate-400 block">Livestock IoT & Telemetry</span>
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Verified External Sources */}
-          <div className="space-y-4">
-            <h4 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-white">
-              Sources
+          <div className="space-y-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Verified Links
             </h4>
-            <ul className="space-y-2.5 text-xs font-mono uppercase tracking-wider">
+            <ul className="space-y-2 text-sm text-slate-400">
               <li>
                 <a
                   href={EXECUTIVE_PROFILE.verifiedLinks.linkedin}
@@ -89,8 +89,8 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
-                  <span>LinkedIn</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100" />
+                  <span>LinkedIn Profile</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
               </li>
               <li>
@@ -100,8 +100,8 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
-                  <span>M3 Hive</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100" />
+                  <span>M3 Hive Platform</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
               </li>
               <li>
@@ -111,8 +111,8 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
-                  <span>NourDoc Site</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100" />
+                  <span>NourDoc Official Site</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
               </li>
               <li>
@@ -122,21 +122,21 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors flex items-center justify-between group"
                 >
-                  <span>360 Clients</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100" />
+                  <span>360 Technologies Clients</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Legal & Colophon Footnote */}
-        <div className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-[11px] font-mono text-neutral-500">
+        {/* Legal & Governance Disclosure */}
+        <div className="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            [ GOVERNANCE DISCLOSURE ]: Content grounded in authoritative master portfolio document. 360 Technologies is a separate entity with historical portfolio records.
+            Governance Disclosure: Content grounded in authoritative executive portfolio records. 360 Technologies is a separate legal entity with historical portfolio records.
           </div>
-          <div className="uppercase tracking-widest text-neutral-400">
-            &copy; {new Date().getFullYear()} ATIF I. MALIK. ALL RIGHTS RESERVED.
+          <div className="text-slate-400">
+            &copy; {new Date().getFullYear()} Atif I. Malik. All rights reserved.
           </div>
         </div>
       </div>

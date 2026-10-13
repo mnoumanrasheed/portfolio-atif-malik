@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -52,8 +52,8 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-black/95 backdrop-blur-md border-b border-neutral-800 py-4 shadow-subtle'
-          : 'bg-black/80 backdrop-blur-sm border-b border-neutral-900 py-6'
+          ? 'bg-white/95 backdrop-blur-md border-b border-line py-3.5 shadow-soft'
+          : 'bg-white/85 backdrop-blur-sm border-b border-line/60 py-4.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,29 +64,29 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 group focus-visible:outline-none"
             aria-label="Atif I. Malik - Home"
           >
-            <div className="flex h-8 w-8 items-center justify-center border border-white bg-black text-white group-hover:bg-white group-hover:text-black transition-colors">
-              <span className="font-mono text-xs font-bold tracking-tight">AIM</span>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-white font-display font-bold text-xs tracking-wider group-hover:bg-accent-hover transition-colors shadow-sm">
+              AIM
             </div>
             <div className="flex flex-col">
-              <span className="font-sans font-bold text-sm tracking-tight text-white uppercase group-hover:text-neutral-300 transition-colors">
+              <span className="font-display font-bold text-sm tracking-tight text-ink group-hover:text-accent transition-colors">
                 Atif I. Malik
               </span>
-              <span className="font-mono text-[9px] text-neutral-400 tracking-[0.2em] uppercase">
-                Executive Portfolio
+              <span className="text-[11px] text-ink-muted leading-none">
+                Chief Executive Officer, M3 Hive
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-3" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `px-3 py-1.5 text-xs font-mono uppercase tracking-widest transition-colors ${
+                `px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
                   isActive
-                    ? 'text-white border-b border-white'
-                    : 'text-neutral-400 hover:text-white'
+                    ? 'text-accent font-semibold bg-accent-wash'
+                    : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
                 }`
               }
             >
@@ -94,15 +94,18 @@ export const Navbar: React.FC = () => {
             </NavLink>
 
             {/* Products Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseLeave={() => setProductsOpen(false)}
+            >
               <button
                 type="button"
                 onClick={() => setProductsOpen(!productsOpen)}
                 onMouseEnter={() => setProductsOpen(true)}
-                className={`flex items-center gap-1 px-3 py-1.5 text-xs font-mono uppercase tracking-widest transition-colors ${
+                className={`flex items-center gap-1 px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
                   location.pathname.startsWith('/products')
-                    ? 'text-white border-b border-white'
-                    : 'text-neutral-400 hover:text-white'
+                    ? 'text-accent font-semibold bg-accent-wash'
+                    : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
                 }`}
                 aria-expanded={productsOpen}
               >
@@ -112,25 +115,24 @@ export const Navbar: React.FC = () => {
 
               {productsOpen && (
                 <div
-                  onMouseLeave={() => setProductsOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-64 border border-neutral-800 bg-black p-3 shadow-elevated z-50"
+                  className="absolute top-full left-0 mt-1.5 w-64 border border-line bg-white rounded-card p-2 shadow-card z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                 >
-                  <div className="px-3 py-1.5 text-[9px] font-mono uppercase tracking-[0.2em] text-neutral-500 border-b border-neutral-900 mb-1">
+                  <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-ink-subtle font-medium border-b border-line mb-1">
                     Priority M3 Hive Products
                   </div>
                   {productLinks.map((p) => (
                     <Link
                       key={p.path}
                       to={p.path}
-                      className="block px-3 py-2.5 hover:bg-neutral-900 transition-colors group"
+                      className="block px-3 py-2 rounded-md hover:bg-canvas-subtle transition-colors group"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-white uppercase group-hover:underline">
+                        <span className="text-xs font-semibold text-ink group-hover:text-accent transition-colors">
                           {p.name}
                         </span>
-                        <ArrowUpRight className="w-3 h-3 text-neutral-500 group-hover:text-white transition-colors" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-ink-subtle group-hover:text-accent transition-colors" />
                       </div>
-                      <span className="text-[10px] font-mono text-neutral-400 block mt-0.5">
+                      <span className="text-[11px] text-ink-muted block mt-0.5">
                         {p.desc}
                       </span>
                     </Link>
@@ -144,10 +146,10 @@ export const Navbar: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `px-3 py-1.5 text-xs font-mono uppercase tracking-widest transition-colors ${
+                  `px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
                     isActive
-                      ? 'text-white border-b border-white'
-                      : 'text-neutral-400 hover:text-white'
+                      ? 'text-accent font-semibold bg-accent-wash'
+                      : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
                   }`
                 }
               >
@@ -159,7 +161,7 @@ export const Navbar: React.FC = () => {
           {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Button to="/contact" size="sm" variant="primary">
-              Discuss a Project
+              Discuss an Engagement
             </Button>
           </div>
 
@@ -168,7 +170,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 border border-neutral-800 text-white hover:bg-neutral-900"
+              className="p-2 rounded-md border border-line text-ink hover:bg-canvas-subtle"
               aria-label={isOpen ? "Close main menu" : "Open main menu"}
               aria-expanded={isOpen}
             >
@@ -180,49 +182,50 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden border-b border-neutral-800 bg-black px-6 pt-6 pb-8 mt-4 space-y-6">
-          <div className="space-y-2">
+        <div className="lg:hidden border-b border-line bg-white px-6 pt-4 pb-6 mt-3 space-y-4 shadow-card">
+          <div className="space-y-1">
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `block py-2 text-sm font-mono uppercase tracking-widest ${
-                  isActive ? 'text-white font-bold underline' : 'text-neutral-400'
+                `block px-3 py-2 text-sm rounded-md ${
+                  isActive ? 'text-accent font-semibold bg-accent-wash' : 'text-ink-body'
                 }`
               }
             >
               Overview
             </NavLink>
 
-            <div className="pt-4 pb-2 border-t border-neutral-900">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+            <div className="pt-2 pb-1 border-t border-line">
+              <span className="px-3 text-[11px] uppercase tracking-wider text-ink-subtle font-medium block mb-1">
                 Priority Products
               </span>
-              <div className="mt-2 space-y-2 pl-3">
+              <div className="space-y-1">
                 {productLinks.map((p) => (
                   <NavLink
                     key={p.path}
                     to={p.path}
                     className={({ isActive }) =>
-                      `block py-1 text-xs font-mono uppercase ${
-                        isActive ? 'text-white font-bold' : 'text-neutral-400'
+                      `block px-3 py-1.5 text-xs rounded-md ${
+                        isActive ? 'text-accent font-semibold bg-accent-wash' : 'text-ink-body hover:bg-canvas-subtle'
                       }`
                     }
                   >
-                    {p.name} — <span className="text-neutral-500">{p.desc}</span>
+                    <span className="font-medium text-ink">{p.name}</span>
+                    <span className="text-ink-muted ml-1.5 text-[11px]">· {p.desc}</span>
                   </NavLink>
                 ))}
               </div>
             </div>
 
-            <div className="pt-2 border-t border-neutral-900 space-y-2">
+            <div className="pt-2 border-t border-line space-y-1">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.path}
                   to={link.path}
                   className={({ isActive }) =>
-                    `block py-2 text-sm font-mono uppercase tracking-widest ${
-                      isActive ? 'text-white font-bold underline' : 'text-neutral-400'
+                    `block px-3 py-2 text-sm rounded-md ${
+                      isActive ? 'text-accent font-semibold bg-accent-wash' : 'text-ink-body hover:bg-canvas-subtle'
                     }`
                   }
                 >
@@ -232,9 +235,9 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-4 border-t border-neutral-900">
+          <div className="pt-3 border-t border-line">
             <Button to="/contact" size="md" variant="primary" className="w-full">
-              Discuss a Project
+              Discuss an Engagement
             </Button>
           </div>
         </div>

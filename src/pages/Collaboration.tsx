@@ -7,24 +7,24 @@ import { ScrollReveal } from '../components/motion/ScrollReveal';
 
 export const Collaboration: React.FC = () => {
   return (
-    <div className="py-16 sm:py-24 bg-black text-white">
+    <div className="py-12 sm:py-20 bg-canvas text-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
           <SectionHeader
-            eyebrow="PARTNERSHIP FRAMEWORK"
-            title="Collaboration & Strategic Pathways"
-            description="Audience-aligned engagement routes for investors, clinical partners, commercial resellers, and enterprise teams to engage with M3 Hive."
+            eyebrow="Strategic Engagement"
+            title="Collaboration & Partnership Pathways"
+            description="Audience-aligned engagement routes for investors, clinical partners, commercial resellers, and enterprise teams to collaborate with Atif and M3 Hive."
           />
         </ScrollReveal>
 
-        {/* Narrative Framework Dossier */}
+        {/* Narrative Framework Card */}
         <ScrollReveal delay={0.1}>
-          <div className="border border-neutral-800 bg-mono-900 p-8 sm:p-12 mb-20">
-            <h3 className="text-xl font-bold text-white uppercase tracking-tight mb-4">
+          <div className="bg-white border border-line rounded-card p-8 sm:p-10 mb-16 shadow-soft">
+            <h3 className="font-display font-bold text-xl text-ink mb-3">
               Clear Value & Mutual Contribution
             </h3>
-            <p className="text-base text-neutral-300 font-editorial-body leading-relaxed max-w-4xl">
+            <p className="text-base text-ink-body leading-relaxed max-w-4xl">
               Collaboration succeeds when each party understands the challenge, the operating constraints, and the contribution required. Whether exploring an existing product pilot, academic research, commercial distribution, or a tailored engineering engagement, we establish data boundaries, governance, and transparent milestones before execution.
             </p>
           </div>
@@ -34,59 +34,61 @@ export const Collaboration: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {COLLABORATION_PATHWAYS.map((path, idx) => (
             <ScrollReveal key={path.id} delay={idx * 0.05}>
-              <Card className="p-8 h-full flex flex-col justify-between">
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between border-b border-neutral-800 pb-3 font-mono text-xs">
-                    <span className="text-white font-bold">
-                      [ PATHWAY 0{idx + 1} ]
+              <Card className="p-7 sm:p-8 bg-white border-line shadow-soft h-full flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-line pb-3">
+                    <span className="w-7 h-7 rounded bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+                      0{idx + 1}
                     </span>
-                    <span className="text-neutral-500 uppercase">ACTIVE ROUTE</span>
+                    <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+                      Engagement Route
+                    </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white uppercase tracking-tight">
+                  <h3 className="font-display font-bold text-lg text-ink">
                     {path.name}
                   </h3>
 
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-subtle block mb-1">
                       Who It Suits
                     </span>
-                    <p className="text-xs text-neutral-300 font-editorial-body">
+                    <p className="text-xs text-ink-body leading-relaxed">
                       {path.audience}
                     </p>
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-                      Likely Operational Challenge
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-subtle block mb-1">
+                      Operational Challenge
                     </span>
-                    <p className="text-xs text-neutral-300 font-editorial-body">
+                    <p className="text-xs text-ink-body leading-relaxed">
                       {path.likelyChallenge}
                     </p>
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-accent block mb-1">
                       What We Communicate
                     </span>
-                    <p className="text-xs text-neutral-200 font-editorial-body">
+                    <p className="text-xs text-ink-body leading-relaxed">
                       {path.whatWeCommunicate}
                     </p>
                   </div>
 
-                  <div className="p-4 border border-neutral-800 bg-black space-y-1 font-mono text-xs">
-                    <span className="text-[10px] uppercase text-neutral-500 block">
+                  <div className="p-3.5 rounded-lg bg-canvas-subtle border border-line text-xs space-y-1">
+                    <span className="font-semibold text-ink block">
                       Suggested First Step:
                     </span>
-                    <p className="text-neutral-300">
+                    <p className="text-ink-muted">
                       {path.possibleFirstStep}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-neutral-800">
+                <div className="pt-5 mt-5 border-t border-line">
                   <Button
-                    to={`/contact?pathway=${path.id}`}
+                    to={`/contact?intent=${encodeURIComponent(path.name)}`}
                     variant="primary"
                     size="sm"
                     className="w-full"
@@ -100,26 +102,20 @@ export const Collaboration: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA Banner */}
+        {/* Tailored Inquiries */}
         <ScrollReveal>
-          <div className="mt-24 p-8 sm:p-14 border border-neutral-800 bg-mono-900 text-center space-y-6">
-            <div className="font-mono text-[10px] tracking-[0.25em] text-neutral-400 uppercase">
-              [ NEXT ENGAGEMENT STEP ]
+          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-canvas-subtle flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
+            <div>
+              <h3 className="font-display font-bold text-xl text-ink">
+                Require a Bespoke Partnership Structure?
+              </h3>
+              <p className="text-sm text-ink-muted mt-1">
+                Reach out directly with your organizational context or institutional scope.
+              </p>
             </div>
-            <h2 className="font-editorial-heading text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight">
-              &quot;Let’s start with the problem you need to solve.&quot;
-            </h2>
-            <p className="text-sm sm:text-base text-neutral-300 font-editorial-body max-w-2xl mx-auto leading-relaxed">
-              If you are exploring AI adoption, a product pilot, technology integration, research collaboration or a custom digital platform, share the challenge and the outcome you are working toward.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <Button to="/contact" variant="primary" size="lg" showArrow>
-                Discuss a Project
-              </Button>
-              <Button to="/m3-hive" variant="secondary" size="lg">
-                M3 Hive Capabilities
-              </Button>
-            </div>
+            <Button to="/contact" variant="secondary" size="md" showArrow>
+              Submit an Inquiry Brief
+            </Button>
           </div>
         </ScrollReveal>
       </div>
