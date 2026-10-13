@@ -13,25 +13,25 @@ export const AttributionBadge: React.FC<AttributionBadgeProps> = ({ type, classN
       case 'M3 Hive product':
         return {
           label: 'M3 Hive Product',
-          detail: 'Active Flagship',
+          detail: 'Product Focus',
           classes: 'bg-accent-wash text-accent border-accent/25'
         };
       case 'M3 Hive company project':
         return {
           label: 'M3 Hive Project',
-          detail: 'Documented Delivery',
-          classes: 'bg-accent-wash/60 text-accent border-accent/20'
+          detail: 'Company Project',
+          classes: 'bg-canvas-subtle text-ink-body border-line'
         };
       case '360 Technologies company portfolio':
         return {
           label: '360 Technologies',
-          detail: 'Historical Portfolio',
+          detail: 'Historical Archive',
           classes: 'bg-canvas-subtle text-ink-muted border-line'
         };
       case 'Atif I. Malik — role confirmed':
         return {
           label: 'Atif I. Malik',
-          detail: 'Executive Role',
+          detail: 'Role Confirmed',
           classes: 'bg-canvas-editorial text-ink border-line'
         };
     }

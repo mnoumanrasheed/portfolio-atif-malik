@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
     { name: 'M3 Hive', path: '/m3-hive' },
     { name: 'Selected Work', path: '/work' },
     { name: '360 Technologies', path: '/360-technologies' },
-    { name: 'Collaboration', path: '/collaboration' },
+    { name: 'Collaborate', path: '/collaboration' },
     { name: 'References', path: '/insights' }
   ];
 
@@ -161,7 +161,7 @@ export const Navbar: React.FC = () => {
           {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Button to="/contact" size="sm" variant="primary">
-              Discuss an Engagement
+              Let's Connect
             </Button>
           </div>
 
@@ -237,7 +237,7 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-3 border-t border-line">
             <Button to="/contact" size="md" variant="primary" className="w-full">
-              Discuss an Engagement
+              Let's Connect
             </Button>
           </div>
         </div>

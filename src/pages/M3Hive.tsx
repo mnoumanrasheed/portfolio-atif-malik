@@ -68,26 +68,22 @@ export const M3Hive: React.FC = () => {
             />
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white border border-line rounded-card divide-y divide-line shadow-soft overflow-hidden">
             {M3_HIVE_CAPABILITIES.map((cap, idx) => (
-              <ScrollReveal key={idx} delay={idx * 0.05}>
-                <Card className="p-6 sm:p-7 bg-white border-line shadow-soft h-full flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <span className="w-8 h-8 rounded bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+              <ScrollReveal key={idx} delay={idx * 0.03}>
+                <div className="p-6 sm:p-8 flex flex-col md:flex-row md:items-start justify-between gap-4 sm:gap-8 hover:bg-canvas-subtle/50 transition-colors">
+                  <div className="flex items-start gap-4 max-w-md">
+                    <span className="w-8 h-8 rounded-full bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20 shrink-0">
                       0{idx + 1}
                     </span>
-                    <h3 className="font-display font-bold text-base text-ink">
+                    <h3 className="font-display font-bold text-base sm:text-lg text-ink">
                       {cap.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
-                      {cap.description}
-                    </p>
                   </div>
-
-                  <div className="pt-4 mt-4 border-t border-line text-[11px] font-medium text-accent">
-                    M3 Hive Core Practice
-                  </div>
-                </Card>
+                  <p className="text-sm text-ink-muted leading-relaxed max-w-2xl md:pl-0">
+                    {cap.description}
+                  </p>
+                </div>
               </ScrollReveal>
             ))}
           </div>

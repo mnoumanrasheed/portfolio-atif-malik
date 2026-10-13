@@ -249,7 +249,7 @@ ${challengeText.trim() || '[Describe the operating reality and target outcome]'}
                         ) : (
                           <>
                             <Copy className="w-3.5 h-3.5" />
-                            <span>Copy Brief</span>
+                            <span>Copy enquiry brief</span>
                           </>
                         )}
                       </button>
