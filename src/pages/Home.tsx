@@ -146,26 +146,30 @@ export const Home: React.FC = () => {
             {/* Right 5 Columns (42%): Photo-Ready Editorial Frame */}
             <div className="lg:col-span-5 hero-portrait-frame">
               <div 
-                className="relative bg-gradient-to-b from-white to-slate-50/90 border-2 border-slate-200 rounded-card overflow-hidden shadow-card"
+                className="relative bg-white border-2 border-slate-200 rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-shadow"
                 aria-label="Executive Profile Representation"
               >
+                {/* Subtle top sapphire accent bar */}
+                <div className="h-1.5 w-full bg-gradient-to-r from-brand via-accent to-blue-400" />
+
                 {/* 
                   PHOTO-READY SLOT:
                   When an approved, official executive portrait is supplied, set the image source here:
                   <img src="/assets/atif-malik-portrait.jpg" alt="Atif I. Malik" className="w-full h-full object-cover" />
                 */}
-                <div className="aspect-[4/4.5] w-full flex flex-col justify-between p-8 sm:p-10">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-bold bg-brand-wash px-2.5 py-1 rounded border border-brand/20">
-                      AIM / M3 HIVE
+                <div className="w-full flex flex-col justify-between p-7 sm:p-9 space-y-6">
+                  <div className="flex items-center justify-between text-xs pb-4 border-b border-slate-100">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-bold bg-brand-wash px-3 py-1 rounded-md border border-brand/20">
+                      EXECUTIVE PROFILE
                     </span>
-                    <span className="text-xs font-semibold text-slate-500">
-                      Executive Portfolio
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      M3 Hive Leadership
                     </span>
                   </div>
 
                   {/* Typographic Monogram Accent */}
-                  <div className="my-auto text-center space-y-4">
+                  <div className="text-center py-4 space-y-4">
                     <div className="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-brand-wash via-white to-blue-50/60 border-2 border-brand/25 flex items-center justify-center shadow-soft">
                       <span className="font-display font-extrabold text-3xl tracking-wider text-slate-900">
                         A<span className="text-brand font-semibold">/</span>M
@@ -175,28 +179,47 @@ export const Home: React.FC = () => {
                       <h2 className="font-display font-extrabold text-2xl text-slate-900 tracking-tight">
                         Atif I. Malik
                       </h2>
-                      <p className="text-xs text-slate-600 mt-1 max-w-xs mx-auto leading-relaxed">
-                        Connecting business problems with product thinking and applied AI delivery.
+                      <p className="text-xs text-brand font-semibold mt-0.5">
+                        Chief Executive Officer · M3 Hive
+                      </p>
+                      <p className="text-xs text-slate-600 mt-2 max-w-xs mx-auto leading-relaxed">
+                        Connecting business problems with product thinking, applied AI, and disciplined technology delivery.
                       </p>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                    <span className="font-medium">M3 Hive Technology Leadership</span>
+                  {/* Strategic Focus Areas */}
+                  <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100 text-center">
+                    <div className="p-2.5 rounded-lg bg-sky-50/60 border border-sky-100">
+                      <div className="text-[10px] font-bold text-sky-800 uppercase tracking-wide">01 · HealthTech</div>
+                      <div className="text-xs font-bold text-slate-900 mt-0.5">NourDoc</div>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-indigo-50/60 border border-indigo-100">
+                      <div className="text-[10px] font-bold text-indigo-800 uppercase tracking-wide">02 · Sales AI</div>
+                      <div className="text-xs font-bold text-slate-900 mt-0.5">LeadHive</div>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-emerald-50/60 border border-emerald-100">
+                      <div className="text-[10px] font-bold text-emerald-800 uppercase tracking-wide">03 · AgriTech</div>
+                      <div className="text-xs font-bold text-slate-900 mt-0.5">Smart Animal</div>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                    <span className="font-medium text-slate-600">Verified Platform Presence</span>
                     <a 
                       href={EXECUTIVE_PROFILE.verifiedLinks.linkedin} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-brand font-semibold hover:text-brand-hover inline-flex items-center gap-1 transition-colors"
+                      className="text-brand font-bold hover:text-brand-hover inline-flex items-center gap-1 transition-colors"
                     >
-                      LinkedIn <ArrowUpRight className="w-3.5 h-3.5" />
+                      LinkedIn Profile <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
 
                 <div className="px-6 py-3.5 bg-slate-900 text-white flex items-center justify-between text-xs">
-                  <span className="text-slate-300 font-medium">Core Platforms:</span>
-                  <span className="text-white font-semibold">NourDoc · LeadHive AI · Smart Animal</span>
+                  <span className="text-slate-300 font-medium">Applied AI Initiatives</span>
+                  <span className="text-blue-300 font-semibold">M3 Hive Technology Vehicle</span>
                 </div>
               </div>
             </div>

@@ -17,20 +17,20 @@ export const LeadHiveAI: React.FC = () => {
           <div className="space-y-6 max-w-4xl">
             <div className="flex flex-wrap items-center gap-3">
               <AttributionBadge type={product.attribution} />
-              <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+              <span className="text-xs font-bold text-indigo-700 bg-indigo-100/80 px-3 py-1 rounded-full border border-indigo-200 uppercase tracking-wider">
                 Priority 02 · Conversational AI & Sales Enablement
               </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-ink tracking-tight">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
               {product.name}
             </h1>
 
-            <p className="text-lg sm:text-xl text-accent font-medium">
+            <p className="text-lg sm:text-xl text-indigo-700 font-semibold tracking-tight">
               &quot;{product.positioningLine}&quot;
             </p>
 
-            <p className="text-base sm:text-lg text-ink-body leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
               {product.overview}
             </p>
 

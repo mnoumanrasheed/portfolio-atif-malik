@@ -5,21 +5,32 @@ import { EXECUTIVE_PROFILE } from '../../content/portfolio';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-deep text-slate-300 pt-16 pb-12 mt-24 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+    <footer className="bg-gradient-to-b from-slate-900 via-slate-950 to-black text-slate-300 pt-20 pb-14 mt-24 border-t-2 border-brand/40 relative overflow-hidden">
+      {/* Subtle ambient sapphire glow */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-brand/10 blur-3xl pointer-events-none" 
+        aria-hidden="true" 
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           {/* Executive Bio Column */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent text-white font-display font-bold text-xs tracking-wider">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand text-white font-display font-extrabold text-xs tracking-wider shadow-md border border-blue-400/30">
                 AIM
               </div>
-              <span className="font-display font-bold text-lg text-white">
-                {EXECUTIVE_PROFILE.name}
-              </span>
+              <div>
+                <span className="font-display font-extrabold text-xl text-white block tracking-tight">
+                  {EXECUTIVE_PROFILE.name}
+                </span>
+                <span className="text-xs text-blue-400 font-semibold uppercase tracking-wider block">
+                  Chief Executive Officer · M3 Hive
+                </span>
+              </div>
             </div>
             
-            <p className="text-sm text-slate-300 font-medium">
+            <p className="text-sm text-slate-300 font-medium leading-relaxed">
               {EXECUTIVE_PROFILE.tagline}
             </p>
 
@@ -27,9 +38,12 @@ export const Footer: React.FC = () => {
               Connecting business problems with product thinking, applied AI, and disciplined technology delivery.
             </p>
 
-            <div className="pt-2 text-xs text-slate-400 space-y-1">
-              <div>• {EXECUTIVE_PROFILE.currentRole}</div>
-              <div>• {EXECUTIVE_PROFILE.separateAffiliation}</div>
+            <div className="pt-2 text-xs text-slate-400 space-y-1.5 font-medium">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-slate-300 font-semibold">{EXECUTIVE_PROFILE.currentRole}</span>
+              </div>
+              <div className="text-slate-400 pl-3.5">• {EXECUTIVE_PROFILE.separateAffiliation}</div>
             </div>
           </div>
 
