@@ -1,0 +1,33 @@
+.font-editorial-heading {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.font-editorial-subheading {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.font-editorial-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.font-editorial-body {
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+}
+
+.font-editorial-mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}

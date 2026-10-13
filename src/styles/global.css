@@ -1,0 +1,83 @@
+@import './tokens.css';
+@import './typography.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  :focus-visible {
+    outline: 1px solid #FFFFFF;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .border-hairline {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .border-hairline-subtle {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .border-hairline-hover {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .hairline-b {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .hairline-t {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .hairline-r {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .hairline-l {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .editorial-card {
+    background-color: #0A0A0A;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .editorial-card:hover {
+    border-color: rgba(255, 255, 255, 0.30);
+    background-color: #0F0F0F;
+  }
+
+  .editorial-paper {
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

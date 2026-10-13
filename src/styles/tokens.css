@@ -1,0 +1,19 @@
+:root {
+  --color-bg-base: #000000;
+  --color-bg-surface: #0A0A0A;
+  --color-bg-surface-elevated: #121212;
+  --color-bg-surface-subtle: #171717;
+  
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #D4D4D4;
+  --color-text-muted: #8A8A8A;
+  --color-text-dim: #525252;
+
+  --color-border-hairline: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: rgba(255, 255, 255, 0.20);
+  --color-border-bold: rgba(255, 255, 255, 0.40);
+  --color-border-solid: #FFFFFF;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
