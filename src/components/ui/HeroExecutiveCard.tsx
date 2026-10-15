@@ -66,7 +66,7 @@ export const HeroExecutiveCard: React.FC = () => {
 
       {/* Floating Levitation Wrapper */}
       <motion.div
-        animate={{ y: [0, -6, 0] }}
+        animate={{ y: [0, -3, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         className="relative bg-white/95 backdrop-blur-2xl border border-slate-200/90 rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(15,23,42,0.14)] hover:shadow-[0_25px_60px_-10px_rgba(15,23,42,0.18)] transition-all duration-300"
         aria-label="Executive Profile & Live Portfolio Console"
@@ -81,10 +81,10 @@ export const HeroExecutiveCard: React.FC = () => {
         </div>
 
         {/* Content Container */}
-        <div className="p-4 sm:p-5.5 space-y-3 relative z-10">
+        <div className="p-3.5 sm:p-4.5 space-y-2.5 relative z-10">
           
           {/* Header Bar: Status Badge + Live Cycle Progress + Mode Toggle */}
-          <div className="flex items-center justify-between text-xs pb-2.5 border-b border-slate-100/90">
+          <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-100/90">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -129,9 +129,9 @@ export const HeroExecutiveCard: React.FC = () => {
           </div>
 
           {/* Architectural Monogram Emblem with Dynamic Orbital Field */}
-          <div className="relative py-1 flex items-center justify-center">
+          <div className="relative py-0.5 flex items-center justify-center">
             {/* Rotating Orbital Dashed Ring */}
-            <div className="absolute w-20 h-20 rounded-full border border-dashed border-[#51AAC0]/30 animate-spin [animation-duration:24s] pointer-events-none" />
+            <div className="absolute w-18 h-18 rounded-full border border-dashed border-[#51AAC0]/30 animate-spin [animation-duration:24s] pointer-events-none" />
             {/* Concentric Ambient Radar Pulse */}
             <span className="absolute w-12 h-12 rounded-full bg-[#51AAC0]/10 animate-ping opacity-35 pointer-events-none" />
             
@@ -141,7 +141,7 @@ export const HeroExecutiveCard: React.FC = () => {
           </div>
 
           {/* Dynamic Content Panel with Animated Transitions */}
-          <div className="min-h-[105px] flex items-center justify-center">
+          <div className="min-h-[96px] flex items-center justify-center">
             <AnimatePresence mode="wait">
               {activeTab === 0 && (
                 /* TAB 01: Executive Philosophy & Thesis */

@@ -92,10 +92,10 @@ export const Home: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left 7 Columns (58%): Dominant Executive Identity & Narrative */}
-              <div className="lg:col-span-7 space-y-3.5 sm:space-y-4 xl:space-y-5">
+              <div className="lg:col-span-7 space-y-2.5 sm:space-y-3 xl:space-y-4">
                 
                 {/* Live Status Beacon & Positioning Pill */}
-                <div className="hero-eyebrow flex flex-wrap items-center gap-2.5">
+                <div className="hero-eyebrow flex flex-wrap items-center gap-2 sm:gap-2.5">
                   <LivePulseBeacon label={EXECUTIVE_PROFILE.name} pulseColor="bg-[#51AAC0]" />
                   <span className="text-xs sm:text-sm font-semibold text-slate-600 uppercase tracking-wider">
                     {EXECUTIVE_PROFILE.professionalPositioning}
@@ -104,28 +104,28 @@ export const Home: React.FC = () => {
 
                 {/* Main Headline */}
                 <div className="hero-headline">
-                  <h1 className="font-display text-3xl sm:text-4xl lg:text-[40px] xl:text-[48px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                  <h1 className="font-display text-2xl sm:text-3xl lg:text-[34px] xl:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.14]">
                     {EXECUTIVE_PROFILE.heroHeadline}
                   </h1>
                 </div>
 
                 {/* Animated Luminous Accent Line */}
                 <div className="hero-accent-line">
-                  <AnimatedLineAccent width="w-28 sm:w-36" height="h-[2px]" />
+                  <AnimatedLineAccent width="w-24 sm:w-32" height="h-[2px]" />
                 </div>
 
                 {/* High-Readability Narrative Paragraph */}
-                <div className="hero-statement space-y-2 text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-xl">
+                <div className="hero-statement space-y-1.5 sm:space-y-2 text-sm sm:text-base lg:text-[15px] xl:text-base text-slate-700 leading-relaxed font-normal max-w-xl">
                   <p>
                     {EXECUTIVE_PROFILE.heroStatement}
                   </p>
-                  <p className="hidden xl:block text-sm text-slate-600 leading-normal">
+                  <p className="hidden xl:block text-xs sm:text-sm text-slate-600 leading-normal">
                     {EXECUTIVE_PROFILE.heroSecondParagraph}
                   </p>
                 </div>
 
                 {/* Live Executive Metrics Quick-Ticker Bar */}
-                <div className="hero-metrics flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs">
+                <div className="hero-metrics flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs">
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-xs">
                     <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
                     <span className="font-bold text-slate-900">03 Priority Products</span>
@@ -141,16 +141,16 @@ export const Home: React.FC = () => {
                 </div>
 
                 {/* Verified Roles Ledger */}
-                <div className="hero-roles p-3.5 sm:p-4 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-soft space-y-2">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-2 border-b border-slate-200/70">
-                    <span className="font-bold text-sm sm:text-base text-slate-900">{EXECUTIVE_PROFILE.currentRole}</span>
-                    <span className="text-brand text-xs font-bold uppercase tracking-wider">
+                <div className="hero-roles p-3 sm:p-3.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-soft space-y-1.5">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-1.5 border-b border-slate-200/70">
+                    <span className="font-bold text-xs sm:text-sm text-slate-900">{EXECUTIVE_PROFILE.currentRole}</span>
+                    <span className="text-brand text-[11px] font-bold uppercase tracking-wider">
                       Primary Operational Focus
                     </span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <span className="font-medium text-xs sm:text-sm text-slate-800">{EXECUTIVE_PROFILE.separateAffiliation}</span>
-                    <span className="text-slate-500 text-xs font-medium">
+                    <span className="font-medium text-xs text-slate-800">{EXECUTIVE_PROFILE.separateAffiliation}</span>
+                    <span className="text-slate-500 text-[11px] font-medium">
                       Separate Corporate Affiliation (Subject to counsel review)
                     </span>
                   </div>

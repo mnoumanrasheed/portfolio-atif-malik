@@ -29,6 +29,7 @@ export const NourDocWorkflowDiagram: React.FC = () => {
   const [activeStep, setActiveStep] = useState(2);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [stepProgress, setStepProgress] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(true);
 
@@ -116,22 +117,37 @@ export const NourDocWorkflowDiagram: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Autoplay progression (4.5s per step)
+  // Autoplay progression (4.5s per step with continuous live line advance)
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion || !isPlaying || isHovered || !isIntersecting) {
       return;
     }
 
+    const TICK_MS = 50;
+    const DURATION_MS = 4500; // 4.5 seconds per step
+
     const timer = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 4500);
+      setStepProgress((prev) => {
+        const next = prev + (TICK_MS / DURATION_MS) * 100;
+        if (next >= 100) {
+          setActiveStep((cur) => (cur + 1) % steps.length);
+          return 0;
+        }
+        return next;
+      });
+    }, TICK_MS);
 
     return () => clearInterval(timer);
   }, [isPlaying, isHovered, isIntersecting, steps.length]);
 
   const currentStep = steps[activeStep];
   const StepIcon = currentStep.icon;
+
+  // Calculate live filled line percentage across the 5 nodes (10% to 90% span)
+  const fillPercent = activeStep === steps.length - 1 
+    ? 100 
+    : Math.min(100, ((activeStep + stepProgress / 100) / (steps.length - 1)) * 100);
 
   return (
     <div 
@@ -143,25 +159,20 @@ export const NourDocWorkflowDiagram: React.FC = () => {
       {/* Top Ambient Specular Refraction Rim */}
       <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/35 to-transparent pointer-events-none rounded-full" />
 
-      {/* Live Auto-Progression Bar (Visual indicator of active autoplay countdown) */}
-      {isPlaying && !isHovered && (
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-sky-100 overflow-hidden">
-          <motion.div
-            key={activeStep}
-            initial={{ width: '0%' }}
-            animate={{ width: '100%' }}
-            transition={{ duration: 4.5, ease: 'linear' }}
-            className="h-full bg-gradient-to-r from-[#51AAC0] to-sky-600"
-          />
-        </div>
-      )}
+      {/* Live Auto-Progression Bar (Pauses in place on hover) */}
+      <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-sky-100 overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-[#51AAC0] to-sky-600 transition-all duration-75"
+          style={{ width: `${stepProgress}%` }}
+        />
+      </div>
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-3">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-sky-700 font-bold bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-ping" />
+              <span className={`w-1.5 h-1.5 rounded-full bg-sky-500 ${isHovered || !isPlaying ? '' : 'animate-ping'}`} />
               Live Simulation
             </span>
             <span className="text-[11px] text-slate-400 font-medium">5-Phase Pipeline</span>
@@ -172,34 +183,53 @@ export const NourDocWorkflowDiagram: React.FC = () => {
         </div>
 
         {/* Play / Pause Autoplay Toggle & Protocol Badge */}
-        <div className="flex items-center gap-2.5 self-start sm:self-auto">
+        <div className="flex items-center gap-2 self-start sm:self-auto">
           <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full shadow-2xs">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>Physician Sign-Off Required</span>
           </div>
 
+          <span className={`text-[10px] font-mono font-semibold px-2 py-1 rounded-full border transition-all ${
+            isHovered || !isPlaying
+              ? 'text-amber-800 bg-amber-50 border-amber-200'
+              : 'text-sky-700 bg-sky-50 border-sky-200'
+          }`}>
+            {isHovered ? 'Paused (Hover)' : !isPlaying ? 'Paused' : 'Auto 4.5s'}
+          </span>
+
           <button
             type="button"
             onClick={() => setIsPlaying(!isPlaying)}
-            className="p-1.5 rounded-lg border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors shadow-2xs"
+            className="p-1.5 rounded-lg border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors shadow-2xs cursor-pointer"
             title={isPlaying ? 'Pause workflow demonstration' : 'Resume workflow demonstration'}
             aria-label={isPlaying ? 'Pause workflow demonstration' : 'Resume workflow demonstration'}
           >
-            {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+            {isPlaying && !isHovered ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
           </button>
         </div>
       </div>
 
       {/* Connected Interactive Step Node Pipeline */}
       <div className="my-5 relative">
-        {/* Connecting Progress Track Line */}
-        <div className="absolute top-5 left-6 right-6 h-[2px] bg-slate-200 -z-0" />
-        
-        {/* Dynamic Progress Fill Line */}
+        {/* Connecting Progress Track Line (Spans from center of Node 0 at 10% to Node 4 at 90%) */}
+        <div className="absolute top-5 left-[10%] right-[10%] h-[3px] bg-slate-200/90 rounded-full overflow-hidden -z-0">
+          {/* Dynamic Progress Fill Line that smoothly flows forward */}
+          <div 
+            className="h-full bg-gradient-to-r from-[#51AAC0] via-sky-500 to-sky-600 rounded-full transition-all duration-75 relative"
+            style={{ width: `${fillPercent}%` }}
+          />
+        </div>
+
+        {/* Live Traveling Laser Pulse Node Indicator */}
         <div 
-          className="absolute top-5 left-6 h-[2px] bg-sky-500 transition-all duration-300 -z-0"
-          style={{ width: `${(activeStep / (steps.length - 1)) * 92}%` }}
-        />
+          className="absolute top-5 -translate-y-1/2 -translate-x-1/2 pointer-events-none transition-all duration-75 z-0"
+          style={{ left: `calc(10% + ${fillPercent * 0.8}%)` }}
+        >
+          <span className="relative flex h-3.5 w-3.5">
+            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 ${isHovered || !isPlaying ? 'opacity-0' : 'opacity-85'}`} />
+            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-white border-2 border-sky-600 shadow-md" />
+          </span>
+        </div>
 
         <div className="grid grid-cols-5 gap-1.5 relative z-10">
           {steps.map((s) => {
@@ -211,9 +241,9 @@ export const NourDocWorkflowDiagram: React.FC = () => {
                 type="button"
                 onClick={() => {
                   setActiveStep(s.id);
-                  setIsPlaying(false);
+                  setStepProgress(0);
                 }}
-                className="group flex flex-col items-center text-center focus:outline-none"
+                className="group flex flex-col items-center text-center focus:outline-none cursor-pointer"
               >
                 {/* Step Node Circle */}
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
