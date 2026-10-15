@@ -4,24 +4,24 @@
   --color-bg-surface: #f8fafc;
   --color-bg-surface-warm: #f1f5f9;
 
-  --color-text-primary: #0f172a; /* Deep midnight ink - commanding, bold */
-  --color-text-body: #334155;    /* Crisp slate-700 body copy */
-  --color-text-muted: #64748b;   /* Slate-500 secondary text */
+  --color-text-primary: #17272d; /* Dark neutral executive ink */
+  --color-text-body: #334155;    /* High-readability body copy */
+  --color-text-muted: #536169;   /* Slate secondary text */
 
-  /* Executive Brand Theme Color: Royal Sapphire */
-  --color-brand: #1e40af;
-  --color-brand-hover: #1d4ed8;
-  --color-brand-wash: #eff6ff;
+  /* Executive Brand Palette: Deep Teal #377A8A & Soft Cyan #51AAC0 */
+  --color-brand: #377a8a;
+  --color-brand-hover: #2d6573;
+  --color-brand-wash: #f0f7f8;
 
-  --color-accent: #0284c7;       /* Dynamic executive sapphire */
-  --color-accent-hover: #0369a1;
-  --color-accent-wash: #f0f9ff;
+  --color-accent: #51aac0;       /* Soft Cyan */
+  --color-accent-hover: #377a8a;
+  --color-accent-wash: #eaf5f8;
 
   --color-border: #e2e8f0;
   --color-border-strong: #cbd5e1;
 
-  --color-deep: #0a192f;        /* Luxury midnight navy */
-  --color-deep-surface: #0f2537;
+  --color-deep: #132b33;        /* Deep Teal / Slate contrast band */
+  --color-deep-surface: #1a3944;
 
   --font-display: 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;

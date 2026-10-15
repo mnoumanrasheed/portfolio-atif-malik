@@ -35,13 +35,13 @@ export const LeadHiveAI: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button to="/contact?interest=leadhive" variant="primary" size="lg" showArrow>
-                Design Qualification Workflow
+              <Button to="/contact?interest=leadhive-workflow" variant="primary" size="lg" showArrow>
+                Design a Lead Qualification Workflow
               </Button>
-              <Button to="/contact?interest=leadhive-pilot" variant="secondary" size="lg">
-                Discuss LeadHive Pilot
+              <Button to="/contact?interest=leadhive-ai" variant="secondary" size="lg">
+                Explore LeadHive AI
               </Button>
-              <Button to="/m3-hive" variant="outline" size="lg">
+              <Button to="/expertise" variant="outline" size="lg">
                 M3 Hive Capabilities
               </Button>
             </div>

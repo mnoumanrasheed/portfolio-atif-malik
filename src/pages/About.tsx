@@ -71,19 +71,19 @@ export const About: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {LEADERSHIP_PRINCIPLES.map((pillar, idx) => (
                     <div 
                       key={idx}
-                      className="p-5 bg-white border border-slate-200/90 rounded-xl shadow-soft space-y-2.5 hover:border-brand/40 hover:shadow-card transition-all"
+                      className="p-5 bg-white border border-line rounded-xl shadow-soft space-y-2.5 hover:border-accent/40 hover:shadow-card transition-all"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-brand text-white font-extrabold text-xs flex items-center justify-center shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-accent text-white font-extrabold text-xs flex items-center justify-center shadow-xs">
                         0{idx + 1}
                       </div>
-                      <h4 className="text-sm font-bold text-slate-900">
+                      <h4 className="text-sm font-bold text-ink">
                         {pillar.title}
                       </h4>
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      <p className="text-xs text-ink-muted leading-relaxed font-normal">
                         {pillar.description}
                       </p>
                     </div>
@@ -95,10 +95,13 @@ export const About: React.FC = () => {
             {/* Engagement Action */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button to="/contact" variant="primary" showArrow>
-                Discuss an Engagement
+                Discuss a Project
               </Button>
-              <Button to="/m3-hive" variant="secondary">
-                View M3 Hive Overview
+              <Button to="/ventures" variant="secondary">
+                View Companies & Ventures
+              </Button>
+              <Button to="/expertise" variant="outline">
+                Explore Capabilities
               </Button>
             </div>
           </div>
@@ -107,6 +110,33 @@ export const About: React.FC = () => {
           <div className="lg:col-span-5 space-y-8">
             <ScrollReveal delay={0.15}>
               <ExecutiveMonogram />
+            </ScrollReveal>
+
+            {/* Verified Corporate Affiliations */}
+            <ScrollReveal delay={0.18}>
+              <div className="bg-white border border-line rounded-card p-6 shadow-soft space-y-4">
+                <div className="text-xs font-semibold uppercase tracking-wider text-accent border-b border-line pb-2">
+                  Verified Corporate Roles
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="p-3.5 rounded-lg border border-line bg-canvas-subtle space-y-1">
+                    <span className="text-xs font-bold text-accent uppercase tracking-wider">Primary Vehicle</span>
+                    <h4 className="font-display font-bold text-sm text-ink">Chief Executive Officer</h4>
+                    <p className="text-xs text-ink-muted">M3 Hive · AI Product Engineering & Ventures</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-lg border border-line bg-canvas-subtle space-y-1">
+                    <span className="text-xs font-bold text-ink-subtle uppercase tracking-wider">Historical Corporate Entity</span>
+                    <h4 className="font-display font-bold text-sm text-ink">Founding CEO, Director & Shareholder</h4>
+                    <p className="text-xs text-ink-muted">360 Technologies · Enterprise Systems & Public Sector Services</p>
+                  </div>
+                </div>
+
+                <div className="pt-2 text-[11px] text-ink-muted border-t border-line leading-relaxed">
+                  <em>Timeline verification note:</em> Formal dates, academic credentials, and institutional milestones are withheld from public copy until third-party verification and counsel review are complete.
+                </div>
+              </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>

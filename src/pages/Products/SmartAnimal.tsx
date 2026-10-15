@@ -38,10 +38,10 @@ export const SmartAnimal: React.FC = () => {
               <Button to="/contact?interest=smart-animal" variant="primary" size="lg" showArrow>
                 Discuss a Smart Animal Pilot
               </Button>
-              <Button to="/contact?interest=smart-animal-research" variant="secondary" size="lg">
-                AgriTech Research Collaboration
+              <Button to="/contact?pathway=research-validation" variant="secondary" size="lg">
+                Explore AgriTech Collaboration
               </Button>
-              <Button to="/m3-hive" variant="outline" size="lg">
+              <Button to="/expertise" variant="outline" size="lg">
                 IoT Capabilities
               </Button>
             </div>

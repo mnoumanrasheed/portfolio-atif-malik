@@ -13,24 +13,30 @@ import type {
 
 export const EXECUTIVE_PROFILE: ExecutiveProfile = {
   name: 'Atif I. Malik',
+  professionalPositioning: 'Technology & AI Executive | AI Product Innovator',
   currentRole: 'Chief Executive Officer, M3 Hive',
-  separateAffiliation: 'Co-Founder, Director & Shareholder, 360 Technologies',
-  tagline: 'Technology Leadership | Applied AI | Product & Business Transformation',
+  separateAffiliation: 'Founding CEO, Director & Shareholder, 360 Technologies',
+  affiliationNotice:
+    'Separate corporate affiliation. The designation Founding CEO reflects published company history and is maintained subject to final legal and editorial confirmation.',
+  tagline: 'Technology & AI Executive | AI Product Innovator',
+  heroHeadline: 'Building Intelligent Technology. Creating Real-World Impact.',
   heroStatement:
-    'I work with organisations to turn complex operational challenges into practical digital products, AI-enabled workflows and scalable technology solutions.',
+    'I work at the intersection of Artificial Intelligence, enterprise technology and product innovation—turning complex challenges into practical, scalable digital solutions.',
+  heroSecondParagraph:
+    'From AI-powered healthcare to enterprise intelligence, my focus is on building products and partnerships that solve real problems and create meaningful business value.',
   homepageIntro:
     'As CEO of M3 Hive, I am focused on products that address clear real-world needs: NourDoc for AI-assisted clinical documentation, LeadHive AI for lead engagement and qualification, and Smart Animal for IoT-based livestock monitoring and predictive insights.',
   shortBio:
-    'Atif I. Malik is a technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms and digital transformation. As CEO of M3 Hive, he works with teams and partners to shape practical technology solutions around real business and operational needs. M3 Hive’s current product focus includes NourDoc, an AI-enabled clinical documentation platform; LeadHive AI, a lead engagement and qualification engine; and Smart Animal, an IoT-based livestock health monitoring and predictive insight platform. Atif is also a Co-Founder, Director and Shareholder of 360 Technologies, a separate technology-services company whose published portfolio includes enterprise systems, public-sector digitisation, data services and professional capability development.',
+    'Atif I. Malik is a technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms and digital transformation. As CEO of M3 Hive, he works with teams and partners to shape practical technology solutions around real business and operational needs. M3 Hive’s current product focus includes NourDoc, an AI-enabled clinical documentation platform; LeadHive AI, a lead engagement and qualification engine; and Smart Animal, an IoT-based livestock monitoring and insight platform. Atif is also a Founding CEO, Director and Shareholder of 360 Technologies, a separate technology-services company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development.',
   longBio: {
     approach:
       'Atif I. Malik’s work sits at the intersection of business needs, product strategy and technology execution. His approach starts with the problem to be solved: where work is repetitive, information is fragmented, customer engagement is inconsistent, or decisions depend on data that is difficult to access and interpret. From there, he helps connect domain expertise, user needs, product design, engineering and applied AI into a coherent delivery path.',
     m3hiveContext:
-      'At M3 Hive, Atif leads a technology company whose capabilities span digital product engineering, intelligent automation, data and AI, cloud platforms, customer experience and connected systems. Its current product priorities reflect three distinct opportunities: reducing documentation friction in healthcare through NourDoc; improving lead engagement and qualification through LeadHive AI; and using connected sensing and analytics to support livestock monitoring through Smart Animal. M3 Hive also has experience described in its corporate materials across market intelligence, bioinformatics, retail analytics and digital platforms.',
+      'As CEO of M3 Hive, Atif leads a technology company whose capabilities span digital product engineering, intelligent automation, data and AI, cloud platforms, customer experience and connected systems. Its current product priorities reflect three distinct opportunities: reducing documentation friction in healthcare through NourDoc; improving lead engagement and qualification through LeadHive AI; and using connected sensing and analytics to support livestock monitoring through Smart Animal.',
     technologies360Context:
-      'Atif is a Co-Founder, Director and Shareholder of 360 Technologies. The company’s published historical portfolio includes work in public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. Those achievements and client references belong to 360 Technologies as an organisation and are presented here as company history, not as a claim that Atif personally delivered every listed assignment.',
+      'Atif is also a Founding CEO, Director and Shareholder of 360 Technologies. The company’s published historical portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. These achievements are presented as company history, not as a claim that Atif personally delivered every listed assignment.',
     portfolioIntent:
-      'The portfolio is intended to help investors understand the product opportunity, help collaborators identify where their expertise or networks can contribute, and help prospective clients map their challenges to a suitable product, proof of concept or engineering engagement.'
+      'The purpose of this website is to help investors understand product opportunities, help collaborators identify where their expertise or networks can contribute, and help prospective clients map their challenges to a suitable product, proof of concept or engineering engagement.'
   },
   verifiedLinks: {
     linkedin: 'https://www.linkedin.com/in/aimalik/',
@@ -41,9 +47,10 @@ export const EXECUTIVE_PROFILE: ExecutiveProfile = {
 };
 
 export const PERSPECTIVE = {
-  headline: 'Technology should solve a real problem.',
+  headline: 'FROM OPERATIONAL CHALLENGE TO PRACTICAL TECHNOLOGY',
+  tagline: 'Technology should solve a real problem.',
   body:
-    'Whether the challenge is clinical documentation, lead conversion, livestock monitoring or a complex enterprise workflow, the starting point is the same: understand the operating reality, define the outcome, and build the right digital solution.'
+    'The starting point is to understand the operating context, define the outcome and build the right digital solution. Whether the challenge is clinical documentation, lead conversion, livestock monitoring or a complex enterprise workflow, the starting point is the same: understand the operating reality, define the outcome, and build the right digital solution.'
 };
 
 export const CLOSING_CTA = {
@@ -195,27 +202,27 @@ export const M3_HIVE_OVERVIEW =
 
 export const M3_HIVE_CAPABILITIES = [
   {
-    title: 'AI and intelligent workflows',
+    title: 'Applied AI & intelligent workflows',
     description:
-      'Generative AI, conversational experiences, retrieval-augmented generation, document processing and workflow automation.'
+      'Generative AI, LLM-based experiences, retrieval-augmented generation, document processing and workflow automation.'
   },
   {
-    title: 'Digital product engineering',
+    title: 'AI product engineering',
     description:
-      'Discovery, product definition, UX/UI, software architecture, web/mobile development and iterative delivery.'
+      'Product discovery, product definition, UX/UI, software architecture, web/mobile development and iterative delivery.'
   },
   {
-    title: 'Data engineering and market intelligence',
+    title: 'Data engineering & market intelligence',
     description:
-      'Data acquisition, pipelines, data quality, analytics, dashboards and decision-support platforms.'
+      'Data acquisition, pipeline engineering, data quality, analytics, dashboards and decision-support platforms.'
   },
   {
-    title: 'Cloud and enterprise integration',
+    title: 'Cloud & enterprise integration',
     description:
-      'Cloud-native systems, API integration, data platforms and deployment approaches aligned to client needs.'
+      'Cloud-native systems, APIs, data platforms and deployment approaches aligned to client needs.'
   },
   {
-    title: 'IoT and connected systems',
+    title: 'IoT & connected systems',
     description: 'Sensor-connected products, edge technologies, data capture and monitoring interfaces.'
   },
   {
@@ -236,29 +243,50 @@ export const M3_HIVE_ENGAGEMENT_STRUCTURES = [
 ];
 
 export const M3_HIVE_ENGAGEMENT_MODELS: EngagementStep[] = [
-  { phase: 'Phase 01', title: 'Discovery & Feasibility', detail: 'Understand the operating reality, domain constraints and define the outcome before delivery begins.' },
-  { phase: 'Phase 02', title: 'Prototype or Pilot', detail: 'Test the approach through a focused proof of concept or scoped pilot environment.' },
-  { phase: 'Phase 03', title: 'Implementation', detail: 'Move into a defined engineering engagement with robust architecture and system integration.' },
-  { phase: 'Phase 04', title: 'Iteration', detail: 'Refine against agreed success measures and real operational feedback.' }
+  { 
+    phase: 'Phase 01', 
+    title: 'Discovery and feasibility', 
+    detail: 'Clarify the problem, users, constraints and success measures.' 
+  },
+  { 
+    phase: 'Phase 02', 
+    title: 'Proof of concept or pilot', 
+    detail: 'Validate the workflow, technical assumptions and adoption potential.' 
+  },
+  { 
+    phase: 'Phase 03', 
+    title: 'Product or platform engineering', 
+    detail: 'Deliver an agreed scope with clear ownership and acceptance criteria.' 
+  },
+  { 
+    phase: 'Phase 04', 
+    title: 'Integration and iteration', 
+    detail: 'Connect to existing systems, evaluate results and improve based on evidence.' 
+  }
 ];
 
 export const ENGAGEMENT_STEPS: EngagementStep[] = M3_HIVE_ENGAGEMENT_MODELS;
 
 export const LEADERSHIP_PRINCIPLES: LeadershipPrinciple[] = [
   {
-    title: 'Start with the problem',
+    title: 'Operational reality and defined outcomes',
     description:
-      'Look first at where work is repetitive, information is fragmented, customer engagement is inconsistent, or decisions depend on data that is difficult to access and interpret.'
+      'Start with the operational reality and define the outcome before selecting the technology.'
   },
   {
-    title: 'Connect expertise into one delivery path',
+    title: 'Integrated multidisciplinary delivery',
     description:
-      'Bring domain expertise, user needs, product design, engineering and applied AI together into a coherent delivery path.'
+      'Bring domain expertise, user needs, product design and engineering into the same conversation.'
   },
   {
-    title: 'Agree what success means before delivery',
+    title: 'Practical engagement pathways',
     description:
-      'Begin with discovery, a proof of concept or a defined engagement—with scope, ownership, data access, success measures and commercial terms agreed up front.'
+      'Choose a practical path: discovery, prototype, pilot, integration or a defined engineering engagement.'
+  },
+  {
+    title: 'Governance and commercial viability',
+    description:
+      'Treat adoption, trust, data governance and commercial viability as part of product design—not afterthoughts.'
   }
 ];
 
@@ -352,9 +380,9 @@ export const M3_HIVE_ADDITIONAL_WORK: CaseStudy[] = [
 
 export const TECHNOLOGIES_360 = {
   name: '360 Technologies',
-  atifRole: 'Co-Founder, Director & Shareholder',
+  atifRole: 'Founding CEO, Director & Shareholder',
   legalNotice:
-    'The projects and client references shown here come from 360 Technologies’ published historical company portfolio and are attributed to the company. They are presented as company history—not as a claim that Atif personally delivered every listed assignment, and not as an indication of current customer status.',
+    'Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. This website presents 360 Technologies as a separate company and its project references as historical company portfolio material. Any final public wording about the affiliation should be checked for accuracy and legal appropriateness.',
   attributionNote:
     'The projects and client references shown here come from 360 Technologies’ published historical company portfolio and are attributed to the company. They are presented as company history—not as a claim that Atif personally delivered every listed assignment, and not as an indication of current customer status.',
   overview:

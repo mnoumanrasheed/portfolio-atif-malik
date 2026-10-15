@@ -6,10 +6,14 @@ export type AttributionType =
 
 export interface ExecutiveProfile {
   name: string;
+  professionalPositioning: string;
   currentRole: string;
   separateAffiliation: string;
+  affiliationNotice?: string;
   tagline: string;
+  heroHeadline: string;
   heroStatement: string;
+  heroSecondParagraph: string;
   homepageIntro: string;
   shortBio: string;
   longBio: {
@@ -24,6 +28,14 @@ export interface ExecutiveProfile {
     nourdoc: string;
     technologies360: string;
   };
+}
+
+export interface CapabilityArea {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  subareas: string[];
 }
 
 export interface ProductData {

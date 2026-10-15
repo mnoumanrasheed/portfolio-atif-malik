@@ -35,11 +35,12 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'About', path: '/about' },
-    { name: 'M3 Hive', path: '/m3-hive' },
+    { name: 'Expertise', path: '/expertise' },
+    { name: 'Ventures', path: '/ventures' },
     { name: 'Selected Work', path: '/work' },
     { name: '360 Technologies', path: '/360-technologies' },
-    { name: 'Collaborate', path: '/collaboration' },
-    { name: 'References', path: '/insights' }
+    { name: 'Collaboration', path: '/collaboration' },
+    { name: 'Insights', path: '/insights' }
   ];
 
   const productLinks = [

@@ -36,17 +36,20 @@ export const NourDoc: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              {product.officialUrl && (
-                <Button href={product.officialUrl} variant="primary" size="lg" isExternal>
-                  Visit NourDoc Portal
-                </Button>
-              )}
-              <Button to="/contact?interest=nourdoc" variant="secondary" size="lg" showArrow>
-                Explore Clinical Pilot
+              <Button to="/contact?interest=nourdoc-demo" variant="primary" size="lg" showArrow>
+                Book a Demo
+              </Button>
+              <Button to="/contact?interest=nourdoc" variant="secondary" size="lg">
+                Explore a Clinical Pilot
               </Button>
               <Button to="/contact?interest=nourdoc-integration" variant="outline" size="lg">
                 Discuss Integration
               </Button>
+              {product.officialUrl && (
+                <Button href={product.officialUrl} variant="ghost" size="lg" isExternal>
+                  Official Portal
+                </Button>
+              )}
             </div>
           </div>
         </ScrollReveal>

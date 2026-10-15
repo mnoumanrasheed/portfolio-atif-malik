@@ -4,38 +4,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Executive Royal Sapphire & Midnight Navy palette.
+        // Authoritative Executive Palette: Deep Teal #377A8A & Soft Cyan #51AAC0
         canvas: {
           DEFAULT: '#FFFFFF',
           subtle: '#F8FAFC',
-          warm: '#F1F5F9'
+          warm: '#F5F7F6'
         },
         ink: {
-          DEFAULT: '#0F172A', // headings - deep slate/midnight
+          DEFAULT: '#17272D', // headings - dark neutral executive ink
           body: '#334155',    // body copy - crisp and high-contrast
-          muted: '#64748B',   // secondary text
-          subtle: '#94A3B8'
+          muted: '#536169',   // secondary text
+          subtle: '#8898A1'
         },
         brand: {
-          DEFAULT: '#1E40AF', // Primary Executive Royal Blue
-          hover: '#1D4ED8',
-          dark: '#1E3A8A',
-          wash: '#EFF6FF',
-          accent: '#3B82F6'
+          DEFAULT: '#377A8A', // Deep Teal
+          hover: '#2D6573',
+          dark: '#1C414B',
+          wash: '#F0F7F8',
+          accent: '#51AAC0'
         },
         accent: {
-          DEFAULT: '#0284C7', // Executive Sapphire
-          hover: '#0369A1',
-          wash: '#F0F9FF'
+          DEFAULT: '#51AAC0', // Soft Cyan
+          hover: '#377A8A',
+          wash: '#EAF5F8'
         },
         line: {
           DEFAULT: '#E2E8F0',
           strong: '#CBD5E1'
         },
         deep: {
-          DEFAULT: '#0A192F', // Luxury Midnight Navy contrast band / footer
-          surface: '#0F2537',
-          soft: '#1E293B'
+          DEFAULT: '#132B33', // Deep Teal Slate band / footer
+          surface: '#1A3944',
+          soft: '#204652'
         }
       },
       fontFamily: {
