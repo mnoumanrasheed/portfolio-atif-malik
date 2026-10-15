@@ -4,7 +4,7 @@ import { Button } from '../components/ui/Button';
 
 export const NotFound: React.FC = () => {
   return (
-    <div className="min-h-[75vh] flex items-center justify-center py-20 px-4 bg-canvas text-ink">
+    <div className="min-h-screen flex items-center justify-center pt-28 pb-20 px-4 bg-canvas text-ink">
       <div className="max-w-xl mx-auto text-center space-y-6">
         <div className="eyebrow text-accent justify-center">
           Route Not Found

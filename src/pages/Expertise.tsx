@@ -9,6 +9,7 @@ import {
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const Expertise: React.FC = () => {
@@ -88,20 +89,37 @@ export const Expertise: React.FC = () => {
   ];
 
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Page Header */}
-        <ScrollReveal>
-          <SectionHeader
-            eyebrow="Core Competencies & Capabilities"
-            title={PERSPECTIVE.headline}
-            description={PERSPECTIVE.body}
-          />
-        </ScrollReveal>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-expertise.jpg"
+        imageAlt="Applied AI & Data Architecture Lattice"
+        glowColor="cyan"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <span className="eyebrow text-brand">Core Competencies &amp; Capabilities</span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                {PERSPECTIVE.headline}
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                {PERSPECTIVE.body}
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Button to="/contact" variant="primary" showArrow>
+                  Discuss Technical Scope
+                </Button>
+                <Button to="/ventures" variant="secondary">
+                  Explore Priority Ventures
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-        {/* Six Capability Areas Detailed Grid */}
-        <div className="mt-14 space-y-8">
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilityDetails.map((cap, idx) => (
               <ScrollReveal key={idx} delay={idx * 0.05}>
@@ -135,7 +153,6 @@ export const Expertise: React.FC = () => {
               </ScrollReveal>
             ))}
           </div>
-        </div>
 
         {/* How Engagements Can Begin — 4 Steps */}
         <div className="mt-24 pt-16 border-t border-slate-200">

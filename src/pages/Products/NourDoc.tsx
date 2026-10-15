@@ -5,54 +5,64 @@ import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 import { NourDocWorkflowDiagram } from '../../components/diagrams/NourDocWorkflowDiagram';
 import { ScrollReveal } from '../../components/motion/ScrollReveal';
+import { HeroBackground } from '../../components/ui/HeroBackground';
 import { CheckCircle2 } from 'lucide-react';
 
 export const NourDoc: React.FC = () => {
   const product = PRODUCTS.find((p) => p.id === 'nourdoc')!;
 
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Editorial Hero */}
-        <ScrollReveal>
-          <div className="space-y-6 max-w-4xl">
-            <div className="flex flex-wrap items-center gap-3">
-              <AttributionBadge type={product.attribution} />
-              <span className="text-xs font-bold text-sky-700 bg-sky-100/80 px-3 py-1 rounded-full border border-sky-200 uppercase tracking-wider">
-                Priority 01 · HealthTech AI Flagship
-              </span>
-            </div>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-nourdoc.jpg"
+        imageAlt="Modern Clinical Healthcare Facility"
+        glowColor="cyan"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="space-y-6 max-w-4xl">
+              <div className="flex flex-wrap items-center gap-3">
+                <AttributionBadge type={product.attribution} />
+                <span className="text-xs font-bold text-sky-700 bg-sky-100/90 px-3 py-1 rounded-full border border-sky-200 uppercase tracking-wider">
+                  Priority 01 · HealthTech AI Flagship
+                </span>
+              </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-              {product.name}
-            </h1>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                {product.name}
+              </h1>
 
-            <p className="text-lg sm:text-xl text-sky-700 font-semibold tracking-tight">
-              &quot;{product.positioningLine}&quot;
-            </p>
+              <p className="text-lg sm:text-xl text-sky-700 font-semibold tracking-tight">
+                &quot;{product.positioningLine}&quot;
+              </p>
 
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              {product.overview}
-            </p>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                {product.overview}
+              </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button to="/contact?interest=nourdoc-demo" variant="primary" size="lg" showArrow>
-                Book a Demo
-              </Button>
-              <Button to="/contact?interest=nourdoc" variant="secondary" size="lg">
-                Explore a Clinical Pilot
-              </Button>
-              <Button to="/contact?interest=nourdoc-integration" variant="outline" size="lg">
-                Discuss Integration
-              </Button>
-              {product.officialUrl && (
-                <Button href={product.officialUrl} variant="ghost" size="lg" isExternal>
-                  Official Portal
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Button to="/contact?interest=nourdoc-demo" variant="primary" size="lg" showArrow>
+                  Book a Demo
                 </Button>
-              )}
+                <Button to="/contact?interest=nourdoc" variant="secondary" size="lg">
+                  Explore a Clinical Pilot
+                </Button>
+                <Button to="/contact?interest=nourdoc-integration" variant="outline" size="lg">
+                  Discuss Integration
+                </Button>
+                {product.officialUrl && (
+                  <Button href={product.officialUrl} variant="ghost" size="lg" isExternal>
+                    Official Portal
+                  </Button>
+                )}
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
+
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Workflow Diagram */}
         <div className="my-16">

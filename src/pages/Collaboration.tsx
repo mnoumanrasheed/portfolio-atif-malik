@@ -4,19 +4,41 @@ import { SectionHeader } from '../components/ui/SectionHeader';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 
 export const Collaboration: React.FC = () => {
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <ScrollReveal>
-          <SectionHeader
-            eyebrow="Strategic Engagement"
-            title="Collaboration & Partnership Pathways"
-            description="Audience-aligned engagement routes for investors, clinical partners, commercial resellers, and enterprise teams to collaborate with Atif and M3 Hive."
-          />
-        </ScrollReveal>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-collaboration.jpg"
+        imageAlt="Executive Partnership & Collaboration Space"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <span className="eyebrow text-brand">Strategic Engagement &amp; Capital</span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                Collaboration &amp; Partnership Pathways
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                Audience-aligned engagement routes for investors, clinical partners, commercial resellers, and enterprise teams to collaborate with Atif and M3 Hive.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Button to="/contact" variant="primary" showArrow>
+                  Start a Collaboration Brief
+                </Button>
+                <Button to="/ventures" variant="secondary">
+                  Review Priority Ventures
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
+
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Narrative Framework Card */}
         <ScrollReveal delay={0.1}>

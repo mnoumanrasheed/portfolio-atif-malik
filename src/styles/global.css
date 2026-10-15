@@ -64,6 +64,50 @@
   }
 }
 
+/* Luminous Beam Line Animations */
+@keyframes beam-x {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%, 100% {
+    transform: translateX(350%);
+  }
+}
+
+@keyframes beam-y {
+  0% {
+    transform: translateY(-100%);
+  }
+  50%, 100% {
+    transform: translateY(350%);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-beam-x {
+  animation: beam-x 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-beam-x-fast {
+  animation: beam-x 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-beam-y {
+  animation: beam-y 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
 /* Reduced motion: neutralise CSS transitions/animations. GSAP and Framer
    Motion check the same media query in JS. */
 @media (prefers-reduced-motion: reduce) {

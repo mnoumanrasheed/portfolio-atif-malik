@@ -1,27 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronDown, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { ExecutiveLogo } from '../ui/ExecutiveLogo';
+
+interface ProductItem {
+  name: string;
+  category: string;
+  desc: string;
+  path: string;
+  badgeColor: string;
+  dotColor: string;
+}
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const location = useLocation();
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(true);
+  const [hoveredNav, setHoveredNav] = useState<string | null>(null);
 
+  const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Monitor scroll for glass compression effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 15);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close menus on route change
   useEffect(() => {
     setIsOpen(false);
     setProductsOpen(false);
   }, [location.pathname]);
 
+  // Close menus on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -33,6 +53,52 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setProductsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  // Robust hover management with grace-period debounce to prevent premature dismissal
+  const handleDropdownEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setProductsOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    // 220ms grace window prevents mouse-out dropouts when traversing gaps or diagonal movements
+    timeoutRef.current = setTimeout(() => {
+      setProductsOpen(false);
+    }, 220);
+  };
+
+  const handleDropdownToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setProductsOpen((prev) => !prev);
+  };
+
   const navLinks = [
     { name: 'About', path: '/about' },
     { name: 'Expertise', path: '/expertise' },
@@ -43,206 +109,347 @@ export const Navbar: React.FC = () => {
     { name: 'Insights', path: '/insights' }
   ];
 
-  const productLinks = [
-    { name: 'NourDoc', desc: 'Clinical Documentation AI', path: '/products/nourdoc' },
-    { name: 'LeadHive AI', desc: 'Lead Engagement Engine', path: '/products/leadhive-ai' },
-    { name: 'Smart Animal', desc: 'Livestock IoT & Telemetry', path: '/products/smart-animal' }
+  const productLinks: ProductItem[] = [
+    {
+      name: 'NourDoc',
+      category: 'HealthTech AI',
+      desc: 'Ambient clinical documentation & electronic health record workflow intelligence.',
+      path: '/products/nourdoc',
+      badgeColor: 'text-sky-700 bg-sky-50 border-sky-200/80',
+      dotColor: 'bg-sky-500'
+    },
+    {
+      name: 'LeadHive AI',
+      category: 'Conversational AI',
+      desc: 'Autonomous multi-channel conversational qualification and sales engagement engine.',
+      path: '/products/leadhive-ai',
+      badgeColor: 'text-indigo-700 bg-indigo-50 border-indigo-200/80',
+      dotColor: 'bg-indigo-500'
+    },
+    {
+      name: 'Smart Animal',
+      category: 'AgriTech IoT',
+      desc: 'Precision biometric livestock telemetry and hardware-integrated health alerting.',
+      path: '/products/smart-animal',
+      badgeColor: 'text-emerald-700 bg-emerald-50 border-emerald-200/80',
+      dotColor: 'bg-emerald-500'
+    }
   ];
+
+  const isProductsActive = location.pathname.startsWith('/products');
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-line py-3.5 shadow-soft'
-          : 'bg-white/85 backdrop-blur-sm border-b border-line/60 py-4.5'
+          ? 'bg-white/85 backdrop-blur-2xl backdrop-saturate-150 border-b border-slate-200/70 py-3 shadow-[0_12px_36px_-6px_rgba(15,23,42,0.08)]'
+          : 'bg-white/70 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/60 py-4 shadow-[0_4px_30px_rgba(15,23,42,0.03)]'
       }`}
     >
+      {/* Top Hairline Ambient Accent & Specular Reflection */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#51AAC0]/35 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Identity & Monogram */}
+          
+          {/* Identity & Monogram (Operates as Home / Overview Trigger) */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus-visible:outline-none"
-            aria-label="Atif I. Malik - Home"
+            className="flex items-center group focus-visible:outline-none transition-transform duration-200 hover:scale-[1.01]"
+            aria-label="Atif I. Malik - Home & Overview"
+            title="Atif I. Malik — Home & Overview"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-white font-display font-bold text-xs tracking-wider group-hover:bg-brand-hover transition-colors shadow-sm">
-              AIM
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-sm tracking-tight text-ink group-hover:text-brand transition-colors">
-                Atif I. Malik
-              </span>
-              <span className="text-[11px] text-ink-muted leading-none">
-                Chief Executive Officer, M3 Hive
-              </span>
-            </div>
+            <ExecutiveLogo size="md" variant="horizontal" theme="light" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `px-3 py-1.5 text-xs font-semibold transition-colors rounded-md ${
-                  isActive
-                    ? 'text-brand font-bold bg-brand-wash shadow-sm'
-                    : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
-                }`
-              }
-            >
-              Overview
-            </NavLink>
-
-            {/* Products Dropdown */}
-            <div 
+          <nav 
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5" 
+            aria-label="Main Navigation"
+            onMouseLeave={() => setHoveredNav(null)}
+          >
+            {/* Products Animated Dropdown (With Hover Bridge & Grace Period) */}
+            <div
+              ref={dropdownRef}
               className="relative"
-              onMouseLeave={() => setProductsOpen(false)}
+              onMouseEnter={handleDropdownEnter}
+              onMouseLeave={handleDropdownLeave}
             >
               <button
                 type="button"
-                onClick={() => setProductsOpen(!productsOpen)}
-                onMouseEnter={() => setProductsOpen(true)}
-                className={`flex items-center gap-1 px-3 py-1.5 text-xs font-semibold transition-colors rounded-md ${
-                  location.pathname.startsWith('/products')
-                    ? 'text-brand font-bold bg-brand-wash shadow-sm'
-                    : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
-                }`}
+                onClick={handleDropdownToggle}
+                onMouseEnter={() => setHoveredNav('products')}
                 aria-expanded={productsOpen}
+                aria-haspopup="true"
+                className={`relative flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-xl transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 ${
+                  isProductsActive
+                    ? 'text-brand font-bold bg-[#E6F4F7]/85 backdrop-blur-sm border border-[#51AAC0]/30 shadow-xs'
+                    : 'text-slate-700 hover:text-slate-950 border border-transparent'
+                }`}
               >
                 <span>Products</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180 text-brand' : ''}`} />
+                <ChevronDown
+                  className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-250 ease-out ${
+                    productsOpen ? 'rotate-180 text-brand' : ''
+                  }`}
+                />
+
+                {hoveredNav === 'products' && !isProductsActive && (
+                  <motion.div
+                    layoutId="nav-hover-pill"
+                    className="absolute inset-0 bg-slate-900/[0.04] backdrop-blur-xs border border-slate-900/[0.05] rounded-xl -z-10"
+                    transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                  />
+                )}
               </button>
 
-              {productsOpen && (
-                <div
-                  className="absolute top-full left-0 mt-1.5 w-64 border border-line bg-white rounded-card p-2 shadow-card z-50 animate-in fade-in slide-in-from-top-1 duration-150"
-                >
-                  <div className="px-3 py-1.5 text-[10px] uppercase tracking-wider text-brand font-bold border-b border-line mb-1">
-                    Priority M3 Hive Products
-                  </div>
-                  {productLinks.map((p) => (
-                    <Link
-                      key={p.path}
-                      to={p.path}
-                      className="block px-3 py-2 rounded-md hover:bg-brand-wash/60 transition-colors group"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-ink group-hover:text-brand transition-colors">
-                          {p.name}
+              {/* Animated Dropdown Menu with Anti-Disappearance Bridge */}
+              <AnimatePresence>
+                {productsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                    transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute top-full left-0 pt-2 w-[340px] z-50 focus:outline-none"
+                  >
+                    {/* INVISIBLE MOUSE BRIDGE: bridges the gap completely so mouse cursor never leaves bounds */}
+                    <div className="absolute top-0 left-0 right-0 h-3 pointer-events-auto" />
+
+                    {/* Dropdown Card Container with Luxury Glassmorphism */}
+                    <div className="bg-white/85 backdrop-blur-2xl backdrop-saturate-150 border border-white/80 rounded-2xl p-2.5 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.14),0_0_0_1px_rgba(15,23,42,0.04)]">
+                      
+                      {/* Dropdown Header */}
+                      <div className="px-3 py-2 flex items-center justify-between border-b border-slate-100 mb-1.5">
+                        <div className="flex items-center gap-1.5">
+                          <Sparkles className="w-3 h-3 text-brand" />
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-brand font-bold">
+                            Priority M3 Hive Products
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-semibold bg-slate-100 px-2 py-0.5 rounded-full">
+                          3 Flagships
                         </span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-ink-subtle group-hover:text-brand transition-colors" />
                       </div>
-                      <span className="text-[11px] text-ink-muted block mt-0.5">
-                        {p.desc}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              )}
+
+                      {/* Product Item Cards */}
+                      <div className="space-y-1">
+                        {productLinks.map((p) => {
+                          const isCurrent = location.pathname === p.path;
+                          return (
+                            <Link
+                              key={p.path}
+                              to={p.path}
+                              onClick={() => setProductsOpen(false)}
+                              className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all border ${
+                                isCurrent
+                                  ? 'bg-brand-wash/80 border-brand/20 shadow-xs'
+                                  : 'hover:bg-slate-50/90 border-transparent hover:border-slate-200/60'
+                              }`}
+                            >
+                              <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-white border border-slate-200/80 shadow-xs group-hover:scale-105 transition-transform">
+                                <span className={`w-2.5 h-2.5 rounded-full ${p.dotColor} animate-pulse`} />
+                              </div>
+
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-xs font-bold text-slate-900 group-hover:text-brand transition-colors">
+                                    {p.name}
+                                  </span>
+                                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${p.badgeColor}`}>
+                                    {p.category}
+                                  </span>
+                                </div>
+                                <p className="text-[11px] text-slate-500 leading-snug mt-1 line-clamp-2">
+                                  {p.desc}
+                                </p>
+                              </div>
+
+                              <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-brand group-hover:translate-x-1 transition-all mt-1 shrink-0" />
+                            </Link>
+                          );
+                        })}
+                      </div>
+
+                      {/* Dropdown Footer: Link to Ventures */}
+                      <div className="mt-2 pt-2 border-t border-slate-100">
+                        <Link
+                          to="/ventures"
+                          onClick={() => setProductsOpen(false)}
+                          className="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 hover:bg-brand-wash text-slate-700 hover:text-brand text-xs font-semibold transition-all group border border-slate-200/60 hover:border-brand/30"
+                        >
+                          <span>Explore All Ventures &amp; Architecture</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-brand group-hover:translate-x-1 transition-all" />
+                        </Link>
+                      </div>
+
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
+            {/* Standard Nav Links */}
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
+                onMouseEnter={() => setHoveredNav(link.name)}
                 className={({ isActive }) =>
-                  `px-3 py-1.5 text-xs font-semibold transition-colors rounded-md ${
+                  `relative px-3.5 py-1.5 text-xs font-semibold rounded-xl transition-all duration-150 ${
                     isActive
-                      ? 'text-brand font-bold bg-brand-wash shadow-sm'
-                      : 'text-ink-body hover:text-ink hover:bg-canvas-subtle'
+                      ? 'text-brand font-bold bg-[#E6F4F7]/85 backdrop-blur-sm border border-[#51AAC0]/30 shadow-xs'
+                      : 'text-slate-700 hover:text-slate-950 border border-transparent'
                   }`
                 }
               >
-                {link.name}
+                {({ isActive }) => (
+                  <>
+                    <span>{link.name}</span>
+                    {hoveredNav === link.name && !isActive && (
+                      <motion.div
+                        layoutId="nav-hover-pill"
+                        className="absolute inset-0 bg-slate-900/[0.04] backdrop-blur-xs border border-slate-900/[0.05] rounded-xl -z-10"
+                        transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                      />
+                    )}
+                  </>
+                )}
               </NavLink>
             ))}
           </nav>
 
           {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button to="/contact" size="sm" variant="primary">
-              Let's Connect
+            <Button to="/contact" size="sm" variant="primary" showArrow>
+              Let&apos;s Connect
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Hamburger Button */}
           <div className="flex lg:hidden">
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md border border-line text-ink hover:bg-canvas-subtle"
-              aria-label={isOpen ? "Close main menu" : "Open main menu"}
+              className="p-2 rounded-xl border border-white/80 bg-white/70 backdrop-blur-lg text-slate-700 hover:bg-white hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand shadow-xs"
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? <X className="w-5 h-5 text-slate-900" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {isOpen && (
-        <div className="lg:hidden border-b border-line bg-white px-6 pt-4 pb-6 mt-3 space-y-4 shadow-card">
-          <div className="space-y-1">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `block px-3 py-2 text-sm rounded-md ${
-                  isActive ? 'text-accent font-semibold bg-accent-wash' : 'text-ink-body'
-                }`
-              }
-            >
-              Overview
-            </NavLink>
-
-            <div className="pt-2 pb-1 border-t border-line">
-              <span className="px-3 text-[11px] uppercase tracking-wider text-ink-subtle font-medium block mb-1">
-                Priority Products
-              </span>
+      {/* Mobile Animated Glassmorphism Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden overflow-hidden border-b border-white/70 bg-white/90 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_20px_40px_rgba(15,23,42,0.08)]"
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 space-y-4">
+              
               <div className="space-y-1">
-                {productLinks.map((p) => (
-                  <NavLink
-                    key={p.path}
-                    to={p.path}
-                    className={({ isActive }) =>
-                      `block px-3 py-1.5 text-xs rounded-md ${
-                        isActive ? 'text-accent font-semibold bg-accent-wash' : 'text-ink-body hover:bg-canvas-subtle'
-                      }`
-                    }
+                {/* Priority Products Accordion on Mobile */}
+                <div className="pb-1">
+                  <button
+                    type="button"
+                    onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                    className="w-full flex items-center justify-between px-3.5 py-2 text-xs font-bold text-slate-900 uppercase tracking-wider"
                   >
-                    <span className="font-medium text-ink">{p.name}</span>
-                    <span className="text-ink-muted ml-1.5 text-[11px]">· {p.desc}</span>
-                  </NavLink>
-                ))}
+                    <span className="flex items-center gap-1.5 text-brand">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      Priority Products
+                    </span>
+                    <ChevronDown
+                      className={`w-4 h-4 text-slate-400 transition-transform ${
+                        mobileProductsOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {mobileProductsOpen && (
+                    <div className="space-y-1.5 mt-1.5 pl-2">
+                      {productLinks.map((p) => (
+                        <NavLink
+                          key={p.path}
+                          to={p.path}
+                          onClick={() => setIsOpen(false)}
+                          className={({ isActive }) =>
+                            `flex items-start gap-3 px-3 py-2.5 rounded-xl border transition-all ${
+                              isActive
+                                ? 'bg-[#E6F4F7]/85 backdrop-blur-sm border-[#51AAC0]/30 shadow-xs'
+                                : 'bg-white/50 backdrop-blur-sm border-white/80 hover:bg-white/80'
+                            }`
+                          }
+                        >
+                          <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-white border border-slate-200/80 shadow-xs">
+                            <span className={`w-2 h-2 rounded-full ${p.dotColor}`} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-bold text-slate-900">
+                                {p.name}
+                              </span>
+                              <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full border ${p.badgeColor}`}>
+                                {p.category}
+                              </span>
+                            </div>
+                            <span className="text-[11px] text-slate-500 block mt-0.5">
+                              {p.desc}
+                            </span>
+                          </div>
+                        </NavLink>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Standard Nav Links on Mobile */}
+                <div className="pt-2 border-t border-slate-200/60 space-y-1">
+                  {navLinks.map((link) => (
+                    <NavLink
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={({ isActive }) =>
+                        `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
+                          isActive
+                            ? 'text-brand font-bold bg-[#E6F4F7]/85 backdrop-blur-sm border border-[#51AAC0]/30 shadow-xs'
+                            : 'text-slate-700 hover:bg-white/70 hover:text-slate-950 border border-transparent'
+                        }`
+                      }
+                    >
+                      {link.name}
+                    </NavLink>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="pt-2 border-t border-line space-y-1">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `block px-3 py-2 text-sm rounded-md ${
-                      isActive ? 'text-accent font-semibold bg-accent-wash' : 'text-ink-body hover:bg-canvas-subtle'
-                    }`
-                  }
+              {/* Mobile CTA */}
+              <div className="pt-3 border-t border-slate-100">
+                <Button 
+                  to="/contact" 
+                  size="md" 
+                  variant="primary" 
+                  className="w-full shadow-soft" 
+                  showArrow
+                  onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
-                </NavLink>
-              ))}
-            </div>
-          </div>
+                  Let&apos;s Connect
+                </Button>
+              </div>
 
-          <div className="pt-3 border-t border-line">
-            <Button to="/contact" size="md" variant="primary" className="w-full">
-              Let's Connect
-            </Button>
-          </div>
-        </div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

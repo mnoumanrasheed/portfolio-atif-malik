@@ -5,26 +5,46 @@ import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 
 export const Technologies360: React.FC = () => {
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
-        <ScrollReveal>
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <AttributionBadge type="360 Technologies company portfolio" />
-            <span className="text-xs text-ink-muted font-medium">
-              Separate Corporate Heritage & Archive
-            </span>
-          </div>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-technologies360.jpg"
+        imageAlt="Monumental Civic & Enterprise Systems Architecture"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <AttributionBadge type="360 Technologies company portfolio" />
+                <span className="text-xs text-slate-600 font-bold uppercase tracking-wider bg-white/90 border border-slate-200 px-3 py-1 rounded-full shadow-xs">
+                  Separate Corporate Heritage &amp; Archive
+                </span>
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                360 Technologies — Company Portfolio &amp; Legacy
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                360 Technologies is a separate IT services organisation whose published historical portfolio spans enterprise software development, data architectures, digitisation, and offshore capability delivery.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Button href={TECHNOLOGIES_360.directoryUrl} variant="primary" isExternal showArrow>
+                  Official Client Registry
+                </Button>
+                <Button to="/ventures" variant="secondary">
+                  Return to Active Ventures
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-          <SectionHeader
-            eyebrow="Historical Corporate Archive"
-            title="360 Technologies — Company Portfolio & Legacy"
-            description="360 Technologies is a separate IT services organisation whose published historical portfolio spans enterprise software development, data architectures, digitisation, and offshore capability delivery."
-          />
-        </ScrollReveal>
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Legal & Governance Notice Callout */}
         <ScrollReveal delay={0.1}>

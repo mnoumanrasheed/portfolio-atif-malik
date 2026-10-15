@@ -4,22 +4,44 @@ import { SectionHeader } from '../components/ui/SectionHeader';
 import { ExecutiveMonogram } from '../components/ui/ExecutiveMonogram';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 
 export const About: React.FC = () => {
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <ScrollReveal>
-          <SectionHeader
-            eyebrow="Executive Profile"
-            title="Technology Leadership & Applied AI"
-            description="Atif I. Malik connects business problems with product thinking, applied AI, and disciplined technology delivery."
-          />
-        </ScrollReveal>
+    <div className="bg-canvas text-ink">
+      {/* Editorial Hero Header with Architectural Background */}
+      <HeroBackground 
+        imageSrc="/images/heroes/hero-about.jpg" 
+        imageAlt="Executive Architecture & Boardroom"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <span className="eyebrow text-brand">Executive Profile & Background</span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                Technology Leadership &amp; Applied AI
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                Atif I. Malik connects operational challenges with product thinking, applied AI, and disciplined technology delivery.
+              </p>
+              <div className="flex flex-wrap items-center gap-3 pt-3">
+                <span className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/90 border border-slate-200/90 text-brand shadow-xs">
+                  CEO · M3 Hive
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/90 border border-slate-200/90 text-slate-700 shadow-xs">
+                  Founding CEO, Director &amp; Shareholder · 360 Technologies
+                </span>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Narrative & Monogram Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Narrative: Full Depth Long Biography */}
           <div className="lg:col-span-7 space-y-10">
             <ScrollReveal>
@@ -122,7 +144,7 @@ export const About: React.FC = () => {
                 <div className="space-y-4">
                   <div className="p-3.5 rounded-lg border border-line bg-canvas-subtle space-y-1">
                     <span className="text-xs font-bold text-accent uppercase tracking-wider">Primary Vehicle</span>
-                    <h4 className="font-display font-bold text-sm text-ink">Chief Executive Officer</h4>
+                    <h4 className="font-display font-bold text-sm text-ink">CEO</h4>
                     <p className="text-xs text-ink-muted">M3 Hive · AI Product Engineering & Ventures</p>
                   </div>
 

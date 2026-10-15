@@ -13,29 +13,47 @@ import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { NourDocWorkflowDiagram } from '../components/diagrams/NourDocWorkflowDiagram';
 import { LeadHiveWorkflowDiagram } from '../components/diagrams/LeadHiveWorkflowDiagram';
 import { SmartAnimalWorkflowDiagram } from '../components/diagrams/SmartAnimalWorkflowDiagram';
+import { HeroBackground } from '../components/ui/HeroBackground';
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export const Ventures: React.FC = () => {
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Page Header */}
-        <ScrollReveal>
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <AttributionBadge type="M3 Hive product" />
-            <span className="text-xs text-brand font-semibold uppercase tracking-wider">
-              Primary Executive Operating Vehicle
-            </span>
-          </div>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-ventures.jpg"
+        imageAlt="Technology Ventures & Studio Hub"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <AttributionBadge type="M3 Hive product" />
+                <span className="text-xs text-brand font-bold uppercase tracking-wider bg-brand-wash px-3 py-1 rounded-full border border-brand/20">
+                  Primary Operating Vehicle
+                </span>
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                Technology Ventures &amp; Product Initiatives
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                M3 Hive serves as Atif I. Malik&apos;s primary product engineering and applied AI vehicle, complemented by historical corporate context from 360 Technologies.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Button href={EXECUTIVE_PROFILE.verifiedLinks.m3hive} variant="primary" isExternal showArrow>
+                  Visit m3hive.com
+                </Button>
+                <Button to="/contact" variant="secondary">
+                  Discuss an Engagement
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-          <SectionHeader
-            eyebrow="Companies & Ventures"
-            title="Technology Ventures & Product Initiatives"
-            description="M3 Hive serves as Atif I. Malik's primary product engineering and applied AI vehicle, complemented by historical corporate context from 360 Technologies."
-          />
-        </ScrollReveal>
-
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 1. M3 HIVE OVERVIEW CARD */}
         <ScrollReveal delay={0.1}>
           <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-12 mb-20 shadow-soft">

@@ -14,7 +14,7 @@ import type {
 export const EXECUTIVE_PROFILE: ExecutiveProfile = {
   name: 'Atif I. Malik',
   professionalPositioning: 'Technology & AI Executive | AI Product Innovator',
-  currentRole: 'Chief Executive Officer, M3 Hive',
+  currentRole: 'CEO, M3 Hive',
   separateAffiliation: 'Founding CEO, Director & Shareholder, 360 Technologies',
   affiliationNotice:
     'Separate corporate affiliation. The designation Founding CEO reflects published company history and is maintained subject to final legal and editorial confirmation.',

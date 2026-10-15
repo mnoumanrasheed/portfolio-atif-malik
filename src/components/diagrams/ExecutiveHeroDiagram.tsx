@@ -39,7 +39,7 @@ export const ExecutiveHeroDiagram: React.FC = () => {
             Atif I. Malik
           </div>
           <p className="text-xs opacity-90 mt-0.5">
-            Chief Executive Officer, M3 Hive
+            CEO, M3 Hive
           </p>
         </button>
 

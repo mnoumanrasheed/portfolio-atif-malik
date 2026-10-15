@@ -4,49 +4,59 @@ import { AttributionBadge } from '../../components/ui/AttributionBadge';
 import { Button } from '../../components/ui/Button';
 import { LeadHiveWorkflowDiagram } from '../../components/diagrams/LeadHiveWorkflowDiagram';
 import { ScrollReveal } from '../../components/motion/ScrollReveal';
+import { HeroBackground } from '../../components/ui/HeroBackground';
 import { CheckCircle2 } from 'lucide-react';
 
 export const LeadHiveAI: React.FC = () => {
   const product = PRODUCTS.find((p) => p.id === 'leadhive-ai')!;
 
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Editorial Hero */}
-        <ScrollReveal>
-          <div className="space-y-6 max-w-4xl">
-            <div className="flex flex-wrap items-center gap-3">
-              <AttributionBadge type={product.attribution} />
-              <span className="text-xs font-bold text-indigo-700 bg-indigo-100/80 px-3 py-1 rounded-full border border-indigo-200 uppercase tracking-wider">
-                Priority 02 · Conversational AI & Sales Enablement
-              </span>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-leadhive.jpg"
+        imageAlt="Enterprise Conversational AI & Communications"
+        glowColor="indigo"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="space-y-6 max-w-4xl">
+              <div className="flex flex-wrap items-center gap-3">
+                <AttributionBadge type={product.attribution} />
+                <span className="text-xs font-bold text-indigo-700 bg-indigo-100/90 px-3 py-1 rounded-full border border-indigo-200 uppercase tracking-wider">
+                  Priority 02 · Conversational AI &amp; Sales Enablement
+                </span>
+              </div>
+
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                {product.name}
+              </h1>
+
+              <p className="text-lg sm:text-xl text-indigo-700 font-semibold tracking-tight">
+                &quot;{product.positioningLine}&quot;
+              </p>
+
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                {product.overview}
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Button to="/contact?interest=leadhive-workflow" variant="primary" size="lg" showArrow>
+                  Design a Lead Qualification Workflow
+                </Button>
+                <Button to="/contact?interest=leadhive-ai" variant="secondary" size="lg">
+                  Explore LeadHive AI
+                </Button>
+                <Button to="/expertise" variant="outline" size="lg">
+                  M3 Hive Capabilities
+                </Button>
+              </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-              {product.name}
-            </h1>
-
-            <p className="text-lg sm:text-xl text-indigo-700 font-semibold tracking-tight">
-              &quot;{product.positioningLine}&quot;
-            </p>
-
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              {product.overview}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button to="/contact?interest=leadhive-workflow" variant="primary" size="lg" showArrow>
-                Design a Lead Qualification Workflow
-              </Button>
-              <Button to="/contact?interest=leadhive-ai" variant="secondary" size="lg">
-                Explore LeadHive AI
-              </Button>
-              <Button to="/expertise" variant="outline" size="lg">
-                M3 Hive Capabilities
-              </Button>
-            </div>
-          </div>
-        </ScrollReveal>
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Workflow Diagram */}
         <div className="my-16">
@@ -139,7 +149,7 @@ export const LeadHiveAI: React.FC = () => {
               Integration & Scope Governance
             </div>
             <p className="leading-relaxed">
-              {product.publicationGuardrail} LeadHive AI operates with business-defined qualification logic and human-directed CRM dispatch protocols.
+              {product.publicationGuardrail} LeadHive AI is architected to operate with business-defined qualification criteria and configurable notification or CRM dispatch interfaces, aligned directly to client workflow requirements.
             </p>
           </div>
         </ScrollReveal>

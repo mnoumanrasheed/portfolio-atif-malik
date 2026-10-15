@@ -1,6 +1,6 @@
 # Atif I. Malik — Executive Portfolio
 
-A production-ready executive personal website for **Atif I. Malik** (Chief Executive Officer, M3 Hive | Co-Founder, Director & Shareholder, 360 Technologies).
+A production-ready executive personal website for **Atif I. Malik** (CEO, M3 Hive | Co-Founder, Director & Shareholder, 360 Technologies).
 
 Designed with a **"Quiet Authority" executive editorial direction**: 85–90% white and light surfaces, restrained deep teal accenting, purposeful typographic hierarchy, and generous composed whitespace—avoiding generic AI template cliches, cyber dashboards, dark mode screens, and fake metrics.
 

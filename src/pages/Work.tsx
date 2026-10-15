@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronDown, 
   ChevronUp, 
@@ -10,6 +11,7 @@ import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 
 export const Work: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
@@ -39,23 +41,34 @@ export const Work: React.FC = () => {
   };
 
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <ScrollReveal>
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <AttributionBadge type="M3 Hive company project" />
-            <span className="text-xs text-ink-muted font-medium">
-              Documented Engineering Case Studies
-            </span>
-          </div>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-work.jpg"
+        imageAlt="Computational Engineering & Data Systems Workspace"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <AttributionBadge type="M3 Hive company project" />
+                <span className="text-xs text-brand font-bold uppercase tracking-wider bg-brand-wash px-3 py-1 rounded-full border border-brand/20">
+                  Documented Engineering Case Studies
+                </span>
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                Selected Additional Work
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                Seven documented project initiatives demonstrating M3 Hive&apos;s technical breadth across market intelligence, computational biology, retail analytics, and digital platforms.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-          <SectionHeader
-            eyebrow="Delivery Portfolio"
-            title="Selected Additional Work"
-            description="Seven documented project initiatives demonstrating M3 Hive's technical breadth across market intelligence, computational biology, retail analytics, and digital platforms."
-          />
-        </ScrollReveal>
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Corporate Attribution Notice */}
         <ScrollReveal delay={0.05}>
@@ -126,39 +139,49 @@ export const Work: React.FC = () => {
                       </p>
                     </div>
 
-                    {/* Expandable Details */}
-                    {isExpanded && project.details && (
-                      <div className="pt-4 border-t border-line space-y-2 text-xs">
-                        <span className="font-semibold text-ink uppercase tracking-wider block mb-1">
-                          Delivered Capabilities
-                        </span>
-                        <ul className="space-y-1.5 text-ink-muted">
-                          {project.details.map((detail, dIdx) => (
-                            <li key={dIdx} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
-                              <span>{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                    {/* Expandable Details with Smooth Animation */}
+                    <AnimatePresence>
+                      {isExpanded && project.details && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-4 border-t border-slate-100 space-y-2 text-xs">
+                            <span className="font-bold text-slate-900 uppercase tracking-wider block mb-1">
+                              Documented Solution Elements:
+                            </span>
+                            <ul className="space-y-2 text-slate-600">
+                              {project.details.map((detail, dIdx) => (
+                                <li key={dIdx} className="flex items-start gap-2">
+                                  <CheckCircle2 className="w-3.5 h-3.5 text-brand shrink-0 mt-0.5" />
+                                  <span>{detail}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   <div className="pt-5 mt-5 border-t border-line flex flex-wrap items-center justify-between gap-4 text-xs">
-                    <span className="text-ink-subtle">
-                      Status: <strong className="text-ink font-medium">{project.status}</strong>
+                    <span className="text-slate-500">
+                      Status: <strong className="text-slate-900 font-semibold">{project.status}</strong>
                     </span>
 
                     <button
                       type="button"
                       onClick={() => toggleExpand(project.id)}
-                      className="text-accent font-semibold hover:text-accent-hover inline-flex items-center gap-1"
+                      className="text-brand font-bold hover:text-brand-hover inline-flex items-center gap-1 transition-colors"
                       aria-expanded={isExpanded}
                     >
                       {isExpanded ? (
-                        <>Collapse <ChevronUp className="w-3.5 h-3.5" /></>
+                        <>Collapse Elements <ChevronUp className="w-3.5 h-3.5" /></>
                       ) : (
-                        <>Expand Details <ChevronDown className="w-3.5 h-3.5" /></>
+                        <>View Solution Elements <ChevronDown className="w-3.5 h-3.5" /></>
                       )}
                     </button>
                   </div>

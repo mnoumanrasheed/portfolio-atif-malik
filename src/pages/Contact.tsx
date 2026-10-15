@@ -16,6 +16,7 @@ import { EXECUTIVE_PROFILE } from '../content/portfolio';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 
 export const Contact: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -150,18 +151,30 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
   };
 
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <ScrollReveal>
-          <SectionHeader
-            eyebrow="Communications & Inquiries"
-            title="Start with the Problem to Solve"
-            description="If you are exploring AI adoption, a product pilot, technology integration, research collaboration or custom engineering, share the challenge and the outcome you are working toward."
-          />
-        </ScrollReveal>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-contact.jpg"
+        imageAlt="Executive Consultation Suite"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <span className="eyebrow text-brand">Communications &amp; Inquiries</span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                Start with the Problem to Solve
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                If you are exploring AI adoption, a product pilot, technology integration, research collaboration or custom engineering, share the challenge and the outcome you are working toward.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-8 items-start">
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Direct Verified Channels & Fallback Guidance */}
           <div className="lg:col-span-5 space-y-6">
             <ScrollReveal delay={0.1}>
@@ -281,11 +294,11 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
 
                     <div className="space-y-2">
                       <h3 className="font-display font-bold text-2xl text-ink">
-                        Enquiry Formatted & Prepared
+                        Email Draft Prepared &amp; Opened
                       </h3>
                       <p className="text-sm text-ink-muted max-w-lg mx-auto">
-                        Your structured brief has been prepared for direct transmission to{' '}
-                        <strong className="text-ink">contact@m3hive.com</strong>.
+                        Your structured brief has been prepared for direct dispatch to{' '}
+                        <strong className="text-ink">contact@m3hive.com</strong>. Please verify the draft in your email application and click <strong className="text-ink">Send</strong> to complete delivery.
                       </p>
                     </div>
 
@@ -321,7 +334,7 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
                         isExternal
                         showArrow
                       >
-                        Transmit via LinkedIn
+                        Open LinkedIn Profile
                       </Button>
 
                       <button
@@ -329,7 +342,7 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
                         onClick={() => setSubmitted(false)}
                         className="text-xs text-ink-muted hover:text-ink underline block w-full text-center mt-2"
                       >
-                        Edit or Send Another Enquiry
+                        Edit Enquiry Details
                       </button>
                     </div>
                   </div>
@@ -502,7 +515,7 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
                           className="mt-1 h-4 w-4 rounded border-line text-accent focus:ring-accent"
                         />
                         <span className="text-xs text-ink-body leading-relaxed">
-                          I understand this enquiry will be received by Atif I. Malik and the M3 Hive team, and agree to be contacted regarding this matter. <span className="text-accent">*</span>
+                          I understand this enquiry will be formatted as a structured brief for correspondence with Atif I. Malik and the M3 Hive team, and agree to correspond regarding this matter. <span className="text-accent">*</span>
                         </span>
                       </label>
                       {errors.consent && (
@@ -513,7 +526,7 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
                       )}
                     </div>
 
-                    {/* Actions: Send Enquiry & Copy Enquiry Brief */}
+                    {/* Actions: Open Email Draft & Copy Enquiry Brief */}
                     <div className="pt-4 border-t border-line flex flex-wrap items-center gap-4">
                       <Button
                         type="submit"
@@ -521,7 +534,7 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
                         size="md"
                         showArrow
                       >
-                        Send Enquiry
+                        Open Email Draft
                       </Button>
 
                       <Button

@@ -4,49 +4,59 @@ import { AttributionBadge } from '../../components/ui/AttributionBadge';
 import { Button } from '../../components/ui/Button';
 import { SmartAnimalWorkflowDiagram } from '../../components/diagrams/SmartAnimalWorkflowDiagram';
 import { ScrollReveal } from '../../components/motion/ScrollReveal';
+import { HeroBackground } from '../../components/ui/HeroBackground';
 import { CheckCircle2 } from 'lucide-react';
 
 export const SmartAnimal: React.FC = () => {
   const product = PRODUCTS.find((p) => p.id === 'smart-animal')!;
 
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Editorial Hero */}
-        <ScrollReveal>
-          <div className="space-y-6 max-w-4xl">
-            <div className="flex flex-wrap items-center gap-3">
-              <AttributionBadge type={product.attribution} />
-              <span className="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full border border-emerald-200 uppercase tracking-wider">
-                Priority 03 · AgriTech AI & IoT Platform
-              </span>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-smartanimal.jpg"
+        imageAlt="Agricultural Pasture & Connected Livestock Telemetry"
+        glowColor="emerald"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="space-y-6 max-w-4xl">
+              <div className="flex flex-wrap items-center gap-3">
+                <AttributionBadge type={product.attribution} />
+                <span className="text-xs font-bold text-emerald-700 bg-emerald-100/90 px-3 py-1 rounded-full border border-emerald-200 uppercase tracking-wider">
+                  Priority 03 · AgriTech AI &amp; IoT Platform
+                </span>
+              </div>
+
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                {product.name}
+              </h1>
+
+              <p className="text-lg sm:text-xl text-emerald-700 font-semibold tracking-tight">
+                &quot;{product.positioningLine}&quot;
+              </p>
+
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                {product.overview}
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Button to="/contact?interest=smart-animal" variant="primary" size="lg" showArrow>
+                  Discuss a Smart Animal Pilot
+                </Button>
+                <Button to="/contact?pathway=research-validation" variant="secondary" size="lg">
+                  Explore AgriTech Collaboration
+                </Button>
+                <Button to="/expertise" variant="outline" size="lg">
+                  IoT Capabilities
+                </Button>
+              </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-              {product.name}
-            </h1>
-
-            <p className="text-lg sm:text-xl text-emerald-700 font-semibold tracking-tight">
-              &quot;{product.positioningLine}&quot;
-            </p>
-
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              {product.overview}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button to="/contact?interest=smart-animal" variant="primary" size="lg" showArrow>
-                Discuss a Smart Animal Pilot
-              </Button>
-              <Button to="/contact?pathway=research-validation" variant="secondary" size="lg">
-                Explore AgriTech Collaboration
-              </Button>
-              <Button to="/expertise" variant="outline" size="lg">
-                IoT Capabilities
-              </Button>
-            </div>
-          </div>
-        </ScrollReveal>
+      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Workflow Diagram */}
         <div className="my-16">

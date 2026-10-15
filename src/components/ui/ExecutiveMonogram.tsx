@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExecutiveLogo } from './ExecutiveLogo';
 
 interface ExecutiveMonogramProps {
   className?: string;
@@ -11,7 +12,7 @@ export const ExecutiveMonogram: React.FC<ExecutiveMonogramProps> = ({
 }) => {
   return (
     <div 
-      className={`relative bg-canvas-subtle border border-line rounded-lg overflow-hidden shadow-soft ${className}`}
+      className={`relative bg-canvas-subtle border border-line rounded-2xl overflow-hidden shadow-soft ${className}`}
       aria-label="Executive Identity: Atif I. Malik"
     >
       {portraitUrl ? (
@@ -24,30 +25,22 @@ export const ExecutiveMonogram: React.FC<ExecutiveMonogramProps> = ({
         </div>
       ) : (
         /* Photo-ready editorial frame with tasteful monogram and architectural lines */
-        <div className="aspect-[4/5] w-full flex flex-col justify-between p-8 sm:p-10 bg-gradient-to-b from-canvas-subtle to-canvas border-b border-line">
+        <div className="aspect-[4/5] w-full flex flex-col justify-between p-8 sm:p-10 bg-gradient-to-b from-canvas-subtle via-white to-canvas-subtle border-b border-line">
           {/* Subtle top indicator */}
           <div className="flex items-center justify-between text-xs text-ink-muted">
-            <span className="font-mono text-[11px] uppercase tracking-wider text-accent font-medium">AIM / M3 HIVE</span>
+            <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-bold">AIM · M3 HIVE</span>
             <span className="text-[11px] text-ink-subtle">Executive Profile</span>
           </div>
 
           {/* Central Monogram */}
-          <div className="my-auto text-center space-y-4">
-            <div className="w-20 h-20 mx-auto rounded-full bg-white border-2 border-brand/25 flex items-center justify-center shadow-md">
-              <span className="font-display font-extrabold text-2xl tracking-wider text-brand">
-                A<span className="text-accent font-light">/</span>M
-              </span>
-            </div>
-            <div>
-              <div className="font-display font-extrabold text-xl text-ink tracking-tight">Atif I. Malik</div>
-              <div className="text-xs text-brand font-semibold mt-1">Chief Executive Officer, M3 Hive</div>
-            </div>
+          <div className="my-auto text-center py-4">
+            <ExecutiveLogo size="2xl" variant="stacked" theme="light" />
           </div>
 
           {/* Bottom Caption */}
           <div className="pt-4 border-t border-line/60 text-center">
             <span className="text-[11px] text-ink-muted font-medium">
-              Technology Leadership · Applied AI
+              Technology Leadership · Applied AI · Enterprise Systems
             </span>
           </div>
         </div>
@@ -57,11 +50,11 @@ export const ExecutiveMonogram: React.FC<ExecutiveMonogramProps> = ({
       <div className="p-5 bg-white border-t border-line space-y-2">
         <div className="flex items-center justify-between text-xs">
           <span className="font-bold text-ink">Primary Role:</span>
-          <span className="text-brand font-semibold">Chief Executive Officer, M3 Hive</span>
+          <span className="text-brand font-bold">CEO, M3 Hive</span>
         </div>
         <div className="flex items-center justify-between text-xs">
           <span className="text-ink-muted">Corporate Affiliation:</span>
-          <span className="text-ink-body font-medium">Co-Founder, Director & Shareholder, 360 Technologies</span>
+          <span className="text-ink-body font-medium">Founding CEO, Director & Shareholder, 360 Technologies</span>
         </div>
       </div>
     </div>

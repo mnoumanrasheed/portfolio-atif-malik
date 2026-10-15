@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { EXECUTIVE_PROFILE } from '../../content/portfolio';
+import { ExecutiveLogo } from '../ui/ExecutiveLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -16,19 +17,9 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           {/* Executive Bio Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand text-white font-display font-extrabold text-xs tracking-wider shadow-md border border-blue-400/30">
-                AIM
-              </div>
-              <div>
-                <span className="font-display font-extrabold text-xl text-white block tracking-tight">
-                  {EXECUTIVE_PROFILE.name}
-                </span>
-                <span className="text-xs text-blue-400 font-semibold uppercase tracking-wider block">
-                  Chief Executive Officer · M3 Hive
-                </span>
-              </div>
-            </div>
+            <Link to="/" className="inline-block group focus-visible:outline-none" aria-label="Atif I. Malik - Home">
+              <ExecutiveLogo size="lg" variant="horizontal" theme="dark" />
+            </Link>
             
             <p className="text-sm text-slate-300 font-medium leading-relaxed">
               {EXECUTIVE_PROFILE.tagline}

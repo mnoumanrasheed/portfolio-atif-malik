@@ -1,30 +1,41 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { EXTERNAL_SOURCES, EXECUTIVE_PROFILE } from '../content/portfolio';
-import { SectionHeader } from '../components/ui/SectionHeader';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 
 export const Insights: React.FC = () => {
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <ScrollReveal>
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-accent bg-accent-wash px-3 py-1 rounded-full border border-accent/20">
-              Verified Institutional Sources
-            </span>
-          </div>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-insights.jpg"
+        imageAlt="Corporate Documentation & Knowledge Architecture"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand bg-brand-wash px-3 py-1 rounded-full border border-brand/20">
+                  Verified Institutional Sources
+                </span>
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                Documentation &amp; External Verification
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                Verified external documentation, official product platforms, corporate publications, and public institutional directories.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-          <SectionHeader
-            eyebrow="Documentation & Verification"
-            title="Selected References & Further Reading"
-            description="Verified external documentation, official product platforms, corporate publications, and public institutional directories."
-          />
-        </ScrollReveal>
-
+      {/* Main Content */}
+      <div className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial Standards Notice */}
         <ScrollReveal delay={0.1}>
           <div className="p-6 sm:p-8 rounded-card border border-line bg-canvas-subtle mb-14 space-y-2 shadow-soft">

@@ -10,28 +10,47 @@ import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { HeroBackground } from '../components/ui/HeroBackground';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const M3Hive: React.FC = () => {
   return (
-    <div className="py-12 sm:py-20 bg-canvas text-ink">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
-        <ScrollReveal>
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <AttributionBadge type="M3 Hive product" />
-            <span className="text-xs text-accent font-medium">
-              Primary Executive Operating Vehicle
-            </span>
-          </div>
+    <div className="bg-canvas text-ink">
+      <HeroBackground
+        imageSrc="/images/heroes/hero-ventures.jpg"
+        imageAlt="M3 Hive Technology Development Studio"
+        glowColor="teal"
+        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="max-w-3xl space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <AttributionBadge type="M3 Hive product" />
+                <span className="text-xs text-brand font-bold uppercase tracking-wider bg-brand-wash px-3 py-1 rounded-full border border-brand/20">
+                  Primary Executive Operating Vehicle
+                </span>
+              </div>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                M3 Hive — Execution &amp; Engineering Capability
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                M3 Hive is a technology development company focused on translating complex business needs into digital products, intelligent workflows, and applied AI solutions.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Button href={EXECUTIVE_PROFILE.verifiedLinks.m3hive} variant="secondary" size="sm" isExternal>
+                  Visit m3hive.com
+                </Button>
+                <Button href={EXECUTIVE_PROFILE.verifiedLinks.nourdoc} variant="primary" size="sm" isExternal>
+                  NourDoc Official Site
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </HeroBackground>
 
-          <SectionHeader
-            eyebrow="Company Overview"
-            title="M3 Hive — Execution & Engineering Capability"
-            description="M3 Hive is a technology development company focused on translating complex business needs into digital products, intelligent workflows, and applied AI solutions."
-          />
-        </ScrollReveal>
-
+      <div className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Corporate Overview Card */}
         <ScrollReveal delay={0.1}>
           <div className="bg-white border border-line rounded-card p-8 sm:p-12 mb-16 shadow-soft">
@@ -41,14 +60,6 @@ export const M3Hive: React.FC = () => {
                 <h3 className="font-display font-bold text-xl text-ink mt-1">
                   Technology Solutions Grounded in Operational Reality
                 </h3>
-              </div>
-              <div className="flex items-center gap-3">
-                <Button href={EXECUTIVE_PROFILE.verifiedLinks.m3hive} variant="secondary" size="sm" isExternal>
-                  Visit m3hive.com
-                </Button>
-                <Button href={EXECUTIVE_PROFILE.verifiedLinks.nourdoc} variant="primary" size="sm" isExternal>
-                  NourDoc Official Site
-                </Button>
               </div>
             </div>
 
