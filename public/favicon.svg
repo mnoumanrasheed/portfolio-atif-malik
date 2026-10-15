@@ -1,67 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <!-- Executive Obsidian-Teal Gradient -->
-    <linearGradient id="fav-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+    <!-- Executive Obsidian-Teal Background Gradient -->
+    <linearGradient id="exec-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#0B1B20" />
-      <stop offset="45%" stop-color="#122B34" />
+      <stop offset="50%" stop-color="#122B34" />
       <stop offset="100%" stop-color="#1B3E4A" />
     </linearGradient>
 
     <!-- Metallic Rim Highlight Gradient -->
-    <linearGradient id="fav-rim" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#51AAC0" stop-opacity="0.95" />
-      <stop offset="50%" stop-color="#377A8A" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#7EE2F7" stop-opacity="0.85" />
+    <linearGradient id="exec-rim" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7EE2F7" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#377A8A" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#7EE2F7" stop-opacity="0.9" />
     </linearGradient>
 
-    <!-- Outer 'A' Diagonal Highlights -->
-    <linearGradient id="fav-wingL" x1="17" y1="46" x2="32" y2="15" gradientUnits="userSpaceOnUse">
+    <!-- Outer 'A' Diagonal Left Wing -->
+    <linearGradient id="exec-wingL" x1="17" y1="46" x2="32" y2="15" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#377A8A" />
-      <stop offset="55%" stop-color="#51AAC0" />
+      <stop offset="50%" stop-color="#51AAC0" />
       <stop offset="100%" stop-color="#FFFFFF" />
     </linearGradient>
 
-    <linearGradient id="fav-wingR" x1="47" y1="46" x2="32" y2="15" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#224751" />
+    <!-- Outer 'A' Diagonal Right Wing -->
+    <linearGradient id="exec-wingR" x1="47" y1="46" x2="32" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#377A8A" />
       <stop offset="50%" stop-color="#51AAC0" />
       <stop offset="100%" stop-color="#FFFFFF" />
     </linearGradient>
 
     <!-- Central 'I' Strategic Pillar Gradient -->
-    <linearGradient id="fav-pillar" x1="32" y1="21" x2="32" y2="36" gradientUnits="userSpaceOnUse">
+    <linearGradient id="exec-pillar" x1="32" y1="21" x2="32" y2="36" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#FFFFFF" />
       <stop offset="45%" stop-color="#9DEAF7" />
-      <stop offset="100%" stop-color="#377A8A" />
+      <stop offset="100%" stop-color="#51AAC0" />
     </linearGradient>
 
-    <!-- 'M' Fold Gradient -->
-    <linearGradient id="fav-mFold" x1="23.5" y1="32" x2="40.5" y2="41" gradientUnits="userSpaceOnUse">
+    <!-- 'M' Converging Chevron Fold (Symmetric Vertical Gradient) -->
+    <linearGradient id="exec-mFold" x1="32" y1="32" x2="32" y2="42" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="50%" stop-color="#51AAC0" />
-      <stop offset="100%" stop-color="#2A5C68" />
+      <stop offset="55%" stop-color="#51AAC0" />
+      <stop offset="100%" stop-color="#24515C" />
     </linearGradient>
 
     <!-- Soft Center Ambient Radiance -->
-    <radialGradient id="fav-glow" cx="50%" cy="40%" r="50%">
-      <stop offset="0%" stop-color="#51AAC0" stop-opacity="0.4" />
+    <radialGradient id="exec-glow" cx="50%" cy="38%" r="48%">
+      <stop offset="0%" stop-color="#51AAC0" stop-opacity="0.45" />
       <stop offset="100%" stop-color="#0B1B20" stop-opacity="0" />
     </radialGradient>
   </defs>
 
-  <!-- Base Beveled Squircle -->
+  <!-- Base Obsidian Squircle -->
   <rect
     x="2"
     y="2"
     width="60"
     height="60"
     rx="14"
-    fill="url(#fav-bg)"
-    stroke="url(#fav-rim)"
-    stroke-width="1.5"
+    fill="url(#exec-bg)"
+    stroke="url(#exec-rim)"
+    stroke-width="2"
   />
 
-  <!-- Ambient Interior Radiance -->
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#fav-glow)" />
+  <!-- Ambient Interior Radiance Glow -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#exec-glow)" />
 
   <!-- Precision Hairline Inset -->
   <rect
@@ -70,60 +71,61 @@
     width="53"
     height="53"
     rx="11"
+    fill="none"
     stroke="#51AAC0"
-    stroke-opacity="0.2"
+    stroke-opacity="0.25"
     stroke-width="0.75"
   />
 
-  <!-- --- Monogram Architecture (A · I · M) --- -->
+  <!-- Monogram Architecture: A · I · M -->
 
-  <!-- Outer 'A' Frame Wings -->
+  <!-- Outer 'A' Wings -->
   <path
     d="M 17 46 L 32 15"
-    stroke="url(#fav-wingL)"
-    stroke-width="3.6"
+    stroke="url(#exec-wingL)"
+    stroke-width="4"
     stroke-linecap="round"
   />
   <path
     d="M 32 15 L 47 46"
-    stroke="url(#fav-wingR)"
-    stroke-width="3.6"
+    stroke="url(#exec-wingR)"
+    stroke-width="4"
     stroke-linecap="round"
   />
 
-  <!-- 'A' Horizontal Bridge connecting outer wings -->
+  <!-- 'A' Horizontal Bridge -->
   <line
     x1="23.5"
     y1="32"
     x2="40.5"
     y2="32"
     stroke="#FFFFFF"
-    stroke-width="2"
-    stroke-opacity="0.9"
+    stroke-width="2.2"
     stroke-linecap="round"
+    stroke-opacity="0.95"
   />
 
   <!-- 'M' Converging Chevron Basin -->
   <path
     d="M 23.5 32 L 32 41 L 40.5 32"
-    stroke="url(#fav-mFold)"
-    stroke-width="3.2"
+    stroke="url(#exec-mFold)"
+    stroke-width="3.6"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
 
-  <!-- Central 'I' Column / Pillar -->
+  <!-- Central 'I' Strategic Pillar -->
   <line
     x1="32"
-    y1="22"
+    y1="21.5"
     x2="32"
-    y2="36"
-    stroke="url(#fav-pillar)"
-    stroke-width="2.6"
+    y2="35.5"
+    stroke="url(#exec-pillar)"
+    stroke-width="3"
     stroke-linecap="round"
   />
 
-  <!-- Apex Illuminator Vertex Node -->
-  <circle cx="32" cy="15" r="2.4" fill="#FFFFFF" />
-  <circle cx="32" cy="15" r="4.4" stroke="#7EE2F7" stroke-width="0.75" stroke-opacity="0.7" />
+  <!-- Apex Illuminator Node -->
+  <circle cx="32" cy="15" r="4.8" stroke="#7EE2F7" stroke-width="1" stroke-opacity="0.8" fill="none" />
+  <circle cx="32" cy="15" r="2.6" fill="#FFFFFF" />
 </svg>
