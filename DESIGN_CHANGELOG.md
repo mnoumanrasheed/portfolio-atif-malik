@@ -172,11 +172,33 @@ Upgraded all three diagrams from static buttons to interactive architectural dem
 
 ---
 
-## 13. Build & Quality Verification
+---
+
+## 13. Floating Island Glass Capsule Navbar & Full-Page Live Animations
+- **Floating Island Glass Capsule Navbar (`Navbar.tsx`):**
+  - Completely replaced the standard pinned flat full-width bar with an ultra-luxury **floating glass island capsule** (`fixed top-2.5 sm:top-4 left-0 right-0 max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/75 sm:bg-white/90 backdrop-blur-2xl backdrop-saturate-200 border border-white/80 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.16)]`).
+  - Added specular refractive highlights: top ambient cyan hairline glow (`via-[#51AAC0]/40`) and bottom glass reflection rim.
+  - Converted desktop navigation items into smooth `rounded-full` pills with Framer Motion spring physics on active indicators.
+  - Redesigned "Let's Connect" desktop CTA into a pill button with a live animated ping radar node.
+  - Converted mobile menu into a floating rounded-2xl glass card suspended beneath the island.
+- **Full-Page Live Animation System (`BorderBeam.tsx`, `Home.tsx`, `global.css`):**
+  - **Live Circulating Border Beams (`BorderBeam`):** Integrated hardware-accelerated SVG/CSS path-tracing border beams that continuously travel around the perimeter of key cards:
+    - **Executive Perspective Plate (Hero):** Cyan/Teal border beam (`#51AAC0` to `#377A8A`).
+    - **NourDoc Flagship Card:** Sky-blue border beam (`#38BDF8` to `#0284C7`).
+    - **LeadHive AI Flagship Card:** Indigo border beam (`#818CF8` to `#4F46E5`).
+    - **Smart Animal Flagship Card:** Emerald border beam (`#34D399` to `#059669`).
+  - **Live Pulse Beacons (`LivePulseBeacon`):** Live pulsating radar beacon rings deployed on the hero eyebrow, closing discussion section, and verified links.
+  - **Live Executive Metrics Quick-Ticker:** Dynamic pill strip in the hero highlighting 3 Priority Products and 15+ Systems Legacy.
+  - **Interactive Diagram Engines:** Embedded active animated flow engines in NourDoc, LeadHive AI, and Smart Animal.
+
+---
+
+## 14. Build & Quality Verification
 - `npm run build` (`tsc && vite build`) passed with **0 errors**:
-  - CSS: `62.44 kB` (`10.02 kB` gzipped)
-  - JavaScript Bundle: `340.76 kB` (`109.07 kB` gzipped)
+  - CSS: `66.56 kB` (`10.85 kB` gzipped)
+  - JavaScript Bundle: `341.52 kB` (`109.25 kB` gzipped)
   - Zero TypeScript compiler warnings.
+
 
 
 

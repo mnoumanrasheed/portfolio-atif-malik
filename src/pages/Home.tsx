@@ -9,7 +9,12 @@ import {
   ShieldCheck,
   Layers,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  Activity,
+  Cpu,
+  Compass,
+  Zap,
+  Globe2
 } from 'lucide-react';
 import { 
   EXECUTIVE_PROFILE, 
@@ -35,6 +40,7 @@ import {
   AnimatedLineAccent, 
   AnimatedVerticalSpine 
 } from '../components/ui/AnimatedLine';
+import { BorderBeam, LivePulseBeacon } from '../components/ui/BorderBeam';
 import { NourDocWorkflowDiagram } from '../components/diagrams/NourDocWorkflowDiagram';
 import { LeadHiveWorkflowDiagram } from '../components/diagrams/LeadHiveWorkflowDiagram';
 import { SmartAnimalWorkflowDiagram } from '../components/diagrams/SmartAnimalWorkflowDiagram';
@@ -56,6 +62,7 @@ export const Home: React.FC = () => {
         .from('.hero-headline', { opacity: 0, y: 22, duration: 0.6 }, '-=0.25')
         .from('.hero-accent-line', { scaleX: 0, transformOrigin: 'left', duration: 0.55 }, '-=0.25')
         .from('.hero-statement', { opacity: 0, y: 16, duration: 0.5 }, '-=0.3')
+        .from('.hero-metrics', { opacity: 0, y: 14, duration: 0.45 }, '-=0.25')
         .from('.hero-roles', { opacity: 0, y: 14, duration: 0.45 }, '-=0.3')
         .from('.hero-cta', { opacity: 0, y: 14, duration: 0.45, stagger: 0.1 }, '-=0.3')
         .from('.hero-editorial-card', { opacity: 0, scale: 0.96, y: 18, duration: 0.75, ease: 'power3.out' }, '-=0.55');
@@ -65,10 +72,10 @@ export const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark">
+    <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark overflow-x-hidden">
       
       {/* =========================================================================
-          SECTION 01 — EXECUTIVE HERO
+          SECTION 01 — EXECUTIVE HERO (100vh Viewport Composition with Live Animation)
           ========================================================================= */}
       <section 
         ref={heroRef} 
@@ -86,14 +93,9 @@ export const Home: React.FC = () => {
               {/* Left 7 Columns (58%): Dominant Executive Identity & Narrative */}
               <div className="lg:col-span-7 space-y-3.5 sm:space-y-4 xl:space-y-5">
                 
-                {/* Eyebrow & Status Pill */}
+                {/* Live Status Beacon & Positioning Pill */}
                 <div className="hero-eyebrow flex flex-wrap items-center gap-2.5">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#51AAC0]/30 shadow-xs">
-                    <span className="w-2 h-2 rounded-full bg-[#51AAC0] animate-pulse" />
-                    <span className="text-xs font-mono font-bold tracking-widest text-brand uppercase">
-                      {EXECUTIVE_PROFILE.name}
-                    </span>
-                  </span>
+                  <LivePulseBeacon label={EXECUTIVE_PROFILE.name} pulseColor="bg-[#51AAC0]" />
                   <span className="text-xs sm:text-sm font-semibold text-slate-600 uppercase tracking-wider">
                     {EXECUTIVE_PROFILE.professionalPositioning}
                   </span>
@@ -119,6 +121,22 @@ export const Home: React.FC = () => {
                   <p className="hidden xl:block text-sm text-slate-600 leading-normal">
                     {EXECUTIVE_PROFILE.heroSecondParagraph}
                   </p>
+                </div>
+
+                {/* Live Executive Metrics Quick-Ticker Bar */}
+                <div className="hero-metrics flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
+                    <span className="font-bold text-slate-900">03 Priority Products</span>
+                    <span className="text-slate-400">·</span>
+                    <span className="text-slate-500 font-medium">Healthcare · Sales · IoT</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-[#51AAC0]" />
+                    <span className="font-bold text-slate-900">15+ Systems Legacy</span>
+                    <span className="text-slate-400">·</span>
+                    <span className="text-slate-500 font-medium">360 Technologies</span>
+                  </div>
                 </div>
 
                 {/* Verified Roles Ledger */}
@@ -148,12 +166,15 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right 5 Columns (42%): Executive Editorial Plate */}
+              {/* Right 5 Columns (42%): Executive Editorial Plate with Live Border Beam */}
               <div className="lg:col-span-5 hero-editorial-card">
                 <div 
                   className="relative bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl overflow-hidden shadow-[0_16px_40px_-10px_rgba(15,23,42,0.12)] hover:shadow-2xl transition-all"
                   aria-label="Executive Profile & Philosophy"
                 >
+                  {/* Live Circulating Light Border Beam Animation */}
+                  <BorderBeam size={260} duration={9} colorFrom="#51AAC0" colorTo="#377A8A" borderWidth={2} />
+
                   {/* Shimmering Top Hairline Accent */}
                   <div className="relative h-1.5 w-full bg-slate-100 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-brand via-accent to-brand opacity-80" />
@@ -161,7 +182,7 @@ export const Home: React.FC = () => {
                   </div>
 
                   {/* Editorial Content */}
-                  <div className="p-5 sm:p-6 space-y-3.5">
+                  <div className="p-5 sm:p-6 space-y-3.5 relative z-10">
                     
                     {/* Header */}
                     <div className="flex items-center justify-between text-xs pb-2.5 border-b border-slate-100">
@@ -217,7 +238,7 @@ export const Home: React.FC = () => {
                   </div>
 
                   {/* Discreet Base Footer */}
-                  <div className="px-5 py-2.5 bg-slate-900 text-white flex items-center justify-between text-xs font-mono">
+                  <div className="px-5 py-2.5 bg-slate-900 text-white flex items-center justify-between text-xs font-mono relative z-10">
                     <span className="text-slate-300">Executive Vehicle</span>
                     <span className="text-accent font-semibold flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
@@ -233,10 +254,10 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Luminous Animated Beam Divider */}
-      <AnimatedBeamDivider glowColor="cyan" />
+      <AnimatedBeamDivider glowColor="cyan" speed="normal" />
 
       {/* =========================================================================
-          SECTION 02 — LEADERSHIP JOURNEY (Editorial Presentation)
+          SECTION 02 — LEADERSHIP JOURNEY (With Live Traveling Light Timeline)
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -275,7 +296,8 @@ export const Home: React.FC = () => {
                 Atif is also a Founding CEO, Director and Shareholder of 360 Technologies. The company’s published historical portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. These achievements are presented as company history, not as a claim that Atif personally delivered every listed assignment.
               </p>
 
-              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-soft space-y-2.5">
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-soft space-y-2.5 relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand to-accent" />
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand block">
                   Strategic Objective
                 </span>
@@ -291,7 +313,7 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right 5 Cols: Four Principles of Execution (With Animated Vertical Spine) */}
+            {/* Right 5 Cols: Four Principles of Execution (With Live Animated Traveling Light Spine) */}
             <div className="lg:col-span-5 space-y-6">
               <div className="border-b border-slate-200 pb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand block">
@@ -311,7 +333,7 @@ export const Home: React.FC = () => {
                     key={idx}
                     className="relative group transition-all"
                   >
-                    {/* Spine Node Dot with Hover Scale & Pulse */}
+                    {/* Spine Node Dot with Hover Scale & Glow */}
                     <div className="absolute -left-[37px] top-4 w-4 h-4 rounded-full bg-white border-2 border-brand group-hover:scale-125 group-hover:bg-brand transition-all shadow-xs" />
 
                     <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-soft group-hover:border-brand/50 group-hover:shadow-card transition-all space-y-2">
@@ -338,10 +360,10 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Luminous Animated Beam Divider */}
-      <AnimatedBeamDivider glowColor="teal" />
+      <AnimatedBeamDivider glowColor="teal" speed="normal" />
 
       {/* =========================================================================
-          SECTION 03 — EXPERTISE & CAPABILITIES
+          SECTION 03 — EXPERTISE & CAPABILITIES (With Live Hover Accents)
           ========================================================================= */}
       <section className="py-20 sm:py-28 bg-canvas relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -359,7 +381,7 @@ export const Home: React.FC = () => {
                 key={idx}
                 className="group relative p-7 sm:p-8 bg-white border border-slate-200/90 rounded-2xl shadow-soft space-y-4 hover:border-brand/50 hover:shadow-card transition-all flex flex-col justify-between overflow-hidden"
               >
-                {/* Top Subtle Animated Line Accent */}
+                {/* Top Subtle Animated Line Accent on Hover */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#51AAC0] group-hover:to-transparent transition-all" />
 
                 <div>
@@ -435,10 +457,10 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Luminous Animated Beam Divider */}
-      <AnimatedBeamDivider glowColor="cyan" />
+      <AnimatedBeamDivider glowColor="cyan" speed="normal" />
 
       {/* =========================================================================
-          SECTION 04 — COMPANIES & VENTURES
+          SECTION 04 — COMPANIES & PRIORITY PRODUCTS (With Live Border Beams)
           ========================================================================= */}
       <section id="ventures" className="py-20 sm:py-28 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -455,15 +477,18 @@ export const Home: React.FC = () => {
 
           <div className="space-y-20">
             
-            {/* PRODUCT 01: NOURDOC */}
+            {/* PRODUCT 01: NOURDOC (With Live Cyan Border Beam) */}
             {(() => {
               const nourdoc = PRODUCTS.find((p) => p.id === 'nourdoc')!;
               return (
                 <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                  {/* Live Cyan Border Beam */}
+                  <BorderBeam size={300} duration={8} colorFrom="#38BDF8" colorTo="#0284C7" borderWidth={2} />
+
                   {/* Top Ambient Sky-Blue Accent */}
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-sky-500 via-sky-300 to-sky-600" />
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
                     <div className="lg:col-span-5 space-y-5">
                       <div className="flex items-center gap-2.5">
                         <AttributionBadge type={nourdoc.attribution} />
@@ -507,15 +532,18 @@ export const Home: React.FC = () => {
               );
             })()}
 
-            {/* PRODUCT 02: LEADHIVE AI */}
+            {/* PRODUCT 02: LEADHIVE AI (With Live Indigo Border Beam) */}
             {(() => {
               const leadhive = PRODUCTS.find((p) => p.id === 'leadhive-ai')!;
               return (
                 <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                  {/* Live Indigo Border Beam */}
+                  <BorderBeam size={300} duration={8} colorFrom="#818CF8" colorTo="#4F46E5" borderWidth={2} />
+
                   {/* Top Ambient Indigo Accent */}
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 via-indigo-300 to-indigo-600" />
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
                     <div className="lg:col-span-7 order-2 lg:order-1">
                       <LeadHiveWorkflowDiagram />
                     </div>
@@ -556,15 +584,18 @@ export const Home: React.FC = () => {
               );
             })()}
 
-            {/* PRODUCT 03: SMART ANIMAL */}
+            {/* PRODUCT 03: SMART ANIMAL (With Live Emerald Border Beam) */}
             {(() => {
               const smartAnimal = PRODUCTS.find((p) => p.id === 'smart-animal')!;
               return (
                 <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                  {/* Live Emerald Border Beam */}
+                  <BorderBeam size={300} duration={8} colorFrom="#34D399" colorTo="#059669" borderWidth={2} />
+
                   {/* Top Ambient Emerald Accent */}
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-emerald-300 to-emerald-600" />
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
                     <div className="lg:col-span-5 space-y-5">
                       <div className="flex items-center gap-2.5">
                         <AttributionBadge type={smartAnimal.attribution} />
@@ -608,7 +639,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Separate 360 Technologies Reference Card */}
-          <div className="mt-16 bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-soft space-y-6">
+          <div className="mt-16 bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-soft space-y-6 relative overflow-hidden">
             <div className="max-w-3xl space-y-3">
               <span className="eyebrow text-slate-500">Separate Historical Corporate Reference</span>
               <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">
@@ -647,7 +678,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Luminous Animated Beam Divider */}
-      <AnimatedBeamDivider glowColor="indigo" />
+      <AnimatedBeamDivider glowColor="indigo" speed="normal" />
 
       {/* =========================================================================
           SECTION 05 — SELECTED WORK & IMPACT
@@ -708,10 +739,10 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Luminous Animated Beam Divider */}
-      <AnimatedBeamDivider glowColor="emerald" />
+      <AnimatedBeamDivider glowColor="emerald" speed="normal" />
 
       {/* =========================================================================
-          SECTION 06 — COLLABORATION OPPORTUNITIES & CLOSING
+          SECTION 06 — COLLABORATION PATHWAYS & CLOSING
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -753,7 +784,7 @@ export const Home: React.FC = () => {
               {(() => {
                 const current = COLLABORATION_PATHWAYS[selectedPathwayIdx];
                 return (
-                  <div className="p-8 sm:p-10 bg-white border border-slate-200 rounded-3xl space-y-6 shadow-soft">
+                  <div className="p-8 sm:p-10 bg-white border border-slate-200 rounded-3xl space-y-6 shadow-soft relative overflow-hidden">
                     <div className="border-b border-slate-200 pb-5">
                       <span className="eyebrow text-brand">Selected Pathway</span>
                       <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-1">
