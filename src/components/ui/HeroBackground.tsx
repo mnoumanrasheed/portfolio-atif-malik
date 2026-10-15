@@ -6,6 +6,7 @@ interface HeroBackgroundProps {
   overlayOpacity?: 'light' | 'medium' | 'deep' | 'clear';
   glowColor?: 'teal' | 'cyan' | 'indigo' | 'emerald' | 'amber';
   className?: string;
+  isCompactHeight?: boolean;
   children?: React.ReactNode;
 }
 
@@ -15,6 +16,7 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
   overlayOpacity = 'clear',
   glowColor = 'teal',
   className = '',
+  isCompactHeight = false,
   children
 }) => {
   const glowStyles = {
@@ -27,7 +29,11 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
 
   return (
     <div 
-      className={`relative overflow-hidden min-h-screen min-h-[100dvh] flex flex-col justify-center pt-28 sm:pt-32 pb-16 sm:pb-20 border-b border-line ${className}`}
+      className={`relative overflow-hidden ${
+        isCompactHeight
+          ? 'lg:h-screen lg:max-h-[1000px] min-h-[640px] flex flex-col justify-center pt-20 sm:pt-24 pb-6 sm:pb-8'
+          : 'min-h-screen min-h-[100dvh] flex flex-col justify-center pt-28 sm:pt-32 pb-16 sm:pb-20'
+      } border-b border-line ${className}`}
     >
       {/* High-Clarity Background Image Container */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
@@ -36,25 +42,26 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
           src={imageSrc}
           alt={imageAlt}
           loading="eager"
-          className="w-full h-full object-cover object-right sm:object-center filter saturate-[1.06] contrast-[1.08] brightness-[1.02] opacity-85 sm:opacity-90 transition-transform duration-1000 ease-out"
+          className="w-full h-full object-cover object-right filter saturate-[1.05] contrast-[1.08] brightness-[1.02] opacity-95 transition-transform duration-1000 ease-out"
         />
 
         {/* Directional Contrast Mask:
-            Protects dark text readability on the left (0-55% width)
-            while keeping the right side (45-100% width) crystal clear and vivid
+            100% Pure White on the left (0-42%) guarantees pristine text contrast and zero bleed-through.
+            Feathers smoothly from 42% to 60%.
+            100% Crystal-clear transparency on the right (60-100%) showcases vivid architectural depth.
         */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-white via-white/90 sm:via-white/70 to-white/40 sm:to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-white from-0% via-white via-35% sm:via-white/80 sm:via-50% to-transparent to-80%"
           aria-hidden="true"
         />
 
         {/* Subtle Top & Bottom Seamless Blends */}
         <div
-          className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/70 to-transparent"
+          className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-white/80 to-transparent"
           aria-hidden="true"
         />
         <div
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/50 to-transparent"
+          className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-white via-white/60 to-transparent"
           aria-hidden="true"
         />
 

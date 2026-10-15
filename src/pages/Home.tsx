@@ -30,6 +30,11 @@ import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { ExecutiveLogo } from '../components/ui/ExecutiveLogo';
 import { HeroBackground } from '../components/ui/HeroBackground';
+import { 
+  AnimatedBeamDivider, 
+  AnimatedLineAccent, 
+  AnimatedVerticalSpine 
+} from '../components/ui/AnimatedLine';
 import { NourDocWorkflowDiagram } from '../components/diagrams/NourDocWorkflowDiagram';
 import { LeadHiveWorkflowDiagram } from '../components/diagrams/LeadHiveWorkflowDiagram';
 import { SmartAnimalWorkflowDiagram } from '../components/diagrams/SmartAnimalWorkflowDiagram';
@@ -49,8 +54,8 @@ export const Home: React.FC = () => {
       const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
       tl.from('.hero-eyebrow', { opacity: 0, y: 14, duration: 0.5 })
         .from('.hero-headline', { opacity: 0, y: 22, duration: 0.6 }, '-=0.25')
-        .from('.hero-statement', { opacity: 0, y: 16, duration: 0.5 }, '-=0.3')
         .from('.hero-accent-line', { scaleX: 0, transformOrigin: 'left', duration: 0.55 }, '-=0.25')
+        .from('.hero-statement', { opacity: 0, y: 16, duration: 0.5 }, '-=0.3')
         .from('.hero-roles', { opacity: 0, y: 14, duration: 0.45 }, '-=0.3')
         .from('.hero-cta', { opacity: 0, y: 14, duration: 0.45, stagger: 0.1 }, '-=0.3')
         .from('.hero-editorial-card', { opacity: 0, scale: 0.96, y: 18, duration: 0.75, ease: 'power3.out' }, '-=0.55');
@@ -60,7 +65,7 @@ export const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-canvas text-ink">
+    <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark">
       
       {/* =========================================================================
           SECTION 01 — EXECUTIVE HERO
@@ -73,121 +78,132 @@ export const Home: React.FC = () => {
           imageSrc="/images/heroes/hero-home.jpg" 
           imageAlt="Executive Architecture"
           glowColor="teal" 
-          className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+          isCompactHeight={true}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
               {/* Left 7 Columns (58%): Dominant Executive Identity & Narrative */}
-              <div className="lg:col-span-7 space-y-6">
+              <div className="lg:col-span-7 space-y-3.5 sm:space-y-4 xl:space-y-5">
                 
-                <div className="hero-eyebrow space-y-1">
-                  <span className="text-xs font-mono font-bold tracking-widest text-brand uppercase block">
-                    {EXECUTIVE_PROFILE.name}
+                {/* Eyebrow & Status Pill */}
+                <div className="hero-eyebrow flex flex-wrap items-center gap-2.5">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#51AAC0]/30 shadow-xs">
+                    <span className="w-2 h-2 rounded-full bg-[#51AAC0] animate-pulse" />
+                    <span className="text-xs font-mono font-bold tracking-widest text-brand uppercase">
+                      {EXECUTIVE_PROFILE.name}
+                    </span>
                   </span>
-                  <span className="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider block">
+                  <span className="text-xs sm:text-sm font-semibold text-slate-600 uppercase tracking-wider">
                     {EXECUTIVE_PROFILE.professionalPositioning}
                   </span>
                 </div>
 
+                {/* Main Headline */}
                 <div className="hero-headline">
-                  <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                  <h1 className="font-display text-3xl sm:text-4xl lg:text-[40px] xl:text-[48px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
                     {EXECUTIVE_PROFILE.heroHeadline}
                   </h1>
                 </div>
 
-                {/* Thin Teal Accent Line */}
-                <div className="hero-accent-line h-[2px] w-24 bg-gradient-to-r from-brand to-accent rounded-full" />
+                {/* Animated Luminous Accent Line */}
+                <div className="hero-accent-line">
+                  <AnimatedLineAccent width="w-28 sm:w-36" height="h-[2px]" />
+                </div>
 
-                <div className="hero-statement space-y-3.5 text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+                {/* High-Readability Narrative Paragraph */}
+                <div className="hero-statement space-y-2 text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-xl">
                   <p>
                     {EXECUTIVE_PROFILE.heroStatement}
                   </p>
-                  <p>
+                  <p className="hidden xl:block text-sm text-slate-600 leading-normal">
                     {EXECUTIVE_PROFILE.heroSecondParagraph}
                   </p>
                 </div>
 
-                {/* Formatted Affiliations Ledger */}
-                <div className="hero-roles p-4 sm:p-5 rounded-xl bg-white/90 backdrop-blur-sm border border-slate-200/90 shadow-soft space-y-3 text-sm">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-2.5 border-b border-slate-200/70">
-                    <span className="font-bold text-slate-900">{EXECUTIVE_PROFILE.currentRole}</span>
-                    <span className="text-brand text-xs sm:text-sm font-semibold">
+                {/* Verified Roles Ledger */}
+                <div className="hero-roles p-3.5 sm:p-4 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-soft space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 pb-2 border-b border-slate-200/70">
+                    <span className="font-bold text-sm sm:text-base text-slate-900">{EXECUTIVE_PROFILE.currentRole}</span>
+                    <span className="text-brand text-xs font-bold uppercase tracking-wider">
                       Primary Operational Focus
                     </span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <span className="font-medium text-slate-800">{EXECUTIVE_PROFILE.separateAffiliation}</span>
-                    <span className="text-slate-500 text-xs sm:text-sm">
+                    <span className="font-medium text-xs sm:text-sm text-slate-800">{EXECUTIVE_PROFILE.separateAffiliation}</span>
+                    <span className="text-slate-500 text-xs font-medium">
                       Separate Corporate Affiliation (Subject to counsel review)
                     </span>
                   </div>
                 </div>
 
                 {/* Action CTAs */}
-                <div className="hero-cta flex flex-wrap items-center gap-4 pt-2">
-                  <Button to="/contact" variant="primary" size="lg" showArrow>
+                <div className="hero-cta flex flex-wrap items-center gap-3 pt-1">
+                  <Button to="/contact" variant="primary" size="md" showArrow className="shadow-md">
                     Discuss a Project
                   </Button>
-                  <Button to="/work" variant="secondary" size="lg">
+                  <Button to="/work" variant="secondary" size="md">
                     Explore Selected Work
                   </Button>
                 </div>
               </div>
 
-              {/* Right 5 Columns (42%): Executive Editorial Plate (Replaces App Dashboard) */}
+              {/* Right 5 Columns (42%): Executive Editorial Plate */}
               <div className="lg:col-span-5 hero-editorial-card">
                 <div 
-                  className="relative bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(15,23,42,0.12)] hover:shadow-2xl transition-all"
+                  className="relative bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl overflow-hidden shadow-[0_16px_40px_-10px_rgba(15,23,42,0.12)] hover:shadow-2xl transition-all"
                   aria-label="Executive Profile & Philosophy"
                 >
-                  {/* Top hairline accent bar */}
-                  <div className="h-1.5 w-full bg-gradient-to-r from-brand via-accent-cyan to-brand" />
+                  {/* Shimmering Top Hairline Accent */}
+                  <div className="relative h-1.5 w-full bg-slate-100 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand via-accent to-brand opacity-80" />
+                    <div className="absolute inset-y-0 w-24 bg-gradient-to-r from-transparent via-white to-transparent animate-beam-x-fast" />
+                  </div>
 
                   {/* Editorial Content */}
-                  <div className="p-7 sm:p-9 space-y-6">
+                  <div className="p-5 sm:p-6 space-y-3.5">
                     
                     {/* Header */}
-                    <div className="flex items-center justify-between text-xs pb-4 border-b border-slate-100">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-brand" />
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-bold">
+                    <div className="flex items-center justify-between text-xs pb-2.5 border-b border-slate-100">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
+                        <span className="font-mono text-xs uppercase tracking-wider text-brand font-bold">
                           Executive Perspective
                         </span>
                       </div>
-                      <span className="text-[11px] font-semibold text-slate-500">
+                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                         Editorial Folio
                       </span>
                     </div>
 
                     {/* Architectural Executive Monogram Emblem */}
-                    <div className="text-center py-3 space-y-3">
-                      <ExecutiveLogo size="xl" variant="stacked" theme="light" />
+                    <div className="text-center py-1">
+                      <ExecutiveLogo size="lg" variant="stacked" theme="light" />
                     </div>
 
                     {/* Philosophy Quote */}
-                    <blockquote className="text-center text-sm sm:text-base text-slate-800 font-medium leading-relaxed italic px-2 border-y border-slate-100 py-4">
+                    <blockquote className="text-center text-xs sm:text-sm text-slate-800 font-serif italic leading-relaxed px-2 border-y border-slate-100 py-3">
                       &quot;Intelligent technology creates lasting enterprise value when technical choices are anchored directly to real operational problems.&quot;
                     </blockquote>
 
                     {/* Editorial Ledger Credentials */}
-                    <div className="space-y-2.5 text-xs">
-                      <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                    <div className="space-y-1.5 text-xs sm:text-sm">
+                      <div className="flex items-center justify-between py-1 border-b border-slate-100">
                         <span className="text-slate-500 font-medium">Executive Role</span>
                         <span className="text-slate-900 font-bold">CEO, M3 Hive</span>
                       </div>
-                      <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                      <div className="flex items-center justify-between py-1 border-b border-slate-100">
                         <span className="text-slate-500 font-medium">Historical Directorship</span>
                         <span className="text-slate-900 font-medium">360 Technologies (Founding CEO)</span>
                       </div>
-                      <div className="flex items-center justify-between py-1.5 border-b border-slate-100">
+                      <div className="flex items-center justify-between py-1 border-b border-slate-100">
                         <span className="text-slate-500 font-medium">Core Practice</span>
                         <span className="text-brand font-bold">Applied AI &amp; Product Engineering</span>
                       </div>
                     </div>
 
-                    {/* Verified Link */}
-                    <div className="pt-2 flex items-center justify-between text-xs">
+                    {/* Direct Verification Link */}
+                    <div className="pt-1 flex items-center justify-between text-xs sm:text-sm">
                       <span className="text-slate-500">Direct Verification</span>
                       <a 
                         href={EXECUTIVE_PROFILE.verifiedLinks.linkedin} 
@@ -201,9 +217,12 @@ export const Home: React.FC = () => {
                   </div>
 
                   {/* Discreet Base Footer */}
-                  <div className="px-7 py-3 bg-slate-900 text-white flex items-center justify-between text-[11px] font-mono">
+                  <div className="px-5 py-2.5 bg-slate-900 text-white flex items-center justify-between text-xs font-mono">
                     <span className="text-slate-300">Executive Vehicle</span>
-                    <span className="text-accent font-semibold">M3 Hive Applied AI</span>
+                    <span className="text-accent font-semibold flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                      M3 Hive Applied AI
+                    </span>
                   </div>
                 </div>
               </div>
@@ -213,11 +232,13 @@ export const Home: React.FC = () => {
         </HeroBackground>
       </section>
 
+      {/* Luminous Animated Beam Divider */}
+      <AnimatedBeamDivider glowColor="cyan" />
 
       {/* =========================================================================
           SECTION 02 — LEADERSHIP JOURNEY (Editorial Presentation)
           ========================================================================= */}
-      <section className="py-20 sm:py-24 border-b border-line bg-slate-50/60">
+      <section className="py-20 sm:py-24 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl space-y-3 mb-14">
@@ -225,22 +246,23 @@ export const Home: React.FC = () => {
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight">
               Connecting Business Needs with Product Strategy &amp; Applied AI
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
               A disciplined, problem-first methodology transforming domain friction into verifiable digital systems.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            {/* Left 7 Cols: Full 4-Paragraph Narrative with Editorial Pull-Quote */}
-            <div className="lg:col-span-7 space-y-6 text-base text-slate-700 leading-relaxed font-normal">
+            {/* Left 7 Cols: Full Narrative with High-Legibility Editorial Pull-Quote */}
+            <div className="lg:col-span-7 space-y-6 text-lg text-slate-700 leading-relaxed font-normal">
               <p>
                 Atif I. Malik’s work sits at the intersection of business needs, product strategy and technology execution. His approach starts with the problem to be solved: where work is repetitive, information is fragmented, customer engagement is inconsistent, or decisions depend on data that is difficult to access and interpret. From there, he helps connect domain expertise, user needs, product design, engineering and applied AI into a coherent delivery path.
               </p>
 
-              {/* Editorial Pull-Quote Keyline */}
-              <blockquote className="border-l-2 border-brand pl-6 py-2 my-4 bg-white/80 rounded-r-xl border-y border-r border-slate-200/80 shadow-xs">
-                <p className="text-slate-900 font-medium italic text-base leading-relaxed">
+              {/* Editorial Pull-Quote with Glowing Cyan Accent */}
+              <blockquote className="relative border-l-4 border-brand pl-6 py-4 my-6 bg-white/90 backdrop-blur-sm rounded-r-2xl border-y border-r border-slate-200/80 shadow-xs overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand/5 rounded-full blur-2xl pointer-events-none" />
+                <p className="text-slate-900 font-serif italic text-lg sm:text-xl leading-relaxed">
                   &quot;Connect domain expertise, user needs, product design, engineering and applied AI into a coherent, verifiable delivery path.&quot;
                 </p>
               </blockquote>
@@ -253,50 +275,55 @@ export const Home: React.FC = () => {
                 Atif is also a Founding CEO, Director and Shareholder of 360 Technologies. The company’s published historical portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. These achievements are presented as company history, not as a claim that Atif personally delivered every listed assignment.
               </p>
 
-              <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-soft space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-brand block">Strategic Objective</span>
-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+              <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-soft space-y-2.5">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand block">
+                  Strategic Objective
+                </span>
+                <p className="text-base text-slate-700 leading-relaxed font-medium">
                   The purpose of this website is to help investors understand product opportunities, help collaborators identify where their expertise or networks can contribute, and help prospective clients map their challenges to a suitable product, proof of concept or engineering engagement.
                 </p>
               </div>
 
               <div className="pt-2">
-                <Button to="/about" variant="secondary" showArrow>
+                <Button to="/about" variant="secondary" size="lg" showArrow>
                   Read Full Executive Biography
                 </Button>
               </div>
             </div>
 
-            {/* Right 5 Cols: Four Principles of Execution (Progressive Timeline Spine) */}
+            {/* Right 5 Cols: Four Principles of Execution (With Animated Vertical Spine) */}
             <div className="lg:col-span-5 space-y-6">
               <div className="border-b border-slate-200 pb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand block">
                   Executive Governance
                 </span>
-                <h3 className="font-display font-bold text-xl text-slate-900 mt-1">
+                <h3 className="font-display font-bold text-2xl text-slate-900 mt-1">
                   Four Principles of Execution
                 </h3>
               </div>
 
-              <div className="relative pl-6 border-l-2 border-brand/30 space-y-6">
+              {/* Timeline Container with Animated Traveling Light Spine */}
+              <div className="relative pl-8 space-y-6">
+                <AnimatedVerticalSpine />
+                
                 {LEADERSHIP_PRINCIPLES.map((principle, idx) => (
                   <div 
                     key={idx}
                     className="relative group transition-all"
                   >
-                    {/* Spine Node Dot */}
-                    <div className="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-brand group-hover:scale-125 group-hover:bg-brand transition-all" />
+                    {/* Spine Node Dot with Hover Scale & Pulse */}
+                    <div className="absolute -left-[37px] top-4 w-4 h-4 rounded-full bg-white border-2 border-brand group-hover:scale-125 group-hover:bg-brand transition-all shadow-xs" />
 
-                    <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-soft group-hover:border-brand/40 group-hover:shadow-card transition-all space-y-1.5">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono font-bold text-brand bg-brand-wash px-2 py-0.5 rounded border border-brand/20">
+                    <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-soft group-hover:border-brand/50 group-hover:shadow-card transition-all space-y-2">
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-xs font-mono font-bold text-brand bg-brand-wash px-2.5 py-1 rounded-md border border-brand/20">
                           0{idx + 1}
                         </span>
-                        <h4 className="font-display font-bold text-sm text-slate-900">
+                        <h4 className="font-display font-bold text-base sm:text-lg text-slate-900">
                           {principle.title}
                         </h4>
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
+                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal pt-1">
                         {principle.description}
                       </p>
                     </div>
@@ -310,11 +337,13 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Luminous Animated Beam Divider */}
+      <AnimatedBeamDivider glowColor="teal" />
 
       {/* =========================================================================
           SECTION 03 — EXPERTISE & CAPABILITIES
           ========================================================================= */}
-      <section className="py-20 sm:py-28 border-b border-line bg-canvas">
+      <section className="py-20 sm:py-28 bg-canvas relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeader
@@ -323,54 +352,63 @@ export const Home: React.FC = () => {
             description={PERSPECTIVE.body}
           />
 
-          {/* Six Capability Areas Grid */}
+          {/* Six Capability Areas Grid with Hover Beam Accents */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
             {M3_HIVE_CAPABILITIES.map((cap, idx) => (
               <div 
                 key={idx}
-                className="p-6 bg-white border border-slate-200/90 rounded-xl shadow-soft space-y-3 hover:border-brand/40 hover:shadow-card transition-all flex flex-col justify-between"
+                className="group relative p-7 sm:p-8 bg-white border border-slate-200/90 rounded-2xl shadow-soft space-y-4 hover:border-brand/50 hover:shadow-card transition-all flex flex-col justify-between overflow-hidden"
               >
+                {/* Top Subtle Animated Line Accent */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-[#51AAC0] group-hover:to-transparent transition-all" />
+
                 <div>
-                  <span className="w-8 h-8 rounded-lg bg-brand-wash text-brand font-extrabold text-xs flex items-center justify-center border border-brand/20 mb-3">
+                  <span className="w-9 h-9 rounded-xl bg-brand-wash text-brand font-extrabold text-sm flex items-center justify-center border border-brand/20 mb-4 shadow-xs">
                     0{idx + 1}
                   </span>
-                  <h3 className="font-display font-bold text-lg text-slate-900">
+                  <h3 className="font-display font-bold text-xl text-slate-900 group-hover:text-brand transition-colors">
                     {cap.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mt-2 font-normal">
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed mt-2.5 font-normal">
                     {cap.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-100 text-[11px] font-semibold text-brand">
-                  M3 Hive Capability Practice
+                <div className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-brand flex items-center justify-between">
+                  <span>M3 Hive Practice</span>
+                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-brand group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Four Engagement Steps Timeline */}
-          <div className="mt-16 pt-12 border-t border-slate-200">
-            <div className="max-w-2xl mb-8">
+          {/* Four Engagement Steps Timeline with Connecting Light Beam */}
+          <div className="mt-20 pt-16 border-t border-slate-200">
+            <div className="max-w-2xl mb-10">
               <span className="eyebrow text-brand">Engagement Progression</span>
-              <h3 className="font-display font-extrabold text-2xl text-slate-900 tracking-tight mt-1">
+              <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 tracking-tight mt-1">
                 How Engagements Can Begin
               </h3>
+            </div>
+
+            {/* Connecting Horizontal Runner on Desktop */}
+            <div className="hidden lg:block relative w-full h-[2px] bg-slate-200 mb-6 overflow-hidden rounded-full">
+              <div className="absolute inset-y-0 w-48 bg-gradient-to-r from-transparent via-[#51AAC0] to-transparent animate-beam-x" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {M3_HIVE_ENGAGEMENT_MODELS.map((step, idx) => (
                 <div 
                   key={idx}
-                  className="p-6 bg-slate-50 border border-slate-200 rounded-xl space-y-2 flex flex-col justify-between"
+                  className="p-6 bg-slate-50/80 border border-slate-200/90 rounded-2xl space-y-3 flex flex-col justify-between hover:bg-white hover:border-brand/40 hover:shadow-soft transition-all"
                 >
                   <div>
-                    <span className="w-7 h-7 rounded bg-brand text-white font-extrabold text-xs flex items-center justify-center mb-2 shadow-xs">
+                    <span className="w-8 h-8 rounded-lg bg-brand text-white font-extrabold text-xs flex items-center justify-center mb-3 shadow-xs">
                       {idx + 1}
                     </span>
-                    <h4 className="font-display font-bold text-sm text-slate-900">{step.title}</h4>
-                    <p className="text-xs text-slate-600 leading-relaxed mt-1">{step.detail}</p>
+                    <h4 className="font-display font-bold text-base text-slate-900">{step.title}</h4>
+                    <p className="text-sm text-slate-700 leading-relaxed mt-1.5 font-normal">{step.detail}</p>
                   </div>
-                  <div className="pt-3 border-t border-slate-200 text-[11px] text-slate-500 font-medium">
+                  <div className="pt-3 border-t border-slate-200/70 text-xs text-slate-600 font-semibold uppercase tracking-wider">
                     {step.phase}
                   </div>
                 </div>
@@ -378,16 +416,16 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Engagement Models Banner */}
-            <div className="mt-8 p-5 rounded-xl bg-brand-wash/60 border border-brand/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="mt-8 p-6 rounded-2xl bg-brand-wash/70 border border-brand/25 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
               <div className="space-y-1">
-                <span className="text-xs font-bold text-slate-900 block">
+                <span className="text-sm font-bold text-slate-900 block">
                   Documented Engagement Models:
                 </span>
-                <span className="text-xs text-slate-600">
+                <span className="text-sm sm:text-base text-slate-700 leading-relaxed">
                   Fixed-scope delivery · Time-and-materials · Embedded specialist teams · Integration projects · Strategic product collaboration.
                 </span>
               </div>
-              <Button to="/expertise" variant="outline" size="sm" showArrow className="shrink-0">
+              <Button to="/expertise" variant="outline" size="md" showArrow className="shrink-0">
                 Explore Full Capabilities
               </Button>
             </div>
@@ -396,11 +434,13 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Luminous Animated Beam Divider */}
+      <AnimatedBeamDivider glowColor="cyan" />
 
       {/* =========================================================================
           SECTION 04 — COMPANIES & VENTURES
           ========================================================================= */}
-      <section id="ventures" className="py-20 sm:py-28 border-b border-line bg-slate-50/60">
+      <section id="ventures" className="py-20 sm:py-28 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-16 space-y-3">
@@ -408,7 +448,7 @@ export const Home: React.FC = () => {
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight">
               M3 Hive & Priority Product Initiatives
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal">
               M3 Hive translates complex business needs into digital products, intelligent workflows and applied AI solutions.
             </p>
           </div>
@@ -419,32 +459,35 @@ export const Home: React.FC = () => {
             {(() => {
               const nourdoc = PRODUCTS.find((p) => p.id === 'nourdoc')!;
               return (
-                <div className="p-8 sm:p-10 rounded-2xl bg-white border-2 border-slate-200 shadow-soft space-y-8">
+                <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                  {/* Top Ambient Sky-Blue Accent */}
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-sky-500 via-sky-300 to-sky-600" />
+
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                    <div className="lg:col-span-5 space-y-4">
-                      <div className="flex items-center gap-2">
+                    <div className="lg:col-span-5 space-y-5">
+                      <div className="flex items-center gap-2.5">
                         <AttributionBadge type={nourdoc.attribution} />
-                        <span className="text-xs font-bold text-sky-700 bg-sky-100/80 px-2.5 py-0.5 rounded-full">
+                        <span className="text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full uppercase tracking-wider">
                           01 · HealthTech AI
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
                         {nourdoc.name}
                       </h3>
-                      <p className="text-base text-sky-700 font-semibold">
+                      <p className="text-lg sm:text-xl text-sky-800 font-serif italic font-semibold">
                         &quot;{nourdoc.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                         {nourdoc.overview}
                       </p>
 
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs">
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
-                        <p className="text-slate-600 leading-relaxed">{nourdoc.challenge}</p>
+                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
+                        <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">{nourdoc.challenge}</p>
                       </div>
 
-                      <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button to="/products/nourdoc" variant="primary" showArrow>
+                      <div className="pt-3 flex flex-wrap items-center gap-3">
+                        <Button to="/products/nourdoc" variant="primary" size="lg" showArrow>
                           Explore NourDoc
                         </Button>
                         <Button to="/contact?interest=nourdoc" variant="secondary" size="md">
@@ -468,36 +511,39 @@ export const Home: React.FC = () => {
             {(() => {
               const leadhive = PRODUCTS.find((p) => p.id === 'leadhive-ai')!;
               return (
-                <div className="p-8 sm:p-10 rounded-2xl bg-white border-2 border-slate-200 shadow-soft space-y-8">
+                <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                  {/* Top Ambient Indigo Accent */}
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 via-indigo-300 to-indigo-600" />
+
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     <div className="lg:col-span-7 order-2 lg:order-1">
                       <LeadHiveWorkflowDiagram />
                     </div>
 
-                    <div className="lg:col-span-5 space-y-4 order-1 lg:order-2">
-                      <div className="flex items-center gap-2">
+                    <div className="lg:col-span-5 space-y-5 order-1 lg:order-2">
+                      <div className="flex items-center gap-2.5">
                         <AttributionBadge type={leadhive.attribution} />
-                        <span className="text-xs font-bold text-indigo-700 bg-indigo-100/80 px-2.5 py-0.5 rounded-full">
+                        <span className="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider">
                           02 · Sales Enablement AI
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
                         {leadhive.name}
                       </h3>
-                      <p className="text-base text-indigo-700 font-semibold">
+                      <p className="text-lg sm:text-xl text-indigo-800 font-serif italic font-semibold">
                         &quot;{leadhive.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                         {leadhive.overview}
                       </p>
 
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs">
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
-                        <p className="text-slate-600 leading-relaxed">{leadhive.challenge}</p>
+                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
+                        <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">{leadhive.challenge}</p>
                       </div>
 
-                      <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button to="/products/leadhive-ai" variant="primary" showArrow>
+                      <div className="pt-3 flex flex-wrap items-center gap-3">
+                        <Button to="/products/leadhive-ai" variant="primary" size="lg" showArrow>
                           Explore LeadHive AI
                         </Button>
                         <Button to="/contact?interest=leadhive-ai" variant="outline" size="md">
@@ -514,32 +560,35 @@ export const Home: React.FC = () => {
             {(() => {
               const smartAnimal = PRODUCTS.find((p) => p.id === 'smart-animal')!;
               return (
-                <div className="p-8 sm:p-10 rounded-2xl bg-white border-2 border-slate-200 shadow-soft space-y-8">
+                <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                  {/* Top Ambient Emerald Accent */}
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-emerald-300 to-emerald-600" />
+
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                    <div className="lg:col-span-5 space-y-4">
-                      <div className="flex items-center gap-2">
+                    <div className="lg:col-span-5 space-y-5">
+                      <div className="flex items-center gap-2.5">
                         <AttributionBadge type={smartAnimal.attribution} />
-                        <span className="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full">
+                        <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider">
                           03 · AgriTech IoT & Telemetry
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
                         {smartAnimal.name}
                       </h3>
-                      <p className="text-base text-emerald-700 font-semibold">
+                      <p className="text-lg sm:text-xl text-emerald-800 font-serif italic font-semibold">
                         &quot;{smartAnimal.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                         {smartAnimal.overview}
                       </p>
 
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs">
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
-                        <p className="text-slate-600 leading-relaxed">{smartAnimal.challenge}</p>
+                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
+                        <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">{smartAnimal.challenge}</p>
                       </div>
 
-                      <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button to="/products/smart-animal" variant="primary" showArrow>
+                      <div className="pt-3 flex flex-wrap items-center gap-3">
+                        <Button to="/products/smart-animal" variant="primary" size="lg" showArrow>
                           Explore Smart Animal
                         </Button>
                         <Button to="/contact?interest=smart-animal" variant="outline" size="md">
@@ -559,36 +608,36 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Separate 360 Technologies Reference Card */}
-          <div className="mt-16 bg-white border border-slate-200 rounded-2xl p-8 sm:p-10 shadow-soft space-y-6">
+          <div className="mt-16 bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-soft space-y-6">
             <div className="max-w-3xl space-y-3">
               <span className="eyebrow text-slate-500">Separate Historical Corporate Reference</span>
-              <h3 className="font-display font-extrabold text-2xl text-slate-900">
+              <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">
                 360 Technologies — Company Portfolio & Legacy
               </h3>
-              <p className="text-sm text-slate-700 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                 {TECHNOLOGIES_360.overview}
               </p>
               
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed">
+              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-sm text-slate-700 leading-relaxed">
                 <strong className="text-slate-900 font-bold">Attribution Safeguard: </strong>
                 {TECHNOLOGIES_360.legalNotice}
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
               {TECHNOLOGIES_360.practiceAreas.slice(0, 6).map((practice, idx) => (
-                <div key={idx} className="p-4 rounded-xl border border-slate-200/80 bg-slate-50/50">
-                  <h4 className="font-display font-bold text-xs text-slate-900 mb-1">{practice.name}</h4>
-                  <p className="text-[11px] text-slate-600 leading-relaxed">{practice.description}</p>
+                <div key={idx} className="p-5 rounded-2xl border border-slate-200/80 bg-slate-50/60 hover:bg-white hover:border-brand/30 transition-all">
+                  <h4 className="font-display font-bold text-sm sm:text-base text-slate-900 mb-1">{practice.name}</h4>
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">{practice.description}</p>
                 </div>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
-              <span className="text-xs text-slate-500">
-                Executive Affiliation: <strong className="text-slate-900">{TECHNOLOGIES_360.atifRole}</strong> (Subject to final counsel confirmation).
+            <div className="pt-5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+              <span className="text-sm text-slate-600">
+                Executive Affiliation: <strong className="text-slate-900 font-bold">{TECHNOLOGIES_360.atifRole}</strong> (Subject to final counsel confirmation).
               </span>
-              <Button to="/360-technologies" variant="secondary" showArrow>
+              <Button to="/360-technologies" variant="secondary" size="md" showArrow>
                 Explore 360 Technologies Archive
               </Button>
             </div>
@@ -597,11 +646,13 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Luminous Animated Beam Divider */}
+      <AnimatedBeamDivider glowColor="indigo" />
 
       {/* =========================================================================
           SECTION 05 — SELECTED WORK & IMPACT
           ========================================================================= */}
-      <section className="py-20 sm:py-24 border-b border-line bg-canvas">
+      <section className="py-20 sm:py-24 bg-canvas relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
@@ -611,7 +662,7 @@ export const Home: React.FC = () => {
               description="Documented M3 Hive company initiatives demonstrating software breadth across market intelligence, computational biology, and retail analytics."
               className="mb-0"
             />
-            <Button to="/work" variant="secondary" showArrow className="self-start md:self-auto shrink-0">
+            <Button to="/work" variant="secondary" size="lg" showArrow className="self-start md:self-auto shrink-0">
               View All 7 Case Studies
             </Button>
           </div>
@@ -620,31 +671,34 @@ export const Home: React.FC = () => {
             {M3_HIVE_ADDITIONAL_WORK.slice(0, 3).map((work) => (
               <div 
                 key={work.id} 
-                className="p-7 bg-white border border-slate-200/90 rounded-2xl shadow-soft flex flex-col justify-between hover:border-brand/40 hover:shadow-card transition-all"
+                className="group p-8 bg-white border border-slate-200/90 rounded-3xl shadow-soft flex flex-col justify-between hover:border-brand/40 hover:shadow-card transition-all relative overflow-hidden"
               >
+                {/* Top Animated Specular Accent Line */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-slate-100 group-hover:bg-gradient-to-r group-hover:from-transparent group-hover:via-brand group-hover:to-transparent transition-all" />
+
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-bold text-brand uppercase tracking-wider">{work.category}</span>
-                    <span className="text-slate-500 font-medium">{work.group}</span>
+                    <span className="text-slate-500 font-semibold uppercase">{work.group}</span>
                   </div>
 
-                  <h3 className="font-display font-bold text-xl text-slate-900">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-900 group-hover:text-brand transition-colors">
                     {work.title}
                   </h3>
 
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                     {work.challenge}
                   </p>
 
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
-                    <span className="font-bold text-slate-900 block mb-0.5">Delivered Approach:</span>
-                    <p className="text-slate-600 leading-relaxed">{work.valueProposition}</p>
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-sm">
+                    <span className="font-bold text-slate-900 block mb-1">Delivered Approach:</span>
+                    <p className="text-slate-700 leading-relaxed font-normal">{work.valueProposition}</p>
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-100 text-xs flex items-center justify-between">
-                  <span className="text-slate-400 font-medium">Corporate Attribution:</span>
-                  <span className="text-slate-900 font-semibold">{work.attribution}</span>
+                <div className="pt-6 mt-6 border-t border-slate-100 text-xs sm:text-sm flex items-center justify-between">
+                  <span className="text-slate-500 font-medium">Corporate Attribution:</span>
+                  <span className="text-slate-900 font-bold">{work.attribution}</span>
                 </div>
               </div>
             ))}
@@ -653,11 +707,13 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Luminous Animated Beam Divider */}
+      <AnimatedBeamDivider glowColor="emerald" />
 
       {/* =========================================================================
           SECTION 06 — COLLABORATION OPPORTUNITIES & CLOSING
           ========================================================================= */}
-      <section className="py-20 sm:py-24 border-b border-line bg-slate-50/60">
+      <section className="py-20 sm:py-24 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <SectionHeader
@@ -668,24 +724,24 @@ export const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-4">
             {/* Pathway List (Left 5 Cols) */}
-            <div className="lg:col-span-5 space-y-2.5">
+            <div className="lg:col-span-5 space-y-3">
               {COLLABORATION_PATHWAYS.map((pathway, idx) => (
                 <button
                   key={pathway.id}
                   onClick={() => setSelectedPathwayIdx(idx)}
-                  className={`w-full text-left p-4 rounded-xl transition-all border ${
+                  className={`w-full text-left p-5 rounded-2xl transition-all border ${
                     selectedPathwayIdx === idx
                       ? 'bg-brand-wash border-brand shadow-soft'
                       : 'bg-white border-slate-200/80 hover:border-brand/40'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-display font-bold text-sm text-slate-900">
+                    <span className="font-display font-bold text-base sm:text-lg text-slate-900">
                       {pathway.name}
                     </span>
-                    <ChevronRight className={`w-4 h-4 text-brand transition-transform ${selectedPathwayIdx === idx ? 'translate-x-1' : ''}`} />
+                    <ChevronRight className={`w-5 h-5 text-brand transition-transform ${selectedPathwayIdx === idx ? 'translate-x-1.5' : ''}`} />
                   </div>
-                  <span className="text-xs text-slate-500 block mt-1 line-clamp-1">
+                  <span className="text-xs sm:text-sm text-slate-600 block mt-1 line-clamp-1">
                     {pathway.audience}
                   </span>
                 </button>
@@ -697,51 +753,51 @@ export const Home: React.FC = () => {
               {(() => {
                 const current = COLLABORATION_PATHWAYS[selectedPathwayIdx];
                 return (
-                  <div className="p-8 bg-white border border-slate-200 rounded-2xl space-y-6 shadow-soft">
-                    <div className="border-b border-slate-200 pb-4">
+                  <div className="p-8 sm:p-10 bg-white border border-slate-200 rounded-3xl space-y-6 shadow-soft">
+                    <div className="border-b border-slate-200 pb-5">
                       <span className="eyebrow text-brand">Selected Pathway</span>
-                      <h3 className="font-display font-extrabold text-2xl text-slate-900 mt-1">
+                      <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 mt-1">
                         {current.name}
                       </h3>
-                      <p className="text-sm text-slate-700 mt-2 font-medium">
+                      <p className="text-base text-slate-700 mt-2 font-medium">
                         {current.audience}
                       </p>
                     </div>
 
-                    <div className="space-y-4 text-xs">
+                    <div className="space-y-5 text-sm sm:text-base">
                       <div>
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block mb-1">
+                        <span className="font-bold text-slate-900 uppercase tracking-wider text-xs block mb-1.5">
                           Operational Challenge:
                         </span>
-                        <p className="text-slate-600 leading-relaxed font-normal">
+                        <p className="text-slate-700 leading-relaxed font-normal">
                           {current.likelyChallenge}
                         </p>
                       </div>
 
                       <div>
-                        <span className="font-bold text-brand uppercase tracking-wider block mb-1">
+                        <span className="font-bold text-brand uppercase tracking-wider text-xs block mb-1.5">
                           What We Communicate:
                         </span>
-                        <p className="text-slate-700 leading-relaxed font-normal">
+                        <p className="text-slate-800 leading-relaxed font-medium">
                           {current.whatWeCommunicate}
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block mb-1">
+                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span className="font-bold text-slate-900 uppercase tracking-wider text-xs block mb-1.5">
                           Suggested First Step:
                         </span>
-                        <p className="text-slate-600 leading-relaxed font-normal">
+                        <p className="text-slate-700 leading-relaxed font-normal">
                           {current.possibleFirstStep}
                         </p>
                       </div>
                     </div>
 
-                    <div className="pt-2">
+                    <div className="pt-3">
                       <Button 
                         to={`/contact?intent=${encodeURIComponent(current.name)}`} 
                         variant="primary" 
-                        size="md" 
+                        size="lg" 
                         showArrow
                       >
                         {current.ctaText}
@@ -757,15 +813,19 @@ export const Home: React.FC = () => {
       </section>
 
       {/* FINAL EXECUTIVE DISCUSSION CLOSING BAND */}
-      <section className="py-20 sm:py-24 bg-gradient-to-b from-slate-900 to-slate-950 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/30 border border-brand/40 text-brand-wash text-xs font-bold uppercase tracking-wider">
+      <section className="py-20 sm:py-28 bg-gradient-to-b from-slate-900 via-[#132B33] to-slate-950 text-white relative overflow-hidden">
+        {/* Ambient Top Light Beam */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#51AAC0]/50 to-transparent pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7 relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand/30 border border-brand/40 text-brand-wash text-xs font-bold uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             Direct Executive Discussion
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.15]">
             Building Intelligent Technology. Creating Real-World Impact.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
             Whether you are exploring a product pilot, strategic collaboration, investment opportunity or custom technology engagement, the best place to start is with the problem you need to solve.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
