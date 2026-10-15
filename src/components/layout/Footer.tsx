@@ -1,128 +1,108 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowUpRight, 
-  ShieldCheck, 
-  ExternalLink
-} from 'lucide-react';
-import { EXECUTIVE_PROFILE, PRODUCTS } from '../../content/portfolio';
+import { ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { EXECUTIVE_PROFILE } from '../../content/portfolio';
 import { ExecutiveLogo } from '../ui/ExecutiveLogo';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-b from-slate-950 via-black to-slate-950 text-slate-300 pt-14 sm:pt-16 pb-12 mt-16 sm:mt-24 border-t border-slate-800/80 relative overflow-hidden">
-      
-      {/* Ambient Deep Atmospheric Glows */}
+    <footer className="bg-gradient-to-b from-[#09171C] via-[#0D2228] to-[#071318] text-slate-300 pt-14 sm:pt-16 pb-12 border-t border-[#377A8A]/30 relative overflow-hidden">
+      {/* Top Specular Edge Glow */}
       <div 
-        className="absolute top-0 left-1/4 -translate-x-1/2 w-[600px] h-64 bg-[#377A8A]/12 blur-3xl pointer-events-none rounded-full" 
-        aria-hidden="true" 
-      />
-      <div 
-        className="absolute top-10 right-1/4 translate-x-1/2 w-[500px] h-60 bg-[#51AAC0]/10 blur-3xl pointer-events-none rounded-full" 
+        className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/60 to-transparent pointer-events-none" 
         aria-hidden="true" 
       />
 
-      {/* Top Specular Refraction Rim */}
-      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/40 to-transparent pointer-events-none" />
+      {/* Subtle Ambient Atmosphere */}
+      <div 
+        className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#377A8A]/12 blur-3xl pointer-events-none rounded-full" 
+        aria-hidden="true" 
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* =========================================================================
-            MAIN FOOTER ARCHITECTURE (4-Column Luxury Ledger)
+            MAIN FOOTER ARCHITECTURE (4-Column Executive Ledger)
             ========================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-white/[0.08]">
           
           {/* Column 1 (4 cols): Executive Identity & Leadership Bio */}
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="inline-block group focus-visible:outline-none" aria-label="Atif I. Malik - Home">
-              <ExecutiveLogo size="lg" variant="horizontal" theme="dark" />
+              <ExecutiveLogo size="md" variant="horizontal" theme="dark" />
             </Link>
             
-            <p className="text-sm text-slate-300 font-medium leading-relaxed">
+            <p className="text-xs font-semibold text-[#51AAC0] tracking-wide uppercase">
               {EXECUTIVE_PROFILE.tagline}
             </p>
 
-            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
               Connecting business challenges with product thinking, applied AI, and technology delivery across healthcare, enterprise intelligence, and connected systems.
             </p>
 
             {/* Direct Roles Ledger */}
-            <div className="pt-2 text-xs text-slate-300 space-y-2 border-t border-slate-800/80">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="font-semibold text-slate-200">{EXECUTIVE_PROFILE.currentRole}</span>
-                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                  Primary Focus
-                </span>
+            <div className="pt-3 border-t border-white/[0.08] space-y-2 text-xs">
+              <div className="flex items-center gap-2 text-slate-200">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#51AAC0]" />
+                <span className="font-semibold text-white">{EXECUTIVE_PROFILE.currentRole}</span>
               </div>
-              <div className="text-slate-400 text-[11px] pl-4">
-                • {EXECUTIVE_PROFILE.separateAffiliation}
+              <div className="flex items-start gap-2 text-slate-400 text-[11px] pl-3.5">
+                <span>•</span>
+                <span>{EXECUTIVE_PROFILE.separateAffiliation}</span>
               </div>
             </div>
           </div>
 
           {/* Column 2 (2 cols): Core Navigation */}
           <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#51AAC0]" />
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400 font-medium">
-              <li><Link to="/" className="hover:text-white transition-colors block py-0.5">Home</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors block py-0.5">About</Link></li>
-              <li><Link to="/expertise" className="hover:text-white transition-colors block py-0.5">Expertise</Link></li>
-              <li><Link to="/ventures" className="hover:text-white transition-colors block py-0.5">Ventures</Link></li>
-              <li><Link to="/work" className="hover:text-white transition-colors block py-0.5">Selected Work</Link></li>
-              <li><Link to="/360-technologies" className="hover:text-white transition-colors block py-0.5">360 Technologies</Link></li>
-              <li><Link to="/collaboration" className="hover:text-white transition-colors block py-0.5">Collaboration</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors block py-0.5">Contact</Link></li>
+            <ul className="space-y-2 text-xs font-medium">
+              <li><Link to="/about" className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all block py-0.5">About</Link></li>
+              <li><Link to="/expertise" className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all block py-0.5">Expertise</Link></li>
+              <li><Link to="/ventures" className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all block py-0.5">Ventures</Link></li>
+              <li><Link to="/work" className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all block py-0.5">Selected Work</Link></li>
+              <li><Link to="/360-technologies" className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all block py-0.5">360 Technologies</Link></li>
+              <li><Link to="/collaboration" className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all block py-0.5">Collaboration</Link></li>
+              <li><Link to="/contact" className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all block py-0.5">Contact</Link></li>
             </ul>
           </div>
 
           {/* Column 3 (3 cols): Priority Products */}
           <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
               Priority Products
             </h4>
-            <ul className="space-y-3 text-xs">
+            <ul className="space-y-3.5 text-xs">
               <li>
-                <Link to="/products/nourdoc" className="group block p-2.5 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-sky-500/40 transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-200 font-bold group-hover:text-sky-300 transition-colors">NourDoc</span>
-                    <span className="text-[10px] font-mono text-sky-400 bg-sky-500/10 px-1.5 py-0.5 rounded border border-sky-500/20">
-                      HealthTech AI
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-slate-400 block mt-1 leading-snug">
+                <Link to="/products/nourdoc" className="group block transition-colors py-0.5">
+                  <span className="text-slate-100 font-semibold group-hover:text-[#7EE2F7] transition-colors text-xs block">
+                    NourDoc
+                  </span>
+                  <span className="text-[11px] text-slate-400 block mt-0.5 leading-relaxed group-hover:text-slate-300 transition-colors">
                     AI-enabled clinical documentation platform
                   </span>
                 </Link>
               </li>
 
               <li>
-                <Link to="/products/leadhive-ai" className="group block p-2.5 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-indigo-500/40 transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-200 font-bold group-hover:text-indigo-300 transition-colors">LeadHive AI</span>
-                    <span className="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-1.5 py-0.5 rounded border border-indigo-500/20">
-                      Sales Intelligence
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-slate-400 block mt-1 leading-snug">
+                <Link to="/products/leadhive-ai" className="group block transition-colors py-0.5">
+                  <span className="text-slate-100 font-semibold group-hover:text-indigo-300 transition-colors text-xs block">
+                    LeadHive AI
+                  </span>
+                  <span className="text-[11px] text-slate-400 block mt-0.5 leading-relaxed group-hover:text-slate-300 transition-colors">
                     AI-enabled lead engagement &amp; qualification engine
                   </span>
                 </Link>
               </li>
 
               <li>
-                <Link to="/products/smart-animal" className="group block p-2.5 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-emerald-500/40 transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-200 font-bold group-hover:text-emerald-300 transition-colors">Smart Animal</span>
-                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
-                      AgriTech &amp; IoT
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-slate-400 block mt-1 leading-snug">
+                <Link to="/products/smart-animal" className="group block transition-colors py-0.5">
+                  <span className="text-slate-100 font-semibold group-hover:text-emerald-300 transition-colors text-xs block">
+                    Smart Animal
+                  </span>
+                  <span className="text-[11px] text-slate-400 block mt-0.5 leading-relaxed group-hover:text-slate-300 transition-colors">
                     Connected livestock monitoring &amp; herd management
                   </span>
                 </Link>
@@ -130,25 +110,21 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4 (3 cols): Verified Sources & Direct Channels */}
+          {/* Column 4 (3 cols): Verified Links & Direct Channels */}
           <div className="lg:col-span-3 space-y-3.5">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
               Verified Links
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400 font-medium">
+            <ul className="space-y-2 text-xs font-medium">
               <li>
                 <a
                   href={EXECUTIVE_PROFILE.verifiedLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-[#51AAC0]/40 transition-all flex items-center justify-between group"
+                  className="group flex items-center justify-between py-1 text-slate-300 hover:text-white transition-colors"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-[#51AAC0]">in</span>
-                    <span className="text-slate-200 group-hover:text-white transition-colors">LinkedIn Profile</span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] transition-colors" />
+                  <span>LinkedIn Profile</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </li>
 
@@ -157,13 +133,10 @@ export const Footer: React.FC = () => {
                   href={EXECUTIVE_PROFILE.verifiedLinks.nourdoc}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-[#51AAC0]/40 transition-all flex items-center justify-between group"
+                  className="group flex items-center justify-between py-1 text-slate-300 hover:text-white transition-colors"
                 >
-                  <div className="flex items-center gap-2">
-                    <ExternalLink className="w-3.5 h-3.5 text-sky-400" />
-                    <span className="text-slate-200 group-hover:text-white transition-colors">NourDoc Product Page</span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] transition-colors" />
+                  <span>NourDoc Product Page</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </li>
 
@@ -172,13 +145,10 @@ export const Footer: React.FC = () => {
                   href={EXECUTIVE_PROFILE.verifiedLinks.m3hive}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-[#51AAC0]/40 transition-all flex items-center justify-between group"
+                  className="group flex items-center justify-between py-1 text-slate-300 hover:text-white transition-colors"
                 >
-                  <div className="flex items-center gap-2">
-                    <ExternalLink className="w-3.5 h-3.5 text-indigo-400" />
-                    <span className="text-slate-200 group-hover:text-white transition-colors">M3 Hive Platform</span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] transition-colors" />
+                  <span>M3 Hive Platform</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </li>
 
@@ -187,13 +157,10 @@ export const Footer: React.FC = () => {
                   href={EXECUTIVE_PROFILE.verifiedLinks.technologies360}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-xl bg-slate-900/60 hover:bg-slate-900 border border-slate-800/80 hover:border-[#51AAC0]/40 transition-all flex items-center justify-between group"
+                  className="group flex items-center justify-between py-1 text-slate-300 hover:text-white transition-colors"
                 >
-                  <div className="flex items-center gap-2">
-                    <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-                    <span className="text-slate-200 group-hover:text-white transition-colors">360 Tech Clients Directory</span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] transition-colors" />
+                  <span>360 Tech Clients Directory</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#51AAC0] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </li>
             </ul>

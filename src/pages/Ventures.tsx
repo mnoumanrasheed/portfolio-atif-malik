@@ -98,7 +98,7 @@ export const Ventures: React.FC = () => {
                     <div className="lg:col-span-5 space-y-4">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-sky-700 bg-sky-100/80 px-2.5 py-0.5 rounded-full">
-                          Priority 01 · HealthTech AI
+                          HealthTech AI
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-3xl text-slate-900">
@@ -152,7 +152,7 @@ export const Ventures: React.FC = () => {
                     <div className="lg:col-span-5 space-y-4 order-1 lg:order-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-indigo-700 bg-indigo-100/80 px-2.5 py-0.5 rounded-full">
-                          Priority 02 · Lead Engagement &amp; Qualification
+                          Lead Engagement &amp; Qualification
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-3xl text-slate-900">
@@ -195,7 +195,7 @@ export const Ventures: React.FC = () => {
                     <div className="lg:col-span-5 space-y-4">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full">
-                          Priority 03 · AgriTech &amp; IoT
+                          AgriTech &amp; IoT
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-3xl text-slate-900">

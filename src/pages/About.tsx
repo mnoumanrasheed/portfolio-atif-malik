@@ -1,9 +1,12 @@
 import React from 'react';
+import { Target, Layers, Compass, ShieldCheck } from 'lucide-react';
 import { EXECUTIVE_PROFILE, LEADERSHIP_PRINCIPLES } from '../content/portfolio';
 import { ExecutiveMonogram } from '../components/ui/ExecutiveMonogram';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { HeroBackground } from '../components/ui/HeroBackground';
+
+const PRINCIPLE_ICONS = [Target, Layers, Compass, ShieldCheck];
 
 export const About: React.FC = () => {
   return (
@@ -38,16 +41,18 @@ export const About: React.FC = () => {
         </div>
       </HeroBackground>
 
+      {/* =========================================================================
+          SECTION 1: EXECUTIVE STORY & LEADERSHIP ARCHITECTURE (Balanced 2-Col Grid)
+          ========================================================================= */}
       <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Narrative & Monogram Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* Left Narrative: Executive Story */}
-          <div className="lg:col-span-7 space-y-10">
+          {/* Left Narrative: Executive Story & Journey */}
+          <div className="lg:col-span-7 space-y-8">
             
             {/* Section A: Executive Biography */}
             <ScrollReveal>
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-soft space-y-5">
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-soft space-y-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-brand border-b border-slate-100 pb-3">
                   Executive Biography
                 </div>
@@ -71,7 +76,7 @@ export const About: React.FC = () => {
 
             {/* Section B: Leadership Journey */}
             <ScrollReveal delay={0.08}>
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-soft space-y-5">
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 shadow-soft space-y-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-brand border-b border-slate-100 pb-3">
                   Leadership Journey
                 </div>
@@ -98,57 +103,16 @@ export const About: React.FC = () => {
                   <p>
                     The company&apos;s published historical portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training.
                   </p>
-                  <p className="text-sm text-slate-500 pt-2 border-t border-slate-100">
+                  <p className="text-sm text-slate-500 pt-3 border-t border-slate-100">
                     These achievements must be presented as company history, not as a claim that Atif personally delivered every assignment.
                   </p>
                 </div>
               </div>
             </ScrollReveal>
-
-            {/* Section C: Leadership Approach (Exactly Four Principles) */}
-            <ScrollReveal delay={0.1}>
-              <div className="space-y-6">
-                <div>
-                  <div className="eyebrow text-brand mb-1">Guiding Approach</div>
-                  <h3 className="font-display font-extrabold text-2xl text-slate-900">
-                    Leadership Principles
-                  </h3>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {LEADERSHIP_PRINCIPLES.map((pillar, idx) => (
-                    <div 
-                      key={idx}
-                      className="p-5 bg-white border border-slate-200/90 rounded-xl shadow-soft space-y-2.5 hover:border-brand/40 hover:shadow-card transition-all"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-brand text-white font-extrabold text-xs flex items-center justify-center shadow-xs">
-                        0{idx + 1}
-                      </div>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
-                        {pillar.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Action CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Button to="/contact" variant="primary" showArrow>
-                Discuss a Project
-              </Button>
-              <Button to="/ventures" variant="secondary">
-                Explore Ventures
-              </Button>
-              <Button to="/expertise" variant="outline">
-                Explore Expertise
-              </Button>
-            </div>
           </div>
 
-          {/* Right Column: Executive Monogram & Affiliations */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Right Column: Executive Monogram & Verified Affiliations */}
+          <div className="lg:col-span-5 space-y-6">
             <ScrollReveal delay={0.15}>
               <ExecutiveMonogram />
             </ScrollReveal>
@@ -160,7 +124,7 @@ export const About: React.FC = () => {
                   Company Affiliations
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div className="p-4 rounded-xl border border-slate-200/80 bg-slate-50/70 space-y-1">
                     <span className="text-[11px] font-bold text-brand uppercase tracking-wider">Primary Company Focus</span>
                     <h4 className="font-display font-bold text-sm text-slate-900">Chief Executive Officer</h4>
@@ -179,6 +143,82 @@ export const About: React.FC = () => {
 
         </div>
       </div>
+
+      {/* =========================================================================
+          SECTION 2: GUIDING APPROACH & LEADERSHIP PRINCIPLES (Full-Width Responsive 4-Col Grid)
+          ========================================================================= */}
+      <section className="py-20 sm:py-24 bg-gradient-to-b from-slate-50/60 via-slate-50 to-white border-t border-slate-200/80 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <ScrollReveal>
+            <div className="max-w-2xl mb-12">
+              <span className="eyebrow text-brand">Guiding Approach</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
+                Leadership Principles
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal leading-relaxed">
+                Core strategic and delivery principles guiding applied AI evaluation, operational readiness, and technology execution.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Full-width 4-column cards grid: spans the entire container width */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {LEADERSHIP_PRINCIPLES.map((pillar, idx) => {
+              const Icon = PRINCIPLE_ICONS[idx % PRINCIPLE_ICONS.length];
+              return (
+                <ScrollReveal key={idx} delay={0.06 * idx}>
+                  <div className="h-full p-6 sm:p-7 bg-white border border-slate-200/90 rounded-2xl shadow-soft hover:shadow-card hover:border-[#377A8A]/50 transition-all flex flex-col justify-between group relative overflow-hidden">
+                    
+                    {/* Subtle top indicator hover line */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-transparent group-hover:bg-[#377A8A] transition-colors" />
+
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="w-9 h-9 rounded-xl bg-slate-100 group-hover:bg-[#377A8A] text-slate-700 group-hover:text-white font-mono font-bold text-xs flex items-center justify-center transition-colors shadow-2xs">
+                          0{idx + 1}
+                        </span>
+                        <Icon className="w-4 h-4 text-slate-400 group-hover:text-[#377A8A] transition-colors" />
+                      </div>
+
+                      <div>
+                        <h3 className="font-display font-bold text-base text-slate-900 group-hover:text-[#377A8A] transition-colors leading-snug">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mt-2">
+                          {pillar.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 mt-4 border-t border-slate-100 text-[11px] font-mono font-medium text-slate-400 group-hover:text-[#377A8A] transition-colors">
+                      Principle 0{idx + 1}
+                    </div>
+
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+
+          {/* Action CTAs aligned with full width */}
+          <ScrollReveal delay={0.25}>
+            <div className="mt-12 pt-8 border-t border-slate-200/80 flex flex-wrap items-center gap-4">
+              <Button to="/contact" variant="primary" showArrow>
+                Discuss a Project
+              </Button>
+              <Button to="/ventures" variant="secondary">
+                Explore Ventures
+              </Button>
+              <Button to="/expertise" variant="outline">
+                Explore Expertise
+              </Button>
+            </div>
+          </ScrollReveal>
+
+        </div>
+      </section>
+
     </div>
   );
 };
