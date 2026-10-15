@@ -91,6 +91,15 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
                 <a
+                  href={`mailto:${EXECUTIVE_PROFILE.verifiedLinks.email || 'atif.imran@gmail.com'}`}
+                  className="hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span>Executive Email</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
+                </a>
+              </li>
+              <li>
+                <a
                   href={EXECUTIVE_PROFILE.verifiedLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"

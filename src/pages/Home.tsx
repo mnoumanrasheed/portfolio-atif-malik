@@ -44,6 +44,7 @@ import { BorderBeam, LivePulseBeacon } from '../components/ui/BorderBeam';
 import { NourDocWorkflowDiagram } from '../components/diagrams/NourDocWorkflowDiagram';
 import { LeadHiveWorkflowDiagram } from '../components/diagrams/LeadHiveWorkflowDiagram';
 import { SmartAnimalWorkflowDiagram } from '../components/diagrams/SmartAnimalWorkflowDiagram';
+import { HeroExecutiveCard } from '../components/ui/HeroExecutiveCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -166,86 +167,9 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right 5 Columns (42%): Executive Editorial Plate with Live Border Beam */}
-              <div className="lg:col-span-5 hero-editorial-card">
-                <div 
-                  className="relative bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl overflow-hidden shadow-[0_16px_40px_-10px_rgba(15,23,42,0.12)] hover:shadow-2xl transition-all"
-                  aria-label="Executive Profile & Philosophy"
-                >
-                  {/* Live Circulating Light Border Beam Animation */}
-                  <BorderBeam size={260} duration={9} colorFrom="#51AAC0" colorTo="#377A8A" borderWidth={2} />
-
-                  {/* Shimmering Top Hairline Accent */}
-                  <div className="relative h-1.5 w-full bg-slate-100 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-brand via-accent to-brand opacity-80" />
-                    <div className="absolute inset-y-0 w-24 bg-gradient-to-r from-transparent via-white to-transparent animate-beam-x-fast" />
-                  </div>
-
-                  {/* Editorial Content */}
-                  <div className="p-5 sm:p-6 space-y-3.5 relative z-10">
-                    
-                    {/* Header */}
-                    <div className="flex items-center justify-between text-xs pb-2.5 border-b border-slate-100">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-                        <span className="font-mono text-xs uppercase tracking-wider text-brand font-bold">
-                          Executive Perspective
-                        </span>
-                      </div>
-                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                        Editorial Folio
-                      </span>
-                    </div>
-
-                    {/* Architectural Executive Monogram Emblem */}
-                    <div className="text-center py-1">
-                      <ExecutiveLogo size="lg" variant="stacked" theme="light" />
-                    </div>
-
-                    {/* Philosophy Quote */}
-                    <blockquote className="text-center text-xs sm:text-sm text-slate-800 font-serif italic leading-relaxed px-2 border-y border-slate-100 py-3">
-                      &quot;Intelligent technology creates lasting enterprise value when technical choices are anchored directly to real operational problems.&quot;
-                    </blockquote>
-
-                    {/* Editorial Ledger Credentials */}
-                    <div className="space-y-1.5 text-xs sm:text-sm">
-                      <div className="flex items-center justify-between py-1 border-b border-slate-100">
-                        <span className="text-slate-500 font-medium">Executive Role</span>
-                        <span className="text-slate-900 font-bold">CEO, M3 Hive</span>
-                      </div>
-                      <div className="flex items-center justify-between py-1 border-b border-slate-100">
-                        <span className="text-slate-500 font-medium">Historical Directorship</span>
-                        <span className="text-slate-900 font-medium">360 Technologies (Founding CEO)</span>
-                      </div>
-                      <div className="flex items-center justify-between py-1 border-b border-slate-100">
-                        <span className="text-slate-500 font-medium">Core Practice</span>
-                        <span className="text-brand font-bold">Applied AI &amp; Product Engineering</span>
-                      </div>
-                    </div>
-
-                    {/* Direct Verification Link */}
-                    <div className="pt-1 flex items-center justify-between text-xs sm:text-sm">
-                      <span className="text-slate-500">Direct Verification</span>
-                      <a 
-                        href={EXECUTIVE_PROFILE.verifiedLinks.linkedin} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-brand font-bold hover:text-brand-hover inline-flex items-center gap-1 transition-colors"
-                      >
-                        LinkedIn Network <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Discreet Base Footer */}
-                  <div className="px-5 py-2.5 bg-slate-900 text-white flex items-center justify-between text-xs font-mono relative z-10">
-                    <span className="text-slate-300">Executive Vehicle</span>
-                    <span className="text-accent font-semibold flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                      M3 Hive Applied AI
-                    </span>
-                  </div>
-                </div>
+              {/* Right 5 Columns (42%): Executive Editorial Plate with Live Console & Floating Levitation */}
+              <div className="lg:col-span-5">
+                <HeroExecutiveCard />
               </div>
 
             </div>
@@ -475,51 +399,65 @@ export const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-16 sm:space-y-20">
             
-            {/* PRODUCT 01: NOURDOC (With Live Cyan Border Beam) */}
+            {/* PRODUCT 01: NOURDOC (With Live Cyan Border Beam & Atmospheric Aura) */}
             {(() => {
               const nourdoc = PRODUCTS.find((p) => p.id === 'nourdoc')!;
               return (
-                <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                <div className="relative p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/90 backdrop-blur-2xl border border-slate-200/80 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_60px_-15px_rgba(15,23,42,0.1)] transition-all space-y-8 overflow-hidden">
                   {/* Live Cyan Border Beam */}
-                  <BorderBeam size={300} duration={8} colorFrom="#38BDF8" colorTo="#0284C7" borderWidth={2} />
+                  <BorderBeam size={280} duration={9} colorFrom="#38BDF8" colorTo="#0284C7" borderWidth={1.5} />
 
-                  {/* Top Ambient Sky-Blue Accent */}
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-sky-500 via-sky-300 to-sky-600" />
+                  {/* Atmospheric Ambient Glow & Specular Hairline Rim */}
+                  <div className="absolute -top-32 -right-32 w-96 h-96 bg-sky-400/8 rounded-full blur-3xl pointer-events-none -z-0" />
+                  <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-sky-400/35 to-transparent pointer-events-none rounded-full" />
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
                     <div className="lg:col-span-5 space-y-5">
                       <div className="flex items-center gap-2.5">
                         <AttributionBadge type={nourdoc.attribution} />
-                        <span className="text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full uppercase tracking-wider">
-                          01 · HealthTech AI
+                        <span className="text-[11px] font-mono font-bold text-sky-800 bg-sky-50 border border-sky-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                          01 · HealthTech AI Flagship
                         </span>
                       </div>
-                      <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
+
+                      <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
                         {nourdoc.name}
                       </h3>
-                      <p className="text-lg sm:text-xl text-sky-800 font-serif italic font-semibold">
+
+                      <p className="text-lg sm:text-xl text-sky-900 font-serif italic font-semibold leading-snug">
                         &quot;{nourdoc.positioningLine}&quot;
                       </p>
-                      <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+
+                      <p className="text-base text-slate-700 leading-relaxed font-normal">
                         {nourdoc.overview}
                       </p>
 
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                        <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
-                        <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">{nourdoc.challenge}</p>
+                      {/* Editorial Problem & Clinical Friction Bridge */}
+                      <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border-l-4 border-l-sky-500 border-y border-r border-slate-200/80 space-y-2">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
+                          <span className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider">
+                            Operational Challenge &amp; Clinical Friction
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-700 leading-relaxed font-normal pl-4">
+                          {nourdoc.challenge}
+                        </p>
                       </div>
 
                       <div className="pt-3 flex flex-wrap items-center gap-3">
-                        <Button to="/products/nourdoc" variant="primary" size="lg" showArrow>
-                          Explore NourDoc
-                        </Button>
+                        <Link
+                          to="/products/nourdoc"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] border border-white/20"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
+                          <span>Explore NourDoc</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                         <Button to="/contact?interest=nourdoc" variant="secondary" size="md">
-                          Explore a Clinical Pilot
-                        </Button>
-                        <Button to="/contact?interest=nourdoc-integration" variant="outline" size="md">
-                          Discuss Integration
+                          Clinical Pilot Inquiries
                         </Button>
                       </div>
                     </div>
@@ -532,16 +470,17 @@ export const Home: React.FC = () => {
               );
             })()}
 
-            {/* PRODUCT 02: LEADHIVE AI (With Live Indigo Border Beam) */}
+            {/* PRODUCT 02: LEADHIVE AI (With Live Indigo Border Beam & Atmospheric Aura) */}
             {(() => {
               const leadhive = PRODUCTS.find((p) => p.id === 'leadhive-ai')!;
               return (
-                <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                <div className="relative p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/90 backdrop-blur-2xl border border-slate-200/80 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_60px_-15px_rgba(15,23,42,0.1)] transition-all space-y-8 overflow-hidden">
                   {/* Live Indigo Border Beam */}
-                  <BorderBeam size={300} duration={8} colorFrom="#818CF8" colorTo="#4F46E5" borderWidth={2} />
+                  <BorderBeam size={280} duration={9} colorFrom="#818CF8" colorTo="#4F46E5" borderWidth={1.5} />
 
-                  {/* Top Ambient Indigo Accent */}
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-indigo-500 via-indigo-300 to-indigo-600" />
+                  {/* Atmospheric Ambient Glow & Specular Hairline Rim */}
+                  <div className="absolute -top-32 -left-32 w-96 h-96 bg-indigo-400/8 rounded-full blur-3xl pointer-events-none -z-0" />
+                  <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-indigo-400/35 to-transparent pointer-events-none rounded-full" />
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
                     <div className="lg:col-span-7 order-2 lg:order-1">
@@ -551,31 +490,47 @@ export const Home: React.FC = () => {
                     <div className="lg:col-span-5 space-y-5 order-1 lg:order-2">
                       <div className="flex items-center gap-2.5">
                         <AttributionBadge type={leadhive.attribution} />
-                        <span className="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                        <span className="text-[11px] font-mono font-bold text-indigo-800 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider">
                           02 · Sales Enablement AI
                         </span>
                       </div>
-                      <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
+
+                      <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
                         {leadhive.name}
                       </h3>
-                      <p className="text-lg sm:text-xl text-indigo-800 font-serif italic font-semibold">
+
+                      <p className="text-lg sm:text-xl text-indigo-900 font-serif italic font-semibold leading-snug">
                         &quot;{leadhive.positioningLine}&quot;
                       </p>
-                      <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+
+                      <p className="text-base text-slate-700 leading-relaxed font-normal">
                         {leadhive.overview}
                       </p>
 
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                        <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
-                        <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">{leadhive.challenge}</p>
+                      {/* Editorial Problem & Sales Friction Bridge */}
+                      <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border-l-4 border-l-indigo-500 border-y border-r border-slate-200/80 space-y-2">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+                          <span className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider">
+                            Operational Challenge &amp; Conversion Friction
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-700 leading-relaxed font-normal pl-4">
+                          {leadhive.challenge}
+                        </p>
                       </div>
 
                       <div className="pt-3 flex flex-wrap items-center gap-3">
-                        <Button to="/products/leadhive-ai" variant="primary" size="lg" showArrow>
-                          Explore LeadHive AI
-                        </Button>
-                        <Button to="/contact?interest=leadhive-ai" variant="outline" size="md">
-                          Design Qualification Workflow
+                        <Link
+                          to="/products/leadhive-ai"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] border border-white/20"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
+                          <span>Explore LeadHive AI</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                        <Button to="/contact?interest=leadhive-ai" variant="secondary" size="md">
+                          Design Qualification Funnel
                         </Button>
                       </div>
                     </div>
@@ -584,46 +539,63 @@ export const Home: React.FC = () => {
               );
             })()}
 
-            {/* PRODUCT 03: SMART ANIMAL (With Live Emerald Border Beam) */}
+            {/* PRODUCT 03: SMART ANIMAL (With Live Emerald Border Beam & Atmospheric Aura) */}
             {(() => {
               const smartAnimal = PRODUCTS.find((p) => p.id === 'smart-animal')!;
               return (
-                <div className="relative p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-soft hover:shadow-card transition-all space-y-8 overflow-hidden">
+                <div className="relative p-7 sm:p-10 lg:p-12 rounded-3xl bg-white/90 backdrop-blur-2xl border border-slate-200/80 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_60px_-15px_rgba(15,23,42,0.1)] transition-all space-y-8 overflow-hidden">
                   {/* Live Emerald Border Beam */}
-                  <BorderBeam size={300} duration={8} colorFrom="#34D399" colorTo="#059669" borderWidth={2} />
+                  <BorderBeam size={280} duration={9} colorFrom="#34D399" colorTo="#059669" borderWidth={1.5} />
 
-                  {/* Top Ambient Emerald Accent */}
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-emerald-300 to-emerald-600" />
+                  {/* Atmospheric Ambient Glow & Specular Hairline Rim */}
+                  <div className="absolute -top-32 -right-32 w-96 h-96 bg-emerald-400/8 rounded-full blur-3xl pointer-events-none -z-0" />
+                  <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-400/35 to-transparent pointer-events-none rounded-full" />
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
                     <div className="lg:col-span-5 space-y-5">
                       <div className="flex items-center gap-2.5">
                         <AttributionBadge type={smartAnimal.attribution} />
-                        <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider">
-                          03 · AgriTech IoT & Telemetry
+                        <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                          03 · AgriTech IoT &amp; Telemetry
                         </span>
                       </div>
-                      <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
+
+                      <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
                         {smartAnimal.name}
                       </h3>
-                      <p className="text-lg sm:text-xl text-emerald-800 font-serif italic font-semibold">
+
+                      <p className="text-lg sm:text-xl text-emerald-900 font-serif italic font-semibold leading-snug">
                         &quot;{smartAnimal.positioningLine}&quot;
                       </p>
-                      <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+
+                      <p className="text-base text-slate-700 leading-relaxed font-normal">
                         {smartAnimal.overview}
                       </p>
 
-                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                        <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
-                        <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">{smartAnimal.challenge}</p>
+                      {/* Editorial Problem & Herd Visibility Bridge */}
+                      <div className="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border-l-4 border-l-emerald-500 border-y border-r border-slate-200/80 space-y-2">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          <span className="text-xs font-mono font-bold text-slate-900 uppercase tracking-wider">
+                            Operational Challenge &amp; Herd Visibility
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-700 leading-relaxed font-normal pl-4">
+                          {smartAnimal.challenge}
+                        </p>
                       </div>
 
                       <div className="pt-3 flex flex-wrap items-center gap-3">
-                        <Button to="/products/smart-animal" variant="primary" size="lg" showArrow>
-                          Explore Smart Animal
-                        </Button>
-                        <Button to="/contact?interest=smart-animal" variant="outline" size="md">
-                          Discuss a Smart Animal Pilot
+                        <Link
+                          to="/products/smart-animal"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] border border-white/20"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
+                          <span>Explore Smart Animal</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                        <Button to="/contact?interest=smart-animal" variant="secondary" size="md">
+                          Discuss Farm Pilots
                         </Button>
                       </div>
                     </div>

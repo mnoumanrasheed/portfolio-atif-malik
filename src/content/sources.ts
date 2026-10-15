@@ -12,7 +12,7 @@ export const APPROVED_EXTERNAL_URLS = {
   m3hiveCorporate: 'https://m3hive.com/',
   m3hiveCaseStudies: 'https://m3hive.com/resources/case-studies.html',
   m3hiveLinkedin: 'https://www.linkedin.com/company/m3-hive/',
-  nourdocOfficial: 'https://nourdoc.m3hive.com/',
+  nourdocOfficial: 'https://nour-doc.com/',
   technologies360About: 'https://www.360technologies.net/index.php/about-us',
   technologies360Clients: 'https://www.360technologies.net/index.php/360-clients',
   technologies360Projects: 'https://360technologies.net/index.php/360-clients/projects-recently-completed'

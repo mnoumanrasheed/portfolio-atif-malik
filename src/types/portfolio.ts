@@ -27,6 +27,7 @@ export interface ExecutiveProfile {
     m3hive: string;
     nourdoc: string;
     technologies360: string;
+    email?: string;
   };
 }
 

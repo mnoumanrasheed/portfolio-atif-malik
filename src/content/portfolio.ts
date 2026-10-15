@@ -41,8 +41,9 @@ export const EXECUTIVE_PROFILE: ExecutiveProfile = {
   verifiedLinks: {
     linkedin: 'https://www.linkedin.com/in/aimalik/',
     m3hive: 'https://m3hive.com/',
-    nourdoc: 'https://nourdoc.m3hive.com/',
-    technologies360: 'https://www.360technologies.net/index.php/360-clients'
+    nourdoc: 'https://nour-doc.com/',
+    technologies360: 'https://www.360technologies.net/index.php/360-clients',
+    email: 'atif.imran@gmail.com'
   }
 };
 
@@ -68,7 +69,7 @@ export const PRODUCTS: ProductData[] = [
     category: 'AI-enabled clinical documentation platform',
     positioningLine: 'Let AI handle the documentation. Let clinicians focus on care.',
     attribution: 'M3 Hive product',
-    officialUrl: 'https://nourdoc.m3hive.com/',
+    officialUrl: 'https://nour-doc.com/',
     overview:
       'NourDoc is an AI-enabled clinical documentation platform designed to transform clinical conversations and notes into structured healthcare documentation. Its described workflow includes conversation capture, transcription, draft SOAP notes and support for clinical information workflows. The product direction also includes coding support and integration-oriented workflows for healthcare providers and organisations.',
     challenge:
@@ -641,7 +642,7 @@ export const EXTERNAL_SOURCES: ExternalSource[] = [
     title: 'NourDoc',
     category: 'Healthcare AI Platform',
     group: 'Products',
-    url: 'https://nourdoc.m3hive.com/',
+    url: 'https://nour-doc.com/',
     note: 'Official product page.'
   },
   {
