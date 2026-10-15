@@ -238,7 +238,7 @@ export const LeadHiveWorkflowDiagram: React.FC = () => {
                 {currentStage.number}
               </span>
               <span className="font-display font-bold text-slate-900 text-sm">
-                {currentStage.title} — {currentStage.tag}
+                {currentStage.title} · {currentStage.tag}
               </span>
             </div>
             <span className="text-slate-400 font-mono text-[11px]">

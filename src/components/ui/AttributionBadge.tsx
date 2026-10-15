@@ -28,7 +28,7 @@ export const AttributionBadge: React.FC<AttributionBadgeProps> = ({ type, classN
           detail: 'Historical Archive',
           classes: 'bg-canvas-subtle text-ink-muted border-line'
         };
-      case 'Atif I. Malik — role confirmed':
+      case 'Atif I. Malik · role confirmed':
         return {
           label: 'Atif I. Malik',
           detail: 'Role Confirmed',

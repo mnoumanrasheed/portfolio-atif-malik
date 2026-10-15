@@ -253,7 +253,7 @@ export const NourDocWorkflowDiagram: React.FC = () => {
                 {currentStep.number}
               </span>
               <span className="font-display font-bold text-slate-900 text-sm">
-                {currentStep.title} — {currentStep.tag}
+                {currentStep.title} · {currentStep.tag}
               </span>
             </div>
             <span className="text-slate-400 font-mono text-[11px]">

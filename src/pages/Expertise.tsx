@@ -154,7 +154,7 @@ export const Expertise: React.FC = () => {
             ))}
           </div>
 
-        {/* How Engagements Can Begin — 4 Steps */}
+        {/* How Engagements Can Begin: 4 Steps */}
         <div className="mt-24 pt-16 border-t border-slate-200">
           <ScrollReveal>
             <div className="max-w-3xl mb-12">

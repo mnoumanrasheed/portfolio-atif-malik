@@ -36,14 +36,14 @@ export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const enquiryOptions = [
-    { id: 'nourdoc-demo', label: 'NourDoc — Book a Demo / Workflow Walkthrough' },
-    { id: 'nourdoc-pilot', label: 'NourDoc — Clinical Pilot / Trial' },
-    { id: 'nourdoc-integration', label: 'NourDoc — EHR/EMR Integration' },
-    { id: 'leadhive-workflow', label: 'LeadHive AI — Design Qualification Workflow' },
-    { id: 'leadhive-pilot', label: 'LeadHive AI — Enterprise Pilot' },
-    { id: 'smart-animal-pilot', label: 'Smart Animal — Livestock IoT Pilot' },
-    { id: 'smart-animal-research', label: 'Smart Animal — AgriTech & Veterinary Research' },
-    { id: 'custom-engineering', label: 'M3 Hive — Custom Applied AI & Engineering' },
+    { id: 'nourdoc-demo', label: 'NourDoc : Book a Demo / Workflow Walkthrough' },
+    { id: 'nourdoc-pilot', label: 'NourDoc : Clinical Pilot / Trial' },
+    { id: 'nourdoc-integration', label: 'NourDoc : EHR/EMR Integration' },
+    { id: 'leadhive-workflow', label: 'LeadHive AI : Design Qualification Workflow' },
+    { id: 'leadhive-pilot', label: 'LeadHive AI : Enterprise Pilot' },
+    { id: 'smart-animal-pilot', label: 'Smart Animal : Livestock IoT Pilot' },
+    { id: 'smart-animal-research', label: 'Smart Animal : AgriTech & Veterinary Research' },
+    { id: 'custom-engineering', label: 'M3 Hive : Custom Applied AI & Engineering' },
     { id: 'research-validation', label: 'Research & Academic Validation' },
     { id: 'distribution-market-access', label: 'Distribution & Channel Reselling' },
     { id: 'technology-integration', label: 'Technology & Enterprise Platform Integration' },
@@ -129,7 +129,7 @@ ${challengeDescription.trim() || '[Describe the operating context, constraints, 
     if (!validate()) return;
 
     // Build mailto link for direct transmission
-    const subject = encodeURIComponent(`Executive Enquiry: ${selectedEnquiryLabel} — ${organisation}`);
+    const subject = encodeURIComponent(`Executive Enquiry: ${selectedEnquiryLabel} | ${organisation}`);
     const body = encodeURIComponent(generatedBrief);
     const mailtoUrl = `mailto:contact@m3hive.com?subject=${subject}&body=${body}`;
 

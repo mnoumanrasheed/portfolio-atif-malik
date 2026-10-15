@@ -26,7 +26,7 @@ export const Technologies360: React.FC = () => {
                 </span>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                360 Technologies — Company Portfolio &amp; Legacy
+                360 Technologies: Company Portfolio &amp; Legacy
               </h1>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
                 360 Technologies is a separate IT services organisation whose published historical portfolio spans enterprise software development, data architectures, digitisation, and offshore capability delivery.

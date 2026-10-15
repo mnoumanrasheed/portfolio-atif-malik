@@ -21,7 +21,7 @@ export const EXECUTIVE_PROFILE: ExecutiveProfile = {
   tagline: 'Technology & AI Executive | AI Product Innovator',
   heroHeadline: 'Building Intelligent Technology. Creating Real-World Impact.',
   heroStatement:
-    'I work at the intersection of Artificial Intelligence, enterprise technology and product innovation—turning complex challenges into practical, scalable digital solutions.',
+    'I work at the intersection of Artificial Intelligence, enterprise technology and product innovation, turning complex challenges into practical, scalable digital solutions.',
   heroSecondParagraph:
     'From AI-powered healthcare to enterprise intelligence, my focus is on building products and partnerships that solve real problems and create meaningful business value.',
   homepageIntro:
@@ -116,7 +116,7 @@ export const PRODUCTS: ProductData[] = [
     positioningLine: 'Turn incoming interest into better-qualified sales conversations.',
     attribution: 'M3 Hive product',
     overview:
-      'LeadHive AI is positioned as an AI-enabled lead engagement and qualification engine for organisations that need to respond to enquiries, understand prospect intent and organise follow-up across digital channels. The focus is on helping teams move from a raw enquiry to a more useful qualification and hand-off process—not simply on deploying a chatbot.',
+      'LeadHive AI is positioned as an AI-enabled lead engagement and qualification engine for organisations that need to respond to enquiries, understand prospect intent and organise follow-up across digital channels. The focus is on helping teams move from a raw enquiry to a more useful qualification and hand-off process, not simply on deploying a chatbot.',
     challenge:
       'Marketing and sales teams can receive leads through websites, social channels and messaging platforms, yet responses may be delayed, qualification questions may be inconsistent and valuable enquiries may be lost between initial contact and sales follow-up.',
     valueProposition: [
@@ -286,7 +286,7 @@ export const LEADERSHIP_PRINCIPLES: LeadershipPrinciple[] = [
   {
     title: 'Governance and commercial viability',
     description:
-      'Treat adoption, trust, data governance and commercial viability as part of product design—not afterthoughts.'
+      'Treat adoption, trust, data governance and commercial viability as part of product design, not afterthoughts.'
   }
 ];
 
@@ -337,7 +337,7 @@ export const M3_HIVE_ADDITIONAL_WORK: CaseStudy[] = [
     challenge:
       'Fragmented retail data and customer feedback can make demand and sentiment difficult to interpret.',
     valueProposition: 'The described work combines data integration, NLP and dashboards.',
-    status: 'Retail analytics case study — dataset sources are not presented as clients',
+    status: 'Retail analytics case study : dataset sources are not presented as clients',
     details: ['Data integration', 'Natural language processing (NLP)', 'Dashboards']
   },
   {
@@ -349,7 +349,7 @@ export const M3_HIVE_ADDITIONAL_WORK: CaseStudy[] = [
     challenge: 'Local skilled service matching often lacks structured verification and transparent scheduling.',
     valueProposition:
       'The described concept connects customers with local skilled workers through service categories, locations and booking flows.',
-    status: 'Described concept — current product status not confirmed',
+    status: 'Described concept : current product status not confirmed',
     details: ['Service categories', 'Locations', 'Booking flows']
   },
   {
@@ -361,7 +361,7 @@ export const M3_HIVE_ADDITIONAL_WORK: CaseStudy[] = [
     challenge: 'Local commerce requires coordinated communication between customers, merchants and fulfillment.',
     valueProposition:
       'The described ordering experience includes customer ordering, merchant management and delivery-related workflows.',
-    status: 'Described workflows — current operating and integration status not confirmed',
+    status: 'Described workflows : current operating and integration status not confirmed',
     details: ['Customer ordering', 'Merchant management', 'Delivery-related workflows']
   },
   {
@@ -373,7 +373,7 @@ export const M3_HIVE_ADDITIONAL_WORK: CaseStudy[] = [
     challenge: 'Complex datasets can be difficult to communicate intuitively through conventional charting alone.',
     valueProposition:
       'An experimental initiative combining data visualisation, digital art and interactive storytelling.',
-    status: 'Experimental exploration — not a commercial rollout',
+    status: 'Experimental exploration : not a commercial rollout',
     details: ['Data visualisation', 'Digital art', 'Interactive storytelling']
   }
 ];
@@ -384,7 +384,7 @@ export const TECHNOLOGIES_360 = {
   legalNotice:
     'Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. This website presents 360 Technologies as a separate company and its project references as historical company portfolio material. Any final public wording about the affiliation should be checked for accuracy and legal appropriateness.',
   attributionNote:
-    'The projects and client references shown here come from 360 Technologies’ published historical company portfolio and are attributed to the company. They are presented as company history—not as a claim that Atif personally delivered every listed assignment, and not as an indication of current customer status.',
+    'The projects and client references shown here come from 360 Technologies’ published historical company portfolio and are attributed to the company. They are presented as company history, not as a claim that Atif personally delivered every listed assignment, and not as an indication of current customer status.',
   overview:
     '360 Technologies is an IT services organisation whose published historical portfolio spans software development, enterprise data and business intelligence, digitisation, outsourcing, security consulting and professional capability development. Its project listings include public-sector information systems, postal and operational workflows, land-record digitisation, education data solutions and enterprise technology services. The portfolio reflects a history of technology work across government, enterprise and institutional environments.',
   directoryUrl: 'https://www.360technologies.net/index.php/360-clients',
@@ -410,7 +410,7 @@ export const TECHNOLOGIES_360 = {
       description: 'Recruitment and headhunting, HR-related services, training and resource development.'
     },
     {
-      name: 'EDI — Entrepreneurship Development Institute',
+      name: 'EDI : Entrepreneurship Development Institute',
       description:
         'Workshops, short courses, startup-development programmes, exhibits and entrepreneurship learning.'
     },
@@ -563,7 +563,7 @@ export const AUDIENCES: AudienceRecord[] = [
     challenge:
       'Domain knowledge, distribution, research, implementation or market access may be needed to move a product forward.',
     communicate:
-      'Collaboration can be structured around pilots, research, channel partnerships, integrations or co-creation—with scope and responsibilities agreed clearly.',
+      'Collaboration can be structured around pilots, research, channel partnerships, integrations or co-creation, with scope and responsibilities agreed clearly.',
     cta: { label: 'Explore collaboration', to: '/collaboration' }
   },
   {
@@ -601,10 +601,10 @@ export const AUDIENCES: AudienceRecord[] = [
 ];
 
 export const INQUIRY_INTENTS: { id: string; label: string }[] = [
-  { id: 'nourdoc', label: 'NourDoc — clinical pilot or evaluation' },
-  { id: 'nourdoc-integration', label: 'NourDoc — EHR/EMR or HIMS integration' },
-  { id: 'leadhive-ai', label: 'LeadHive AI — lead qualification workflow' },
-  { id: 'smart-animal', label: 'Smart Animal — farm pilot or AgriTech collaboration' },
+  { id: 'nourdoc', label: 'NourDoc : clinical pilot or evaluation' },
+  { id: 'nourdoc-integration', label: 'NourDoc : EHR/EMR or HIMS integration' },
+  { id: 'leadhive-ai', label: 'LeadHive AI : lead qualification workflow' },
+  { id: 'smart-animal', label: 'Smart Animal : farm pilot or AgriTech collaboration' },
   ...COLLABORATION_PATHWAYS.map((p) => ({ id: p.id, label: p.name }))
 ];
 
@@ -645,21 +645,21 @@ export const EXTERNAL_SOURCES: ExternalSource[] = [
     note: 'Official product page.'
   },
   {
-    title: '360 Technologies — About',
+    title: '360 Technologies: About',
     category: 'Historical Archive',
     group: '360 Technologies (historical)',
     url: 'https://www.360technologies.net/index.php/about-us',
     note: 'Company overview.'
   },
   {
-    title: '360 Technologies — Client directory',
+    title: '360 Technologies: Client directory',
     category: 'Historical Archive',
     group: '360 Technologies (historical)',
     url: 'https://www.360technologies.net/index.php/360-clients',
     note: 'Published historical client directory.'
   },
   {
-    title: '360 Technologies — Project list',
+    title: '360 Technologies: Project list',
     category: 'Historical Archive',
     group: '360 Technologies (historical)',
     url: 'https://360technologies.net/index.php/360-clients/projects-recently-completed',

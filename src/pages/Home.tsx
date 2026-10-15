@@ -75,7 +75,7 @@ export const Home: React.FC = () => {
     <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark overflow-x-hidden">
       
       {/* =========================================================================
-          SECTION 01 — EXECUTIVE HERO (100vh Viewport Composition with Live Animation)
+          SECTION 01: EXECUTIVE HERO (100vh Viewport Composition with Live Animation)
           ========================================================================= */}
       <section 
         ref={heroRef} 
@@ -257,7 +257,7 @@ export const Home: React.FC = () => {
       <AnimatedBeamDivider glowColor="cyan" speed="normal" />
 
       {/* =========================================================================
-          SECTION 02 — LEADERSHIP JOURNEY (With Live Traveling Light Timeline)
+          SECTION 02: LEADERSHIP JOURNEY (With Live Traveling Light Timeline)
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -363,7 +363,7 @@ export const Home: React.FC = () => {
       <AnimatedBeamDivider glowColor="teal" speed="normal" />
 
       {/* =========================================================================
-          SECTION 03 — EXPERTISE & CAPABILITIES (With Live Hover Accents)
+          SECTION 03: EXPERTISE & CAPABILITIES (With Live Hover Accents)
           ========================================================================= */}
       <section className="py-20 sm:py-28 bg-canvas relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -460,7 +460,7 @@ export const Home: React.FC = () => {
       <AnimatedBeamDivider glowColor="cyan" speed="normal" />
 
       {/* =========================================================================
-          SECTION 04 — COMPANIES & PRIORITY PRODUCTS (With Live Border Beams)
+          SECTION 04: COMPANIES & PRIORITY PRODUCTS (With Live Border Beams)
           ========================================================================= */}
       <section id="ventures" className="py-20 sm:py-28 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -643,7 +643,7 @@ export const Home: React.FC = () => {
             <div className="max-w-3xl space-y-3">
               <span className="eyebrow text-slate-500">Separate Historical Corporate Reference</span>
               <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">
-                360 Technologies — Company Portfolio & Legacy
+                360 Technologies: Company Portfolio & Legacy
               </h3>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                 {TECHNOLOGIES_360.overview}
@@ -681,7 +681,7 @@ export const Home: React.FC = () => {
       <AnimatedBeamDivider glowColor="indigo" speed="normal" />
 
       {/* =========================================================================
-          SECTION 05 — SELECTED WORK & IMPACT
+          SECTION 05: SELECTED WORK & IMPACT
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-canvas relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -742,7 +742,7 @@ export const Home: React.FC = () => {
       <AnimatedBeamDivider glowColor="emerald" speed="normal" />
 
       {/* =========================================================================
-          SECTION 06 — COLLABORATION PATHWAYS & CLOSING
+          SECTION 06: COLLABORATION PATHWAYS & CLOSING
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-slate-50/60 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

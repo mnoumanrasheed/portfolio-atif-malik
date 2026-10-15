@@ -24,6 +24,7 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const justClosedRef = useRef(false);
 
   // Monitor scroll for glass compression effect
   useEffect(() => {
@@ -39,6 +40,11 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     setIsOpen(false);
     setProductsOpen(false);
+    justClosedRef.current = true;
+    const t = setTimeout(() => {
+      justClosedRef.current = false;
+    }, 450);
+    return () => clearTimeout(t);
   }, [location.pathname]);
 
   // Close menus on Escape key
@@ -47,6 +53,10 @@ export const Navbar: React.FC = () => {
       if (e.key === 'Escape') {
         setIsOpen(false);
         setProductsOpen(false);
+        justClosedRef.current = true;
+        setTimeout(() => {
+          justClosedRef.current = false;
+        }, 300);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -71,8 +81,26 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
+  // Immediate close upon clicking any item inside dropdown
+  const handleProductLinkClick = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    justClosedRef.current = true;
+    setProductsOpen(false);
+    setHoveredNav(null);
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    setTimeout(() => {
+      justClosedRef.current = false;
+    }, 500);
+  };
+
   // Robust hover management with grace-period debounce to prevent premature dismissal
   const handleDropdownEnter = () => {
+    if (justClosedRef.current) return;
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
@@ -96,7 +124,16 @@ export const Navbar: React.FC = () => {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-    setProductsOpen((prev) => !prev);
+    setProductsOpen((prev) => {
+      const next = !prev;
+      if (!next) {
+        justClosedRef.current = true;
+        setTimeout(() => {
+          justClosedRef.current = false;
+        }, 400);
+      }
+      return next;
+    });
   };
 
   const navLinks = [
@@ -156,7 +193,7 @@ export const Navbar: React.FC = () => {
           to="/"
           className="flex items-center group focus-visible:outline-none transition-transform duration-200 hover:scale-[1.01]"
           aria-label="Atif I. Malik - Home & Overview"
-          title="Atif I. Malik — Home & Overview"
+          title="Atif I. Malik - Home & Overview"
         >
           <ExecutiveLogo size="md" variant="horizontal" theme="light" />
         </Link>
@@ -239,7 +276,7 @@ export const Navbar: React.FC = () => {
                             <Link
                               key={p.path}
                               to={p.path}
-                              onClick={() => setProductsOpen(false)}
+                              onClick={handleProductLinkClick}
                               className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all border ${
                                 isCurrent
                                   ? 'bg-brand-wash/80 border-brand/20 shadow-xs'
@@ -274,7 +311,7 @@ export const Navbar: React.FC = () => {
                       <div className="mt-2 pt-2 border-t border-slate-100">
                         <Link
                           to="/ventures"
-                          onClick={() => setProductsOpen(false)}
+                          onClick={handleProductLinkClick}
                           className="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 hover:bg-brand-wash text-slate-700 hover:text-brand text-xs font-semibold transition-all group border border-slate-200/60 hover:border-brand/30"
                         >
                           <span>Explore All Ventures &amp; Architecture</span>
@@ -382,7 +419,10 @@ export const Navbar: React.FC = () => {
                         <NavLink
                           key={p.path}
                           to={p.path}
-                          onClick={() => setIsOpen(false)}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileProductsOpen(false);
+                          }}
                           className={({ isActive }) =>
                             `flex items-start gap-3 px-3 py-2.5 rounded-xl border transition-all ${
                               isActive

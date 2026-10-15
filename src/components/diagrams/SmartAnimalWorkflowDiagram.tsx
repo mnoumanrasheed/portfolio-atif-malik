@@ -73,7 +73,7 @@ export const SmartAnimalWorkflowDiagram: React.FC = () => {
         'Activity surge modelling assists in timely detection of insemination windows'
       ],
       telemetryStreamExample: {
-        header: 'Sample Telemetry Stream — Cow ID #042 (Holst.)',
+        header: 'Sample Telemetry Stream : Cow ID #042 (Holst.)',
         metrics: [
           { key: 'Rumination Rhythm', value: '448 min/day (Normal)', status: 'Nominal' },
           { key: 'Active Grazing', value: '7.8 hrs/day (Stable)', status: 'Nominal' },
@@ -238,7 +238,7 @@ export const SmartAnimalWorkflowDiagram: React.FC = () => {
                 {currentModule.number}
               </span>
               <span className="font-display font-bold text-slate-900 text-sm">
-                {currentModule.title} — {currentModule.tag}
+                {currentModule.title} · {currentModule.tag}
               </span>
             </div>
             <span className="text-slate-400 font-mono text-[11px]">

@@ -32,7 +32,7 @@ export const M3Hive: React.FC = () => {
                 </span>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                M3 Hive — Execution &amp; Engineering Capability
+                M3 Hive: Execution &amp; Engineering Capability
               </h1>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
                 M3 Hive is a technology development company focused on translating complex business needs into digital products, intelligent workflows, and applied AI solutions.

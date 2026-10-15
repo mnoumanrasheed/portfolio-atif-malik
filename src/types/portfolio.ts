@@ -2,7 +2,7 @@ export type AttributionType =
   | 'M3 Hive product'
   | 'M3 Hive company project'
   | '360 Technologies company portfolio'
-  | 'Atif I. Malik — role confirmed';
+  | 'Atif I. Malik · role confirmed';
 
 export interface ExecutiveProfile {
   name: string;

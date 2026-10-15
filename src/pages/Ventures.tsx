@@ -61,7 +61,7 @@ export const Ventures: React.FC = () => {
               <div>
                 <span className="eyebrow text-brand">Delivery Practice & Product Engineering</span>
                 <h3 className="font-display font-extrabold text-2xl text-slate-900 mt-1">
-                  M3 Hive — Applied AI & Product Engineering
+                  M3 Hive: Applied AI & Product Engineering
                 </h3>
               </div>
               <div className="flex items-center gap-3">
@@ -248,7 +248,7 @@ export const Ventures: React.FC = () => {
             <div className="max-w-3xl space-y-3">
               <span className="eyebrow text-slate-500">Separate Historical Corporate Reference</span>
               <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
-                360 Technologies — Company Portfolio & Legacy
+                360 Technologies: Company Portfolio & Legacy
               </h2>
               <p className="text-base text-slate-700 leading-relaxed font-normal">
                 {TECHNOLOGIES_360.overview}
