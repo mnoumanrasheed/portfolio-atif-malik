@@ -20,7 +20,7 @@ export const Navbar: React.FC = () => {
 
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const justClosedRef = useRef(false);
 
   // Scroll detection for subtle elevation
@@ -122,8 +122,13 @@ export const Navbar: React.FC = () => {
     setVenturesOpen((prev) => !prev);
   };
 
-  // Priority Products under Ventures (Simple & Executive)
+  // Priority Products & Ventures under Dropdown (Executive & Clean)
   const venturesDropdownItems: VenturesDropdownItem[] = [
+    {
+      name: 'M3 Hive',
+      desc: 'AI Product Engineering & Ventures',
+      path: '/ventures'
+    },
     {
       name: 'NourDoc',
       desc: 'HealthTech AI · Clinical Documentation',
@@ -138,12 +143,19 @@ export const Navbar: React.FC = () => {
       name: 'Smart Animal',
       desc: 'AgriTech & IoT Livestock Management',
       path: '/products/smart-animal'
+    },
+    {
+      name: '360 Technologies',
+      desc: 'Enterprise Systems · Historical Portfolio',
+      path: '/360-technologies'
     }
   ];
 
   // Check if Ventures or any of its subpages is active
   const isVenturesActive =
     location.pathname === '/ventures' ||
+    location.pathname === '/m3-hive' ||
+    location.pathname === '/360-technologies' ||
     location.pathname.startsWith('/products/');
 
   return (
@@ -151,8 +163,8 @@ export const Navbar: React.FC = () => {
       <div
         className={`w-full transition-all duration-200 border-b ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md border-slate-200/90 shadow-xs py-3'
-            : 'bg-white border-slate-100 py-3.5 sm:py-4'
+            ? 'bg-white/95 backdrop-blur-md border-slate-200/90 shadow-xs py-2.5'
+            : 'bg-white border-slate-100 py-3 sm:py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -171,18 +183,19 @@ export const Navbar: React.FC = () => {
             </span>
           </Link>
 
-          {/* Main Navigation Tabs */}
+          {/* Main Navigation Tabs: 7 Approved Top-Level Items */}
           <nav
-            className="hidden lg:flex items-center gap-1 xl:gap-2"
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1.5"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredNav(null)}
           >
-            {/* 1. About */}
+            {/* 1. Home */}
             <NavLink
-              to="/about"
-              onMouseEnter={() => setHoveredNav('About')}
+              to="/"
+              end
+              onMouseEnter={() => setHoveredNav('Home')}
               className={({ isActive }) =>
-                `relative px-3.5 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
+                `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
                     ? 'text-[#377A8A] font-bold'
                     : 'text-slate-700 hover:text-slate-950'
@@ -191,8 +204,34 @@ export const Navbar: React.FC = () => {
             >
               {({ isActive }) => (
                 <>
-                  <span>About</span>
-                  {(isActive || hoveredNav === 'About') && (
+                  <span>Home</span>
+                  {(isActive || hoveredNav === 'Home') && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
+                </>
+              )}
+            </NavLink>
+
+            {/* 2. About Atif */}
+            <NavLink
+              to="/about"
+              onMouseEnter={() => setHoveredNav('About Atif')}
+              className={({ isActive }) =>
+                `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
+                  isActive
+                    ? 'text-[#377A8A] font-bold'
+                    : 'text-slate-700 hover:text-slate-950'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span>About Atif</span>
+                  {(isActive || hoveredNav === 'About Atif') && (
                     <motion.div
                       layoutId="nav-underline"
                       className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
@@ -208,7 +247,7 @@ export const Navbar: React.FC = () => {
               to="/expertise"
               onMouseEnter={() => setHoveredNav('Expertise')}
               className={({ isActive }) =>
-                `relative px-3.5 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
+                `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
                     ? 'text-[#377A8A] font-bold'
                     : 'text-slate-700 hover:text-slate-950'
@@ -376,7 +415,7 @@ export const Navbar: React.FC = () => {
               to="/collaboration"
               onMouseEnter={() => setHoveredNav('Collaboration')}
               className={({ isActive }) =>
-                `relative px-3.5 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
+                `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
                     ? 'text-[#377A8A] font-bold'
                     : 'text-slate-700 hover:text-slate-950'
@@ -387,6 +426,32 @@ export const Navbar: React.FC = () => {
                 <>
                   <span>Collaboration</span>
                   {(isActive || hoveredNav === 'Collaboration') && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
+                </>
+              )}
+            </NavLink>
+
+            {/* 7. Contact */}
+            <NavLink
+              to="/contact"
+              onMouseEnter={() => setHoveredNav('Contact')}
+              className={({ isActive }) =>
+                `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
+                  isActive
+                    ? 'text-[#377A8A] font-bold'
+                    : 'text-slate-700 hover:text-slate-950'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  <span>Contact</span>
+                  {(isActive || hoveredNav === 'Contact') && (
                     <motion.div
                       layoutId="nav-underline"
                       className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
@@ -438,7 +503,23 @@ export const Navbar: React.FC = () => {
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-2">
               
-              {/* 1. About */}
+              {/* 1. Home */}
+              <NavLink
+                to="/"
+                end
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
+                    isActive
+                      ? 'text-[#377A8A] font-bold bg-brand-wash border border-[#377A8A]/20 shadow-2xs'
+                      : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
+                  }`
+                }
+              >
+                Home
+              </NavLink>
+
+              {/* 2. About Atif */}
               <NavLink
                 to="/about"
                 onClick={() => setIsOpen(false)}
@@ -450,7 +531,7 @@ export const Navbar: React.FC = () => {
                   }`
                 }
               >
-                About
+                About Atif
               </NavLink>
 
               {/* 3. Expertise */}
@@ -556,6 +637,21 @@ export const Navbar: React.FC = () => {
                 }
               >
                 Collaboration
+              </NavLink>
+
+              {/* 7. Contact */}
+              <NavLink
+                to="/contact"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
+                    isActive
+                      ? 'text-[#377A8A] font-bold bg-brand-wash border border-[#377A8A]/20 shadow-2xs'
+                      : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
+                  }`
+                }
+              >
+                Contact
               </NavLink>
 
               {/* Mobile CTA Action Button */}

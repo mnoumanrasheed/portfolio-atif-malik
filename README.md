@@ -1,8 +1,8 @@
-# Atif I. Malik — Executive Portfolio
+# Atif I. Malik - Executive Portfolio
 
-A production-ready executive personal website for **Atif I. Malik** (CEO, M3 Hive | Co-Founder, Director & Shareholder, 360 Technologies).
+A production-ready executive personal website for **Atif I. Malik** (CEO, M3 Hive | Founding CEO, Director & Shareholder, 360 Technologies - legal/public review pending before publication).
 
-Designed with a **"Quiet Authority" executive editorial direction**: 85–90% white and light surfaces, restrained deep teal accenting, purposeful typographic hierarchy, and generous composed whitespace—avoiding generic AI template cliches, cyber dashboards, dark mode screens, and fake metrics.
+Designed with a **"Quiet Authority" executive editorial direction**: 85-90% white and light surfaces, restrained deep teal accenting, purposeful typographic hierarchy, and generous composed whitespace - avoiding generic AI template cliches, cyber dashboards, dark mode screens, and fake metrics.
 
 ---
 
@@ -27,20 +27,21 @@ Designed with a **"Quiet Authority" executive editorial direction**: 85–90% wh
 
 ---
 
-## Route Architecture (All 11 Routes Fully Functional)
+## Route Architecture (All Routes Fully Functional)
 
-1. `/` — **Executive Overview** (Hero with photo-ready editorial frame, Leadership Perspective, 3 Product Showcases with workflow schematics, 4-step Delivery Timeline, Selected M3 Hive Work teasers, 360 Technologies Historical Foundation, Audience Collaboration Pathways, and Closing CTA)
-2. `/about` — **Executive Profile & Leadership** (Full biography, editorial pull quote, 3 leadership principles, photo-ready frame, corporate governance safeguards)
-3. `/m3-hive` — **M3 Hive Company & Capabilities** (Corporate overview, 6 spacious capability practice rows, priority products, partnership structures)
-4. `/products/nourdoc` — **NourDoc** (Clinical Documentation AI: ambient audio capture, SOAP note draft generation, mandatory clinician verification, EHR export)
-5. `/products/leadhive-ai` — **LeadHive AI** (Lead Engagement & Qualification: multi-channel ingestion, qualification questions, sales hand-off)
-6. `/products/smart-animal` — **Smart Animal** (Livestock IoT & Telemetry: sensor collar metrics, rumination monitoring, timely operational alerts)
-7. `/work` — **Selected Additional Work** (7 documented M3 Hive corporate case studies with interactive domain filters and expandable solution details)
-8. `/360-technologies` — **360 Technologies Historical Archive** (Distinct corporate legacy, 6 practice divisions, 9 institutional projects, published text client directory)
-9. `/collaboration` — **Collaboration & Strategic Pathways** (Audience-aligned engagement routes for clinicians, enterprises, partners, and investors)
-10. `/insights` — **Selected References & Sources** (Verified institutional links, official portals, editorial transparency policy)
-11. `/contact` — **Communications & Inquiries** (Verified direct channels + accessible inquiry brief preparation utility with one-click clipboard copy)
-12. `/*` — **Route Not Found** (Clean 404 page with direct return links)
+1. `/` - **Executive Overview** (Hero with photo-ready editorial frame, Leadership Perspective, 3 Product Showcases with workflow schematics, 4-step Delivery Timeline, Selected M3 Hive Work teasers, 360 Technologies Historical Foundation, Audience Collaboration Pathways, and Closing CTA)
+2. `/about` - **Executive Profile & Leadership** (Full biography, editorial pull quote, 4 leadership principles, photo-ready frame, corporate governance safeguards)
+3. `/expertise` - **Expertise & Capabilities** (Applied AI, product engineering, data pipelines, cloud integration, IoT sensing, research workflows)
+4. `/ventures` - **M3 Hive Company & Ventures Overview** (Corporate overview, capability practice areas, priority products, partnership structures)
+5. `/products/nourdoc` - **NourDoc** (Clinical Documentation AI: ambient audio capture, SOAP note draft generation, mandatory clinician verification, EHR export)
+6. `/products/leadhive-ai` - **LeadHive AI** (Lead Engagement & Qualification: multi-channel ingestion, qualification questions, sales hand-off)
+7. `/products/smart-animal` - **Smart Animal** (Livestock IoT & Telemetry: sensor collar metrics, rumination monitoring, timely operational alerts)
+8. `/work` - **Selected Work** (Documented M3 Hive corporate case studies with interactive domain filters and expandable solution details)
+9. `/360-technologies` - **360 Technologies Historical Archive** (Distinct corporate legacy, 6 practice divisions, 9 institutional projects, published text client directory)
+10. `/collaboration` - **Collaboration & Strategic Pathways** (Audience-aligned engagement routes for clinicians, enterprises, partners, and investors)
+11. `/insights` - **Selected References & Sources** (Verified institutional links, official portals, editorial transparency policy)
+12. `/contact` - **Communications & Inquiries** (Verified direct channels + accessible inquiry brief preparation utility with one-click clipboard copy)
+13. `/*` - **Route Not Found** (Clean 404 page with direct return links)
 
 ---
 
