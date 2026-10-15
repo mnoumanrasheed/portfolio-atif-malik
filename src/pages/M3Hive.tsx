@@ -104,9 +104,9 @@ export const M3Hive: React.FC = () => {
         <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="Proprietary Platforms"
-              title="Three Priority Product Initiatives"
-              description="Proprietary platforms incubated and driven by M3 Hive under Atif's strategic direction."
+              eyebrow="Products & Ventures"
+              title="Three Priority Products"
+              description="Three focused technology products developed to address distinct operational challenges across healthcare, lead qualification, and livestock management."
             />
           </ScrollReveal>
 
@@ -187,7 +187,7 @@ export const M3Hive: React.FC = () => {
 
           <div className="mt-12 text-center">
             <Button to="/contact" variant="primary" size="lg" showArrow>
-              Start an M3 Hive Engagement Discussion
+              Discuss a Project
             </Button>
           </div>
         </div>

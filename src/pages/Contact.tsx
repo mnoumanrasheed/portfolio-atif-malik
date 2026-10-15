@@ -6,121 +6,134 @@ import {
   Copy, 
   Check, 
   Mail, 
-  ShieldCheck, 
   Building2, 
   User, 
   AlertCircle,
-  Clock,
-  Sparkles,
   ArrowRight,
   Send,
-  MessageSquare,
-  ChevronDown
+  Calendar,
+  ChevronDown,
+  Info
 } from 'lucide-react';
-import { EXECUTIVE_PROFILE } from '../content/portfolio';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { HeroBackground } from '../components/ui/HeroBackground';
-import { BorderBeam, LivePulseBeacon } from '../components/ui/BorderBeam';
+import { BorderBeam } from '../components/ui/BorderBeam';
 import { AnimatedBeamDivider, AnimatedLineAccent } from '../components/ui/AnimatedLine';
 import { ExecutiveLogo } from '../components/ui/ExecutiveLogo';
+
+const ENQUIRY_TYPES = [
+  'Product Adoption',
+  'Research and Validation',
+  'Distribution and Market Access',
+  'Technology Integration',
+  'Investment and Strategic Capital',
+  'Custom Product Engineering'
+] as const;
+
+type EnquiryType = typeof ENQUIRY_TYPES[number];
+
+const PREFERRED_NEXT_STEPS = [
+  'Introductory Call',
+  'Workflow Review',
+  'Pilot / Feasibility Scoping Session',
+  'Technical Architecture Review',
+  'Written Correspondence'
+] as const;
 
 export const Contact: React.FC = () => {
   const [searchParams] = useSearchParams();
 
-  // Form Fields
+  // Form Fields (Exact 7 Required Fields from Master Prompt Section 15)
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [organisation, setOrganisation] = useState('');
-  const [inquiryType, setInquiryType] = useState('custom-engineering');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [enquiryType, setEnquiryType] = useState<EnquiryType>('Custom Product Engineering');
+  const [description, setDescription] = useState('');
+  const [preferredNextStep, setPreferredNextStep] = useState<string>(PREFERRED_NEXT_STEPS[0]);
   const [consent, setConsent] = useState(false);
 
-  // Status states
+  // UI state
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [prepared, setPrepared] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [emailCopied, setEmailCopied] = useState(false);
 
-  // Clean, focused inquiry categories
-  const inquiryCategories = [
-    { id: 'nourdoc', label: 'NourDoc : Clinical AI Pilot or Demo', short: 'NourDoc AI' },
-    { id: 'leadhive', label: 'LeadHive AI : Lead Qualification Engine', short: 'LeadHive AI' },
-    { id: 'smart-animal', label: 'Smart Animal : Livestock IoT Telemetry', short: 'Smart Animal IoT' },
-    { id: 'custom-engineering', label: 'Custom AI & Product Engineering', short: 'Custom Engineering' },
-    { id: 'integration', label: 'Enterprise Systems & Platform Integration', short: 'Systems Interop' },
-    { id: 'partnership', label: 'Strategic Partnership & Advisory', short: 'Advisory / Capital' }
-  ];
-
-  // Map incoming URL parameters to inquiry type
+  // Map incoming URL parameters to enquiry type
   useEffect(() => {
-    const pathway = searchParams.get('pathway');
-    const interest = searchParams.get('interest');
-    const intent = searchParams.get('intent');
+    const pathway = searchParams.get('pathway') || searchParams.get('enquiry') || searchParams.get('intent') || searchParams.get('interest');
+    if (!pathway) return;
 
-    const checkStr = (intent || pathway || interest || '').toLowerCase();
-    if (checkStr.includes('nourdoc')) {
-      setInquiryType('nourdoc');
-    } else if (checkStr.includes('leadhive')) {
-      setInquiryType('leadhive');
-    } else if (checkStr.includes('smart-animal') || checkStr.includes('animal')) {
-      setInquiryType('smart-animal');
-    } else if (checkStr.includes('integration')) {
-      setInquiryType('integration');
-    } else if (checkStr.includes('investment') || checkStr.includes('capital') || checkStr.includes('research') || checkStr.includes('distribution')) {
-      setInquiryType('partnership');
-    } else if (checkStr.includes('custom') || checkStr.includes('engineering')) {
-      setInquiryType('custom-engineering');
+    const lower = pathway.toLowerCase();
+    if (lower.includes('nourdoc') || lower.includes('leadhive') || lower.includes('animal') || lower.includes('adoption')) {
+      setEnquiryType('Product Adoption');
+    } else if (lower.includes('research') || lower.includes('validation')) {
+      setEnquiryType('Research and Validation');
+    } else if (lower.includes('distribution') || lower.includes('market')) {
+      setEnquiryType('Distribution and Market Access');
+    } else if (lower.includes('integration') || lower.includes('interop')) {
+      setEnquiryType('Technology Integration');
+    } else if (lower.includes('investment') || lower.includes('capital')) {
+      setEnquiryType('Investment and Strategic Capital');
+    } else if (lower.includes('custom') || lower.includes('engineering') || lower.includes('project')) {
+      setEnquiryType('Custom Product Engineering');
     }
   }, [searchParams]);
 
-  const selectedCategory = inquiryCategories.find(c => c.id === inquiryType) || inquiryCategories[3];
-
-  // Structured brief format for transmission
-  const generatedBrief = `EXECUTIVE INQUIRY : ATIF I. MALIK & M3 HIVE
+  // Structured brief for transmission
+  const generatedBrief = `EXECUTIVE ENQUIRY : ATIF I. MALIK & M3 HIVE
 --------------------------------------------------
-Sender Name  : ${name.trim() || '[Name]'}
-Work Email   : ${email.trim() || '[Email]'}
-Organisation : ${organisation.trim() || '[Organisation]'}
-Inquiry Focus: ${selectedCategory.label}
-
-MESSAGE / OPERATIONAL CONTEXT:
-${message.trim() || '[No additional details provided]'}
-
+1. Name                 : ${name.trim() || '[Not provided]'}
+2. Organisation         : ${organisation.trim() || '[Not provided]'}
+3. Work Email           : ${email.trim() || '[Not provided]'}
+4. Enquiry Type         : ${enquiryType}
+5. Challenge Description:
+${description.trim() || '[Not provided]'}
+6. Preferred Next Step  : ${preferredNextStep}
+7. Contact Consent      : Granted
 --------------------------------------------------
-Direct executive inquiries are reviewed under enterprise confidentiality principles.`;
+Note: Please do not transmit medical records, patient data, or confidential project secrets via this general enquiry form.`;
 
   const validate = () => {
     const errs: Record<string, string> = {};
-    if (!name.trim()) errs.name = 'Please provide your full name.';
+
+    if (!name.trim()) {
+      errs.name = 'Please provide your full name.';
+    }
+
+    if (!organisation.trim()) {
+      errs.organisation = 'Please provide your organisation or institution.';
+    }
+
     if (!email.trim()) {
-      errs.email = 'Please provide your email address.';
+      errs.email = 'Please provide your work email address.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       errs.email = 'Please enter a valid work email address.';
     }
-    if (!message.trim()) {
-      errs.message = 'Please share a brief note about your operational inquiry.';
-    } else if (message.trim().length < 10) {
-      errs.message = 'Please provide at least 10 characters.';
+
+    if (!description.trim()) {
+      errs.description = 'Please provide a brief description of the challenge.';
+    } else if (description.trim().length < 15) {
+      errs.description = 'Please provide at least 15 characters describing the challenge.';
     }
+
     if (!consent) {
-      errs.consent = 'Please confirm consent to correspond.';
+      errs.consent = 'Consent to be contacted is required before submission.';
     }
 
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleOpenEmailClient = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    const subject = encodeURIComponent(`Executive Inquiry: ${selectedCategory.label} | ${organisation.trim() || name.trim()}`);
+    const subject = encodeURIComponent(`Project Enquiry: ${enquiryType} - ${organisation.trim()}`);
     const body = encodeURIComponent(generatedBrief);
     const mailtoUrl = `mailto:atif.imran@gmail.com?subject=${subject}&body=${body}`;
 
     window.location.href = mailtoUrl;
-    setSubmitted(true);
+    setPrepared(true);
   };
 
   const handleCopyBrief = async () => {
@@ -133,22 +146,10 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
     }
   };
 
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText('atif.imran@gmail.com');
-      setEmailCopied(true);
-      setTimeout(() => setEmailCopied(false), 2500);
-    } catch {
-      // Fallback
-    }
-  };
-
   return (
     <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark min-h-screen">
       
-      {/* =========================================================================
-          HERO SECTION (100vh Viewport Locked Composition with Live Accents)
-          ========================================================================= */}
+      {/* Hero Section */}
       <HeroBackground
         imageSrc="/images/heroes/hero-contact.jpg"
         imageAlt="Executive Consultation Suite and Architectural Boardroom"
@@ -159,70 +160,39 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
           <ScrollReveal>
             <div className="max-w-2xl space-y-3.5">
               
-              {/* Radar Status Beacon Pill */}
               <div className="flex flex-wrap items-center gap-2.5">
-                <LivePulseBeacon label="DIRECT EXECUTIVE INQUIRIES" />
-                <span className="text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider bg-white/90 border border-slate-200/90 px-3 py-1 rounded-full shadow-xs">
-                  CEO Office Protocol
+                <span className="text-[11px] font-mono font-bold text-brand uppercase tracking-wider bg-brand/10 border border-brand/20 px-3 py-1 rounded-full shadow-xs">
+                  Executive Correspondence
                 </span>
               </div>
 
-              {/* Main Headline */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                Start a Conversation.
+                Discuss a Project
               </h1>
 
-              {/* Luminous Accent Sheen */}
               <AnimatedLineAccent glowColor="cyan" className="mt-2 mb-3" />
 
-              {/* Narrative Statement */}
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                Whether evaluating clinical AI documentation, conversational lead qualification, IoT livestock telemetry, or a bespoke product engineering engagement, share your requirements for direct executive review.
+                If you are exploring AI adoption, a product pilot, technology integration, research collaboration or a custom digital platform, share the challenge and the outcome you are working toward.
               </p>
-
-              {/* Trust Indicators */}
-              <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-slate-600 font-medium">
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/85 border border-slate-200/90 shadow-xs">
-                  <Clock className="w-3.5 h-3.5 text-brand" />
-                  <span>24–48h Response SLA</span>
-                </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/85 border border-slate-200/90 shadow-xs">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Confidential &amp; NDA Standard</span>
-                </span>
-                <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/85 border border-slate-200/90 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Direct CEO Oversight</span>
-                </span>
-              </div>
 
             </div>
           </ScrollReveal>
         </div>
       </HeroBackground>
 
-      {/* Luminous Traveling Beam Divider */}
       <AnimatedBeamDivider glowColor="cyan" speed="normal" className="my-6 sm:my-8" />
 
-      {/* =========================================================================
-          MAIN EXECUTIVE SECTION (Decent, Minimal, and Highly Animated)
-          ========================================================================= */}
+      {/* Main Form and Executive Sidebar */}
       <div className="py-10 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          {/* =====================================================================
-              LEFT COLUMN (5 cols): Executive Identity, Channels & Live Border Beam
-              ===================================================================== */}
+          {/* Left Column (5 cols): Verified Executive Identity */}
           <div className="lg:col-span-5 space-y-6">
             <ScrollReveal delay={0.1}>
-              
-              {/* Luxury Executive Identity Card with Live Border Beam */}
-              <div className="relative bg-white/95 backdrop-blur-2xl border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.08)] space-y-6 overflow-hidden">
+              <div className="relative bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.08)] space-y-6 overflow-hidden">
                 
-                {/* Circulating Live Border Beam */}
                 <BorderBeam size={220} duration={8} colorFrom="#51AAC0" colorTo="#377A8A" borderWidth={1.5} />
-                
-                {/* Top Ambient Specular Refraction Rim */}
                 <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/40 to-transparent pointer-events-none rounded-full" />
 
                 {/* Profile Header */}
@@ -233,75 +203,32 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                       Atif I. Malik
                     </h2>
                     <p className="text-xs text-slate-500 font-medium">
-                      CEO, M3 Hive · Technology &amp; AI Executive
+                      Chief Executive Officer, M3 Hive
                     </p>
                   </div>
                 </div>
 
-                {/* Live Channel Status Indicator */}
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50/80 border border-emerald-200/80 text-emerald-800 text-xs font-semibold">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
-                  </span>
-                  <span>Direct Communication Lines Active</span>
+                {/* Approved Professional Positioning */}
+                <div className="space-y-2 text-xs text-slate-600 leading-relaxed">
+                  <p>
+                    Technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms, and digital transformation.
+                  </p>
                 </div>
 
-                {/* Direct Contact Channels */}
-                <div className="space-y-3">
+                {/* Approved LinkedIn Profile */}
+                <div className="space-y-3 pt-2 border-t border-slate-100">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
-                    Direct Contact Routes
+                    Verified Executive Profile
                   </span>
 
-                  {/* Email Box with One-Click Copy */}
-                  <div className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:border-brand/40 transition-all flex items-center justify-between gap-3 group">
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center text-brand shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                        <Mail className="w-4 h-4" />
-                      </div>
-                      <div className="min-w-0">
-                        <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">
-                          Executive Email
-                        </span>
-                        <a
-                          href="mailto:atif.imran@gmail.com"
-                          className="text-xs font-mono font-bold text-slate-900 hover:text-brand truncate block transition-colors"
-                        >
-                          atif.imran@gmail.com
-                        </a>
-                      </div>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={handleCopyEmail}
-                      className="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-brand hover:bg-white transition-all flex items-center gap-1.5 border border-transparent hover:border-slate-200 shadow-2xs"
-                      title="Copy email address"
-                      aria-label="Copy email address"
-                    >
-                      {emailCopied ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-emerald-600" />
-                          <span className="text-[11px] text-emerald-600">Copied</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5" />
-                          <span className="text-[11px]">Copy</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-
-                  {/* LinkedIn Box */}
                   <a
-                    href={EXECUTIVE_PROFILE.verifiedLinks.linkedin}
+                    href="https://www.linkedin.com/in/aimalik/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/80 hover:bg-brand-wash hover:border-brand/40 transition-all flex items-center justify-between group shadow-2xs"
+                    className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:bg-brand-wash hover:border-brand/40 transition-all flex items-center justify-between group shadow-2xs"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-white border border-slate-200/90 flex items-center justify-center text-brand font-bold text-xs shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                      <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-brand font-bold text-xs shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
                         in
                       </div>
                       <div>
@@ -309,7 +236,7 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                           Connect on LinkedIn
                         </span>
                         <span className="text-[11px] text-slate-500 block">
-                          Direct executive correspondence
+                          linkedin.com/in/aimalik
                         </span>
                       </div>
                     </div>
@@ -320,28 +247,28 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                 {/* Operating Venture Links */}
                 <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2 text-center text-xs">
                   <a
-                    href={EXECUTIVE_PROFILE.verifiedLinks.m3hive}
+                    href="https://m3hive.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs hover:scale-[1.02]"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs"
                   >
                     m3hive.com
                   </a>
                   <a
-                    href={EXECUTIVE_PROFILE.verifiedLinks.nourdoc}
+                    href="https://nour-doc.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs hover:scale-[1.02]"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs"
                   >
                     nour-doc.com
                   </a>
                 </div>
 
-                {/* Confidentiality Standard Note */}
-                <div className="pt-2 flex items-start gap-2.5 text-xs text-slate-500 leading-relaxed border-t border-slate-100">
-                  <ShieldCheck className="w-4 h-4 text-brand shrink-0 mt-0.5" />
+                {/* Privacy & Governance Notice */}
+                <div className="pt-2 flex items-start gap-2 text-xs text-slate-500 leading-relaxed border-t border-slate-100">
+                  <Info className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                   <p>
-                    All inquiries are held in strict confidence under non-disclosure protocols.
+                    Please do not submit medical records, patient data, or confidential proprietary details through this general enquiry form.
                   </p>
                 </div>
 
@@ -349,48 +276,37 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
             </ScrollReveal>
           </div>
 
-          {/* =====================================================================
-              RIGHT COLUMN (7 cols): Decent, Clean Form with Live Border Beam
-              ===================================================================== */}
+          {/* Right Column (7 cols): Enquiry Form */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={0.15}>
-              <div className="relative bg-white/95 backdrop-blur-2xl border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.1)] overflow-hidden">
+              <div className="relative bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.1)] overflow-hidden">
                 
-                {/* Circulating Live Border Beam */}
                 <BorderBeam size={260} duration={10} colorFrom="#51AAC0" colorTo="#377A8A" borderWidth={1.5} />
-                
-                {/* Top Ambient Specular Refraction Rim */}
                 <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/35 to-transparent pointer-events-none rounded-full" />
 
                 <AnimatePresence mode="wait">
-                  {submitted ? (
-                    /* =========================================================
-                       POST-SUBMISSION CLEAN RECEIPT CARD (Animated)
-                       ========================================================= */
+                  {prepared ? (
                     <motion.div
-                      key="success"
+                      key="prepared"
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.96 }}
                       transition={{ duration: 0.25 }}
                       className="py-8 text-center space-y-5"
                     >
-                      <div className="relative w-16 h-16 mx-auto flex items-center justify-center">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-25" />
-                        <div className="relative w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-300 text-emerald-600 flex items-center justify-center shadow-xs">
-                          <Check className="w-7 h-7" />
-                        </div>
+                      <div className="w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-300 text-emerald-600 flex items-center justify-center mx-auto shadow-xs">
+                        <Check className="w-7 h-7" />
                       </div>
 
-                      <div className="space-y-1.5 max-w-md mx-auto">
-                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 inline-block">
-                          Email Application Launched
+                      <div className="space-y-2 max-w-md mx-auto">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 inline-block">
+                          Email Client Triggered
                         </span>
                         <h2 className="font-display font-bold text-2xl text-slate-900 pt-1">
-                          Inquiry Draft Prepared
+                          Enquiry Draft Prepared
                         </h2>
                         <p className="text-sm text-slate-600 leading-relaxed">
-                          Your structured brief has been prepared for direct dispatch to <strong className="text-slate-900 font-semibold">atif.imran@gmail.com</strong>.
+                          Your email application has been opened with your structured enquiry details. If your email application did not launch automatically, copy the structured brief below to send via your preferred mail client or LinkedIn.
                         </p>
                       </div>
 
@@ -404,91 +320,54 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                           {copied ? (
                             <span className="flex items-center gap-2">
                               <Check className="w-4 h-4 text-white" />
-                              Copied to Clipboard!
+                              Copied to Clipboard
                             </span>
                           ) : (
                             <span className="flex items-center gap-2">
                               <Copy className="w-4 h-4" />
-                              Copy Formatted Message
+                              Copy Structured Brief
                             </span>
                           )}
                         </Button>
 
                         <Button
-                          href={EXECUTIVE_PROFILE.verifiedLinks.linkedin}
+                          href="https://www.linkedin.com/in/aimalik/"
                           variant="secondary"
                           size="md"
                           isExternal
                           showArrow
                         >
-                          Connect via LinkedIn
+                          Connect on LinkedIn
                         </Button>
                       </div>
 
                       <div className="pt-4 border-t border-slate-100">
                         <button
                           type="button"
-                          onClick={() => setSubmitted(false)}
+                          onClick={() => setPrepared(false)}
                           className="text-xs text-brand hover:underline font-semibold"
                         >
-                          ← Prepare another inquiry
+                          Edit enquiry details
                         </button>
                       </div>
                     </motion.div>
                   ) : (
-                    /* =========================================================
-                       ACTIVE CLEAN EXECUTIVE FORM
-                       ========================================================= */
-                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" noValidate>
+                    <form onSubmit={handleOpenEmailClient} className="space-y-5" noValidate>
                       
-                      {/* Form Header */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-2">
-                        <div>
-                          <h2 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
-                            Send an Executive Inquiry
-                          </h2>
-                          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                            Direct transmission to Atif I. Malik &amp; M3 Hive leadership.
-                          </p>
-                        </div>
-                        <span className="self-start sm:self-auto text-[11px] font-mono text-brand font-bold bg-brand-wash px-2.5 py-1 rounded-full border border-brand/20">
-                          Direct Protocol
-                        </span>
+                      <div className="border-b border-slate-100 pb-4">
+                        <h2 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
+                          Submit a Project Enquiry
+                        </h2>
+                        <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                          Share your challenge and objectives to explore alignment with M3 Hive products or tailored engineering engagements.
+                        </p>
                       </div>
 
-                      {/* Quick Focus Area Interactive Selector Pills */}
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 flex items-center justify-between">
-                          <span>Quick Focus Selector</span>
-                          <span className="text-[10px] text-slate-400 font-normal">Click to pre-set</span>
-                        </label>
-                        <div className="flex flex-wrap gap-1.5">
-                          {inquiryCategories.map((cat) => {
-                            const isSelected = inquiryType === cat.id;
-                            return (
-                              <button
-                                key={cat.id}
-                                type="button"
-                                onClick={() => setInquiryType(cat.id)}
-                                className={`px-2.5 py-1 text-xs font-semibold rounded-full border transition-all ${
-                                  isSelected
-                                    ? 'bg-brand text-white border-brand shadow-xs'
-                                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
-                                }`}
-                              >
-                                {cat.short}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Row 1: Name and Email */}
+                      {/* Field 1 & 2: Name & Organisation */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {/* Name */}
                         <div>
                           <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                            Full Name <span className="text-brand">*</span>
+                            1. Full Name <span className="text-brand">*</span>
                           </label>
                           <div className="relative group">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-brand transition-colors">
@@ -497,7 +376,7 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                             <input
                               type="text"
                               required
-                              placeholder="Your Name"
+                              placeholder="Your full name"
                               value={name}
                               onChange={(e) => {
                                 setName(e.target.value);
@@ -518,10 +397,44 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                           )}
                         </div>
 
-                        {/* Email */}
                         <div>
                           <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                            Work Email <span className="text-brand">*</span>
+                            2. Organisation <span className="text-brand">*</span>
+                          </label>
+                          <div className="relative group">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-brand transition-colors">
+                              <Building2 className="w-4 h-4" />
+                            </div>
+                            <input
+                              type="text"
+                              required
+                              placeholder="Organisation or institution"
+                              value={organisation}
+                              onChange={(e) => {
+                                setOrganisation(e.target.value);
+                                if (errors.organisation) setErrors(prev => ({ ...prev, organisation: '' }));
+                              }}
+                              className={`w-full bg-white border pl-9 pr-3 py-2.5 text-sm rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all ${
+                                errors.organisation 
+                                  ? 'border-red-400 focus:border-red-500 ring-2 ring-red-100' 
+                                  : 'border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/10 shadow-2xs'
+                              }`}
+                            />
+                          </div>
+                          {errors.organisation && (
+                            <p className="text-xs text-red-600 mt-1 flex items-center gap-1 font-medium">
+                              <AlertCircle className="w-3 h-3" />
+                              <span>{errors.organisation}</span>
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Field 3 & 4: Work Email & Enquiry Type */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                            3. Work Email <span className="text-brand">*</span>
                           </label>
                           <div className="relative group">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-brand transition-colors">
@@ -550,43 +463,20 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                             </p>
                           )}
                         </div>
-                      </div>
 
-                      {/* Row 2: Organisation and Inquiry Focus */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {/* Organisation */}
                         <div>
                           <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                            Organisation / Institution
-                          </label>
-                          <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-brand transition-colors">
-                              <Building2 className="w-4 h-4" />
-                            </div>
-                            <input
-                              type="text"
-                              placeholder="e.g. Apex Health, Enterprise Ltd"
-                              value={organisation}
-                              onChange={(e) => setOrganisation(e.target.value)}
-                              className="w-full bg-white border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/10 shadow-2xs pl-9 pr-3 py-2.5 text-sm rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all"
-                            />
-                          </div>
-                        </div>
-
-                        {/* Inquiry Focus Dropdown */}
-                        <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-                            Inquiry Focus Area <span className="text-brand">*</span>
+                            4. Enquiry Type <span className="text-brand">*</span>
                           </label>
                           <div className="relative">
                             <select
-                              value={inquiryType}
-                              onChange={(e) => setInquiryType(e.target.value)}
+                              value={enquiryType}
+                              onChange={(e) => setEnquiryType(e.target.value as EnquiryType)}
                               className="w-full bg-white border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/10 shadow-2xs px-3 py-2.5 text-sm rounded-xl text-slate-900 focus:outline-none transition-all cursor-pointer appearance-none pr-8"
                             >
-                              {inquiryCategories.map((cat) => (
-                                <option key={cat.id} value={cat.id}>
-                                  {cat.label}
+                              {ENQUIRY_TYPES.map((type) => (
+                                <option key={type} value={type}>
+                                  {type}
                                 </option>
                               ))}
                             </select>
@@ -595,44 +485,66 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                         </div>
                       </div>
 
-                      {/* Message Textarea */}
+                      {/* Field 5: Brief Description of the Challenge */}
                       <div>
                         <div className="flex items-center justify-between mb-1.5">
                           <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-                            Message / Operational Context <span className="text-brand">*</span>
+                            5. Brief Description of the Challenge <span className="text-brand">*</span>
                           </label>
                           <span className={`text-[11px] font-mono ${
-                            message.length >= 10 ? 'text-brand font-semibold' : 'text-slate-400'
+                            description.length >= 15 ? 'text-brand font-semibold' : 'text-slate-400'
                           }`}>
-                            {message.length} characters
+                            {description.length} characters
                           </span>
                         </div>
-                        <div className="relative group">
-                          <textarea
-                            rows={4}
-                            required
-                            placeholder="Please describe your operational requirements, pilot goals, or collaboration context..."
-                            value={message}
-                            onChange={(e) => {
-                              setMessage(e.target.value);
-                              if (errors.message) setErrors(prev => ({ ...prev, message: '' }));
-                            }}
-                            className={`w-full bg-white border p-3 text-sm rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all leading-relaxed ${
-                              errors.message 
-                                ? 'border-red-400 focus:border-red-500 ring-2 ring-red-100' 
-                                : 'border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/10 shadow-2xs'
-                            }`}
-                          />
-                        </div>
-                        {errors.message && (
+                        <textarea
+                          rows={4}
+                          required
+                          placeholder="Describe the operational challenge, user context, technical requirements, or intended outcome..."
+                          value={description}
+                          onChange={(e) => {
+                            setDescription(e.target.value);
+                            if (errors.description) setErrors(prev => ({ ...prev, description: '' }));
+                          }}
+                          className={`w-full bg-white border p-3 text-sm rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all leading-relaxed ${
+                            errors.description 
+                              ? 'border-red-400 focus:border-red-500 ring-2 ring-red-100' 
+                              : 'border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/10 shadow-2xs'
+                          }`}
+                        />
+                        {errors.description && (
                           <p className="text-xs text-red-600 mt-1 flex items-center gap-1 font-medium">
                             <AlertCircle className="w-3 h-3" />
-                            <span>{errors.message}</span>
+                            <span>{errors.description}</span>
                           </p>
                         )}
                       </div>
 
-                      {/* Consent Checkbox */}
+                      {/* Field 6: Preferred Next Step */}
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                          6. Preferred Next Step <span className="text-brand">*</span>
+                        </label>
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <Calendar className="w-4 h-4" />
+                          </div>
+                          <select
+                            value={preferredNextStep}
+                            onChange={(e) => setPreferredNextStep(e.target.value)}
+                            className="w-full bg-white border border-slate-200 focus:border-brand focus:ring-2 focus:ring-brand/10 shadow-2xs pl-9 pr-8 py-2.5 text-sm rounded-xl text-slate-900 focus:outline-none transition-all cursor-pointer appearance-none"
+                          >
+                            {PREFERRED_NEXT_STEPS.map((step) => (
+                              <option key={step} value={step}>
+                                {step}
+                              </option>
+                            ))}
+                          </select>
+                          <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        </div>
+                      </div>
+
+                      {/* Field 7: Consent to Be Contacted */}
                       <div className="pt-1">
                         <label className="flex items-start gap-2.5 cursor-pointer group">
                           <input
@@ -645,7 +557,7 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                             className="mt-1 h-4 w-4 rounded border-slate-300 text-brand focus:ring-brand cursor-pointer"
                           />
                           <span className="text-xs text-slate-600 leading-relaxed group-hover:text-slate-900 transition-colors">
-                            I agree to correspond with Atif I. Malik and M3 Hive regarding this executive inquiry. <span className="text-brand font-bold">*</span>
+                            7. I consent to be contacted regarding this project enquiry. <span className="text-brand font-bold">*</span>
                           </span>
                         </label>
                         {errors.consent && (
@@ -656,14 +568,14 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                         )}
                       </div>
 
-                      {/* Actions: Send & Copy with Live Ping Node */}
+                      {/* Actions */}
                       <div className="pt-2 flex flex-wrap items-center gap-3">
                         <button
                           type="submit"
                           className="group inline-flex items-center gap-2.5 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-white/20"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
-                          <span>Send Inquiry</span>
+                          <Send className="w-3.5 h-3.5 text-white/90" />
+                          <span>Prepare Email Enquiry</span>
                           <ArrowRight className="w-3.5 h-3.5 text-white/80 group-hover:translate-x-1 transition-transform" />
                         </button>
 
@@ -681,18 +593,15 @@ Direct executive inquiries are reviewed under enterprise confidentiality princip
                           ) : (
                             <span className="flex items-center gap-1.5">
                               <Copy className="w-4 h-4" />
-                              <span>Copy Brief</span>
+                              <span>Copy Structured Brief</span>
                             </span>
                           )}
                         </Button>
                       </div>
 
-                      {/* Helper Footer */}
-                      <p className="text-[11px] text-slate-400 pt-1">
-                        Clicking &quot;Send Inquiry&quot; launches your email client pre-addressed to{' '}
-                        <a href="mailto:atif.imran@gmail.com" className="text-brand font-semibold hover:underline">
-                          atif.imran@gmail.com
-                        </a>.
+                      {/* Accurate Transmit Note */}
+                      <p className="text-[11px] text-slate-500 pt-1 leading-relaxed">
+                        Note: Clicking &quot;Prepare Email Enquiry&quot; launches your local email application with a pre-formatted brief so you can review and send directly.
                       </p>
 
                     </form>

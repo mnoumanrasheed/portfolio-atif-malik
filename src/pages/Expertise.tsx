@@ -108,7 +108,7 @@ export const Expertise: React.FC = () => {
               </p>
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <Button to="/contact" variant="primary" showArrow>
-                  Discuss Technical Scope
+                  Discuss a Project
                 </Button>
                 <Button to="/ventures" variant="secondary">
                   Explore Priority Ventures
@@ -216,10 +216,10 @@ export const Expertise: React.FC = () => {
 
               <div className="pt-4 border-t border-brand/20 flex flex-wrap items-center justify-between gap-4">
                 <span className="text-xs text-slate-600">
-                  Scope, ownership, data access, success measures and commercial terms are transparently agreed before work begins.
+                  Scope, ownership, data access, success measures and commercial terms should be agreed before work begins.
                 </span>
                 <Button to="/contact" variant="primary" showArrow>
-                  Discuss an Engagement
+                  Discuss a Project
                 </Button>
               </div>
             </div>

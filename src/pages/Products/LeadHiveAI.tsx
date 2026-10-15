@@ -1,6 +1,5 @@
 import React from 'react';
 import { PRODUCTS } from '../../content/portfolio';
-import { AttributionBadge } from '../../components/ui/AttributionBadge';
 import { Button } from '../../components/ui/Button';
 import { LeadHiveWorkflowDiagram } from '../../components/diagrams/LeadHiveWorkflowDiagram';
 import { ScrollReveal } from '../../components/motion/ScrollReveal';
@@ -11,7 +10,7 @@ export const LeadHiveAI: React.FC = () => {
   const product = PRODUCTS.find((p) => p.id === 'leadhive-ai')!;
 
   return (
-    <div className="bg-canvas text-ink">
+    <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark">
       <HeroBackground
         imageSrc="/images/heroes/hero-leadhive.jpg"
         imageAlt="Enterprise Conversational AI & Communications"
@@ -22,9 +21,11 @@ export const LeadHiveAI: React.FC = () => {
           <ScrollReveal>
             <div className="space-y-6 max-w-4xl">
               <div className="flex flex-wrap items-center gap-3">
-                <AttributionBadge type={product.attribution} />
                 <span className="text-xs font-bold text-indigo-700 bg-indigo-100/90 px-3 py-1 rounded-full border border-indigo-200 uppercase tracking-wider">
-                  Priority 02 · Conversational AI &amp; Sales Enablement
+                  Lead Engagement &amp; Qualification
+                </span>
+                <span className="text-xs font-medium text-slate-500">
+                  M3 Hive Product
                 </span>
               </div>
 
@@ -41,14 +42,11 @@ export const LeadHiveAI: React.FC = () => {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button to="/contact?interest=leadhive-workflow" variant="primary" size="lg" showArrow>
+                <Button to="/contact?interest=leadhive-ai" variant="primary" size="lg" showArrow>
                   Design a Lead Qualification Workflow
                 </Button>
-                <Button to="/contact?interest=leadhive-ai" variant="secondary" size="lg">
-                  Explore LeadHive AI
-                </Button>
-                <Button to="/expertise" variant="outline" size="lg">
-                  M3 Hive Capabilities
+                <Button to="/collaboration" variant="secondary" size="lg">
+                  Explore Collaboration
                 </Button>
               </div>
             </div>
@@ -65,18 +63,18 @@ export const LeadHiveAI: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        {/* Problem vs Solution Split */}
+        {/* Challenge vs Value Proposition Split */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-16">
           {/* Challenge Box */}
           <ScrollReveal delay={0.15}>
-            <div className="bg-white border border-line rounded-card p-8 sm:p-10 h-full space-y-4 shadow-soft">
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 h-full space-y-4 shadow-soft">
               <div className="eyebrow text-amber-700">
-                The Inbound Bottleneck
+                Operational Context
               </div>
-              <h3 className="font-display font-bold text-2xl text-ink">
-                Delayed Responses & Inconsistent Qualification
+              <h3 className="font-display font-bold text-2xl text-slate-900">
+                Challenge
               </h3>
-              <p className="text-sm sm:text-base text-ink-body leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                 {product.challenge}
               </p>
             </div>
@@ -84,17 +82,17 @@ export const LeadHiveAI: React.FC = () => {
 
           {/* Value Proposition Box */}
           <ScrollReveal delay={0.2}>
-            <div className="bg-white border border-line rounded-card p-8 sm:p-10 h-full space-y-4 shadow-soft">
-              <div className="eyebrow text-accent">
-                Architectural Value Proposition
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 h-full space-y-4 shadow-soft">
+              <div className="eyebrow text-brand">
+                Platform Architecture
               </div>
-              <h3 className="font-display font-bold text-2xl text-ink">
-                Structured Qualification to Organized Hand-Off
+              <h3 className="font-display font-bold text-2xl text-slate-900">
+                Value Proposition
               </h3>
               <ul className="space-y-3 pt-2">
                 {product.valueProposition.map((vp, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-ink-body">
-                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-700 font-normal">
+                    <CheckCircle2 className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                     <span>{vp}</span>
                   </li>
                 ))}
@@ -103,19 +101,19 @@ export const LeadHiveAI: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        {/* Audiences & Collaboration Grid */}
+        {/* Potential Users & Collaboration Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
-          {/* Who May Benefit */}
+          {/* Potential Users */}
           <ScrollReveal delay={0.1}>
-            <div className="bg-canvas-subtle border border-line rounded-card p-8 space-y-4 shadow-soft">
-              <div className="text-xs font-semibold uppercase tracking-wider text-ink-subtle">
+            <div className="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-8 space-y-4 shadow-soft">
+              <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                 Target Stakeholders
               </div>
-              <h4 className="font-display font-bold text-lg text-ink">Intended Beneficiaries</h4>
+              <h4 className="font-display font-bold text-xl text-slate-900">Potential Users</h4>
               <ul className="space-y-2.5 pt-1">
                 {product.intendedUsers.map((user, idx) => (
-                  <li key={idx} className="text-sm text-ink-body flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <li key={idx} className="text-sm text-slate-700 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand" />
                     <span>{user}</span>
                   </li>
                 ))}
@@ -125,15 +123,15 @@ export const LeadHiveAI: React.FC = () => {
 
           {/* Collaboration Opportunities */}
           <ScrollReveal delay={0.15}>
-            <div className="bg-canvas-subtle border border-line rounded-card p-8 space-y-4 shadow-soft">
-              <div className="text-xs font-semibold uppercase tracking-wider text-ink-subtle">
-                Commercial Pathways
+            <div className="bg-slate-50/70 border border-slate-200/90 rounded-2xl p-8 space-y-4 shadow-soft">
+              <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                Partnership Scope
               </div>
-              <h4 className="font-display font-bold text-lg text-ink">Partner Opportunities</h4>
+              <h4 className="font-display font-bold text-xl text-slate-900">Collaboration Opportunities</h4>
               <ul className="space-y-2.5 pt-1">
                 {product.collaborationOpportunities.map((collab, idx) => (
-                  <li key={idx} className="text-sm text-ink-body flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <li key={idx} className="text-sm text-slate-700 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand" />
                     <span>{collab}</span>
                   </li>
                 ))}
@@ -142,32 +140,25 @@ export const LeadHiveAI: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        {/* Status Guardrail / Notice */}
-        <ScrollReveal>
-          <div className="bg-white border border-line rounded-card p-6 sm:p-8 my-14 text-xs text-ink-muted space-y-2 shadow-soft">
-            <div className="font-semibold text-ink uppercase tracking-wider">
-              Integration & Scope Governance
-            </div>
-            <p className="leading-relaxed">
-              {product.publicationGuardrail} LeadHive AI is architected to operate with business-defined qualification criteria and configurable notification or CRM dispatch interfaces, aligned directly to client workflow requirements.
-            </p>
-          </div>
-        </ScrollReveal>
-
         {/* Concluding CTA Banner */}
         <ScrollReveal>
-          <div className="p-8 sm:p-12 border border-line rounded-card bg-canvas-subtle flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
+          <div className="p-8 sm:p-12 border border-slate-200/90 rounded-2xl bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
             <div className="space-y-1">
-              <h3 className="font-display font-bold text-xl text-ink">
-                Deploy an Automated Qualification Engine
+              <h3 className="font-display font-bold text-2xl text-slate-900">
+                Discuss LeadHive AI
               </h3>
-              <p className="text-sm text-ink-muted">
-                Connect with M3 Hive to review qualification criteria, channels, and CRM integrations.
+              <p className="text-sm text-slate-600">
+                Connect with M3 Hive to evaluate qualification workflows and channel integration requirements.
               </p>
             </div>
-            <Button to="/contact?interest=leadhive" variant="primary" size="md" showArrow>
-              Discuss LeadHive AI
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button to="/contact?interest=leadhive-ai" variant="primary" size="md" showArrow>
+                Design a Lead Qualification Workflow
+              </Button>
+              <Button to="/collaboration" variant="secondary" size="md">
+                Explore Collaboration
+              </Button>
+            </div>
           </div>
         </ScrollReveal>
       </div>

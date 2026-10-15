@@ -73,7 +73,7 @@ export const SOURCE_AUDIT_REGISTER: SourceAuditReference[] = [
     sourceDoc: '360 Technologies Historical Corporate Profile (29pp) & Archive',
     sourceLocation: 'Appendix A, Section 6',
     evidenceType: 'Historical Archive',
-    approvalRequirement: 'Role attributed as Co-Founder, Director & Shareholder. Explicit legal wording notice provided.'
+    approvalRequirement: 'Role attributed as Founding CEO, Director & Shareholder, subject to final confirmation.'
   }
 ];
 

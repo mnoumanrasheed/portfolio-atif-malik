@@ -1,10 +1,64 @@
 import React from 'react';
-import { COLLABORATION_PATHWAYS } from '../content/portfolio';
-import { SectionHeader } from '../components/ui/SectionHeader';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { HeroBackground } from '../components/ui/HeroBackground';
+
+interface PathwayItem {
+  id: string;
+  name: string;
+  potentialParticipants: string;
+  suggestedFirstStep: string;
+}
+
+const COLLABORATION_PATHWAYS_APPROVED: PathwayItem[] = [
+  {
+    id: 'product-adoption',
+    name: 'Product Adoption',
+    potentialParticipants:
+      'Clinics, hospitals, sales teams or livestock operations with a defined use case.',
+    suggestedFirstStep: 'Discovery call, workflow review and scoped pilot.'
+  },
+  {
+    id: 'research-and-validation',
+    name: 'Research and Validation',
+    potentialParticipants:
+      'Universities, domain specialists, clinicians, veterinary professionals and research teams.',
+    suggestedFirstStep:
+      'Agree research questions, evaluation criteria, data governance and publication review.'
+  },
+  {
+    id: 'distribution-and-market-access',
+    name: 'Distribution and Market Access',
+    potentialParticipants:
+      'Regional partners, resellers, industry associations and implementation partners.',
+    suggestedFirstStep:
+      'Define target market, customer profile, commercial model and support responsibilities.'
+  },
+  {
+    id: 'technology-integration',
+    name: 'Technology Integration',
+    potentialParticipants:
+      'EHR/EMR vendors, CRM providers, sensor/device vendors and enterprise platform teams.',
+    suggestedFirstStep: 'Technical discovery, integration map and proof of concept.'
+  },
+  {
+    id: 'investment-and-strategic-capital',
+    name: 'Investment and Strategic Capital',
+    potentialParticipants:
+      'Investors aligned with product stage, market and growth requirements.',
+    suggestedFirstStep:
+      'Product briefing, market thesis, traction evidence and structured diligence conversation.'
+  },
+  {
+    id: 'custom-product-engineering',
+    name: 'Custom Product Engineering',
+    potentialParticipants:
+      'Organisations with an operational problem that needs a tailored digital solution.',
+    suggestedFirstStep:
+      'Problem statement, constraints, desired outcomes and discovery engagement.'
+  }
+];
 
 export const Collaboration: React.FC = () => {
   return (
@@ -17,20 +71,29 @@ export const Collaboration: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="max-w-3xl space-y-4">
-              <span className="eyebrow text-brand">Strategic Engagement &amp; Capital</span>
+            <div className="max-w-3xl space-y-5">
+              <span className="eyebrow text-brand">Partnerships &amp; Engagements</span>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                Collaboration &amp; Partnership Pathways
+                Let's Start With the Problem You Need to Solve.
               </h1>
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
-                Audience-aligned engagement routes for investors, clinical partners, commercial resellers, and enterprise teams to collaborate with Atif and M3 Hive.
-              </p>
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              <div className="space-y-3 text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+                <p>
+                  If you are exploring AI adoption, a product pilot, technology integration, research collaboration or a custom digital platform, share the challenge and the outcome you are working toward.
+                </p>
+                <p>
+                  We can determine whether an existing M3 Hive product or a tailored engagement is the right fit.
+                </p>
+              </div>
+              <div className="pt-3 flex flex-wrap items-center gap-3">
                 <Button to="/contact" variant="primary" showArrow>
-                  Start a Collaboration Brief
+                  Discuss a Project
                 </Button>
-                <Button to="/ventures" variant="secondary">
-                  Review Priority Ventures
+                <Button
+                  href="https://www.linkedin.com/in/aimalik/"
+                  variant="secondary"
+                  isExternal
+                >
+                  Connect on LinkedIn
                 </Button>
               </div>
             </div>
@@ -39,84 +102,65 @@ export const Collaboration: React.FC = () => {
       </HeroBackground>
 
       <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Narrative Framework Card */}
-        <ScrollReveal delay={0.1}>
-          <div className="bg-white border border-line rounded-card p-8 sm:p-10 mb-16 shadow-soft">
-            <h3 className="font-display font-bold text-xl text-ink mb-3">
-              Clear Value & Mutual Contribution
-            </h3>
-            <p className="text-base text-ink-body leading-relaxed max-w-4xl">
-              Collaboration succeeds when each party understands the challenge, the operating constraints, and the contribution required. Whether exploring an existing product pilot, academic research, commercial distribution, or a tailored engineering engagement, we establish data boundaries, governance, and transparent milestones before execution.
+        <ScrollReveal>
+          <div className="mb-12">
+            <span className="eyebrow text-brand">Engagement Pathways</span>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
+              Six Collaboration Pathways
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 max-w-2xl">
+              Structured engagement models designed to align domain requirements, technical architecture, and measurable outcomes.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* All Six Sourced Pathways */}
+        {/* All Six Approved Pathways */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {COLLABORATION_PATHWAYS.map((path, idx) => (
+          {COLLABORATION_PATHWAYS_APPROVED.map((path, idx) => (
             <ScrollReveal key={path.id} delay={idx * 0.05}>
               <Card className="p-7 sm:p-8 bg-white border-line shadow-soft h-full flex flex-col justify-between">
-                <div className="space-y-4">
+                <div className="space-y-5">
                   <div className="flex items-center justify-between border-b border-line pb-3">
-                    <span className="w-7 h-7 rounded bg-accent-wash text-accent font-bold text-xs flex items-center justify-center border border-accent/20">
+                    <span className="w-7 h-7 rounded bg-brand/10 text-brand font-bold text-xs flex items-center justify-center border border-brand/20">
                       0{idx + 1}
                     </span>
-                    <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                      Engagement Route
+                    <span className="text-xs font-semibold text-brand uppercase tracking-wider">
+                      Pathway
                     </span>
                   </div>
 
-                  <h3 className="font-display font-bold text-lg text-ink">
+                  <h3 className="font-display font-bold text-xl text-slate-900">
                     {path.name}
                   </h3>
 
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-subtle block mb-1">
-                      Who It Suits
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block mb-1.5">
+                      Potential participants:
                     </span>
-                    <p className="text-xs text-ink-body leading-relaxed">
-                      {path.audience}
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      {path.potentialParticipants}
                     </p>
                   </div>
 
-                  <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-ink-subtle block mb-1">
-                      Operational Challenge
+                  <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs space-y-1.5">
+                    <span className="font-semibold text-slate-900 block">
+                      Suggested first step:
                     </span>
-                    <p className="text-xs text-ink-body leading-relaxed">
-                      {path.likelyChallenge}
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-accent block mb-1">
-                      What We Communicate
-                    </span>
-                    <p className="text-xs text-ink-body leading-relaxed">
-                      {path.whatWeCommunicate}
-                    </p>
-                  </div>
-
-                  <div className="p-3.5 rounded-lg bg-canvas-subtle border border-line text-xs space-y-1">
-                    <span className="font-semibold text-ink block">
-                      Suggested First Step:
-                    </span>
-                    <p className="text-ink-muted">
-                      {path.possibleFirstStep}
+                    <p className="text-slate-600 leading-relaxed">
+                      {path.suggestedFirstStep}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-line">
+                <div className="pt-6 mt-6 border-t border-line">
                   <Button
-                    to={`/contact?intent=${encodeURIComponent(path.name)}`}
+                    to={`/contact?enquiry=${encodeURIComponent(path.name)}`}
                     variant="primary"
                     size="sm"
                     className="w-full"
                     showArrow
                   >
-                    {path.ctaText}
+                    Discuss a Project
                   </Button>
                 </div>
               </Card>
@@ -124,20 +168,30 @@ export const Collaboration: React.FC = () => {
           ))}
         </div>
 
-        {/* Tailored Inquiries */}
+        {/* Closing Action Banner */}
         <ScrollReveal>
-          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-canvas-subtle flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
-            <div>
-              <h3 className="font-display font-bold text-xl text-ink">
-                Require a Bespoke Partnership Structure?
+          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
+            <div className="space-y-1 text-center sm:text-left">
+              <h3 className="font-display font-bold text-xl text-slate-900">
+                Ready to explore a structured engagement?
               </h3>
-              <p className="text-sm text-ink-muted mt-1">
-                Reach out directly with your organizational context or institutional scope.
+              <p className="text-sm text-slate-600">
+                Initiate a direct conversation around your operational challenge or project scope.
               </p>
             </div>
-            <Button to="/contact" variant="secondary" size="md" showArrow>
-              Submit an Inquiry Brief
-            </Button>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button to="/contact" variant="primary" size="md" showArrow>
+                Discuss a Project
+              </Button>
+              <Button
+                href="https://www.linkedin.com/in/aimalik/"
+                variant="secondary"
+                size="md"
+                isExternal
+              >
+                Connect on LinkedIn
+              </Button>
+            </div>
           </div>
         </ScrollReveal>
       </div>

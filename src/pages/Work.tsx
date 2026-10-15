@@ -7,9 +7,7 @@ import {
 } from 'lucide-react';
 import { M3_HIVE_ADDITIONAL_WORK } from '../content/portfolio';
 import { SectionHeader } from '../components/ui/SectionHeader';
-import { AttributionBadge } from '../components/ui/AttributionBadge';
 import { Button } from '../components/ui/Button';
-import { Card } from '../components/ui/Card';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { HeroBackground } from '../components/ui/HeroBackground';
 import { AnimatedLineAccent } from '../components/ui/AnimatedLine';
@@ -18,23 +16,19 @@ export const Work: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
+  // Exclude hidden/unverified items per Section 12 instructions
+  const visibleProjects = M3_HIVE_ADDITIONAL_WORK.filter(item => !item.hidden);
+
   const categories = [
-    { id: 'all', label: 'All Projects (7)' },
-    { id: 'market', label: 'Market Intelligence' },
-    { id: 'bio', label: 'Bioinformatics & Science' },
-    { id: 'retail', label: 'Retail Analytics' },
-    { id: 'commerce', label: 'Marketplaces & Commerce' },
-    { id: 'art', label: 'Experimental R&D' }
+    { id: 'all', label: 'All Projects' },
+    { id: 'analytics', label: 'Market & Consumer Intelligence' },
+    { id: 'research', label: 'Research & Bioinformatics' },
+    { id: 'explorations', label: 'Exploratory Work' }
   ];
 
-  const filteredWork = M3_HIVE_ADDITIONAL_WORK.filter((item) => {
+  const filteredWork = visibleProjects.filter((item) => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'market') return item.id === 'intelligent-comparison';
-    if (activeFilter === 'bio') return item.id === 'drug-target-profiler' || item.id === 'genomic-analytics';
-    if (activeFilter === 'retail') return item.id === 'decoding-behavior';
-    if (activeFilter === 'commerce') return item.id === 'mazdoori' || item.id === 'your-door';
-    if (activeFilter === 'art') return item.id === 'regenerative-art';
-    return true;
+    return item.group === activeFilter;
   });
 
   const toggleExpand = (id: string) => {
@@ -42,7 +36,7 @@ export const Work: React.FC = () => {
   };
 
   return (
-    <div className="bg-canvas text-ink">
+    <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark">
       <HeroBackground
         imageSrc="/images/heroes/hero-work.jpg"
         imageAlt="Computational Engineering & Data Systems Workspace"
@@ -52,47 +46,35 @@ export const Work: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="max-w-3xl space-y-5">
-              {/* Executive Eyebrows */}
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#51AAC0]/30 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#51AAC0] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#51AAC0]" />
                   <span className="text-xs font-mono font-bold tracking-widest text-brand uppercase">
-                    M3 Hive Initiatives
+                    M3 Hive Company Projects
                   </span>
                 </span>
-                <AttributionBadge type="M3 Hive company project" />
                 <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider bg-white/85 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200/80">
-                  Documented Engineering Case Studies
+                  Verified Case Studies
                 </span>
               </div>
 
-              {/* Dominant Headline */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                Selected Additional Work
+                Selected Work &amp; Impact
               </h1>
 
-              {/* Luminous Line Accent */}
               <AnimatedLineAccent width="w-36 sm:w-48" height="h-[3px]" />
 
-              {/* High-Readability Editorial Paragraph */}
               <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-normal pt-1 max-w-2xl">
-                Seven documented project initiatives demonstrating M3 Hive&apos;s technical breadth across market intelligence, computational biology, retail analytics, and digital platforms.
+                Verified M3 Hive company projects demonstrating technical breadth across market intelligence, scientific software, bioinformatics, and data integration.
               </p>
 
-              {/* Executive Metrics Ledger Pill Bar */}
-              <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs">
-                  <span className="text-xs font-mono font-bold text-brand bg-brand-wash px-2 py-0.5 rounded border border-brand/20">07</span>
-                  <span className="text-xs font-bold text-slate-800">Documented Projects</span>
-                </div>
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs">
-                  <span className="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">05</span>
-                  <span className="text-xs font-bold text-slate-800">Practice Sectors</span>
-                </div>
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-bold text-slate-800">Verified Corporate Scope</span>
-                </div>
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Button to="/contact" variant="primary" showArrow>
+                  Discuss a Project
+                </Button>
+                <Button to="/ventures" variant="secondary">
+                  Explore Priority Ventures
+                </Button>
               </div>
             </div>
           </ScrollReveal>
@@ -104,27 +86,27 @@ export const Work: React.FC = () => {
         {/* Corporate Attribution Notice */}
         <ScrollReveal delay={0.05}>
           <div className="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-soft mb-12 space-y-1.5">
-            <span className="text-xs font-bold text-brand uppercase tracking-wider block">Corporate Attribution Notice</span>
+            <span className="text-xs font-bold text-brand uppercase tracking-wider block">Company Attribution</span>
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-              All case studies below are documented <em>M3 Hive company projects</em>. They reflect the company’s engineering capability and data engineering range rather than personally led individual assignments or commercial endorsement claims.
+              All projects below are documented <strong>M3 Hive company projects</strong>. They reflect the company&apos;s product development, data engineering and technical delivery capabilities.
             </p>
           </div>
         </ScrollReveal>
 
         {/* Filter Pills */}
         <ScrollReveal delay={0.1}>
-          <div className="flex flex-wrap items-center gap-2 mb-10 pb-6 border-b border-line">
-            <span className="text-xs uppercase tracking-wider text-ink-subtle font-medium mr-2">
-              Domain:
+          <div className="flex flex-wrap items-center gap-2 mb-10 pb-6 border-b border-slate-200">
+            <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold mr-2">
+              Filter by Domain:
             </span>
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveFilter(cat.id)}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all ${
+                className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all cursor-pointer ${
                   activeFilter === cat.id
-                    ? 'bg-accent text-white shadow-sm'
-                    : 'bg-white text-ink-body border border-line hover:border-accent/40 hover:bg-canvas-subtle'
+                    ? 'bg-brand text-white shadow-xs font-bold'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:border-brand/40 hover:bg-slate-50'
                 }`}
               >
                 {cat.label}
@@ -139,22 +121,24 @@ export const Work: React.FC = () => {
             const isExpanded = expandedId === project.id;
             return (
               <ScrollReveal key={project.id} delay={idx * 0.05}>
-                <div className="border border-line bg-white rounded-card p-7 sm:p-8 flex flex-col justify-between shadow-soft hover:shadow-card hover:border-accent/40 transition-all">
+                <div className="border border-slate-200/90 bg-white rounded-2xl p-7 sm:p-8 flex flex-col justify-between shadow-soft hover:shadow-card hover:border-brand/40 transition-all">
                   <div className="space-y-4">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <AttributionBadge type={project.attribution} />
-                      <span className="text-xs text-ink-subtle font-medium">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-brand bg-brand-wash px-2.5 py-1 rounded-md border border-brand/20">
+                        {project.attribution}
+                      </span>
+                      <span className="text-xs text-slate-500 font-medium">
                         {project.category}
                       </span>
                     </div>
 
-                    <h3 className="font-display font-bold text-xl sm:text-2xl text-ink">
+                    <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
                       {project.title}
                     </h3>
 
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-brand block mb-1.5">
-                        Operational Challenge
+                      <span className="text-xs font-bold uppercase tracking-wider text-brand block mb-1">
+                        Challenge
                       </span>
                       <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                         {project.challenge}
@@ -162,15 +146,15 @@ export const Work: React.FC = () => {
                     </div>
 
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5">
-                        Value Proposition
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                        Solution / Description
                       </span>
                       <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                         {project.valueProposition}
                       </p>
                     </div>
 
-                    {/* Expandable Details with Smooth Animation */}
+                    {/* Expandable Details */}
                     <AnimatePresence>
                       {isExpanded && project.details && (
                         <motion.div
@@ -198,21 +182,21 @@ export const Work: React.FC = () => {
                     </AnimatePresence>
                   </div>
 
-                  <div className="pt-5 mt-5 border-t border-line flex flex-wrap items-center justify-between gap-4 text-sm">
-                    <span className="text-slate-600">
-                      Status: <strong className="text-slate-900 font-bold">{project.status}</strong>
+                  <div className="pt-5 mt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-sm">
+                    <span className="text-xs text-slate-500">
+                      Attribution: <strong className="text-slate-800 font-semibold">{project.attribution}</strong>
                     </span>
 
                     <button
                       type="button"
                       onClick={() => toggleExpand(project.id)}
-                      className="text-brand font-bold hover:text-brand-hover inline-flex items-center gap-1.5 transition-colors text-sm"
+                      className="text-brand font-bold hover:text-brand-dark inline-flex items-center gap-1.5 transition-colors text-xs cursor-pointer"
                       aria-expanded={isExpanded}
                     >
                       {isExpanded ? (
-                        <>Collapse Elements <ChevronUp className="w-3.5 h-3.5" /></>
+                        <>Collapse Details <ChevronUp className="w-3.5 h-3.5" /></>
                       ) : (
-                        <>View Solution Elements <ChevronDown className="w-3.5 h-3.5" /></>
+                        <>View Details <ChevronDown className="w-3.5 h-3.5" /></>
                       )}
                     </button>
                   </div>
@@ -224,17 +208,17 @@ export const Work: React.FC = () => {
 
         {/* CTA Banner */}
         <ScrollReveal>
-          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-canvas-subtle flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
+          <div className="mt-16 p-8 sm:p-10 border border-slate-200/90 rounded-2xl bg-slate-50/70 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
             <div>
-              <h3 className="font-display font-bold text-xl text-ink">
-                Have a Complex Enterprise or Data Engineering Requirement?
+              <h3 className="font-display font-bold text-xl text-slate-900">
+                Explore a Custom Engineering Engagement
               </h3>
-              <p className="text-sm text-ink-muted mt-1">
-                Discuss problem scoping, feasibility analysis, or custom architecture with M3 Hive.
+              <p className="text-sm text-slate-600 mt-1">
+                Share the operational challenge and outcome you are working toward.
               </p>
             </div>
             <Button to="/contact" variant="primary" size="md" showArrow>
-              Discuss an Engagement
+              Discuss a Project
             </Button>
           </div>
         </ScrollReveal>

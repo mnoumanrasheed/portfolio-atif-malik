@@ -36,17 +36,6 @@ export const Insights: React.FC = () => {
 
       {/* Main Content */}
       <div className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Editorial Standards Notice */}
-        <ScrollReveal delay={0.1}>
-          <div className="p-6 sm:p-8 rounded-card border border-line bg-canvas-subtle mb-14 space-y-2 shadow-soft">
-            <div className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Editorial Integrity Policy
-            </div>
-            <p className="text-sm text-ink-body leading-relaxed">
-              In alignment with executive governance standards, this portfolio links exclusively to verified corporate profiles, official product domains, and published institutional registries. We do not manufacture synthetic blog articles, unverified press quotes, or fictional thought leadership timestamps.
-            </p>
-          </div>
-        </ScrollReveal>
 
         {/* References Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

@@ -143,30 +143,30 @@ export const Navbar: React.FC = () => {
     { name: 'Selected Work', path: '/work' },
     { name: '360 Technologies', path: '/360-technologies' },
     { name: 'Collaboration', path: '/collaboration' },
-    { name: 'Insights', path: '/insights' }
+    { name: 'Contact', path: '/contact' }
   ];
 
   const productLinks: ProductItem[] = [
     {
       name: 'NourDoc',
       category: 'HealthTech AI',
-      desc: 'Ambient clinical documentation & electronic health record workflow intelligence.',
+      desc: 'AI-enabled clinical documentation platform transforming clinical conversations into structured notes.',
       path: '/products/nourdoc',
       badgeColor: 'text-sky-700 bg-sky-50 border-sky-200/80',
       dotColor: 'bg-sky-500'
     },
     {
       name: 'LeadHive AI',
-      category: 'Conversational AI',
-      desc: 'Autonomous multi-channel conversational qualification and sales engagement engine.',
+      category: 'Lead Engagement & Qualification',
+      desc: 'AI-enabled lead engagement and qualification engine turning incoming interest into qualified conversations.',
       path: '/products/leadhive-ai',
       badgeColor: 'text-indigo-700 bg-indigo-50 border-indigo-200/80',
       dotColor: 'bg-indigo-500'
     },
     {
       name: 'Smart Animal',
-      category: 'AgriTech IoT',
-      desc: 'Precision biometric livestock telemetry and hardware-integrated health alerting.',
+      category: 'AgriTech & IoT',
+      desc: 'IoT-based livestock monitoring and insight platform combining connected sensing with digital interfaces.',
       path: '/products/smart-animal',
       badgeColor: 'text-emerald-700 bg-emerald-50 border-emerald-200/80',
       dotColor: 'bg-emerald-500'
@@ -362,7 +362,7 @@ export const Navbar: React.FC = () => {
               className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-white/20"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
-              <span>Let&apos;s Connect</span>
+              <span>Discuss a Project</span>
               <ArrowRight className="w-3.5 h-3.5 text-white/80" />
             </Link>
           </div>
@@ -484,7 +484,7 @@ export const Navbar: React.FC = () => {
                   showArrow
                   onClick={() => setIsOpen(false)}
                 >
-                  Let&apos;s Connect
+                  Discuss a Project
                 </Button>
               </div>
 
