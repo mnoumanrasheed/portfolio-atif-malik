@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { ExecutiveLogo } from '../ui/ExecutiveLogo';
 
 interface VenturesDropdownItem {
   name: string;
@@ -172,54 +173,22 @@ export const Navbar: React.FC = () => {
           {/* Section 4: Brand Name on the Left */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377A8A]/40 rounded-lg py-1"
+            className="group rounded-lg py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377A8A]/40"
             aria-label="Atif I. Malik - Home"
           >
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0B1B20] to-[#1B3E4A] border border-[#51AAC0]/30 text-white font-display font-black text-xs flex items-center justify-center tracking-tight shadow-2xs group-hover:border-[#51AAC0] transition-colors shrink-0">
-              AIM
-            </span>
-            <span className="font-display font-extrabold text-lg sm:text-xl text-slate-900 group-hover:text-[#377A8A] transition-colors tracking-tight">
-              Atif I. Malik
-            </span>
+            <ExecutiveLogo size="sm" variant="horizontal" theme="light" showSubtitle={false} />
           </Link>
 
-          {/* Main Navigation Tabs: 7 Approved Top-Level Items */}
+          {/* Main Navigation Tabs */}
           <nav
             className="hidden lg:flex items-center gap-0.5 xl:gap-1.5"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredNav(null)}
           >
-            {/* 1. Home */}
-            <NavLink
-              to="/"
-              end
-              onMouseEnter={() => setHoveredNav('Home')}
-              className={({ isActive }) =>
-                `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
-                  isActive
-                    ? 'text-[#377A8A] font-bold'
-                    : 'text-slate-700 hover:text-slate-950'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <span>Home</span>
-                  {(isActive || hoveredNav === 'Home') && (
-                    <motion.div
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
-                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
-
-            {/* 2. About Atif */}
+            {/* About */}
             <NavLink
               to="/about"
-              onMouseEnter={() => setHoveredNav('About Atif')}
+              onMouseEnter={() => setHoveredNav('About')}
               className={({ isActive }) =>
                 `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
@@ -230,8 +199,8 @@ export const Navbar: React.FC = () => {
             >
               {({ isActive }) => (
                 <>
-                  <span>About Atif</span>
-                  {(isActive || hoveredNav === 'About Atif') && (
+                  <span>About</span>
+                  {(isActive || hoveredNav === 'About') && (
                     <motion.div
                       layoutId="nav-underline"
                       className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
@@ -242,7 +211,7 @@ export const Navbar: React.FC = () => {
               )}
             </NavLink>
 
-            {/* 3. Expertise */}
+            {/* Expertise */}
             <NavLink
               to="/expertise"
               onMouseEnter={() => setHoveredNav('Expertise')}
@@ -268,7 +237,7 @@ export const Navbar: React.FC = () => {
               )}
             </NavLink>
 
-            {/* 4. Ventures (Links to /ventures with 4-item Dropdown) */}
+            {/* Ventures (Links to /ventures with 4-item Dropdown) */}
             <div
               ref={dropdownRef}
               className="relative"
@@ -384,7 +353,7 @@ export const Navbar: React.FC = () => {
               </AnimatePresence>
             </div>
 
-            {/* 5. Selected Work */}
+            {/* Selected Work */}
             <NavLink
               to="/work"
               onMouseEnter={() => setHoveredNav('Selected Work')}
@@ -410,7 +379,7 @@ export const Navbar: React.FC = () => {
               )}
             </NavLink>
 
-            {/* 6. Collaboration */}
+            {/* Collaboration */}
             <NavLink
               to="/collaboration"
               onMouseEnter={() => setHoveredNav('Collaboration')}
@@ -426,32 +395,6 @@ export const Navbar: React.FC = () => {
                 <>
                   <span>Collaboration</span>
                   {(isActive || hoveredNav === 'Collaboration') && (
-                    <motion.div
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
-                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
-
-            {/* 7. Contact */}
-            <NavLink
-              to="/contact"
-              onMouseEnter={() => setHoveredNav('Contact')}
-              className={({ isActive }) =>
-                `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
-                  isActive
-                    ? 'text-[#377A8A] font-bold'
-                    : 'text-slate-700 hover:text-slate-950'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <span>Contact</span>
-                  {(isActive || hoveredNav === 'Contact') && (
                     <motion.div
                       layoutId="nav-underline"
                       className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#377A8A] rounded-full"
@@ -503,23 +446,7 @@ export const Navbar: React.FC = () => {
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-2">
               
-              {/* 1. Home */}
-              <NavLink
-                to="/"
-                end
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
-                    isActive
-                      ? 'text-[#377A8A] font-bold bg-brand-wash border border-[#377A8A]/20 shadow-2xs'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
-                  }`
-                }
-              >
-                Home
-              </NavLink>
-
-              {/* 2. About Atif */}
+              {/* About */}
               <NavLink
                 to="/about"
                 onClick={() => setIsOpen(false)}
@@ -531,10 +458,10 @@ export const Navbar: React.FC = () => {
                   }`
                 }
               >
-                About Atif
+                About
               </NavLink>
 
-              {/* 3. Expertise */}
+              {/* Expertise */}
               <NavLink
                 to="/expertise"
                 onClick={() => setIsOpen(false)}
@@ -549,7 +476,7 @@ export const Navbar: React.FC = () => {
                 Expertise
               </NavLink>
 
-              {/* 4. Ventures with Expandable Submenu (4 Links) */}
+              {/* Ventures with Expandable Submenu */}
               <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-1">
                 <div className="flex items-center justify-between">
                   <NavLink
@@ -609,7 +536,7 @@ export const Navbar: React.FC = () => {
                 )}
               </div>
 
-              {/* 5. Selected Work */}
+              {/* Selected Work */}
               <NavLink
                 to="/work"
                 onClick={() => setIsOpen(false)}
@@ -624,7 +551,7 @@ export const Navbar: React.FC = () => {
                 Selected Work
               </NavLink>
 
-              {/* 6. Collaboration */}
+              {/* Collaboration */}
               <NavLink
                 to="/collaboration"
                 onClick={() => setIsOpen(false)}
@@ -637,21 +564,6 @@ export const Navbar: React.FC = () => {
                 }
               >
                 Collaboration
-              </NavLink>
-
-              {/* 7. Contact */}
-              <NavLink
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
-                    isActive
-                      ? 'text-[#377A8A] font-bold bg-brand-wash border border-[#377A8A]/20 shadow-2xs'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
-                  }`
-                }
-              >
-                Contact
               </NavLink>
 
               {/* Mobile CTA Action Button */}

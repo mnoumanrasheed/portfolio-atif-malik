@@ -124,15 +124,9 @@ Note: Please do not transmit medical records, patient data, or confidential proj
     return Object.keys(errs).length === 0;
   };
 
-  const handleOpenEmailClient = (e: React.FormEvent) => {
+  const handlePrepareBrief = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-
-    const subject = encodeURIComponent(`Project Enquiry: ${enquiryType} - ${organisation.trim()}`);
-    const body = encodeURIComponent(generatedBrief);
-    const mailtoUrl = `mailto:atif.imran@gmail.com?subject=${subject}&body=${body}`;
-
-    window.location.href = mailtoUrl;
     setPrepared(true);
   };
 
@@ -255,12 +249,12 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                     m3hive.com
                   </a>
                   <a
-                    href="https://nour-doc.com/"
+                    href="https://nourdoc.m3hive.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs"
                   >
-                    nour-doc.com
+                    nourdoc.m3hive.com
                   </a>
                 </div>
 
@@ -292,22 +286,27 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.96 }}
                       transition={{ duration: 0.25 }}
-                      className="py-8 text-center space-y-5"
+                      className="py-6 space-y-5"
                     >
                       <div className="w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-300 text-emerald-600 flex items-center justify-center mx-auto shadow-xs">
                         <Check className="w-7 h-7" />
                       </div>
 
-                      <div className="space-y-2 max-w-md mx-auto">
+                      <div className="space-y-2 max-w-md mx-auto text-center">
                         <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 inline-block">
-                          Email Client Triggered
+                          Enquiry Brief Generated
                         </span>
                         <h2 className="font-display font-bold text-2xl text-slate-900 pt-1">
-                          Enquiry Draft Prepared
+                          Structured Brief Ready
                         </h2>
                         <p className="text-sm text-slate-600 leading-relaxed">
-                          Your email application has been opened with your structured enquiry details. If your email application did not launch automatically, copy the structured brief below to send via your preferred mail client or LinkedIn.
+                          Your structured project enquiry brief has been compiled below. <strong>Please note: no direct email has been sent.</strong> You can copy this brief to your clipboard and send it via LinkedIn or direct executive correspondence.
                         </p>
+                      </div>
+
+                      {/* Display generated brief */}
+                      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left font-mono text-xs text-slate-800 whitespace-pre-wrap max-h-60 overflow-y-auto shadow-inner">
+                        {generatedBrief}
                       </div>
 
                       <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
@@ -341,18 +340,18 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                         </Button>
                       </div>
 
-                      <div className="pt-4 border-t border-slate-100">
+                      <div className="pt-4 border-t border-slate-100 text-center">
                         <button
                           type="button"
                           onClick={() => setPrepared(false)}
-                          className="text-xs text-brand hover:underline font-semibold"
+                          className="text-xs text-brand hover:underline font-semibold cursor-pointer"
                         >
                           Edit enquiry details
                         </button>
                       </div>
                     </motion.div>
                   ) : (
-                    <form onSubmit={handleOpenEmailClient} className="space-y-5" noValidate>
+                    <form onSubmit={handlePrepareBrief} className="space-y-5" noValidate>
                       
                       <div className="border-b border-slate-100 pb-4">
                         <h2 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
@@ -572,10 +571,10 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                       <div className="pt-2 flex flex-wrap items-center gap-3">
                         <button
                           type="submit"
-                          className="group inline-flex items-center gap-2.5 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-white/20"
+                          className="group inline-flex items-center gap-2.5 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-white/20 cursor-pointer"
                         >
                           <Send className="w-3.5 h-3.5 text-white/90" />
-                          <span>Prepare Email Enquiry</span>
+                          <span>Prepare Enquiry Brief</span>
                           <ArrowRight className="w-3.5 h-3.5 text-white/80 group-hover:translate-x-1 transition-transform" />
                         </button>
 
@@ -601,7 +600,7 @@ Note: Please do not transmit medical records, patient data, or confidential proj
 
                       {/* Accurate Transmit Note */}
                       <p className="text-[11px] text-slate-500 pt-1 leading-relaxed">
-                        Note: Clicking &quot;Prepare Email Enquiry&quot; launches your local email application with a pre-formatted brief so you can review and send directly.
+                        Note: This form prepares a structured project brief for you to copy and share via LinkedIn or direct executive correspondence. No direct email is transmitted from this website.
                       </p>
 
                     </form>

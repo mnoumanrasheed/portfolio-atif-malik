@@ -31,8 +31,8 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
     <div 
       className={`relative overflow-hidden ${
         isCompactHeight
-          ? 'min-h-[100dvh] lg:min-h-screen flex flex-col pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12'
-          : 'min-h-screen min-h-[100dvh] flex flex-col pt-28 sm:pt-32 pb-16 sm:pb-20'
+          ? 'h-screen min-h-screen flex flex-col pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12'
+          : 'h-screen min-h-screen flex flex-col pt-28 sm:pt-32 pb-16 sm:pb-20'
       } border-b border-line ${className}`}
     >
       {/* High-Clarity Background Image Container */}

@@ -93,26 +93,26 @@ export const Ventures: React.FC = () => {
             const nourdoc = PRODUCTS.find((p) => p.id === 'nourdoc')!;
             return (
               <ScrollReveal>
-                <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-sky-50/40 via-white to-white border border-sky-100 shadow-soft space-y-8">
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                    <div className="lg:col-span-5 space-y-4">
+                <div className="relative overflow-hidden rounded-[2rem] border border-sky-200 bg-[#eaf8fc] p-3 shadow-[0_24px_60px_-35px_rgba(14,116,144,0.4)]">
+                  <div className="grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-[1.45rem] bg-white lg:grid-cols-12">
+                    <div className="lg:col-span-5 space-y-5 p-7 sm:p-10 lg:p-12">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-sky-700 bg-sky-100/80 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-sky-700 bg-sky-100 px-3 py-1.5 rounded-full">
                           HealthTech AI
                         </span>
                       </div>
-                      <h3 className="font-display font-extrabold text-3xl text-slate-900">
+                      <h3 className="font-display font-extrabold text-4xl text-slate-950 tracking-tight">
                         {nourdoc.name}
                       </h3>
                       <p className="text-base text-sky-700 font-semibold">
                         &quot;{nourdoc.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-sky-400 pl-4">
                         {nourdoc.overview}
                       </p>
 
-                      <div className="p-4 rounded-xl bg-white border border-sky-200/80 space-y-1.5 text-xs">
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
+                      <div className="p-5 rounded-2xl bg-sky-50/70 border border-sky-200 space-y-2 text-xs">
+                        <span className="font-bold text-sky-900 uppercase tracking-[0.14em] block">Operational Challenge</span>
                         <p className="text-slate-600 leading-relaxed">{nourdoc.challenge}</p>
                       </div>
 
@@ -129,7 +129,8 @@ export const Ventures: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="lg:col-span-7">
+                    <div className="lg:col-span-7 border-t border-sky-100 bg-sky-50/50 p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-9">
+                      <div className="mb-4 flex items-center gap-3"><span className="h-px flex-1 bg-sky-200" /><span className="font-mono text-[10px] font-bold tracking-[0.16em] text-sky-700">CARE PATHWAY</span><span className="h-px flex-1 bg-sky-200" /></div>
                       <NourDocWorkflowDiagram />
                     </div>
                   </div>
@@ -143,30 +144,31 @@ export const Ventures: React.FC = () => {
             const leadhive = PRODUCTS.find((p) => p.id === 'leadhive-ai')!;
             return (
               <ScrollReveal>
-                <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-indigo-50/40 via-white to-white border border-indigo-100 shadow-soft space-y-8">
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                    <div className="lg:col-span-7 order-2 lg:order-1">
+                <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 p-3 shadow-[0_24px_60px_-35px_rgba(15,23,42,0.22)]">
+                  <div className="grid grid-cols-1 overflow-hidden rounded-[1.45rem] bg-white lg:grid-cols-12">
+                    <div className="lg:col-span-7 order-2 border-t border-slate-200 bg-slate-50/70 p-5 sm:p-7 lg:order-1 lg:border-r lg:border-t-0 lg:p-9">
+                      <div className="mb-4 flex items-center justify-between"><span className="rounded-full border border-slate-200 bg-white px-3 py-1 font-mono text-[10px] font-bold tracking-[0.14em] text-slate-500">OPPORTUNITY SYSTEM</span><span className="h-px w-16 bg-slate-200" /></div>
                       <LeadHiveWorkflowDiagram />
                     </div>
 
-                    <div className="lg:col-span-5 space-y-4 order-1 lg:order-2">
+                    <div className="lg:col-span-5 space-y-5 order-1 bg-white p-7 sm:p-10 lg:order-2 lg:p-12">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-indigo-700 bg-indigo-100/80 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-full">
                           Lead Engagement &amp; Qualification
                         </span>
                       </div>
-                      <h3 className="font-display font-extrabold text-3xl text-slate-900">
+                      <h3 className="font-display font-extrabold text-4xl text-slate-950 tracking-tight">
                         {leadhive.name}
                       </h3>
-                      <p className="text-base text-indigo-700 font-semibold">
+                      <p className="text-base text-slate-700 font-semibold">
                         &quot;{leadhive.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-slate-300 pl-4">
                         {leadhive.overview}
                       </p>
 
-                      <div className="p-4 rounded-xl bg-white border border-indigo-200/80 space-y-1.5 text-xs">
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
+                      <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+                        <span className="font-bold text-slate-700 uppercase tracking-[0.14em] block">Operational Challenge</span>
                         <p className="text-slate-600 leading-relaxed">{leadhive.challenge}</p>
                       </div>
 
@@ -190,26 +192,27 @@ export const Ventures: React.FC = () => {
             const smartAnimal = PRODUCTS.find((p) => p.id === 'smart-animal')!;
             return (
               <ScrollReveal>
-                <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-emerald-50/40 via-white to-white border border-emerald-100 shadow-soft space-y-8">
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                    <div className="lg:col-span-5 space-y-4">
+                <div className="relative overflow-hidden rounded-[2rem] border border-emerald-200 bg-white shadow-[0_24px_60px_-35px_rgba(5,150,105,0.35)]">
+                  <div className="absolute left-0 top-0 h-2 w-full bg-gradient-to-r from-emerald-500 via-teal-400 to-transparent" />
+                  <div className="grid grid-cols-1 items-stretch gap-0 lg:grid-cols-12">
+                    <div className="lg:col-span-5 space-y-5 bg-gradient-to-br from-emerald-50 via-white to-white p-7 sm:p-10 lg:p-12">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-700 bg-emerald-100 px-3 py-1.5 rounded-full">
                           AgriTech &amp; IoT
                         </span>
                       </div>
-                      <h3 className="font-display font-extrabold text-3xl text-slate-900">
+                      <h3 className="font-display font-extrabold text-4xl text-slate-950 tracking-tight">
                         {smartAnimal.name}
                       </h3>
                       <p className="text-base text-emerald-700 font-semibold">
                         &quot;{smartAnimal.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                      <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-emerald-400 pl-4">
                         {smartAnimal.overview}
                       </p>
 
-                      <div className="p-4 rounded-xl bg-white border border-emerald-200/80 space-y-1.5 text-xs">
-                        <span className="font-bold text-slate-900 uppercase tracking-wider block">Operational Challenge:</span>
+                      <div className="p-5 rounded-2xl bg-white border border-emerald-200 space-y-2 text-xs shadow-sm">
+                        <span className="font-bold text-emerald-900 uppercase tracking-[0.14em] block">Operational Challenge</span>
                         <p className="text-slate-600 leading-relaxed">{smartAnimal.challenge}</p>
                       </div>
 
@@ -223,7 +226,8 @@ export const Ventures: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="lg:col-span-7">
+                    <div className="lg:col-span-7 p-5 sm:p-7 lg:p-9">
+                      <div className="mb-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3"><span className="h-px bg-emerald-200" /><span className="font-mono text-[10px] font-bold tracking-[0.16em] text-emerald-700">FIELD SYSTEMS</span><span className="h-px bg-emerald-200" /></div>
                       <SmartAnimalWorkflowDiagram />
                     </div>
                   </div>

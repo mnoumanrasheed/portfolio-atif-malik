@@ -12,7 +12,7 @@ export const APPROVED_EXTERNAL_URLS = {
   m3hiveCorporate: 'https://m3hive.com/',
   m3hiveCaseStudies: 'https://m3hive.com/resources/case-studies.html',
   m3hiveLinkedin: 'https://www.linkedin.com/company/m3-hive/',
-  nourdocOfficial: 'https://nour-doc.com/',
+  nourdocOfficial: 'https://nourdoc.m3hive.com/',
   technologies360About: 'https://www.360technologies.net/index.php/about-us',
   technologies360Clients: 'https://www.360technologies.net/index.php/360-clients',
   technologies360Projects: 'https://360technologies.net/index.php/360-clients/projects-recently-completed'
@@ -22,58 +22,57 @@ export const SOURCE_AUDIT_REGISTER: SourceAuditReference[] = [
   {
     id: 'atif-identity',
     section: 'Executive Identity & Bio',
-    sourceDoc: 'Atif_I_Malik_Revised_Executive_Portfolio_Website_Content.docx',
-    sourceLocation: 'Appendix A, Sections 1 & 2',
+    sourceDoc: 'Source of Truth Master Document (14 October 2026)',
+    sourceLocation: 'Sections 2, 3 & 4',
     evidenceType: 'Public Profile',
-    approvalRequirement: 'Approved wording strictly matches Appendix A.'
+    approvalRequirement: 'Approved wording strictly matches executive identity, short bio, and full narrative.'
   },
   {
     id: 'm3hive-overview',
     section: 'M3 Hive Company Overview',
-    sourceDoc: 'M3 Hive Corporate Profile (2025)',
-    sourceLocation: 'Appendix A, Section 3',
+    sourceDoc: 'M3 Hive Corporate Profile & Master Document',
+    sourceLocation: 'Section 5',
     evidenceType: 'Corporate Profile',
-    approvalRequirement: 'Publish-ready copy verified.'
+    approvalRequirement: 'Verbatim publish-ready copy verified.'
   },
   {
     id: 'nourdoc-story',
     section: 'NourDoc Healthcare AI',
-    sourceDoc: 'NourDoc Product Documentation & Appendix A',
-    sourceLocation: 'Appendix A, Section 4',
+    sourceDoc: 'NourDoc Product Documentation & Master Document',
+    sourceLocation: 'Section 6',
     evidenceType: 'Product Documentation',
-    approvalRequirement: 'Official product URL verified. No clinical claims without external certification.'
+    approvalRequirement: 'Official product URL verified as nourdoc.m3hive.com. Described workflow only; no clinical efficacy claims.'
   },
   {
     id: 'leadhive-story',
     section: 'LeadHive AI Qualification Engine',
-    sourceDoc: 'M3 Hive Corporate Profile & Appendix A',
-    sourceLocation: 'Appendix A, Section 4',
+    sourceDoc: 'M3 Hive Corporate Profile & Master Document',
+    sourceLocation: 'Section 7',
     evidenceType: 'Product Documentation',
-    approvalRequirement: 'No unverified external domain created; routes through internal contact.'
+    approvalRequirement: 'No unverified external domain created; enquiry funnel routed through internal contact.'
   },
   {
     id: 'smart-animal-story',
     section: 'Smart Animal AgriTech Platform',
-    sourceDoc: 'M3 Hive Corporate Profile & Appendix A',
-    sourceLocation: 'Appendix A, Section 4',
+    sourceDoc: 'M3 Hive Corporate Profile & Master Document',
+    sourceLocation: 'Section 8',
     evidenceType: 'Product Documentation',
-    approvalRequirement: 'IoT architecture and alert models described proportionately without veterinary claims.'
+    approvalRequirement: 'IoT sensor architecture and alert models described proportionately without unverified veterinary metrics.'
   },
   {
     id: 'm3hive-case-studies',
     section: 'M3 Hive Selected Additional Work',
     sourceDoc: 'M3 Hive Corporate Profile & Case Studies Directory',
-    sourceLocation: 'Appendix A, Section 5',
+    sourceLocation: 'Section 9',
     evidenceType: 'Corporate Profile',
-    approvalRequirement: 'All 7 items explicitly labeled "M3 Hive company project".'
+    approvalRequirement: 'Documented projects explicitly attributed as "M3 Hive company project" or "Exploratory work".'
   },
   {
     id: '360-technologies-history',
     section: '360 Technologies Historical Portfolio',
     sourceDoc: '360 Technologies Historical Corporate Profile (29pp) & Archive',
-    sourceLocation: 'Appendix A, Section 6',
+    sourceLocation: 'Section 10',
     evidenceType: 'Historical Archive',
-    approvalRequirement: 'Role attributed as Founding CEO, Director & Shareholder, subject to final confirmation.'
+    approvalRequirement: 'Role attributed as Founding CEO, Director & Shareholder, clearly separated from M3 Hive executive leadership.'
   }
 ];
-

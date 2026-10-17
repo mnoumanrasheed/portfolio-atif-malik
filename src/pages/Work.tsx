@@ -54,7 +54,7 @@ export const Work: React.FC = () => {
                   </span>
                 </span>
                 <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider bg-white/85 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200/80">
-                  Verified Case Studies
+                  Documented Projects
                 </span>
               </div>
 
@@ -65,7 +65,7 @@ export const Work: React.FC = () => {
               <AnimatedLineAccent width="w-36 sm:w-48" height="h-[3px]" />
 
               <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-normal pt-1 max-w-2xl">
-                Verified M3 Hive company projects demonstrating technical breadth across market intelligence, scientific software, bioinformatics, and data integration.
+                M3 Hive company projects demonstrating technical breadth across market intelligence, scientific software, bioinformatics, and data integration.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">

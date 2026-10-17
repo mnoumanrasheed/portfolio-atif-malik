@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Linkedin } from 'lucide-react';
 import { EXTERNAL_SOURCES, EXECUTIVE_PROFILE } from '../content/portfolio';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
@@ -20,14 +20,14 @@ export const Insights: React.FC = () => {
             <div className="max-w-3xl space-y-4">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-brand bg-brand-wash px-3 py-1 rounded-full border border-brand/20">
-                  Verified Institutional Sources
+                  Insights &amp; Verified Sources
                 </span>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                Documentation &amp; External Verification
+                Insights &amp; Documentation
               </h1>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
-                Verified external documentation, official product platforms, corporate publications, and public institutional directories.
+                Executive perspectives, publication updates, and verified public directories and official product platforms.
               </p>
             </div>
           </ScrollReveal>
@@ -35,67 +35,106 @@ export const Insights: React.FC = () => {
       </HeroBackground>
 
       {/* Main Content */}
-      <div className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
-        {/* References Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {EXTERNAL_SOURCES.map((source, idx) => (
-            <ScrollReveal key={idx} delay={idx * 0.05}>
-              <Card className="p-6 sm:p-7 bg-white border-line shadow-soft h-full flex flex-col justify-between">
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between border-b border-line pb-3">
-                    <span className="text-xs font-medium text-accent">
-                      {source.category}
-                    </span>
-                    <ArrowUpRight className="w-4 h-4 text-ink-subtle" />
-                  </div>
-
-                  <h3 className="font-display font-bold text-base text-ink">
-                    {source.title}
-                  </h3>
-
-                  <p className="text-xs text-ink-muted leading-relaxed">
-                    {source.note}
-                  </p>
+        {/* Section 1: Executive Writing / Publications (Honest Empty State) */}
+        <div>
+          <ScrollReveal>
+            <div className="border border-slate-200/90 rounded-3xl bg-white p-8 sm:p-12 shadow-soft space-y-6">
+              <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div className="w-10 h-10 rounded-xl bg-brand-wash text-brand flex items-center justify-center border border-brand/20">
+                  <BookOpen className="w-5 h-5" />
                 </div>
-
-                <div className="pt-5 mt-5 border-t border-line">
-                  <Button
-                    href={source.url}
-                    variant="secondary"
-                    size="sm"
-                    className="w-full"
-                    isExternal
-                  >
-                    Open Source Record
-                  </Button>
+                <div>
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand">
+                    Thought Leadership &amp; Analysis
+                  </span>
+                  <h2 className="font-display font-extrabold text-2xl text-slate-900">
+                    Executive Writing &amp; Publications
+                  </h2>
                 </div>
-              </Card>
-            </ScrollReveal>
-          ))}
+              </div>
+
+              <div className="max-w-2xl space-y-4 text-slate-600 leading-relaxed">
+                <p>
+                  Formal long-form articles, whitepapers and detailed case analyses are currently in editorial preparation.
+                </p>
+                <p>
+                  For ongoing commentary, perspectives on applied artificial intelligence, product architecture, and discussion of industry developments, connect with Atif I. Malik on LinkedIn.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Button
+                  href={EXECUTIVE_PROFILE.verifiedLinks.linkedin}
+                  variant="primary"
+                  size="md"
+                  isExternal
+                  showArrow
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  View Perspectives on LinkedIn
+                </Button>
+                <Button to="/contact" variant="secondary" size="md">
+                  Discuss a Speaking or Advisory Topic
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
 
-        {/* Connect Directly Banner */}
-        <ScrollReveal>
-          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-canvas-subtle flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
-            <div>
-              <h3 className="font-display font-bold text-xl text-ink">
-                Connect Directly with Atif I. Malik
-              </h3>
-              <p className="text-sm text-ink-muted mt-1">
-                Verified professional background and executive network on LinkedIn.
+        {/* Section 2: Directory of Verified External Sources */}
+        <div>
+          <ScrollReveal>
+            <div className="mb-8 space-y-2">
+              <span className="eyebrow text-brand">Institutional Verification</span>
+              <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 tracking-tight">
+                Verified External Source Register
+              </h2>
+              <p className="text-sm text-slate-600">
+                Official web domains, corporate registries, and public directories referenced in this executive portfolio.
               </p>
             </div>
-            <Button
-              href={EXECUTIVE_PROFILE.verifiedLinks.linkedin}
-              variant="primary"
-              size="md"
-              isExternal
-            >
-              LinkedIn Profile
-            </Button>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {EXTERNAL_SOURCES.map((source, idx) => (
+              <ScrollReveal key={idx} delay={idx * 0.05}>
+                <Card className="p-6 sm:p-7 bg-white border border-slate-200/90 shadow-soft h-full flex flex-col justify-between hover:border-brand/40 transition-all">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <span className="text-[11px] font-mono font-bold text-brand uppercase tracking-wider">
+                        {source.category}
+                      </span>
+                      <ArrowUpRight className="w-4 h-4 text-slate-400" />
+                    </div>
+
+                    <h3 className="font-display font-bold text-base text-slate-900">
+                      {source.title}
+                    </h3>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {source.note}
+                    </p>
+                  </div>
+
+                  <div className="pt-5 mt-5 border-t border-slate-100">
+                    <Button
+                      href={source.url}
+                      variant="secondary"
+                      size="sm"
+                      className="w-full"
+                      isExternal
+                    >
+                      Open Verified Source
+                    </Button>
+                  </div>
+                </Card>
+              </ScrollReveal>
+            ))}
           </div>
-        </ScrollReveal>
+        </div>
+
       </div>
     </div>
   );

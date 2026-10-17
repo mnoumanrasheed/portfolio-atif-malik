@@ -1,33 +1,24 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
-  ArrowRight, 
-  ArrowUpRight, 
   Sparkles, 
   Cpu, 
   Database, 
   Cloud, 
   Radio, 
   Microscope,
-  Stethoscope,
-  Layers,
-  ChevronRight,
-  ExternalLink,
-  ShieldCheck,
   Shield
 } from 'lucide-react';
 import { 
   EXECUTIVE_PROFILE, 
-  PRODUCTS, 
   M3_HIVE_ADDITIONAL_WORK, 
-  TECHNOLOGIES_360 
+  TECHNOLOGIES_360,
+  CLOSING_CTA 
 } from '../content/portfolio';
 import { Button } from '../components/ui/Button';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { HeroBackground } from '../components/ui/HeroBackground';
-import { BorderBeam } from '../components/ui/BorderBeam';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -85,65 +76,11 @@ export const Home: React.FC = () => {
 
   const featuredWork = M3_HIVE_ADDITIONAL_WORK.filter(w => !w.hidden).slice(0, 3);
 
-  const featuredProducts = [
-    {
-      id: 'nourdoc',
-      name: 'NourDoc',
-      category: 'HealthTech AI',
-      headline: 'Let AI handle the documentation. Let clinicians focus on care.',
-      description:
-        'An AI-enabled clinical documentation platform designed to transform clinical conversations and notes into structured healthcare documentation.',
-      cta: 'Explore NourDoc',
-      path: '/products/nourdoc',
-      icon: Stethoscope,
-      tags: ['Clinical Documentation', 'Conversational Capture', 'Structured Notes'],
-      accentText: 'text-[#377A8A]',
-      accentBg: 'bg-[#377A8A]/10',
-      accentBorder: 'border-[#377A8A]/20',
-      hoverBorder: 'group-hover:border-[#377A8A]/50',
-      glowGradient: 'from-[#377A8A]/15 via-[#51AAC0]/10 to-transparent'
-    },
-    {
-      id: 'leadhive-ai',
-      name: 'LeadHive AI',
-      category: 'Lead Engagement & Qualification',
-      headline: 'Turn incoming interest into better-qualified sales conversations.',
-      description:
-        'An AI-enabled lead engagement and qualification engine that helps organisations respond to enquiries, understand prospect intent, and organise follow-up.',
-      cta: 'Explore LeadHive AI',
-      path: '/products/leadhive-ai',
-      icon: Sparkles,
-      tags: ['Inquiry Qualification', 'Intent Understanding', 'Sales Hand-Off'],
-      accentText: 'text-indigo-600',
-      accentBg: 'bg-indigo-50',
-      accentBorder: 'border-indigo-200/80',
-      hoverBorder: 'group-hover:border-indigo-400/50',
-      glowGradient: 'from-indigo-500/15 via-sky-400/10 to-transparent'
-    },
-    {
-      id: 'smart-animal',
-      name: 'Smart Animal',
-      category: 'AgriTech & IoT',
-      headline: 'Connected livestock monitoring for more informed herd management.',
-      description:
-        'An IoT-based livestock monitoring and insight platform combining connected sensing with digital interfaces to support animal activity monitoring and herd management.',
-      cta: 'Explore Smart Animal',
-      path: '/products/smart-animal',
-      icon: Radio,
-      tags: ['Connected Sensing', 'Activity Monitoring', 'Herd Insights'],
-      accentText: 'text-emerald-700',
-      accentBg: 'bg-emerald-50',
-      accentBorder: 'border-emerald-200/80',
-      hoverBorder: 'group-hover:border-emerald-500/50',
-      glowGradient: 'from-emerald-500/15 via-teal-400/10 to-transparent'
-    }
-  ];
-
   return (
     <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark overflow-x-hidden">
       
       {/* =========================================================================
-          HOMEPAGE SECTION 1: EXECUTIVE HERO
+          HOMEPAGE SECTION 01: EXECUTIVE HERO
           ========================================================================= */}
       <section 
         ref={heroRef} 
@@ -151,21 +88,35 @@ export const Home: React.FC = () => {
       >
         <HeroBackground 
           imageSrc="/images/heroes/hero-home.jpg" 
-          imageAlt="Executive Architecture"
+          imageAlt="Executive Architectural Technology Space"
           glowColor="teal" 
           isCompactHeight={true}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-12 sm:py-16">
-            <div className="max-w-3xl space-y-6 sm:space-y-8">
+            <div className="max-w-3xl space-y-6 sm:space-y-7">
               
+              {/* Executive Identity Tag & Professional Descriptor */}
+              <div>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#51AAC0]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#51AAC0] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#377A8A] uppercase">
+                    {EXECUTIVE_PROFILE.name}
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    {EXECUTIVE_PROFILE.tagline}
+                  </span>
+                </div>
+              </div>
+
               {/* Main Headline */}
               <div className="hero-headline">
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
                   {EXECUTIVE_PROFILE.heroHeadline}
                 </h1>
               </div>
 
-              {/* Supporting Paragraph */}
+              {/* Supporting Copy */}
               <div className="hero-statement text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
                 <p>
                   {EXECUTIVE_PROFILE.heroStatement}
@@ -188,7 +139,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          HOMEPAGE SECTION 2: ABOUT PREVIEW
+          HOMEPAGE SECTION 02: LEADERSHIP JOURNEY
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -196,7 +147,7 @@ export const Home: React.FC = () => {
             <ScrollReveal>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-wash text-brand text-xs font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-                <span>Executive Introduction</span>
+                <span>Leadership Journey</span>
               </div>
             </ScrollReveal>
 
@@ -207,8 +158,8 @@ export const Home: React.FC = () => {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                {EXECUTIVE_PROFILE.homepageIntro}
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal text-left sm:text-center">
+                {EXECUTIVE_PROFILE.shortBio}
               </p>
             </ScrollReveal>
 
@@ -224,7 +175,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          HOMEPAGE SECTION 3: EXPERTISE PREVIEW
+          HOMEPAGE SECTION 03: EXPERTISE & CAPABILITIES
           ========================================================================= */}
       <section className="py-20 sm:py-24 bg-canvas-subtle border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -265,145 +216,138 @@ export const Home: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          HOMEPAGE SECTION 4: FEATURED PRODUCTS
+          HOMEPAGE SECTION 04: COMPANIES & VENTURES
           ========================================================================= */}
-      <section className="py-20 sm:py-24 bg-white border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-wash text-brand text-xs font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-              <span>Priority Product Focus</span>
+      <section className="pt-6 pb-20 sm:pt-8 sm:pb-24 bg-slate-50/70 border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          
+          {/* M3 Hive Operating Vehicle Overview */}
+          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 sm:px-10 sm:py-10 shadow-soft">
+            <div className="absolute -right-24 -top-32 h-72 w-72 rounded-full bg-[#51AAC0]/10 blur-3xl pointer-events-none" />
+            <div className="relative grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div className="max-w-3xl space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-wash border border-brand/15 text-brand text-[11px] font-bold uppercase tracking-[0.12em]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+                  <span>Primary Operating Vehicle</span>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400 mb-2">M3 Hive portfolio</p>
+                  <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-950 tracking-tight">
+                    Products built around real operational needs.
+                  </h2>
+                </div>
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+                  M3 Hive translates business needs into digital products, intelligent workflows and applied AI solutions across healthcare, customer engagement and connected systems.
+                </p>
+              </div>
+              <Button to="/ventures" variant="secondary" size="sm" showArrow className="shrink-0">
+                View Ventures Overview
+              </Button>
             </div>
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
-              Featured Products
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600">
-              Three priority products addressing distinct real-world needs across healthcare, sales, and agriculture.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product, idx) => {
-              const Icon = product.icon;
-              return (
-                <ScrollReveal key={product.id} delay={idx * 0.1}>
-                  <div className={`relative bg-white border border-slate-200/90 rounded-2xl p-7 sm:p-8 flex flex-col justify-between h-full shadow-soft hover:shadow-card ${product.hoverBorder} transition-all duration-300 group hover:-translate-y-1 overflow-hidden`}>
-                    
-                    {/* Ambient top illumination sheen on hover */}
-                    <div className={`absolute top-0 left-0 right-0 h-32 bg-gradient-to-b ${product.glowGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
-
-                    {/* Top specular accent line */}
-                    <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#51AAC0] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    <div className="space-y-4 relative z-10">
-                      
-                      {/* Category Badge & Product Icon */}
-                      <div className="flex items-center justify-between gap-3">
-                        <span className={`text-[11px] font-bold uppercase tracking-wider ${product.accentText} ${product.accentBg} px-3 py-1 rounded-full border ${product.accentBorder}`}>
-                          {product.category}
-                        </span>
-
-                        <div className={`w-9 h-9 rounded-xl ${product.accentBg} ${product.accentText} border ${product.accentBorder} flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform duration-300`}>
-                          <Icon className="w-4 h-4" />
-                        </div>
-                      </div>
-
-                      {/* Product Name & Approved Headline */}
-                      <div>
-                        <h3 className="font-display font-extrabold text-2xl text-slate-900 group-hover:text-[#377A8A] transition-colors tracking-tight">
-                          {product.name}
-                        </h3>
-                        <p className="text-sm font-semibold text-slate-800 leading-snug mt-2">
-                          {product.headline}
-                        </p>
-                      </div>
-
-                      {/* Approved Concise Description */}
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        {product.description}
-                      </p>
-
-                      {/* Capability Tags */}
-                      <div className="flex flex-wrap gap-1.5 pt-2">
-                        {product.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-[10px] font-medium text-slate-600 bg-slate-50 border border-slate-200/70 px-2.5 py-1 rounded-md"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                    </div>
-
-                    {/* CTA Button */}
-                    <div className="pt-6 border-t border-slate-100 mt-6 relative z-10">
-                      <Button 
-                        to={product.path} 
-                        variant="secondary" 
-                        size="md" 
-                        showArrow 
-                        className="w-full justify-center group-hover:border-[#377A8A] group-hover:text-[#377A8A]"
-                      >
-                        {product.cta}
-                      </Button>
-                    </div>
-
+          {/* Subordinate Compact 360 Technologies Card */}
+          <ScrollReveal delay={0.15}>
+            <div className="relative bg-slate-50/70 border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-xs">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="space-y-3 max-w-3xl">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 text-[11px] font-semibold">
+                      <Shield className="w-3 h-3 text-[#377A8A]" />
+                      <span>Historical Company Affiliation</span>
+                    </span>
+                    <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-brand-wash border border-brand/20 text-brand">
+                      Founding CEO, Director &amp; Shareholder
+                    </span>
                   </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
+
+                  <div>
+                    <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
+                      360 Technologies
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                      A separate technology-services company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development. Presented as company history, not as a claim of personal delivery of every listed assignment.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="shrink-0 flex flex-wrap items-center gap-3">
+                  <Button to="/360-technologies" variant="secondary" size="sm" showArrow>
+                    Explore 360 Technologies
+                  </Button>
+                  {TECHNOLOGIES_360.directoryUrl && (
+                    <Button href={TECHNOLOGIES_360.directoryUrl} variant="ghost" size="sm" isExternal>
+                      Client Directory
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
         </div>
       </section>
 
       {/* =========================================================================
-          HOMEPAGE SECTION 5: SELECTED WORK PREVIEW
+          HOMEPAGE SECTION 05: SELECTED WORK & IMPACT
           ========================================================================= */}
-      <section className="py-20 sm:py-24 bg-canvas-subtle border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <SectionHeader
-              eyebrow="Company Portfolio"
-              title="Selected Work & Impact"
-              description="Verified M3 Hive company projects spanning market intelligence, scientific software, and bioinformatics."
-            />
-            <Button to="/work" variant="ghost" size="sm" showArrow className="self-start md:self-end">
-              View Selected Work
-            </Button>
+      <section className="relative overflow-hidden py-20 sm:py-24 bg-slate-50/70 border-t border-slate-200/80">
+        <div className="absolute right-0 top-12 h-80 w-80 rounded-full bg-[#51AAC0]/10 blur-3xl pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-soft sm:px-10 sm:py-10 mb-7 sm:mb-8">
+            <div className="absolute bottom-0 right-0 h-48 w-48 rounded-tl-full bg-[#377A8A]/[0.06]" />
+            <div className="relative grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+              <SectionHeader
+                eyebrow="Company Portfolio"
+                title="Selected Work & Impact"
+                description="M3 Hive projects spanning market intelligence, scientific software, and bioinformatics."
+              />
+              <Button to="/work" variant="secondary" size="sm" showArrow className="shrink-0 self-start lg:self-end">
+                View Selected Work
+              </Button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {featuredWork.map((project, idx) => (
               <ScrollReveal key={project.id} delay={idx * 0.08}>
-                <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-soft flex flex-col justify-between h-full">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-semibold text-brand font-mono uppercase tracking-wider text-[11px]">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-[#377A8A]/40 hover:shadow-card sm:p-7">
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#377A8A] via-[#51AAC0] to-transparent opacity-70" />
+                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#51AAC0]/0 transition-colors duration-300 group-hover:bg-[#51AAC0]/10" />
+                  <div className="relative flex h-full flex-col">
+                    <div className="flex items-start justify-between gap-3">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#377A8A]">
                         {project.category}
                       </span>
-                      <span className="text-[10px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
-                        M3 Hive
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 font-mono text-[10px] font-bold text-slate-400 transition-colors group-hover:border-[#377A8A]/30 group-hover:bg-brand-wash group-hover:text-[#377A8A]">
+                        0{idx + 1}
                       </span>
                     </div>
 
-                    <h3 className="font-display font-bold text-lg text-slate-900">
+                    <span className="mt-6 inline-flex w-fit rounded-full bg-slate-100 px-2.5 py-1 font-mono text-[9px] font-medium text-slate-500">
+                      {project.attribution}
+                    </span>
+
+                    <h3 className="mt-4 font-display text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-[#377A8A]">
                       {project.title}
                     </h3>
 
-                    <div className="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      <p>
-                        <strong className="text-slate-800 font-medium">Challenge: </strong>
+                    <div className="mt-5 space-y-4 text-xs sm:text-sm leading-relaxed">
+                      <div className="border-l-2 border-slate-200 pl-3.5">
+                        <span className="mb-1 block text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">Challenge</span>
+                        <p className="text-slate-600">
                         {project.challenge}
-                      </p>
-                      <p>
-                        <strong className="text-slate-800 font-medium">Solution: </strong>
+                        </p>
+                      </div>
+                      <div className="border-l-2 border-[#51AAC0] pl-3.5">
+                        <span className="mb-1 block text-[9px] font-bold uppercase tracking-[0.14em] text-[#377A8A]">Solution</span>
+                        <p className="text-slate-700">
                         {project.valueProposition}
-                      </p>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </article>
               </ScrollReveal>
             ))}
           </div>
@@ -411,135 +355,22 @@ export const Home: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          HOMEPAGE SECTION 6: 360 TECHNOLOGIES PREVIEW (Executive Redesign)
+          HOMEPAGE SECTION 06: COLLABORATION OPPORTUNITIES
           ========================================================================= */}
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-white via-slate-50/70 to-white border-t border-slate-200/80 relative overflow-hidden">
-        {/* Subtle background ambient blur */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#377A8A]/5 blur-3xl pointer-events-none rounded-full" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <ScrollReveal>
-            <div className="relative bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.08)] overflow-hidden">
-              
-              {/* Live Border Beam */}
-              <BorderBeam size={280} duration={9} colorFrom="#51AAC0" colorTo="#377A8A" borderWidth={1.5} />
-              
-              {/* Top ambient refraction line */}
-              <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/40 to-transparent pointer-events-none rounded-full" />
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                
-                {/* Left 7 Columns: Executive Overview & Legal Identity */}
-                <div className="lg:col-span-7 space-y-5">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold">
-                      <Shield className="w-3.5 h-3.5 text-[#377A8A]" />
-                      <span>Separate Corporate Affiliation</span>
-                    </span>
-                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-brand-wash border border-brand/20 text-brand">
-                      Founding CEO, Director &amp; Shareholder
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
-                      360 Technologies
-                    </h3>
-                    <p className="text-sm font-semibold text-slate-700 mt-1">
-                      Enterprise Systems, Public-Sector Digitisation &amp; Corporate Legacy
-                    </p>
-                  </div>
-
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                    {TECHNOLOGIES_360.legalNotice}
-                  </p>
-
-                  <div className="pt-2 flex flex-wrap items-center gap-3">
-                    <Button to="/360-technologies" variant="primary" size="md" showArrow>
-                      Explore 360 Technologies
-                    </Button>
-                    {TECHNOLOGIES_360.directoryUrl && (
-                      <Button href={TECHNOLOGIES_360.directoryUrl} variant="secondary" size="md" isExternal>
-                        View Client Directory
-                      </Button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Right 5 Columns: Historical Practice Areas Ledger */}
-                <div className="lg:col-span-5">
-                  <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-7 space-y-4">
-                    <div className="border-b border-slate-200/80 pb-3 flex items-center justify-between">
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-bold">
-                        Historical Practice Areas
-                      </span>
-                      <span className="text-[10px] font-semibold text-slate-400 bg-white px-2 py-0.5 rounded border border-slate-200">
-                        Enterprise Footprint
-                      </span>
-                    </div>
-
-                    <ul className="space-y-2.5 text-xs">
-                      <li className="flex items-start gap-2.5 text-slate-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#377A8A] mt-1.5 shrink-0" />
-                        <span className="font-medium">Enterprise Systems &amp; Public-Sector Digitisation</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-slate-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#377A8A] mt-1.5 shrink-0" />
-                        <span className="font-medium">Land Records &amp; Revenue Automation</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-slate-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#377A8A] mt-1.5 shrink-0" />
-                        <span className="font-medium">Systems Integration &amp; Software Development</span>
-                      </li>
-                      <li className="flex items-start gap-2.5 text-slate-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#377A8A] mt-1.5 shrink-0" />
-                        <span className="font-medium">Professional Capability &amp; Training</span>
-                      </li>
-                    </ul>
-
-                    {/* Institutional Clients Strip */}
-                    <div className="pt-3 border-t border-slate-200/80">
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block mb-2">
-                        Published Client References
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {['Pakistan Post', 'Pakistan Navy', 'NADRA', 'IBM', 'UNDP'].map((client) => (
-                          <span
-                            key={client}
-                            className="text-[10px] font-semibold text-slate-600 bg-white border border-slate-200 px-2 py-0.5 rounded shadow-2xs"
-                          >
-                            {client}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          HOMEPAGE SECTION 7: COLLABORATION & CONTACT
-          ========================================================================= */}
-      <section className="py-20 sm:py-24 bg-canvas-subtle border-t border-slate-200/80">
+      <section className="py-20 sm:py-24 bg-white border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-wash text-brand text-xs font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-brand" />
-              <span>Direct Strategic Inquiry</span>
+              <span>Collaboration Opportunities</span>
             </div>
 
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
-              Let&apos;s Start With the Problem You Need to Solve.
+              {CLOSING_CTA.headline}
             </h2>
 
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-              If you are exploring AI adoption, a product pilot, technology integration, research collaboration or a custom digital platform, share the challenge and the outcome you are working toward.
+              {CLOSING_CTA.body}
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

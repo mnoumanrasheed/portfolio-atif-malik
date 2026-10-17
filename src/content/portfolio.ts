@@ -21,11 +21,11 @@ export const EXECUTIVE_PROFILE: ExecutiveProfile = {
   tagline: 'Technology & AI Executive | AI Product Innovator',
   heroHeadline: 'Building Intelligent Technology. Creating Real-World Impact.',
   heroStatement:
-    'I work at the intersection of Artificial Intelligence, enterprise technology and product innovation - turning complex challenges into practical, scalable digital solutions.',
+    'I work at the intersection of Artificial Intelligence, enterprise technology and product innovation, turning complex challenges into practical, scalable digital solutions.',
   heroSecondParagraph:
     'From AI-powered healthcare to enterprise intelligence, my focus is on building products and partnerships that solve real problems and create meaningful business value.',
   homepageIntro:
-    'Atif I. Malik is a technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms and digital transformation. As CEO of M3 Hive, he works with teams and partners to develop practical technology solutions around real business and operational needs.',
+    'Atif I. Malik is a technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms and digital transformation. As CEO of M3 Hive, he works with teams and partners to shape practical technology solutions around real business and operational needs. M3 Hive’s current product focus includes NourDoc, an AI-enabled clinical documentation platform; LeadHive AI, a lead engagement and qualification engine; and Smart Animal, an IoT-based livestock monitoring and insight platform. Atif is also a Founding CEO, Director and Shareholder of 360 Technologies, a separate technology-services company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development.',
   shortBio:
     'Atif I. Malik is a technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms and digital transformation. As CEO of M3 Hive, he works with teams and partners to shape practical technology solutions around real business and operational needs. M3 Hive’s current product focus includes NourDoc, an AI-enabled clinical documentation platform; LeadHive AI, a lead engagement and qualification engine; and Smart Animal, an IoT-based livestock monitoring and insight platform. Atif is also a Founding CEO, Director and Shareholder of 360 Technologies, a separate technology-services company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development.',
   longBio: {
@@ -34,9 +34,9 @@ export const EXECUTIVE_PROFILE: ExecutiveProfile = {
     m3hiveContext:
       'As CEO of M3 Hive, Atif leads a technology company whose capabilities span digital product engineering, intelligent automation, data and AI, cloud platforms, customer experience and connected systems. Its current product priorities reflect three distinct opportunities: reducing documentation friction in healthcare through NourDoc; improving lead engagement and qualification through LeadHive AI; and using connected sensing and analytics to support livestock monitoring through Smart Animal.',
     technologies360Context:
-      'Atif is also a Founding CEO, Director and Shareholder of 360 Technologies. The company’s published historical portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. These achievements must be presented as company history, not as a claim that Atif personally delivered every assignment.',
+      'Atif is also a Founding CEO, Director and Shareholder of 360 Technologies. The company’s published historical portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. These achievements are presented as company history, not as a claim that Atif personally delivered every listed assignment.',
     portfolioIntent:
-      'The purpose of this website is to provide an accurate executive overview of technology leadership, products and verified collaboration pathways.'
+      'The purpose of this website is to help investors understand product opportunities, help collaborators identify where their expertise or networks can contribute, and help prospective clients map their challenges to a suitable product, proof of concept or engineering engagement.'
   },
   verifiedLinks: {
     linkedin: 'https://www.linkedin.com/in/aimalik/',
@@ -68,7 +68,7 @@ export const PRODUCTS: ProductData[] = [
     category: 'HealthTech AI',
     positioningLine: 'Let AI handle the documentation. Let clinicians focus on care.',
     attribution: 'M3 Hive product',
-    officialUrl: 'https://nour-doc.com/',
+    officialUrl: 'https://nourdoc.m3hive.com/',
     overview:
       'NourDoc is an AI-enabled clinical documentation platform designed to transform clinical conversations and notes into structured healthcare documentation. Its described workflow includes conversation capture, transcription, draft SOAP notes and support for clinical information workflows. Product direction also includes coding support and integration-oriented workflows for healthcare providers and organisations.',
     challenge:
@@ -76,9 +76,7 @@ export const PRODUCTS: ProductData[] = [
     valueProposition: [
       'Support structured draft clinical notes.',
       'Help reduce repetitive documentation effort while keeping clinicians responsible for review and finalisation.',
-      'Support workflows that may include ICD-10 and CPT coding assistance.',
-      'Support potential batch-processing workflows.',
-      'Support potential EHR/EMR or HIMS integration, subject to configuration and validation.',
+      'Support workflows that may include ICD-10 and CPT coding assistance, batch processing and EHR/EMR or HIMS integration, subject to configuration and validation.',
       'Consider cloud-native or on-premises deployment according to requirements.'
     ],
     intendedUsersSummary:
@@ -118,25 +116,24 @@ export const PRODUCTS: ProductData[] = [
     positioningLine: 'Turn incoming interest into better-qualified sales conversations.',
     attribution: 'M3 Hive product',
     overview:
-      'LeadHive AI is positioned as an AI-enabled lead engagement and qualification engine for organisations that need to respond to enquiries, understand prospect intent and organise follow-up across digital and messaging channels. The product story must focus on helping teams move from a raw enquiry to a more useful qualification and hand-off process - not simply on deploying a chatbot.',
+      'LeadHive AI is positioned as an AI-enabled lead engagement and qualification engine for organisations that need to respond to enquiries, understand prospect intent and organise follow-up across digital and messaging channels. The story should focus on helping teams move from a raw enquiry to a more useful qualification and hand-off process, not simply on deploying a chatbot.',
     challenge:
       'Marketing and sales teams may receive leads through websites, social channels and messaging platforms, while responses, qualification questions and follow-up can be inconsistent.',
     valueProposition: [
       'Engage prospects through structured conversational interactions.',
       'Ask qualification questions.',
       'Organise responses against business criteria.',
-      'Route enquiries to the appropriate team.',
-      'Support clearer hand-off to human sales or service teams.'
+      'Route enquiries to the right team.',
+      'Support a clearer hand-off to human sales or service teams.'
     ],
     intendedUsersSummary:
-      'Sales-led businesses, service providers, education consultancies, immigration consultancies, real estate teams, and organisations managing digital enquiries.',
+      'Sales-led businesses, service providers, education and immigration consultancies, real estate teams and other organisations managing digital enquiries.',
     intendedUsers: [
       'Sales-led businesses',
       'Service providers',
-      'Education consultancies',
-      'Immigration consultancies',
+      'Education and immigration consultancies',
       'Real estate teams',
-      'Organisations managing digital enquiries'
+      'Other organisations managing digital enquiries'
     ],
     collaborationOpportunities: [
       'Channel partnerships',
@@ -205,32 +202,32 @@ export const M3_HIVE_OVERVIEW =
 
 export const M3_HIVE_CAPABILITIES = [
   {
-    title: 'Applied AI & Intelligent Workflows',
+    title: 'Applied AI & intelligent workflows',
     description:
       'Generative AI, LLM-based experiences, retrieval-augmented generation, document processing and workflow automation.'
   },
   {
-    title: 'AI Product Engineering',
+    title: 'AI product engineering',
     description:
       'Product discovery, product definition, UX/UI, software architecture, web/mobile development and iterative delivery.'
   },
   {
-    title: 'Data Engineering & Market Intelligence',
+    title: 'Data engineering & market intelligence',
     description:
       'Data acquisition, pipeline engineering, data quality, analytics, dashboards and decision-support platforms.'
   },
   {
-    title: 'Cloud & Enterprise Integration',
+    title: 'Cloud & enterprise integration',
     description:
       'Cloud-native systems, APIs, data platforms and deployment approaches aligned to client needs.'
   },
   {
-    title: 'IoT & Connected Systems',
+    title: 'IoT & connected systems',
     description:
       'Sensor-connected products, edge technologies, data capture and monitoring interfaces.'
   },
   {
-    title: 'Research-Oriented Software',
+    title: 'Research-oriented software',
     description:
       'Bioinformatics workflows, scientific data processing and interactive visualisation.'
   }
@@ -250,22 +247,22 @@ export const M3_HIVE_ENGAGEMENT_STRUCTURES = [
 export const M3_HIVE_ENGAGEMENT_MODELS: EngagementStep[] = [
   { 
     phase: 'Phase 1', 
-    title: 'Discovery and Feasibility', 
+    title: 'Discovery and feasibility', 
     detail: 'Clarify the problem, users, constraints and success measures.' 
   },
   { 
     phase: 'Phase 2', 
-    title: 'Proof of Concept or Pilot', 
+    title: 'Proof of concept or pilot', 
     detail: 'Validate the workflow, technical assumptions and adoption potential.' 
   },
   { 
     phase: 'Phase 3', 
-    title: 'Product or Platform Engineering', 
+    title: 'Product or platform engineering', 
     detail: 'Deliver an agreed scope with clear ownership and acceptance criteria.' 
   },
   { 
     phase: 'Phase 4', 
-    title: 'Integration and Iteration', 
+    title: 'Integration and iteration', 
     detail: 'Connect to existing systems, evaluate results and improve based on evidence.' 
   }
 ];
@@ -291,7 +288,7 @@ export const LEADERSHIP_PRINCIPLES: LeadershipPrinciple[] = [
   {
     title: 'Adoption and trust by design',
     description:
-      'Treat adoption, trust, data governance and commercial viability as part of product design - not afterthoughts.'
+      'Treat adoption, trust, data governance and commercial viability as part of product design, not afterthoughts.'
   }
 ];
 
@@ -302,33 +299,33 @@ export interface CaseStudyRecord extends CaseStudy {
 export const M3_HIVE_ADDITIONAL_WORK: CaseStudyRecord[] = [
   {
     id: 'intelligent-comparison',
-    title: 'Intelligent Comparison / Market Intelligence',
-    category: 'Market Intelligence',
+    title: 'Intelligent Comparison / market intelligence',
+    category: 'Market intelligence',
     group: 'analytics',
     attribution: 'M3 Hive company project',
     challenge:
       'Company data can be difficult to collect, standardise and compare.',
     valueProposition:
       'M3 Hive materials describe data engineering and pipelines supporting company discovery, benchmarking and market analysis.',
-    status: 'Verified M3 Hive Company Project',
+    status: 'M3 Hive company project',
     details: ['Data engineering and pipelines', 'Company discovery', 'Benchmarking', 'Market analysis']
   },
   {
     id: 'drug-target-profiler',
     title: 'Drug Target Profiler',
-    category: 'Research Software',
+    category: 'Research web app',
     group: 'research',
     attribution: 'M3 Hive company project',
     challenge:
-      'Research teams need ways to explore compound - target relationships across scientific datasets.',
+      'A research web application described as supporting interactive network analysis and filtering to explore compound–target relationships across scientific datasets.',
     valueProposition:
-      'A research web application described as supporting interactive network analysis and filtering to explore compound - target relationships across scientific datasets.',
-    status: 'Verified M3 Hive Company Project',
-    details: ['Web application', 'Interactive network analysis', 'Filtering', 'Scientific datasets']
+      'A research web application described as supporting interactive network analysis and filtering to explore compound–target relationships across scientific datasets.',
+    status: 'M3 Hive company project',
+    details: ['Interactive network analysis', 'Filtering', 'Compound–target relationships', 'Scientific datasets']
   },
   {
     id: 'genomic-analytics',
-    title: 'RNA & DNA Sequencing Analytics',
+    title: 'RNA & DNA sequencing analytics',
     category: 'Bioinformatics',
     group: 'research',
     attribution: 'M3 Hive company project',
@@ -336,58 +333,61 @@ export const M3_HIVE_ADDITIONAL_WORK: CaseStudyRecord[] = [
       'Bioinformatics workflows described in M3 Hive materials include preprocessing, alignment, quantification, differential expression and variant-analysis tooling.',
     valueProposition:
       'Bioinformatics workflows described in M3 Hive materials include preprocessing, alignment, quantification, differential expression and variant-analysis tooling.',
-    status: 'Verified M3 Hive Company Project',
+    status: 'M3 Hive company project',
     details: ['Preprocessing', 'Alignment', 'Quantification', 'Differential expression', 'Variant-analysis tooling']
   },
   {
     id: 'decoding-behavior',
-    title: 'Decoding Behavior / Consumer Analytics',
-    category: 'Consumer Analytics',
+    title: 'Decoding Behavior / consumer analytics',
+    category: 'Consumer analytics',
     group: 'analytics',
     attribution: 'M3 Hive company project',
     challenge:
-      'Retail data and customer feedback require data integration, NLP and dashboards to help interpret demand and sentiment.',
+      'Data integration, NLP and dashboards to help interpret retail data and customer feedback. Distinguish dataset sources from clients.',
     valueProposition:
-      'Data integration, NLP and dashboards to help interpret retail data and customer feedback. Data sources are not actual clients.',
-    status: 'Verified M3 Hive Company Project (Data sources are not actual clients)',
-    details: ['Data integration', 'Natural language processing (NLP)', 'Dashboards']
+      'Data integration, NLP and dashboards to help interpret retail data and customer feedback. Distinguish dataset sources from clients.',
+    status: 'M3 Hive company project',
+    details: ['Data integration', 'NLP', 'Dashboards']
   },
   {
     id: 'mazdoori',
-    title: 'Mazdoori / Digital Marketplace',
-    category: 'Digital Marketplace',
+    title: 'Mazdoori / digital marketplace',
+    category: 'Digital marketplace',
     group: 'platforms',
     attribution: 'M3 Hive company project',
-    challenge: 'A concept connecting customers with local skilled workers through service categories, locations and booking flows.',
+    challenge:
+      'A concept connecting customers with local skilled workers through service categories, locations and booking flows. Include only after confirming current product status.',
     valueProposition:
       'A concept connecting customers with local skilled workers through service categories, locations and booking flows.',
-    status: 'To be confirmed',
+    status: 'Status to confirm',
     details: ['Service categories', 'Locations', 'Booking flows'],
     hidden: true
   },
   {
     id: 'your-door',
-    title: '@Your Door / Ordering and Merchant Workflows',
-    category: 'Commerce Workflows',
+    title: '@Your Door / ordering and merchant workflows',
+    category: 'Ordering and merchant workflows',
     group: 'platforms',
     attribution: 'M3 Hive company project',
-    challenge: 'A described restaurant ordering experience covering customer ordering, merchant management and delivery-related workflows.',
+    challenge:
+      'Described restaurant ordering experience covering customer ordering, merchant management and delivery-related workflows. Confirm current operating and integration status before publication.',
     valueProposition:
-      'A described restaurant ordering experience covering customer ordering, merchant management and delivery-related workflows.',
-    status: 'To be confirmed',
+      'Described restaurant ordering experience covering customer ordering, merchant management and delivery-related workflows.',
+    status: 'Status to confirm',
     details: ['Customer ordering', 'Merchant management', 'Delivery-related workflows'],
     hidden: true
   },
   {
     id: 'regenerative-art',
-    title: 'Regenerative Art / Data Storytelling',
-    category: 'Data Storytelling',
+    title: 'Regenerative Art / data storytelling',
+    category: 'Data storytelling',
     group: 'explorations',
     attribution: 'M3 Hive company project',
-    challenge: 'Complex datasets can be difficult to communicate intuitively through conventional charting alone.',
+    challenge:
+      'An experimental initiative combining data visualisation, digital art and interactive storytelling.',
     valueProposition:
-      'An experimental initiative combining data visualisation, digital art and interactive storytelling. Clearly identified as exploratory rather than a proven commercial deployment.',
-    status: 'Exploratory Work',
+      'An experimental initiative combining data visualisation, digital art and interactive storytelling.',
+    status: 'Exploratory work',
     details: ['Data visualisation', 'Digital art', 'Interactive storytelling']
   }
 ];
@@ -396,7 +396,7 @@ export const TECHNOLOGIES_360 = {
   name: '360 Technologies',
   atifRole: 'Founding CEO, Director and Shareholder',
   legalNotice:
-    'Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies, a separate technology-services company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development.',
+    'Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. This website presents 360 Technologies as a separate company and its project references as historical company portfolio material. Any final public wording about the affiliation should be checked for accuracy and legal appropriateness.',
   attributionNote:
     'Every historical project is identified as a 360 Technologies company reference. These achievements are presented as company history, not as a claim that Atif personally delivered every assignment.',
   overview:
@@ -426,70 +426,61 @@ export const TECHNOLOGIES_360 = {
         'Recruitment and headhunting, HR-related services, training and resource development.'
     },
     {
-      name: 'EDI - Entrepreneurship Development Institute',
+      name: 'EDI Entrepreneurship Development Institute',
       description:
         'Workshops, short courses, startup-development programmes and entrepreneurship learning.'
     },
     {
       name: 'Outpost',
       description:
-        'Outpost is listed as a business line in the historical company profile. Do not add a service description unless confirmed.'
+        'Listed as a business line in the historical profile; confirm a public description before elaborating.'
     }
   ] as PracticeArea[],
   historicalProjects: [
     {
       organisation: 'Pakistan Post',
-      sector: 'Postal & Utility Systems',
       projects:
         'International postal system implementation and maintenance; express-mail tracking; complaint/reporting systems; pension and counter automation; postal data processing.'
     },
     {
       organisation: 'Pakistan Navy',
-      sector: 'Defense & Institutional Systems',
       projects:
         'Budget Management System software and office-automation assignments.'
     },
     {
-      organisation: 'NADRA / Public Records',
-      sector: 'National Identity & Public Records',
+      organisation: 'NADRA / public records',
       projects:
         'Digitisation and data-entry work involving BISP and Election Commission of Pakistan records, as described by the company.'
     },
     {
       organisation: 'Provincial Boards of Revenue',
-      sector: 'Land Records & Administration',
       projects:
         'Land-record scanning and data entry across listed districts in Punjab, Sindh and Khyber Pakhtunkhwa.'
     },
     {
-      organisation: 'Sindh Education / RSU',
-      sector: 'Education Sector Management',
+      organisation: 'Sindh education / RSU',
       projects:
         'School-student and school-budget applications, education data management and reform support.'
     },
     {
       organisation: 'IOM',
-      sector: 'International Development',
       projects:
         'Nationwide communication assessment and flood-response monitoring data-entry assignment.'
     },
     {
       organisation: 'Overseas Pakistanis Foundation',
-      sector: 'Public Portals & Services',
       projects:
         'Website, web portal and online internship portal.'
     },
     {
-      organisation: 'UNDP / Parliamentary Development',
-      sector: 'Governance & Institutional Support',
+      organisation: 'UNDP / parliamentary development',
       projects:
         'Websites, maintenance and support for public-sector programmes.'
     },
     {
-      organisation: 'Professional Training',
-      sector: 'Institutional Capability Building',
+      organisation: 'Professional training',
       projects:
-        'Technology training for National Assembly and Senate staff and Telenor, as recorded in historical company materials.'
+        'Technology training for National Assembly and Senate staff and Telenor, as recorded on the historical company website.'
     }
   ] as HistoricalProject[],
   publishedClients: [
@@ -499,7 +490,7 @@ export const TECHNOLOGIES_360 = {
     'Telenor',
     'NADRA',
     'Senate of Pakistan',
-    'Boards of Revenue - Punjab, Sindh and KP',
+    'Boards of Revenue (Punjab, Sindh and KP)',
     'NCHD',
     'IBM',
     'UNDP Pakistan',
@@ -515,109 +506,54 @@ export const TECHNOLOGIES_360 = {
 export const COLLABORATION_PATHWAYS: CollaborationPathway[] = [
   {
     id: 'product-adoption',
-    name: 'Product Adoption',
+    name: 'Product adoption',
     audience: 'Clinics, hospitals, sales teams or livestock operations with a defined use case.',
-    likelyChallenge: 'Manual documentation, slow lead follow-up, or delayed herd health visibility causing friction.',
-    whatWeCommunicate: 'NourDoc, LeadHive AI and Smart Animal address distinct operational bottlenecks with scoped pilot structures.',
     possibleFirstStep: 'Discovery call, workflow review and scoped pilot.',
-    ctaText: 'Discuss Product Adoption'
+    ctaText: 'Discuss a Project'
   },
   {
     id: 'research-validation',
-    name: 'Research and Validation',
+    name: 'Research and validation',
     audience: 'Universities, domain specialists, clinicians, veterinary professionals and research teams.',
-    likelyChallenge: 'Novel AI and IoT systems require rigorous domain validation, governance and comparative evaluation.',
-    whatWeCommunicate: 'Collaborative research frameworks with transparent data boundaries, reproducible workflows and co-publication standards.',
     possibleFirstStep: 'Agree research questions, evaluation criteria, data governance and publication review.',
-    ctaText: 'Discuss Research Collaboration'
+    ctaText: 'Discuss a Project'
   },
   {
     id: 'distribution-market-access',
-    name: 'Distribution and Market Access',
+    name: 'Distribution and market access',
     audience: 'Regional partners, resellers, industry associations and implementation partners.',
-    likelyChallenge: 'Specialized software requires localized market relationships, customer onboarding and tier-1 support.',
-    whatWeCommunicate: 'Clear channel structures, enablement toolkits and transparent partner engagement models.',
     possibleFirstStep: 'Define target market, customer profile, commercial model and support responsibilities.',
-    ctaText: 'Discuss Distribution'
+    ctaText: 'Discuss a Project'
   },
   {
     id: 'technology-integration',
-    name: 'Technology Integration',
+    name: 'Technology integration',
     audience: 'EHR/EMR vendors, CRM providers, sensor/device vendors and enterprise platform teams.',
-    likelyChallenge: 'Isolated tools create data silos; end users demand native interoperability with existing enterprise systems.',
-    whatWeCommunicate: 'API-driven interoperability, data pipeline integration and secure system architecture planning.',
     possibleFirstStep: 'Technical discovery, integration map and proof of concept.',
-    ctaText: 'Discuss Integration'
+    ctaText: 'Discuss a Project'
   },
   {
     id: 'investment-strategic-capital',
-    name: 'Investment and Strategic Capital',
+    name: 'Investment and strategic capital',
     audience: 'Investors aligned with product stage, market and growth requirements.',
-    likelyChallenge: 'Identifying technology teams addressing genuine domain problems with real product depth and execution discipline.',
-    whatWeCommunicate: 'Product briefing, market thesis, traction evidence and structured diligence conversation.',
     possibleFirstStep: 'Product briefing, market thesis, traction evidence and structured diligence conversation.',
-    ctaText: 'Discuss Strategic Capital'
+    ctaText: 'Discuss a Project'
   },
   {
     id: 'custom-product-engineering',
-    name: 'Custom Product Engineering',
+    name: 'Custom product engineering',
     audience: 'Organisations with an operational problem that needs a tailored digital solution.',
-    likelyChallenge: 'Off-the-shelf software fails to match intricate operating realities, complex data pipelines or security needs.',
-    whatWeCommunicate: 'M3 Hive scopes tailored product engineering, intelligent automation and cloud platforms around operating context.',
     possibleFirstStep: 'Problem statement, constraints, desired outcomes and discovery engagement.',
     ctaText: 'Discuss a Project'
   }
 ];
 
-export const AUDIENCES: AudienceRecord[] = [
-  {
-    audience: 'Investors',
-    challenge:
-      'A promising idea needs a clear market problem, product direction, differentiation and a credible path to adoption.',
-    communicate:
-      'M3 Hive is developing focused AI products with identifiable use cases, while remaining capable of delivering custom technology.',
-    cta: { label: 'Explore Ventures', to: '/ventures' }
-  },
-  {
-    audience: 'Strategic collaborators',
-    challenge:
-      'Domain knowledge, distribution, research, implementation or market access may be needed to move a product forward.',
-    communicate:
-      'Collaboration can be structured around pilots, research, channel partnerships, integrations or co-creation, with scope and responsibilities agreed clearly.',
-    cta: { label: 'Explore Collaboration', to: '/collaboration' }
-  },
-  {
-    audience: 'Enterprise and public-sector organisations',
-    challenge:
-      'Legacy workflows, disconnected data, manual processes or complex service delivery create cost and visibility challenges.',
-    communicate:
-      'M3 Hive can scope product engineering, automation, data/AI and integration work around the organisation’s operating context.',
-    cta: { label: 'Discuss a Project', to: '/contact?pathway=custom-product-engineering' }
-  },
-  {
-    audience: 'Healthcare organisations',
-    challenge:
-      'Clinical documentation consumes time and clinical information needs to become structured and usable.',
-    communicate:
-      'NourDoc is focused on AI-assisted clinical documentation and downstream-ready clinical information workflows.',
-    cta: { label: 'Explore NourDoc', to: '/products/nourdoc' }
-  },
-  {
-    audience: 'Sales and growth teams',
-    challenge:
-      'Leads arrive from multiple channels, but follow-up, qualification and hand-off can be inconsistent.',
-    communicate:
-      'LeadHive AI is positioned around lead engagement, qualification and a more organised journey from enquiry to sales conversation.',
-    cta: { label: 'Explore LeadHive AI', to: '/products/leadhive-ai' }
-  },
-  {
-    audience: 'Livestock and agriculture stakeholders',
-    challenge:
-      'Animal health and behaviour changes may be difficult to observe continuously across a herd.',
-    communicate:
-      'Smart Animal combines IoT-based monitoring and data-led alerts to support more timely herd-management decisions.',
-    cta: { label: 'Discuss a Smart Animal Pilot', to: '/contact?interest=smart-animal' }
-  }
+export const AUDIENCES = [
+  'Investors and strategic capital partners assessing product opportunities and the path to adoption.',
+  'Enterprise and public-sector leaders exploring AI adoption, workflow improvement, data platforms or custom engineering.',
+  'Healthcare organisations and technology partners evaluating NourDoc.',
+  'Research, domain, distribution and implementation collaborators.',
+  'Founders and product owners who need discovery, product definition, architecture or engineering support.'
 ];
 
 export const INQUIRY_INTENTS: { id: string; label: string }[] = [

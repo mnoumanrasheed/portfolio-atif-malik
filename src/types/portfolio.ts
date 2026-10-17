@@ -103,8 +103,8 @@ export interface CollaborationPathway {
   scope?: string;
   engagementModel?: string;
   audience: string;
-  likelyChallenge: string;
-  whatWeCommunicate: string;
+  likelyChallenge?: string;
+  whatWeCommunicate?: string;
   possibleFirstStep: string;
   ctaText: string;
 }
