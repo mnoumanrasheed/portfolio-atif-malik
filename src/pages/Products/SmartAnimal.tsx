@@ -140,27 +140,6 @@ export const SmartAnimal: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        {/* Concluding CTA Banner */}
-        <ScrollReveal>
-          <div className="p-8 sm:p-12 border border-slate-200/90 rounded-2xl bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
-            <div className="space-y-1">
-              <h3 className="font-display font-bold text-2xl text-slate-900">
-                Discuss Smart Animal
-              </h3>
-              <p className="text-sm text-slate-600">
-                Connect with M3 Hive to explore farm pilots, sensor integration, and herd monitoring interfaces.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button to="/contact?interest=smart-animal" variant="primary" size="md" showArrow>
-                Discuss a Smart Animal Pilot
-              </Button>
-              <Button to="/contact?pathway=research-validation" variant="secondary" size="md">
-                Explore AgriTech Collaboration
-              </Button>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </div>
   );
