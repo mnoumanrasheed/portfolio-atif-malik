@@ -125,11 +125,17 @@ export const Ventures: React.FC = () => {
                       </div>
 
                       <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button href="https://nour-doc.com/" variant="primary" isExternal showArrow>
+                        <Button to="/products/nourdoc" variant="primary" showArrow>
                           Explore NourDoc
                         </Button>
                         <Button to="/contact?interest=nourdoc-demo" variant="secondary" size="md">
                           Book a Demo
+                        </Button>
+                        <Button to="/contact?interest=nourdoc-pilot" variant="outline" size="md">
+                          Explore a Clinical Pilot
+                        </Button>
+                        <Button href={nourdoc.officialUrl || "https://nour-doc.com/"} variant="ghost" size="md" isExternal>
+                          Official Website &rarr;
                         </Button>
                       </div>
                     </div>
@@ -163,7 +169,15 @@ export const Ventures: React.FC = () => {
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-4xl text-slate-950 tracking-tight">
-                        {leadhive.name}
+                        <a
+                          href="https://leadhive-ai.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-indigo-700 transition-colors inline-flex items-center gap-2"
+                        >
+                          <span>{leadhive.name}</span>
+                          <span className="text-xl text-slate-400 font-normal">↗</span>
+                        </a>
                       </h3>
                       <p className="text-base text-slate-700 font-semibold">
                         &quot;{leadhive.positioningLine}&quot;
@@ -178,14 +192,11 @@ export const Ventures: React.FC = () => {
                       </div>
 
                       <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button to="/products/leadhive-ai" variant="primary" showArrow>
+                        <Button href="https://leadhive-ai.com/" variant="primary" isExternal showArrow>
                           Explore LeadHive AI
                         </Button>
                         <Button to="/contact?interest=leadhive-ai" variant="secondary" size="md">
-                          Discuss a Project
-                        </Button>
-                        <Button href="https://leadhive-ai.com/" variant="ghost" size="md" isExternal>
-                          Official Website &rarr;
+                          Book a Demo
                         </Button>
                       </div>
                     </div>
