@@ -53,17 +53,9 @@ export const NourDoc: React.FC = () => {
                 <Button to="/contact?interest=nourdoc-demo" variant="primary" size="lg" showArrow>
                   Book a Demo
                 </Button>
-                <Button to="/contact?interest=nourdoc-pilot" variant="secondary" size="lg">
-                  Explore a Clinical Pilot
+                <Button href="https://nour-doc.com/" variant="secondary" size="lg" isExternal>
+                  Product Page
                 </Button>
-                <Button to="/contact?interest=nourdoc-integration" variant="outline" size="lg">
-                  Discuss Integration
-                </Button>
-                {product.officialUrl && (
-                  <Button href={product.officialUrl} variant="primary" size="lg" isExternal showArrow>
-                    Visit nour-doc.com
-                  </Button>
-                )}
               </div>
             </div>
           </ScrollReveal>
@@ -171,14 +163,8 @@ export const NourDoc: React.FC = () => {
               <Button to="/contact?interest=nourdoc-demo" variant="primary" size="md" showArrow>
                 Book a Demo
               </Button>
-              <Button to="/contact?interest=nourdoc-pilot" variant="secondary" size="md">
-                Explore a Clinical Pilot
-              </Button>
-              <Button to="/contact?interest=nourdoc-integration" variant="outline" size="md">
-                Discuss Integration
-              </Button>
-              <Button href={product.officialUrl || "https://nour-doc.com/"} variant="ghost" size="md" isExternal>
-                Visit nour-doc.com &rarr;
+              <Button href="https://nour-doc.com/" variant="secondary" size="md" isExternal>
+                Product Page
               </Button>
             </div>
           </div>
