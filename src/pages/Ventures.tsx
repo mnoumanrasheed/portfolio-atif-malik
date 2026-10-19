@@ -125,17 +125,11 @@ export const Ventures: React.FC = () => {
                       </div>
 
                       <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button to="/products/nourdoc" variant="primary" showArrow>
+                        <Button href="https://nour-doc.com/" variant="primary" isExternal showArrow>
                           Explore NourDoc
                         </Button>
                         <Button to="/contact?interest=nourdoc-demo" variant="secondary" size="md">
                           Book a Demo
-                        </Button>
-                        <Button to="/contact?interest=nourdoc-pilot" variant="outline" size="md">
-                          Explore a Clinical Pilot
-                        </Button>
-                        <Button href={nourdoc.officialUrl || "https://nour-doc.com/"} variant="ghost" size="md" isExternal>
-                          Official Website &rarr;
                         </Button>
                       </div>
                     </div>
