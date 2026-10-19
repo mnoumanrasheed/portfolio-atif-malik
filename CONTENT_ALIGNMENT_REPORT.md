@@ -27,7 +27,7 @@ This audit report validates complete adherence of the public-facing codebase and
 - **Em-Dash Policy:** Em dashes (`—`) are preserved verbatim where present in the approved master document.
 - **Contact & External Verification:**
   - `Contact.tsx` functions as a structured project enquiry brief generator with one-click clipboard copy and direct LinkedIn connection link (`https://www.linkedin.com/in/aimalik/`). No unapproved direct email addresses (`atif.imran@gmail.com`) are exposed.
-  - Official NourDoc domain verified as `https://nourdoc.m3hive.com/` (all references to `nour-doc.com` eliminated).
+  - Official NourDoc domain verified as `https://nour-doc.com/` (all references to `nourdoc.m3hive.com` eliminated).
   - Unverified domain `https://atifimalik.com/` eliminated from `sitemap.xml` and `robots.txt`.
 - **Selected Work:** Only documented projects are visible; Mazdoori and @Your Door remain omitted/hidden (`hidden: true`, `Status to confirm`).
 - **Route `/m3-hive`:** Safely redirects to `/ventures`.
