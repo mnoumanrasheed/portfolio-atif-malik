@@ -168,18 +168,25 @@ export const HeroExecutiveCard: React.FC = () => {
                   className="w-full space-y-1.5 py-0.5"
                 >
                   {/* NourDoc */}
-                  <div className="p-2 rounded-lg bg-sky-50/70 border border-sky-100/90 flex items-center justify-between text-xs">
+                  <a
+                    href="https://nour-doc.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-emerald-50/70 border border-emerald-100/90 flex items-center justify-between text-xs hover:border-[#286252]/40 hover:bg-emerald-50 transition-all group/item block"
+                  >
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-sky-500" />
+                      <span className="w-2 h-2 rounded-full bg-[#286252]" />
                       <div>
-                        <span className="font-bold text-slate-900 block leading-tight">NourDoc</span>
+                        <span className="font-bold text-slate-900 group-hover/item:text-[#286252] transition-colors block leading-tight">
+                          NourDoc ↗
+                        </span>
                         <span className="text-[10px] text-slate-500 block leading-none">AI-Enabled Clinical Documentation</span>
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono text-sky-700 bg-white px-2 py-0.5 rounded border border-sky-200">
-                      HealthTech AI
+                    <span className="text-[10px] font-mono text-[#286252] bg-white px-2 py-0.5 rounded border border-[#286252]/20">
+                      nour-doc.com
                     </span>
-                  </div>
+                  </a>
 
                   {/* LeadHive AI */}
                   <div className="p-2 rounded-lg bg-indigo-50/70 border border-indigo-100/90 flex items-center justify-between text-xs">

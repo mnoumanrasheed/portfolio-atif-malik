@@ -97,9 +97,9 @@ export const Home: React.FC = () => {
               
               {/* Executive Identity Tag & Professional Descriptor */}
               <div>
-                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#51AAC0]/30 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#51AAC0] animate-pulse" />
-                  <span className="text-xs font-mono font-bold tracking-widest text-[#377A8A] uppercase">
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#286252] uppercase">
                     {EXECUTIVE_PROFILE.name}
                   </span>
                   <span className="text-slate-300">|</span>
@@ -223,7 +223,7 @@ export const Home: React.FC = () => {
           
           {/* M3 Hive Operating Vehicle Overview */}
           <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 sm:px-10 sm:py-10 shadow-soft">
-            <div className="absolute -right-24 -top-32 h-72 w-72 rounded-full bg-[#51AAC0]/10 blur-3xl pointer-events-none" />
+            <div className="absolute -right-24 -top-32 h-72 w-72 rounded-full bg-[#286252]/10 blur-3xl pointer-events-none" />
             <div className="relative grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
               <div className="max-w-3xl space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-wash border border-brand/15 text-brand text-[11px] font-bold uppercase tracking-[0.12em]">
@@ -253,8 +253,8 @@ export const Home: React.FC = () => {
                 <div className="space-y-3 max-w-3xl">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-slate-700 text-[11px] font-semibold">
-                      <Shield className="w-3 h-3 text-[#377A8A]" />
-                      <span>Historical Company Affiliation</span>
+                      <Shield className="w-3 h-3 text-[#286252]" />
+                      <span>Separate Company Affiliation</span>
                     </span>
                     <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-brand-wash border border-brand/20 text-brand">
                       Founding CEO, Director &amp; Shareholder
@@ -292,10 +292,10 @@ export const Home: React.FC = () => {
           HOMEPAGE SECTION 05: SELECTED WORK & IMPACT
           ========================================================================= */}
       <section className="relative overflow-hidden py-20 sm:py-24 bg-slate-50/70 border-t border-slate-200/80">
-        <div className="absolute right-0 top-12 h-80 w-80 rounded-full bg-[#51AAC0]/10 blur-3xl pointer-events-none" />
+        <div className="absolute right-0 top-12 h-80 w-80 rounded-full bg-[#286252]/10 blur-3xl pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-soft sm:px-10 sm:py-10 mb-7 sm:mb-8">
-            <div className="absolute bottom-0 right-0 h-48 w-48 rounded-tl-full bg-[#377A8A]/[0.06]" />
+            <div className="absolute bottom-0 right-0 h-48 w-48 rounded-tl-full bg-[#286252]/[0.06]" />
             <div className="relative grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <SectionHeader
                 eyebrow="Company Portfolio"
@@ -311,15 +311,15 @@ export const Home: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {featuredWork.map((project, idx) => (
               <ScrollReveal key={project.id} delay={idx * 0.08}>
-                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-[#377A8A]/40 hover:shadow-card sm:p-7">
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#377A8A] via-[#51AAC0] to-transparent opacity-70" />
-                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#51AAC0]/0 transition-colors duration-300 group-hover:bg-[#51AAC0]/10" />
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-[#286252]/40 hover:shadow-card sm:p-7">
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#286252] via-[#286252] to-transparent opacity-70" />
+                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#286252]/0 transition-colors duration-300 group-hover:bg-[#286252]/10" />
                   <div className="relative flex h-full flex-col">
                     <div className="flex items-start justify-between gap-3">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#377A8A]">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#286252]">
                         {project.category}
                       </span>
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 font-mono text-[10px] font-bold text-slate-400 transition-colors group-hover:border-[#377A8A]/30 group-hover:bg-brand-wash group-hover:text-[#377A8A]">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 font-mono text-[10px] font-bold text-slate-400 transition-colors group-hover:border-[#286252]/30 group-hover:bg-brand-wash group-hover:text-[#286252]">
                         0{idx + 1}
                       </span>
                     </div>
@@ -328,7 +328,7 @@ export const Home: React.FC = () => {
                       {project.attribution}
                     </span>
 
-                    <h3 className="mt-4 font-display text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-[#377A8A]">
+                    <h3 className="mt-4 font-display text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-[#286252]">
                       {project.title}
                     </h3>
 
@@ -339,8 +339,8 @@ export const Home: React.FC = () => {
                         {project.challenge}
                         </p>
                       </div>
-                      <div className="border-l-2 border-[#51AAC0] pl-3.5">
-                        <span className="mb-1 block text-[9px] font-bold uppercase tracking-[0.14em] text-[#377A8A]">Solution</span>
+                      <div className="border-l-2 border-[#286252] pl-3.5">
+                        <span className="mb-1 block text-[9px] font-bold uppercase tracking-[0.14em] text-[#286252]">Solution</span>
                         <p className="text-slate-700">
                         {project.valueProposition}
                         </p>

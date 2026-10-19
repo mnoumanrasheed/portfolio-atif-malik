@@ -8,20 +8,20 @@
   --color-text-body: #334155;    /* High-readability body copy */
   --color-text-muted: #536169;   /* Slate secondary text */
 
-  /* Executive Brand Palette: Deep Teal #377A8A & Soft Cyan #51AAC0 */
-  --color-brand: #377a8a;
-  --color-brand-hover: #2d6573;
-  --color-brand-wash: #f0f7f8;
+  /* Executive Brand Palette: Deep Emerald Teal #286252 */
+  --color-brand: #286252;
+  --color-brand-hover: #1f4f42;
+  --color-brand-wash: #eff7f4;
 
-  --color-accent: #51aac0;       /* Soft Cyan */
-  --color-accent-hover: #377a8a;
-  --color-accent-wash: #eaf5f8;
+  --color-accent: #286252;
+  --color-accent-hover: #1f4f42;
+  --color-accent-wash: #ebf5f1;
 
   --color-border: #e2e8f0;
   --color-border-strong: #cbd5e1;
 
-  --color-deep: #132b33;        /* Deep Teal / Slate contrast band */
-  --color-deep-surface: #1a3944;
+  --color-deep: #0e241e;        /* Deep Emerald contrast band */
+  --color-deep-surface: #183b31;
 
   --font-display: 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;

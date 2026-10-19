@@ -17,25 +17,25 @@ export default {
           subtle: '#8898A1'
         },
         brand: {
-          DEFAULT: '#377A8A', // Deep Teal
-          hover: '#2D6573',
-          dark: '#1C414B',
-          wash: '#F0F7F8',
-          accent: '#51AAC0'
+          DEFAULT: '#286252', // Deep Emerald Teal
+          hover: '#1F4F42',
+          dark: '#163B31',
+          wash: '#EFF7F4',
+          accent: '#388470'
         },
         accent: {
-          DEFAULT: '#51AAC0', // Soft Cyan
-          hover: '#377A8A',
-          wash: '#EAF5F8'
+          DEFAULT: '#286252', // Deep Emerald Teal
+          hover: '#1F4F42',
+          wash: '#EBF5F1'
         },
         line: {
           DEFAULT: '#E2E8F0',
           strong: '#CBD5E1'
         },
         deep: {
-          DEFAULT: '#132B33', // Deep Teal Slate band / footer
-          surface: '#1A3944',
-          soft: '#204652'
+          DEFAULT: '#0E241E', // Deep Emerald band / footer
+          surface: '#183B31',
+          soft: '#204C40'
         }
       },
       fontFamily: {

@@ -3,7 +3,7 @@ import type {
   ProductData,
   CaseStudy,
   PracticeArea,
-  HistoricalProject,
+  CompanyProject,
   CollaborationPathway,
   AudienceRecord,
   LeadershipPrinciple,
@@ -34,15 +34,17 @@ export const EXECUTIVE_PROFILE: ExecutiveProfile = {
     m3hiveContext:
       'As CEO of M3 Hive, Atif leads a technology company whose capabilities span digital product engineering, intelligent automation, data and AI, cloud platforms, customer experience and connected systems. Its current product priorities reflect three distinct opportunities: reducing documentation friction in healthcare through NourDoc; improving lead engagement and qualification through LeadHive AI; and using connected sensing and analytics to support livestock monitoring through Smart Animal.',
     technologies360Context:
-      'Atif is also a Founding CEO, Director and Shareholder of 360 Technologies. The company’s published historical portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. These achievements are presented as company history, not as a claim that Atif personally delivered every listed assignment.',
+      'Atif is also a Founding CEO, Director and Shareholder of 360 Technologies. The company’s published portfolio includes public-sector information systems, postal workflows, digitisation, enterprise data and business intelligence, outsourcing and professional training. These achievements are presented as company history, not as a claim that Atif personally delivered every listed assignment.',
     portfolioIntent:
       'The purpose of this website is to help investors understand product opportunities, help collaborators identify where their expertise or networks can contribute, and help prospective clients map their challenges to a suitable product, proof of concept or engineering engagement.'
   },
   verifiedLinks: {
     linkedin: 'https://www.linkedin.com/in/aimalik/',
     m3hive: 'https://m3hive.com/',
-    nourdoc: 'https://nourdoc.m3hive.com/',
-    technologies360: 'https://www.360technologies.net/index.php/360-clients'
+    nourdoc: 'https://nour-doc.com/',
+    leadhive: 'https://leadhive-ai.com/',
+    technologies360: 'https://www.360technologies.net/index.php/360-clients',
+    technologies360About: 'https://www.360technologies.net/index.php/about-us'
   }
 };
 
@@ -68,7 +70,7 @@ export const PRODUCTS: ProductData[] = [
     category: 'HealthTech AI',
     positioningLine: 'Let AI handle the documentation. Let clinicians focus on care.',
     attribution: 'M3 Hive product',
-    officialUrl: 'https://nourdoc.m3hive.com/',
+    officialUrl: 'https://nour-doc.com/',
     overview:
       'NourDoc is an AI-enabled clinical documentation platform designed to transform clinical conversations and notes into structured healthcare documentation. Its described workflow includes conversation capture, transcription, draft SOAP notes and support for clinical information workflows. Product direction also includes coding support and integration-oriented workflows for healthcare providers and organisations.',
     challenge:
@@ -396,11 +398,11 @@ export const TECHNOLOGIES_360 = {
   name: '360 Technologies',
   atifRole: 'Founding CEO, Director and Shareholder',
   legalNotice:
-    'Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. This website presents 360 Technologies as a separate company and its project references as historical company portfolio material. Any final public wording about the affiliation should be checked for accuracy and legal appropriateness.',
+    'Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. This website presents 360 Technologies as a separate company and its project references as company portfolio material. Any final public wording about the affiliation should be checked for accuracy and legal appropriateness.',
   attributionNote:
-    'Every historical project is identified as a 360 Technologies company reference. These achievements are presented as company history, not as a claim that Atif personally delivered every assignment.',
+    'Every project is identified as a 360 Technologies company reference. These achievements are presented as company history, not as a claim that Atif personally delivered every assignment.',
   overview:
-    '360 Technologies is an IT services organisation whose published historical portfolio spans software development, enterprise data and business intelligence, digitisation, outsourcing, security consulting and professional capability development. Its project listings include public-sector information systems, postal and operational workflows, land-record digitisation, education data solutions and enterprise technology services.',
+    '360 Technologies is an IT services organisation whose published portfolio spans software development, enterprise data and business intelligence, digitisation, outsourcing, security consulting and professional capability development. Its project listings include public-sector information systems, postal and operational workflows, land-record digitisation, education data solutions and enterprise technology services.',
   directoryUrl: 'https://www.360technologies.net/index.php/360-clients',
   aboutUrl: 'https://www.360technologies.net/index.php/about-us',
   projectsUrl: 'https://360technologies.net/index.php/360-clients/projects-recently-completed',
@@ -408,7 +410,7 @@ export const TECHNOLOGIES_360 = {
     {
       name: '360 Solutions',
       description:
-        'Web, software and mobile applications; design; maintenance and support; historical information-security consulting.'
+        'Web, software and mobile applications; design; maintenance and support; information-security consulting.'
     },
     {
       name: '360 Logics',
@@ -433,10 +435,10 @@ export const TECHNOLOGIES_360 = {
     {
       name: 'Outpost',
       description:
-        'Listed as a business line in the historical profile; confirm a public description before elaborating.'
+        'Listed as a business line in published company records; confirm a public description before elaborating.'
     }
   ] as PracticeArea[],
-  historicalProjects: [
+  companyProjects: [
     {
       organisation: 'Pakistan Post',
       projects:
@@ -480,9 +482,9 @@ export const TECHNOLOGIES_360 = {
     {
       organisation: 'Professional training',
       projects:
-        'Technology training for National Assembly and Senate staff and Telenor, as recorded on the historical company website.'
+        'Technology training for National Assembly and Senate staff and Telenor, as recorded on the published company website.'
     }
-  ] as HistoricalProject[],
+  ] as CompanyProject[],
   publishedClients: [
     'Pakistan National Assembly',
     'Pakistan Navy',
@@ -598,28 +600,28 @@ export const EXTERNAL_SOURCES: ExternalSource[] = [
     title: 'NourDoc',
     category: 'Healthcare AI Platform',
     group: 'Products',
-    url: 'https://nourdoc.m3hive.com/',
-    note: 'Product page.'
+    url: 'https://nour-doc.com/',
+    note: 'Official platform website (nour-doc.com).'
   },
   {
     title: '360 Technologies: About',
-    category: 'Historical Archive',
-    group: '360 Technologies (historical)',
+    category: 'Corporate Archive',
+    group: '360 Technologies',
     url: 'https://www.360technologies.net/index.php/about-us',
     note: 'Company overview.'
   },
   {
     title: '360 Technologies: Client directory',
-    category: 'Historical Archive',
-    group: '360 Technologies (historical)',
+    category: 'Corporate Archive',
+    group: '360 Technologies',
     url: 'https://www.360technologies.net/index.php/360-clients',
-    note: 'Published historical client directory.'
+    note: 'Published client directory.'
   },
   {
     title: '360 Technologies: Project list',
-    category: 'Historical Archive',
-    group: '360 Technologies (historical)',
+    category: 'Corporate Archive',
+    group: '360 Technologies',
     url: 'https://360technologies.net/index.php/360-clients/projects-recently-completed',
-    note: 'Published historical project register.'
+    note: 'Published project register.'
   }
 ];

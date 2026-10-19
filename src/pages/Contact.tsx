@@ -186,8 +186,8 @@ Note: Please do not transmit medical records, patient data, or confidential proj
             <ScrollReveal delay={0.1}>
               <div className="relative bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.08)] space-y-6 overflow-hidden">
                 
-                <BorderBeam size={220} duration={8} colorFrom="#51AAC0" colorTo="#377A8A" borderWidth={1.5} />
-                <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/40 to-transparent pointer-events-none rounded-full" />
+                <BorderBeam size={220} duration={8} colorFrom="#286252" colorTo="#286252" borderWidth={1.5} />
+                <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#286252]/40 to-transparent pointer-events-none rounded-full" />
 
                 {/* Profile Header */}
                 <div className="flex items-center gap-3.5 pb-5 border-b border-slate-100">
@@ -249,12 +249,12 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                     m3hive.com
                   </a>
                   <a
-                    href="https://nourdoc.m3hive.com/"
+                    href="https://nour-doc.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs"
                   >
-                    nourdoc.m3hive.com
+                    nour-doc.com
                   </a>
                 </div>
 
@@ -275,8 +275,8 @@ Note: Please do not transmit medical records, patient data, or confidential proj
             <ScrollReveal delay={0.15}>
               <div className="relative bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-9 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.1)] overflow-hidden">
                 
-                <BorderBeam size={260} duration={10} colorFrom="#51AAC0" colorTo="#377A8A" borderWidth={1.5} />
-                <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-[#51AAC0]/35 to-transparent pointer-events-none rounded-full" />
+                <BorderBeam size={260} duration={10} colorFrom="#286252" colorTo="#286252" borderWidth={1.5} />
+                <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-[#286252]/35 to-transparent pointer-events-none rounded-full" />
 
                 <AnimatePresence mode="wait">
                   {prepared ? (

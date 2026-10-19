@@ -102,7 +102,15 @@ export const Ventures: React.FC = () => {
                         </span>
                       </div>
                       <h3 className="font-display font-extrabold text-4xl text-slate-950 tracking-tight">
-                        {nourdoc.name}
+                        <a
+                          href="https://nour-doc.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-[#286252] transition-colors inline-flex items-center gap-2"
+                        >
+                          <span>{nourdoc.name}</span>
+                          <span className="text-xl text-slate-400 font-normal">↗</span>
+                        </a>
                       </h3>
                       <p className="text-base text-sky-700 font-semibold">
                         &quot;{nourdoc.positioningLine}&quot;
@@ -125,6 +133,9 @@ export const Ventures: React.FC = () => {
                         </Button>
                         <Button to="/contact?interest=nourdoc-pilot" variant="outline" size="md">
                           Explore a Clinical Pilot
+                        </Button>
+                        <Button href={nourdoc.officialUrl || "https://nour-doc.com/"} variant="ghost" size="md" isExternal>
+                          Official Website &rarr;
                         </Button>
                       </div>
                     </div>
@@ -241,7 +252,7 @@ export const Ventures: React.FC = () => {
         <ScrollReveal>
           <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-12 shadow-soft space-y-8">
             <div className="max-w-3xl space-y-3">
-              <span className="eyebrow text-slate-500">Separate Historical Company Reference</span>
+              <span className="eyebrow text-slate-500">Separate Company Reference</span>
               <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
                 360 Technologies
               </h2>

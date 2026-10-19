@@ -26,7 +26,9 @@ export interface ExecutiveProfile {
     linkedin: string;
     m3hive: string;
     nourdoc: string;
+    leadhive?: string;
     technologies360: string;
+    technologies360About?: string;
     email?: string;
   };
 }
@@ -88,7 +90,7 @@ export interface PracticeArea {
   summary?: string;
 }
 
-export interface HistoricalProject {
+export interface CompanyProject {
   organisation: string;
   sector?: string;
   projects: string;

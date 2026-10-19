@@ -12,8 +12,8 @@ export const AnimatedBeamDivider: React.FC<AnimatedBeamDividerProps> = ({
   speed = 'normal'
 }) => {
   const glowGradients = {
-    teal: 'from-transparent via-[#377A8A] to-transparent',
-    cyan: 'from-transparent via-[#51AAC0] to-transparent',
+    teal: 'from-transparent via-[#286252] to-transparent',
+    cyan: 'from-transparent via-[#388470] to-transparent',
     indigo: 'from-transparent via-[#6366F1] to-transparent',
     emerald: 'from-transparent via-[#10B981] to-transparent'
   };
@@ -68,7 +68,7 @@ export const AnimatedVerticalSpine: React.FC<AnimatedVerticalSpineProps> = ({
 }) => {
   return (
     <div className={`absolute left-0 top-0 w-[2px] ${height} bg-gradient-to-b from-brand/20 via-brand/40 to-brand/10 overflow-hidden ${className}`} aria-hidden="true">
-      <div className="absolute inset-x-0 h-28 bg-gradient-to-b from-transparent via-[#51AAC0] to-transparent animate-beam-y blur-[0.5px]" />
+      <div className="absolute inset-x-0 h-28 bg-gradient-to-b from-transparent via-[#388470] to-transparent animate-beam-y blur-[0.5px]" />
       <div className="absolute inset-x-0 h-14 bg-gradient-to-b from-transparent via-white to-transparent animate-beam-y opacity-90" />
     </div>
   );

@@ -30,7 +30,15 @@ export const NourDoc: React.FC = () => {
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                {product.name}
+                <a
+                  href="https://nour-doc.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand transition-colors inline-flex items-center gap-3 group"
+                >
+                  <span>{product.name}</span>
+                  <span className="text-2xl sm:text-3xl text-slate-400 font-normal group-hover:text-brand group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">↗</span>
+                </a>
               </h1>
 
               <p className="text-lg sm:text-xl text-sky-700 font-semibold tracking-tight">
@@ -52,8 +60,8 @@ export const NourDoc: React.FC = () => {
                   Discuss Integration
                 </Button>
                 {product.officialUrl && (
-                  <Button href={product.officialUrl} variant="ghost" size="lg" isExternal>
-                    Product Page
+                  <Button href={product.officialUrl} variant="primary" size="lg" isExternal showArrow>
+                    Visit nour-doc.com
                   </Button>
                 )}
               </div>
@@ -168,6 +176,9 @@ export const NourDoc: React.FC = () => {
               </Button>
               <Button to="/contact?interest=nourdoc-integration" variant="outline" size="md">
                 Discuss Integration
+              </Button>
+              <Button href={product.officialUrl || "https://nour-doc.com/"} variant="ghost" size="md" isExternal>
+                Visit nour-doc.com &rarr;
               </Button>
             </div>
           </div>

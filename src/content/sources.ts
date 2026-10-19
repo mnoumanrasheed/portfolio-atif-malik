@@ -3,7 +3,7 @@ export interface SourceAuditReference {
   section: string;
   sourceDoc: string;
   sourceLocation: string;
-  evidenceType: 'Corporate Profile' | 'Product Documentation' | 'Historical Archive' | 'Public Profile';
+  evidenceType: 'Corporate Profile' | 'Product Documentation' | 'Corporate Archive' | 'Public Profile';
   approvalRequirement: string;
 }
 
@@ -12,7 +12,7 @@ export const APPROVED_EXTERNAL_URLS = {
   m3hiveCorporate: 'https://m3hive.com/',
   m3hiveCaseStudies: 'https://m3hive.com/resources/case-studies.html',
   m3hiveLinkedin: 'https://www.linkedin.com/company/m3-hive/',
-  nourdocOfficial: 'https://nourdoc.m3hive.com/',
+  nourdocOfficial: 'https://nour-doc.com/',
   technologies360About: 'https://www.360technologies.net/index.php/about-us',
   technologies360Clients: 'https://www.360technologies.net/index.php/360-clients',
   technologies360Projects: 'https://360technologies.net/index.php/360-clients/projects-recently-completed'
@@ -41,7 +41,7 @@ export const SOURCE_AUDIT_REGISTER: SourceAuditReference[] = [
     sourceDoc: 'NourDoc Product Documentation & Master Document',
     sourceLocation: 'Section 6',
     evidenceType: 'Product Documentation',
-    approvalRequirement: 'Official product URL verified as nourdoc.m3hive.com. Described workflow only; no clinical efficacy claims.'
+    approvalRequirement: 'Official product URL verified as nour-doc.com. Described workflow only; no clinical efficacy claims.'
   },
   {
     id: 'leadhive-story',
@@ -69,10 +69,10 @@ export const SOURCE_AUDIT_REGISTER: SourceAuditReference[] = [
   },
   {
     id: '360-technologies-history',
-    section: '360 Technologies Historical Portfolio',
-    sourceDoc: '360 Technologies Historical Corporate Profile (29pp) & Archive',
+    section: '360 Technologies Corporate Portfolio',
+    sourceDoc: '360 Technologies Corporate Profile (29pp) & Archive',
     sourceLocation: 'Section 10',
-    evidenceType: 'Historical Archive',
+    evidenceType: 'Corporate Archive',
     approvalRequirement: 'Role attributed as Founding CEO, Director & Shareholder, clearly separated from M3 Hive executive leadership.'
   }
 ];

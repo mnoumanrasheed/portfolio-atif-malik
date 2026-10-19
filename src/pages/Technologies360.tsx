@@ -49,7 +49,7 @@ export const Technologies360: React.FC = () => {
           <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-12 mb-20 shadow-soft">
             <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-6 mb-6 gap-4">
               <div>
-                <span className="eyebrow text-slate-500">Historical Company Overview</span>
+                <span className="eyebrow text-slate-500">Company Overview</span>
                 <h2 className="font-display font-bold text-2xl text-slate-900 mt-1">
                   Enterprise Systems &amp; Digitisation
                 </h2>
@@ -70,7 +70,7 @@ export const Technologies360: React.FC = () => {
           <ScrollReveal>
             <SectionHeader
               eyebrow="Practice Areas"
-              title="Six Historical Practice Areas"
+              title="Six Practice Areas"
               description="Published practice areas from 360 Technologies company documentation."
             />
           </ScrollReveal>
@@ -100,18 +100,18 @@ export const Technologies360: React.FC = () => {
           </div>
         </div>
 
-        {/* Historical Company Project References */}
+        {/* Company Project References */}
         <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="Historical Portfolio"
-              title="Historical Company Project References"
-              description="Historical assignments documented in 360 Technologies company portfolio records."
+              eyebrow="Company Portfolio"
+              title="Company Project References"
+              description="Project assignments documented in 360 Technologies company portfolio records."
             />
           </ScrollReveal>
 
           <div className="bg-white border border-slate-200/90 rounded-2xl divide-y divide-slate-100 shadow-soft overflow-hidden">
-            {TECHNOLOGIES_360.historicalProjects.map((proj, idx) => (
+            {TECHNOLOGIES_360.companyProjects.map((proj, idx) => (
               <div key={idx} className="p-6 sm:p-7 flex flex-col md:flex-row md:items-start justify-between gap-6 hover:bg-slate-50/50 transition-colors">
                 <div className="space-y-2 max-w-3xl">
                   <div className="flex items-center gap-3">
@@ -133,13 +133,13 @@ export const Technologies360: React.FC = () => {
           </div>
         </div>
 
-        {/* Additional Historical Company References */}
+        {/* Additional Company References */}
         <div className="mb-20">
           <ScrollReveal>
             <SectionHeader
-              eyebrow="Historical Directory"
-              title="Additional Historical Company References"
-              description="Organisations listed in the published 360 Technologies corporate directory, presented as a historical company index."
+              eyebrow="Company Directory"
+              title="Additional Company References"
+              description="Organisations listed in the published 360 Technologies corporate directory, presented as a verified company index."
             />
           </ScrollReveal>
 
@@ -157,7 +157,7 @@ export const Technologies360: React.FC = () => {
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-500">
-              <span>Source: Published 360 Technologies historical company portfolio.</span>
+              <span>Source: Published 360 Technologies company portfolio.</span>
               <a
                 href={TECHNOLOGIES_360.directoryUrl}
                 target="_blank"

@@ -25,7 +25,7 @@ export const AttributionBadge: React.FC<AttributionBadgeProps> = ({ type, classN
       case '360 Technologies company portfolio':
         return {
           label: '360 Technologies',
-          detail: 'Historical Archive',
+          detail: 'Company Archive',
           classes: 'bg-canvas-subtle text-ink-muted border-line'
         };
       case 'Atif I. Malik · role confirmed':

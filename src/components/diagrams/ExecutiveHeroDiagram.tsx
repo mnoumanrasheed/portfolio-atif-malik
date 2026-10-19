@@ -119,12 +119,22 @@ export const ExecutiveHeroDiagram: React.FC = () => {
             <span className="text-ink-body">
               <strong className="text-ink">NourDoc:</strong> Ambient conversation to structured SOAP notes with clinician review.
             </span>
-            <Link 
-              to="/products/nourdoc" 
-              className="inline-flex items-center gap-1 text-accent font-semibold hover:underline shrink-0"
-            >
-              Examine Product <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+            <div className="flex items-center gap-3 shrink-0">
+              <a
+                href="https://nour-doc.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-brand font-bold hover:underline shrink-0"
+              >
+                nour-doc.com <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <Link 
+                to="/products/nourdoc" 
+                className="inline-flex items-center gap-1 text-slate-500 hover:text-slate-900 font-semibold text-xs shrink-0"
+              >
+                Architecture &rarr;
+              </Link>
+            </div>
           </div>
         )}
 

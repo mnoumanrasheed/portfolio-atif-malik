@@ -47,8 +47,8 @@ export const Work: React.FC = () => {
           <ScrollReveal>
             <div className="max-w-3xl space-y-5">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#51AAC0]/30 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#51AAC0]" />
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252]" />
                   <span className="text-xs font-mono font-bold tracking-widest text-brand uppercase">
                     M3 Hive Company Projects
                   </span>
