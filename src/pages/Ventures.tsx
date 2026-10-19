@@ -188,7 +188,10 @@ export const Ventures: React.FC = () => {
                           Explore LeadHive AI
                         </Button>
                         <Button to="/contact?interest=leadhive-ai" variant="secondary" size="md">
-                          Design a Lead Qualification Workflow
+                          Discuss a Project
+                        </Button>
+                        <Button href="https://leadhive-ai.com/" variant="ghost" size="md" isExternal>
+                          Official Website &rarr;
                         </Button>
                       </div>
                     </div>

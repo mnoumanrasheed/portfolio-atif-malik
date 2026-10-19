@@ -112,6 +112,7 @@ export const PRODUCTS: ProductData[] = [
   {
     id: 'leadhive-ai',
     name: 'LeadHive AI',
+    officialUrl: 'https://leadhive-ai.com/',
     tagline: 'Lead Engagement & Qualification',
     domain: 'Lead Engagement & Qualification',
     category: 'Lead Engagement & Qualification',

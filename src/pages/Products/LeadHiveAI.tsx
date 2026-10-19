@@ -43,10 +43,10 @@ export const LeadHiveAI: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button to="/contact?interest=leadhive-ai" variant="primary" size="lg" showArrow>
-                  Design a Lead Qualification Workflow
+                  Discuss a Project
                 </Button>
-                <Button to="/collaboration" variant="secondary" size="lg">
-                  Explore Collaboration
+                <Button href="https://leadhive-ai.com/" variant="secondary" size="lg" isExternal>
+                  Product Page
                 </Button>
               </div>
             </div>
@@ -153,10 +153,10 @@ export const LeadHiveAI: React.FC = () => {
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <Button to="/contact?interest=leadhive-ai" variant="primary" size="md" showArrow>
-                Design a Lead Qualification Workflow
+                Discuss a Project
               </Button>
-              <Button to="/collaboration" variant="secondary" size="md">
-                Explore Collaboration
+              <Button href="https://leadhive-ai.com/" variant="secondary" size="md" isExternal>
+                Product Page
               </Button>
             </div>
           </div>
