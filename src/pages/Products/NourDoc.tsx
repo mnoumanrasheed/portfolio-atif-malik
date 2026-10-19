@@ -148,27 +148,6 @@ export const NourDoc: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        {/* Concluding CTA Banner */}
-        <ScrollReveal>
-          <div className="p-8 sm:p-12 border border-slate-200/90 rounded-2xl bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft">
-            <div className="space-y-1">
-              <h3 className="font-display font-bold text-2xl text-slate-900">
-                Discuss NourDoc
-              </h3>
-              <p className="text-sm text-slate-600">
-                Connect with M3 Hive to review workflows, EHR integration parameters, and pilot criteria.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button to="/contact?interest=nourdoc-demo" variant="primary" size="md" showArrow>
-                Book a Demo
-              </Button>
-              <Button href="https://nour-doc.com/" variant="secondary" size="md" isExternal>
-                Product Page
-              </Button>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </div>
   );
