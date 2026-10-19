@@ -21,7 +21,7 @@ export const NourDoc: React.FC = () => {
           <ScrollReveal>
             <div className="space-y-6 max-w-4xl">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-bold text-sky-700 bg-sky-100/90 px-3 py-1 rounded-full border border-sky-200 uppercase tracking-wider">
+                <span className="text-xs font-bold text-[#286252] bg-emerald-50 px-3 py-1 rounded-full border border-[#286252]/20 uppercase tracking-wider">
                   HealthTech AI
                 </span>
                 <span className="text-xs font-medium text-slate-500">
@@ -41,7 +41,7 @@ export const NourDoc: React.FC = () => {
                 </a>
               </h1>
 
-              <p className="text-lg sm:text-xl text-sky-700 font-semibold tracking-tight">
+              <p className="text-lg sm:text-xl text-[#286252] font-semibold tracking-tight">
                 &quot;{product.positioningLine}&quot;
               </p>
 

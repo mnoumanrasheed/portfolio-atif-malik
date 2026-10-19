@@ -93,11 +93,11 @@ export const Ventures: React.FC = () => {
             const nourdoc = PRODUCTS.find((p) => p.id === 'nourdoc')!;
             return (
               <ScrollReveal>
-                <div className="relative overflow-hidden rounded-[2rem] border border-sky-200 bg-[#eaf8fc] p-3 shadow-[0_24px_60px_-35px_rgba(14,116,144,0.4)]">
+                <div className="relative overflow-hidden rounded-[2rem] border border-[#286252]/25 bg-[#eaf5f1] p-3 shadow-[0_24px_60px_-35px_rgba(40,98,82,0.4)]">
                   <div className="grid grid-cols-1 items-stretch gap-0 overflow-hidden rounded-[1.45rem] bg-white lg:grid-cols-12">
                     <div className="lg:col-span-5 space-y-5 p-7 sm:p-10 lg:p-12">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-sky-700 bg-sky-100 px-3 py-1.5 rounded-full">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#286252] bg-emerald-50 px-3 py-1.5 rounded-full border border-[#286252]/20">
                           HealthTech AI
                         </span>
                       </div>
@@ -112,15 +112,15 @@ export const Ventures: React.FC = () => {
                           <span className="text-xl text-slate-400 font-normal">↗</span>
                         </a>
                       </h3>
-                      <p className="text-base text-sky-700 font-semibold">
+                      <p className="text-base text-[#286252] font-semibold">
                         &quot;{nourdoc.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-sky-400 pl-4">
+                      <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-[#286252] pl-4">
                         {nourdoc.overview}
                       </p>
 
-                      <div className="p-5 rounded-2xl bg-sky-50/70 border border-sky-200 space-y-2 text-xs">
-                        <span className="font-bold text-sky-900 uppercase tracking-[0.14em] block">Operational Challenge</span>
+                      <div className="p-5 rounded-2xl bg-emerald-50/70 border border-[#286252]/20 space-y-2 text-xs">
+                        <span className="font-bold text-emerald-950 uppercase tracking-[0.14em] block">Operational Challenge</span>
                         <p className="text-slate-600 leading-relaxed">{nourdoc.challenge}</p>
                       </div>
 
@@ -140,8 +140,8 @@ export const Ventures: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="lg:col-span-7 border-t border-sky-100 bg-sky-50/50 p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-9">
-                      <div className="mb-4 flex items-center gap-3"><span className="h-px flex-1 bg-sky-200" /><span className="font-mono text-[10px] font-bold tracking-[0.16em] text-sky-700">CARE PATHWAY</span><span className="h-px flex-1 bg-sky-200" /></div>
+                    <div className="lg:col-span-7 border-t border-[#286252]/15 bg-emerald-50/40 p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-9">
+                      <div className="mb-4 flex items-center gap-3"><span className="h-px flex-1 bg-[#286252]/20" /><span className="font-mono text-[10px] font-bold tracking-[0.16em] text-[#286252]">CARE PATHWAY</span><span className="h-px flex-1 bg-[#286252]/20" /></div>
                       <NourDocWorkflowDiagram />
                     </div>
                   </div>

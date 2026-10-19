@@ -56,7 +56,7 @@ export const HeroExecutiveCard: React.FC = () => {
     >
       {/* Dynamic Ambient Backlight Glow Aura */}
       <div 
-        className="absolute -inset-2 bg-gradient-to-tr from-[#377A8A]/20 via-[#51AAC0]/25 to-sky-400/20 rounded-3xl blur-2xl -z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" 
+        className="absolute -inset-2 bg-gradient-to-tr from-[#286252]/20 via-[#388470]/25 to-emerald-400/20 rounded-3xl blur-2xl -z-10 opacity-70 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" 
         aria-hidden="true" 
       />
 
