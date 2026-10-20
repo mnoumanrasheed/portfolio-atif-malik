@@ -238,26 +238,6 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                   </a>
                 </div>
 
-                {/* Operating Venture Links */}
-                <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2 text-center text-xs">
-                  <a
-                    href="https://m3hive.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs"
-                  >
-                    m3hive.com
-                  </a>
-                  <a
-                    href="https://nour-doc.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white text-slate-700 hover:text-brand transition-all font-semibold shadow-2xs"
-                  >
-                    nour-doc.com
-                  </a>
-                </div>
-
                 {/* Privacy & Governance Notice */}
                 <div className="pt-2 flex items-start gap-2 text-xs text-slate-500 leading-relaxed border-t border-slate-100">
                   <Info className="w-4 h-4 text-brand shrink-0 mt-0.5" />
