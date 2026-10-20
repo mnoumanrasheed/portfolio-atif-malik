@@ -29,12 +29,12 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
     amber: 'from-amber-600/12 via-brand/8 to-transparent'
   }[glowColor];
 
-  // Soft translucent wash strictly under the left text (0-35%), completely transparent on the right (55-100%)
+  // Directional contrast mask: Pure white canvas strictly behind the left text (0-38%) ensuring 100% razor-sharp readability, then feathers smoothly to 100% transparent by 60%, leaving the right side image 100% clear with zero opacity
   const overlayGradients = {
-    clear: 'from-white/60 via-white/30 via-28% to-transparent to-52%',
-    light: 'from-white/70 via-white/40 via-30% to-transparent to-55%',
-    medium: 'from-white/80 via-white/50 via-32% to-transparent to-58%',
-    deep: 'from-white/85 via-white/60 via-35% to-transparent to-60%'
+    clear: 'from-white from-0% via-white via-32% sm:via-white/85 sm:via-42% to-transparent to-58%',
+    light: 'from-white from-0% via-white via-35% sm:via-white/90 sm:via-45% to-transparent to-62%',
+    medium: 'from-white from-0% via-white via-38% sm:via-white/90 sm:via-48% to-transparent to-65%',
+    deep: 'from-white from-0% via-white via-42% sm:via-white/95 sm:via-52% to-transparent to-70%'
   }[overlayOpacity];
 
   return (
