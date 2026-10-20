@@ -12,7 +12,7 @@ export const NourDoc: React.FC = () => {
   return (
     <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark">
       <HeroBackground
-        imageSrc="/images/heroes/hero-nourdoc.webp"
+        imageSrc="/images/heroes/hero-nourdoc.jpg"
         imageAlt="Modern Clinical Healthcare Facility"
         glowColor="cyan"
       >
