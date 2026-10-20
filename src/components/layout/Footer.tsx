@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-[11px] font-mono font-bold uppercase tracking-[0.16em] text-white">
               Navigation
             </h4>
-            <ul className="space-y-2.5 text-xs font-medium text-slate-300">
+            <ul className="space-y-3 text-xs font-medium text-slate-300">
               <li>
                 <Link to="/about" className="hover:text-white transition-colors block">
                   About
@@ -74,42 +74,12 @@ export const Footer: React.FC = () => {
                   Expertise
                 </Link>
               </li>
-              
-              {/* Ventures with nested hierarchy */}
-              <li className="space-y-1.5 pt-0.5">
-                <Link to="/ventures" className="hover:text-white transition-colors block text-white font-semibold">
+              <li>
+                <Link to="/ventures" className="hover:text-white transition-colors block">
                   Ventures
                 </Link>
-                <ul className="pl-3 border-l border-white/15 space-y-1.5 text-[11px] text-slate-400">
-                  <li>
-                    <Link to="/ventures" className="hover:text-white transition-colors block">
-                      M3 Hive
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/products/nourdoc" className="hover:text-white transition-colors block">
-                      NourDoc
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/products/leadhive-ai" className="hover:text-white transition-colors block">
-                      LeadHive AI
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/products/smart-animal" className="hover:text-white transition-colors block">
-                      Smart Animal
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/360-technologies" className="hover:text-white transition-colors block">
-                      360 Technologies
-                    </Link>
-                  </li>
-                </ul>
               </li>
-
-              <li className="pt-0.5">
+              <li>
                 <Link to="/work" className="hover:text-white transition-colors block">
                   Selected Work
                 </Link>
