@@ -16,36 +16,44 @@ export const SmartAnimal: React.FC = () => {
         imageAlt="Agricultural Pasture & Connected Livestock Telemetry"
         glowColor="emerald"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="space-y-6 max-w-4xl">
+            <div className="space-y-6 max-w-xl lg:max-w-2xl">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-bold text-emerald-700 bg-emerald-100/90 px-3 py-1 rounded-full border border-emerald-200 uppercase tracking-wider">
-                  AgriTech &amp; IoT
-                </span>
-                <span className="text-xs font-medium text-slate-500">
-                  M3 Hive Product
-                </span>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-emerald-600/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-emerald-800 uppercase">
+                    AgriTech &amp; IoT
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    M3 Hive Product
+                  </span>
+                </div>
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                {product.name}
-              </h1>
+              <div>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                  {product.name}
+                </h1>
+              </div>
 
               <p className="text-lg sm:text-xl text-emerald-700 font-semibold tracking-tight">
                 &quot;{product.positioningLine}&quot;
               </p>
 
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                {product.overview}
-              </p>
+              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+                <p>
+                  {product.overview}
+                </p>
+              </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button to="/contact?interest=smart-animal" variant="primary" size="lg" showArrow>
                   Discuss a Smart Animal Pilot
                 </Button>
                 <Button to="/contact?pathway=research-validation" variant="secondary" size="lg">
-                  Explore AgriTech Collaboration
+                  Explore Collaboration
                 </Button>
               </div>
             </div>

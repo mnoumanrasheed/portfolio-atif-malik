@@ -68,28 +68,43 @@ export const Collaboration: React.FC = () => {
         imageAlt="Executive Partnership & Collaboration Space"
         glowColor="teal"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="max-w-3xl space-y-5">
-              <span className="eyebrow text-brand">Partnerships &amp; Engagements</span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                Let's Start With the Problem You Need to Solve.
-              </h1>
-              <div className="space-y-3 text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
+            <div className="max-w-3xl space-y-6 sm:space-y-7">
+              {/* Executive Tag */}
+              <div>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#286252] uppercase">
+                    Strategic Partnerships
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    Collaboration Pathways
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[48px] xl:text-[54px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                  Let's Start With the Problem You Need to Solve.
+                </h1>
+              </div>
+
+              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
                 <p>
-                  If you are exploring AI adoption, a product pilot, technology integration, research collaboration or a custom digital platform, share the challenge and the outcome you are working toward.
-                </p>
-                <p>
-                  We can determine whether an existing M3 Hive product or a tailored engagement is the right fit.
+                  If you are exploring AI adoption, a product pilot, technology integration, research collaboration or custom digital engineering, share the challenge and the outcome you are working toward.
                 </p>
               </div>
-              <div className="pt-3 flex flex-wrap items-center gap-3">
-                <Button to="/contact" variant="primary" showArrow>
+
+              <div className="flex flex-wrap items-center gap-4 pt-1">
+                <Button to="/contact" variant="primary" size="lg" showArrow>
                   Discuss a Project
                 </Button>
                 <Button
                   href="https://www.linkedin.com/in/aimalik/"
                   variant="secondary"
+                  size="lg"
                   isExternal
                 >
                   Connect on LinkedIn

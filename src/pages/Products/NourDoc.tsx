@@ -16,29 +16,37 @@ export const NourDoc: React.FC = () => {
         imageAlt="Modern Clinical Healthcare Facility"
         glowColor="cyan"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="space-y-5 max-w-xl lg:max-w-2xl">
+            <div className="space-y-6 max-w-xl lg:max-w-2xl">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-bold text-[#286252] bg-emerald-50 px-3 py-1 rounded-full border border-[#286252]/20 uppercase tracking-wider">
-                  HealthTech AI
-                </span>
-                <span className="text-xs font-medium text-slate-500">
-                  M3 Hive Product
-                </span>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#286252] uppercase">
+                    HealthTech AI
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    M3 Hive Product
+                  </span>
+                </div>
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                {product.name}
-              </h1>
+              <div>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                  {product.name}
+                </h1>
+              </div>
 
               <p className="text-lg sm:text-xl text-[#286252] font-semibold tracking-tight">
                 &quot;{product.positioningLine}&quot;
               </p>
 
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                {product.overview}
-              </p>
+              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+                <p>
+                  {product.overview}
+                </p>
+              </div>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button to="/contact?interest=nourdoc-demo" variant="primary" size="lg" showArrow>

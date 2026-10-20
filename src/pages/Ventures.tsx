@@ -21,25 +21,43 @@ export const Ventures: React.FC = () => {
         imageAlt="Technology Ventures & Studio Hub"
         glowColor="teal"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="max-w-3xl space-y-4">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs text-brand font-bold uppercase tracking-wider bg-brand-wash px-3 py-1 rounded-full border border-brand/20">
-                  Primary Company Focus
-                </span>
+            <div className="max-w-3xl space-y-6 sm:space-y-7">
+              {/* Executive Tag */}
+              <div>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#286252] uppercase">
+                    Products &amp; Ventures
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    Primary Company Focus
+                  </span>
+                </div>
               </div>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                Products &amp; Ventures
-              </h1>
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
-                M3 Hive serves as Atif I. Malik&apos;s primary company focus, leading product development, applied AI solutions, and digital platforms.
-              </p>
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <Button to="/contact" variant="primary" showArrow>
+
+              {/* Main Headline */}
+              <div>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                  Products &amp; Ventures
+                </h1>
+              </div>
+
+              {/* Supporting Copy */}
+              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+                <p>
+                  M3 Hive serves as Atif I. Malik&apos;s primary company focus, leading product development, applied AI solutions, and digital platforms across healthcare, sales intelligence, and connected systems.
+                </p>
+              </div>
+
+              {/* Action CTAs */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Button to="/contact" variant="primary" size="lg" showArrow>
                   Discuss a Project
                 </Button>
-                <Button href={EXECUTIVE_PROFILE.verifiedLinks.m3hive} variant="secondary" isExternal>
+                <Button href={EXECUTIVE_PROFILE.verifiedLinks.m3hive} variant="secondary" size="lg" isExternal>
                   Visit m3hive.com
                 </Button>
               </div>

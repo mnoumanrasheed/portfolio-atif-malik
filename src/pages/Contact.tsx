@@ -151,7 +151,7 @@ Note: Please do not transmit medical records, patient data, or confidential proj
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="max-w-2xl space-y-3.5">
+            <div className="max-w-2xl space-y-6 sm:space-y-7">
               
               <div className="flex flex-wrap items-center gap-2.5">
                 <span className="text-[11px] font-mono font-bold text-brand uppercase tracking-wider bg-brand/10 border border-brand/20 px-3 py-1 rounded-full shadow-xs">
@@ -159,7 +159,7 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
                 Discuss a Project
               </h1>
 

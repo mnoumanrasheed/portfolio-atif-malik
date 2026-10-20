@@ -15,25 +15,40 @@ export const Technologies360: React.FC = () => {
         imageAlt="Monumental Civic & Enterprise Systems Architecture"
         glowColor="teal"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="max-w-3xl space-y-4">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs text-slate-700 font-bold uppercase tracking-wider bg-white/90 border border-slate-200 px-3 py-1 rounded-full shadow-xs">
-                  Separate Company Association
-                </span>
+            <div className="max-w-3xl space-y-6 sm:space-y-7">
+              {/* Executive Tag */}
+              <div>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#286252] uppercase">
+                    360 Technologies
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    Separate Corporate Association
+                  </span>
+                </div>
               </div>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                360 Technologies
-              </h1>
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal pt-1">
-                Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. 360 Technologies is presented as a separate company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development.
-              </p>
-              <div className="pt-2 flex flex-wrap items-center gap-3">
-                <Button href={TECHNOLOGIES_360.directoryUrl} variant="primary" isExternal showArrow>
-                  Explore 360 Technologies&apos; Company Portfolio
+
+              <div>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                  360 Technologies
+                </h1>
+              </div>
+
+              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+                <p>
+                  Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. 360 Technologies is presented as a separate company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 pt-1">
+                <Button href={TECHNOLOGIES_360.directoryUrl} variant="primary" size="lg" isExternal showArrow>
+                  Explore 360 Company Portfolio
                 </Button>
-                <Button to="/ventures" variant="secondary">
+                <Button to="/ventures" variant="secondary" size="lg">
                   Explore Ventures
                 </Button>
               </div>

@@ -42,9 +42,9 @@ export const Work: React.FC = () => {
         imageAlt="Computational Engineering & Data Systems Workspace"
         glowColor="teal"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="max-w-3xl space-y-5">
+            <div className="max-w-3xl space-y-6 sm:space-y-7">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#286252]" />
@@ -57,7 +57,7 @@ export const Work: React.FC = () => {
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
                 Selected Work &amp; Impact
               </h1>
 
@@ -68,10 +68,10 @@ export const Work: React.FC = () => {
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Button to="/contact" variant="primary" showArrow>
+                <Button to="/contact" variant="primary" size="lg" showArrow>
                   Discuss a Project
                 </Button>
-                <Button to="/ventures" variant="secondary">
+                <Button to="/ventures" variant="secondary" size="lg">
                   Explore Priority Ventures
                 </Button>
               </div>
