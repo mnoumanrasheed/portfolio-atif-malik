@@ -18,7 +18,7 @@ export const LeadHiveAI: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="space-y-6 max-w-4xl">
+            <div className="space-y-5 max-w-xl lg:max-w-2xl">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-xs font-bold text-[#286252] bg-emerald-50 px-3 py-1 rounded-full border border-[#286252]/20 uppercase tracking-wider">
                   Lead Engagement &amp; Qualification
