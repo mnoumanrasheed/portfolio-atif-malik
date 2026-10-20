@@ -42,7 +42,6 @@ export const About: React.FC = () => {
         imageSrc="/images/heroes/hero-about.jpg" 
         imageAlt="Executive Architecture & Boardroom"
         glowColor="teal"
-        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>

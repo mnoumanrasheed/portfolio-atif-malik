@@ -14,7 +14,6 @@ export const Technologies360: React.FC = () => {
         imageSrc="/images/heroes/hero-technologies360.jpg"
         imageAlt="Monumental Civic & Enterprise Systems Architecture"
         glowColor="teal"
-        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>

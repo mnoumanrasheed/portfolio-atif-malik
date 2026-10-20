@@ -17,7 +17,6 @@ export const Expertise: React.FC = () => {
         imageSrc="/images/heroes/hero-expertise.jpg"
         imageAlt="Applied AI & Data Architecture Lattice"
         glowColor="cyan"
-        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>

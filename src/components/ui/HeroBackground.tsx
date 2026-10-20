@@ -4,6 +4,7 @@ interface HeroBackgroundProps {
   imageSrc: string;
   imageAlt?: string;
   overlayOpacity?: 'light' | 'medium' | 'deep' | 'clear';
+  imageOpacity?: string;
   glowColor?: 'teal' | 'cyan' | 'indigo' | 'emerald' | 'amber';
   className?: string;
   isCompactHeight?: boolean;
@@ -13,7 +14,8 @@ interface HeroBackgroundProps {
 export const HeroBackground: React.FC<HeroBackgroundProps> = ({
   imageSrc,
   imageAlt = 'Executive Architecture & Systems Background',
-  overlayOpacity = 'clear',
+  overlayOpacity = 'medium',
+  imageOpacity = 'opacity-80 sm:opacity-85',
   glowColor = 'teal',
   className = '',
   isCompactHeight = false,
@@ -27,63 +29,65 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
     amber: 'from-amber-600/15 via-brand/10 to-transparent'
   }[glowColor];
 
+  const overlayGradients = {
+    clear: 'from-white from-0% via-white/85 via-25% sm:via-white/65 sm:via-45% to-transparent to-90%',
+    light: 'from-white from-0% via-white/90 via-28% sm:via-white/70 sm:via-45% to-white/10 to-85%',
+    medium: 'from-white from-0% via-white/95 via-30% sm:via-white/80 sm:via-45% to-white/10 sm:to-transparent to-85%',
+    deep: 'from-white from-0% via-white via-35% sm:via-white/90 sm:via-55% to-white/20 sm:to-transparent to-90%'
+  }[overlayOpacity];
+
   return (
     <div 
-      className={`relative overflow-hidden ${
-        isCompactHeight
-          ? 'h-screen min-h-screen flex flex-col pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12'
-          : 'h-screen min-h-screen flex flex-col pt-28 sm:pt-32 pb-16 sm:pb-20'
-      } border-b border-line ${className}`}
+      className={`relative w-full h-screen min-h-[100vh] min-h-[100dvh] flex flex-col justify-center overflow-hidden border-b border-line pt-20 pb-8 sm:pt-24 sm:pb-12 ${className}`}
     >
       {/* High-Clarity Background Image Container */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-        {/* Crystal Clear High-Definition Photography Layer */}
+        {/* Crystal Clear High-Definition Photography Layer with Refined Opacity */}
         <img
           src={imageSrc}
           alt={imageAlt}
           loading="eager"
-          className="w-full h-full object-cover object-right filter saturate-[1.05] contrast-[1.08] brightness-[1.02] opacity-95 transition-transform duration-1000 ease-out"
+          className={`w-full h-full object-cover object-right filter saturate-[1.05] contrast-[1.05] brightness-[1.02] ${imageOpacity} transition-all duration-700 ease-out`}
         />
 
         {/* Directional Contrast Mask:
-            100% Pure White on the left (0-42%) guarantees pristine text contrast and zero bleed-through.
-            Feathers smoothly from 42% to 60%.
-            100% Crystal-clear transparency on the right (60-100%) showcases vivid architectural depth.
+            Solid white on the left text area guarantees pristine legibility and zero interference.
+            Smooth feathered transition to the right allows photography to be clearly visible with balanced depth.
         */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-white from-0% via-white via-35% sm:via-white/80 sm:via-50% to-transparent to-80%"
+          className={`absolute inset-0 bg-gradient-to-r ${overlayGradients}`}
           aria-hidden="true"
         />
 
         {/* Subtle Top & Bottom Seamless Blends */}
         <div
-          className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-white/80 to-transparent"
+          className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none"
           aria-hidden="true"
         />
         <div
-          className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-white via-white/60 to-transparent"
+          className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white/70 to-transparent pointer-events-none"
           aria-hidden="true"
         />
 
-        {/* Atmospheric Executive Color Aura (Adds Depth & Luster without hazing the image) */}
+        {/* Atmospheric Executive Color Aura */}
         <div
-          className={`absolute -top-24 -left-24 w-[480px] h-[480px] rounded-full bg-gradient-to-br ${glowStyles} blur-3xl pointer-events-none opacity-70`}
+          className={`absolute -top-24 -left-24 w-[480px] h-[480px] rounded-full bg-gradient-to-br ${glowStyles} blur-3xl pointer-events-none opacity-60`}
           aria-hidden="true"
         />
         <div
-          className="absolute top-1/4 -right-24 w-96 h-96 rounded-full bg-accent-cyan/12 blur-3xl pointer-events-none"
+          className="absolute top-1/4 -right-24 w-96 h-96 rounded-full bg-accent-cyan/10 blur-3xl pointer-events-none"
           aria-hidden="true"
         />
 
         {/* Micro-Precision Architectural Grid Lines */}
         <div
-          className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#17272D_1px,transparent_1px),linear-gradient(to_bottom,#17272D_1px,transparent_1px)] bg-[size:4rem_4rem]"
+          className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#17272D_1px,transparent_1px),linear-gradient(to_bottom,#17272D_1px,transparent_1px)] bg-[size:4rem_4rem]"
           aria-hidden="true"
         />
       </div>
 
-      {/* Hero Foreground Content */}
-      <div className="relative z-10 w-full my-auto">
+      {/* Hero Foreground Content Vertically Centered */}
+      <div className="relative z-10 w-full my-auto flex flex-col justify-center">
         {children}
       </div>
     </div>

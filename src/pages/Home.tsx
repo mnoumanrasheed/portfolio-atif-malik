@@ -90,9 +90,8 @@ export const Home: React.FC = () => {
           imageSrc="/images/heroes/hero-home.jpg" 
           imageAlt="Executive Architectural Technology Space"
           glowColor="teal" 
-          isCompactHeight={true}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-12 sm:py-16">
+          >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-3xl space-y-6 sm:space-y-7">
               
               {/* Executive Identity Tag & Professional Descriptor */}

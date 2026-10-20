@@ -15,7 +15,6 @@ export const SmartAnimal: React.FC = () => {
         imageSrc="/images/heroes/hero-smartanimal.jpg"
         imageAlt="Agricultural Pasture & Connected Livestock Telemetry"
         glowColor="emerald"
-        className="pt-28 sm:pt-36 pb-10 sm:pb-12"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>

@@ -148,7 +148,6 @@ Note: Please do not transmit medical records, patient data, or confidential proj
         imageSrc="/images/heroes/hero-contact.jpg"
         imageAlt="Executive Consultation Suite and Architectural Boardroom"
         glowColor="teal"
-        isCompactHeight={true}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
