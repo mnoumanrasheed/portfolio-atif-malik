@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from '../components/layout/Layout';
 import { ScrollToTop } from './ScrollToTop';
+import { ExecutivePreloader } from '../components/ui/ExecutivePreloader';
 
 // Lazy loading routes for optimal bundle splitting and performance
 const Home = lazy(() => import('../pages/Home').then(m => ({ default: m.Home })));
@@ -20,17 +21,20 @@ const Contact = lazy(() => import('../pages/Contact').then(m => ({ default: m.Co
 const NotFound = lazy(() => import('../pages/NotFound').then(m => ({ default: m.NotFound })));
 
 const LoadingFallback = () => (
-  <div className="min-h-[60vh] flex items-center justify-center">
-    <div className="flex items-center gap-3 font-mono text-xs text-brand">
-      <span className="h-2 w-2 rounded-full bg-brand animate-ping" />
-      <span>Loading Executive Portfolio Module...</span>
+  <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
+    <div className="relative flex items-center justify-center">
+      <div className="h-10 w-10 rounded-full border-2 border-[#286252]/20 border-t-[#286252] animate-spin" />
     </div>
+    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#286252] font-semibold">
+      Loading...
+    </span>
   </div>
 );
 
 export const App: React.FC = () => {
   return (
     <>
+      <ExecutivePreloader />
       <ScrollToTop />
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
