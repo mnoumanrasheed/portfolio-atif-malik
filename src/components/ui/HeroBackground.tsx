@@ -29,17 +29,17 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
     amber: 'from-amber-600/12 via-brand/8 to-transparent'
   }[glowColor];
 
-  // Soft contrast wash strictly under the left text (0-45%), completely transparent on the right (50-100%)
+  // Soft translucent wash strictly under the left text (0-35%), completely transparent on the right (55-100%)
   const overlayGradients = {
-    clear: 'from-white/95 from-0% via-white/70 via-25% sm:via-white/40 sm:via-35% to-transparent to-50%',
-    light: 'from-white/95 from-0% via-white/80 via-28% sm:via-white/50 sm:via-38% to-transparent to-52%',
-    medium: 'from-white from-0% via-white/90 via-30% sm:via-white/55 sm:via-42% to-transparent to-55%',
-    deep: 'from-white from-0% via-white/95 via-35% sm:via-white/70 sm:via-48% to-transparent to-60%'
+    clear: 'from-white/60 via-white/30 via-28% to-transparent to-52%',
+    light: 'from-white/70 via-white/40 via-30% to-transparent to-55%',
+    medium: 'from-white/80 via-white/50 via-32% to-transparent to-58%',
+    deep: 'from-white/85 via-white/60 via-35% to-transparent to-60%'
   }[overlayOpacity];
 
   return (
     <div 
-      className={`relative w-full min-h-[90vh] sm:h-screen sm:min-h-[100dvh] flex flex-col justify-center overflow-hidden border-b border-line pt-24 pb-12 sm:pt-28 sm:pb-16 text-left ${className}`}
+      className={`relative w-full h-[100vh] min-h-[100vh] max-h-[100vh] flex flex-col justify-center overflow-hidden border-b border-line pt-20 pb-8 sm:pt-24 sm:pb-10 text-left ${className}`}
     >
       {/* High-Clarity Background Image Container - 100% Clear on the right */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
@@ -52,29 +52,17 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
         />
 
         {/* Directional Contrast Mask:
-            Soft white only on the left text area (0% to ~45%) for crystal-clear text readability.
-            Transitions smoothly to 100% transparent by ~55%, leaving the right half completely clear with zero opacity.
+            Soft translucent wash under left text for pristine readability.
+            Transitions smoothly to transparent by ~55%, leaving the right half completely clear with zero opacity.
         */}
         <div
           className={`absolute inset-0 bg-gradient-to-r ${overlayGradients} pointer-events-none`}
           aria-hidden="true"
         />
 
-        {/* Subtle Top Border Blend to avoid hard cuts at navbar edge */}
+        {/* Atmospheric Executive Color Aura (Softened and restricted behind text) */}
         <div
-          className="absolute top-0 left-0 w-1/2 h-12 bg-gradient-to-b from-white/50 to-transparent pointer-events-none"
-          aria-hidden="true"
-        />
-
-        {/* Atmospheric Executive Color Aura (Softened and restricted to top-left behind text) */}
-        <div
-          className={`absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-gradient-to-br ${glowStyles} blur-3xl pointer-events-none opacity-50`}
-          aria-hidden="true"
-        />
-
-        {/* Micro-Precision Architectural Grid Lines on the left */}
-        <div
-          className="absolute inset-0 opacity-[0.015] bg-[linear-gradient(to_right,#17272D_1px,transparent_1px),linear-gradient(to_bottom,#17272D_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:linear-gradient(to_right,white,transparent_60%)]"
+          className={`absolute -top-24 -left-24 w-[380px] h-[380px] rounded-full bg-gradient-to-br ${glowStyles} blur-3xl pointer-events-none opacity-40`}
           aria-hidden="true"
         />
       </div>
