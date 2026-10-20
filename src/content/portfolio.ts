@@ -442,48 +442,117 @@ export const TECHNOLOGIES_360 = {
   companyProjects: [
     {
       organisation: 'Pakistan Post',
+      sector: 'Postal Systems & Logistics',
       projects:
         'International postal system implementation and maintenance; express-mail tracking; complaint/reporting systems; pension and counter automation; postal data processing.'
     },
     {
       organisation: 'Pakistan Navy',
+      sector: 'Defense & Public Sector',
       projects:
         'Budget Management System software and office-automation assignments.'
     },
     {
-      organisation: 'NADRA / public records',
+      organisation: 'NADRA / Public Records',
+      sector: 'National Identity & Data Systems',
       projects:
         'Digitisation and data-entry work involving BISP and Election Commission of Pakistan records, as described by the company.'
     },
     {
-      organisation: 'Provincial Boards of Revenue',
+      organisation: 'Provincial Boards of Revenue (Punjab, Sindh & KP)',
+      sector: 'Land Administration & Digitisation',
       projects:
         'Land-record scanning and data entry across listed districts in Punjab, Sindh and Khyber Pakhtunkhwa.'
     },
     {
-      organisation: 'Sindh education / RSU',
+      organisation: 'Sindh Education / RSU',
+      sector: 'Education Sector Reform',
       projects:
         'School-student and school-budget applications, education data management and reform support.'
     },
     {
-      organisation: 'IOM',
+      organisation: 'IOM (International Organization for Migration)',
+      sector: 'International Development',
       projects:
         'Nationwide communication assessment and flood-response monitoring data-entry assignment.'
     },
     {
       organisation: 'Overseas Pakistanis Foundation',
+      sector: 'Web Portals & Online Systems',
       projects:
         'Website, web portal and online internship portal.'
     },
     {
-      organisation: 'UNDP / parliamentary development',
+      organisation: 'UNDP Pakistan / Parliamentary Development',
+      sector: 'Public Sector Programmes',
       projects:
         'Websites, maintenance and support for public-sector programmes.'
     },
     {
-      organisation: 'Professional training',
+      organisation: 'Professional Training',
+      sector: 'Capability Development',
       projects:
         'Technology training for National Assembly and Senate staff and Telenor, as recorded on the published company website.'
+    },
+    {
+      organisation: 'Pakistan National Assembly',
+      sector: 'Legislative Institution',
+      projects:
+        'Institutional client reference documented in 360 Technologies’ published corporate directory and enterprise portfolio.'
+    },
+    {
+      organisation: 'Senate of Pakistan',
+      sector: 'Legislative Institution',
+      projects:
+        'Upper house parliamentary reference documented in 360 Technologies’ published corporate directory and client portfolio.'
+    },
+    {
+      organisation: 'Telenor',
+      sector: 'Telecommunications',
+      projects:
+        'Corporate telecommunications client reference documented in 360 Technologies’ published company directory.'
+    },
+    {
+      organisation: 'NCHD (National Commission for Human Development)',
+      sector: 'Public Sector Development',
+      projects:
+        'Human development and public-sector operational reference documented in 360 Technologies’ published corporate directory.'
+    },
+    {
+      organisation: 'IBM',
+      sector: 'Enterprise Technology',
+      projects:
+        'Global enterprise technology client reference documented in 360 Technologies’ published corporate directory.'
+    },
+    {
+      organisation: 'Gemalto UAE',
+      sector: 'Digital Security & Identity',
+      projects:
+        'International digital security and enterprise reference documented in 360 Technologies’ published corporate directory.'
+    },
+    {
+      organisation: 'Royal Airport Services',
+      sector: 'Aviation & Ground Handling',
+      projects:
+        'Aviation ground handling and operations reference documented in 360 Technologies’ published corporate directory.'
+    },
+    {
+      organisation: 'Global Airport Concierge',
+      sector: 'Aviation & Concierge Operations',
+      projects:
+        'International airport concierge and passenger logistics reference documented in 360 Technologies’ published corporate directory.'
+    },
+    {
+      organisation: 'CalAirCargo USA',
+      sector: 'Air Cargo & Logistics',
+      projects:
+        'Air cargo, freight logistics and operations reference documented in 360 Technologies’ published corporate directory.'
+    },
+    {
+      organisation: 'Enercon',
+      sector: 'Energy & Conservation',
+      projects:
+        'Energy conservation and management sector reference documented in 360 Technologies’ published corporate directory.'
     }
   ] as CompanyProject[],
   publishedClients: [
