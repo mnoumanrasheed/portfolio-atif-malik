@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { EXECUTIVE_PROFILE } from '../../content/portfolio';
 import { ExecutiveLogo } from '../ui/ExecutiveLogo';
 
@@ -46,16 +46,6 @@ export const Footer: React.FC = () => {
             <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed max-w-md font-normal">
               Connecting business challenges with product thinking, applied AI, and technology delivery across healthcare, enterprise intelligence, and connected systems.
             </p>
-
-            <div className="pt-2">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs border border-white/15 transition-all shadow-xs group"
-              >
-                <span>Discuss a Project</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-            </div>
           </div>
 
           {/* Column 2 (3 cols): Navigation */}
