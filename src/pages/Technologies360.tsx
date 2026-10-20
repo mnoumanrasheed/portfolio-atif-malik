@@ -46,7 +46,7 @@ export const Technologies360: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-4 pt-1">
                 <Button href={TECHNOLOGIES_360.directoryUrl} variant="primary" size="lg" isExternal showArrow>
-                  Explore 360 Company Portfolio
+                  Explore 360 Technologies&apos; Company Portfolio
                 </Button>
                 <Button to="/ventures" variant="secondary" size="lg">
                   Explore Ventures
