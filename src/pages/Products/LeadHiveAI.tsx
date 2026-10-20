@@ -13,7 +13,8 @@ export const LeadHiveAI: React.FC = () => {
     <div className="bg-canvas text-ink selection:bg-brand-wash selection:text-brand-dark">
       <HeroBackground
         imageSrc="/images/heroes/hero-leadhive.jpg"
-        imageAlt="Enterprise Conversational AI & Communications"
+        imageAlt="LeadHive AI Conversational Sales Platform"
+        overlayOpacity="clear"
         glowColor="cyan"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
