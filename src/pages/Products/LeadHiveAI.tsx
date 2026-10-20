@@ -29,15 +29,7 @@ export const LeadHiveAI: React.FC = () => {
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                <a
-                  href="https://leadhive-ai.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand transition-colors inline-flex items-center gap-3 group"
-                >
-                  <span>{product.name}</span>
-                  <span className="text-2xl sm:text-3xl text-slate-400 font-normal group-hover:text-brand group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">↗</span>
-                </a>
+                {product.name}
               </h1>
 
               <p className="text-lg sm:text-xl text-[#286252] font-semibold tracking-tight">
