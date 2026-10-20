@@ -125,17 +125,11 @@ export const Ventures: React.FC = () => {
                       </div>
 
                       <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button to="/products/nourdoc" variant="primary" showArrow>
-                          Explore NourDoc
-                        </Button>
-                        <Button to="/contact?interest=nourdoc-demo" variant="secondary" size="md">
+                        <Button to="/contact?interest=nourdoc-demo" variant="primary" showArrow>
                           Book a Demo
                         </Button>
-                        <Button to="/contact?interest=nourdoc-pilot" variant="outline" size="md">
-                          Explore a Clinical Pilot
-                        </Button>
-                        <Button href={nourdoc.officialUrl || "https://nour-doc.com/"} variant="ghost" size="md" isExternal>
-                          Official Website &rarr;
+                        <Button href="https://nour-doc.com/" variant="secondary" size="md" isExternal>
+                          Product Page
                         </Button>
                       </div>
                     </div>
@@ -164,7 +158,7 @@ export const Ventures: React.FC = () => {
 
                     <div className="lg:col-span-5 space-y-5 order-1 bg-white p-7 sm:p-10 lg:order-2 lg:p-12">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-600 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-full">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#286252] bg-emerald-50 border border-[#286252]/20 px-3 py-1.5 rounded-full">
                           Lead Engagement &amp; Qualification
                         </span>
                       </div>
@@ -182,7 +176,7 @@ export const Ventures: React.FC = () => {
                       <p className="text-base text-[#286252] font-semibold">
                         &quot;{leadhive.positioningLine}&quot;
                       </p>
-                      <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-slate-300 pl-4">
+                      <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-[#286252] pl-4">
                         {leadhive.overview}
                       </p>
 
@@ -192,11 +186,11 @@ export const Ventures: React.FC = () => {
                       </div>
 
                       <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button href="https://leadhive-ai.com/" variant="primary" isExternal showArrow>
-                          Explore LeadHive AI
-                        </Button>
-                        <Button to="/contact?interest=leadhive-ai" variant="secondary" size="md">
+                        <Button to="/contact?interest=leadhive-ai" variant="primary" showArrow>
                           Book a Demo
+                        </Button>
+                        <Button href="https://leadhive-ai.com/" variant="secondary" size="md" isExternal>
+                          Product Page
                         </Button>
                       </div>
                     </div>
