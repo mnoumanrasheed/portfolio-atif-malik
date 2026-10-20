@@ -14,14 +14,14 @@ export const LeadHiveAI: React.FC = () => {
       <HeroBackground
         imageSrc="/images/heroes/hero-leadhive.jpg"
         imageAlt="Enterprise Conversational AI & Communications"
-        glowColor="indigo"
+        glowColor="cyan"
         className="pt-28 sm:pt-36 pb-16 sm:pb-24"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="space-y-6 max-w-4xl">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-bold text-indigo-700 bg-indigo-100/90 px-3 py-1 rounded-full border border-indigo-200 uppercase tracking-wider">
+                <span className="text-xs font-bold text-[#286252] bg-emerald-50 px-3 py-1 rounded-full border border-[#286252]/20 uppercase tracking-wider">
                   Lead Engagement &amp; Qualification
                 </span>
                 <span className="text-xs font-medium text-slate-500">
@@ -30,10 +30,18 @@ export const LeadHiveAI: React.FC = () => {
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                {product.name}
+                <a
+                  href="https://leadhive-ai.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand transition-colors inline-flex items-center gap-3 group"
+                >
+                  <span>{product.name}</span>
+                  <span className="text-2xl sm:text-3xl text-slate-400 font-normal group-hover:text-brand group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">↗</span>
+                </a>
               </h1>
 
-              <p className="text-lg sm:text-xl text-indigo-700 font-semibold tracking-tight">
+              <p className="text-lg sm:text-xl text-[#286252] font-semibold tracking-tight">
                 &quot;{product.positioningLine}&quot;
               </p>
 
@@ -43,7 +51,7 @@ export const LeadHiveAI: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button to="/contact?interest=leadhive-ai" variant="primary" size="lg" showArrow>
-                  Discuss a Project
+                  Book a Demo
                 </Button>
                 <Button href="https://leadhive-ai.com/" variant="secondary" size="lg" isExternal>
                   Product Page

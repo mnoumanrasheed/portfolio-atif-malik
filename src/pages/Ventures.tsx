@@ -173,13 +173,13 @@ export const Ventures: React.FC = () => {
                           href="https://leadhive-ai.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="hover:text-indigo-700 transition-colors inline-flex items-center gap-2"
+                          className="hover:text-[#286252] transition-colors inline-flex items-center gap-2"
                         >
                           <span>{leadhive.name}</span>
                           <span className="text-xl text-slate-400 font-normal">↗</span>
                         </a>
                       </h3>
-                      <p className="text-base text-slate-700 font-semibold">
+                      <p className="text-base text-[#286252] font-semibold">
                         &quot;{leadhive.positioningLine}&quot;
                       </p>
                       <p className="text-sm text-slate-700 leading-relaxed font-normal border-l-2 border-slate-300 pl-4">
