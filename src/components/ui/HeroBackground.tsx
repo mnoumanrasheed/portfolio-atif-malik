@@ -41,7 +41,7 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
 
   return (
     <div 
-      className={`relative w-full h-[100vh] min-h-[100vh] max-h-[100vh] flex flex-col justify-start overflow-hidden border-b border-line pt-28 sm:pt-32 lg:pt-36 pb-8 text-left ${className}`}
+      className={`relative w-full h-[100vh] min-h-[100vh] max-h-[100vh] flex flex-col justify-center overflow-hidden border-b border-line pt-20 pb-8 sm:pt-24 sm:pb-10 text-left ${className}`}
     >
       {/* High-Clarity Background Image Container - Centered to avoid cutting & 100% Clear on the right */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
@@ -54,7 +54,7 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
         />
 
         {/* Directional Contrast Mask:
-            Soft pure white on the left (0% to ~32%) guarantees 100% text readability.
+            Soft pure white on the left (0% to ~35%) guarantees 100% text readability.
             Transitions smoothly to 100% transparent by ~60%, leaving the right half completely clear with zero opacity.
         */}
         <div
@@ -69,8 +69,8 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
         />
       </div>
 
-      {/* Hero Foreground Content: Positioned Up and Left-Aligned */}
-      <div className="relative z-10 w-full flex flex-col items-start justify-start text-left">
+      {/* Hero Foreground Content: Balanced Executive Centering in 100vh container */}
+      <div className="relative z-10 w-full my-auto flex flex-col items-start justify-center text-left">
         {children}
       </div>
     </div>

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { HeroBackground } from '../components/ui/HeroBackground';
+import { Button } from '../components/ui/Button';
 
 export const About: React.FC = () => {
   const leadershipApproach = [
@@ -43,23 +44,58 @@ export const About: React.FC = () => {
         imageAlt="Executive Architecture & Boardroom"
         glowColor="teal"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
-            <div className="max-w-3xl space-y-4">
-              <span className="eyebrow text-brand">Executive Profile</span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.08]">
-                Atif I. Malik
-              </h1>
-              <p className="text-lg sm:text-xl text-brand font-semibold tracking-tight">
-                Technology &amp; AI Executive <span className="text-[#286252] mx-1 font-normal">|</span> AI Product Innovator
-              </p>
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <span className="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white/95 border border-slate-200/90 text-slate-800 shadow-2xs">
+            <div className="max-w-3xl space-y-6 sm:space-y-7">
+              {/* Executive Tag */}
+              <div>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#286252] uppercase">
+                    Executive Profile
+                  </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    Technology &amp; AI Leadership
+                  </span>
+                </div>
+              </div>
+
+              {/* Main Headline */}
+              <div className="space-y-2">
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-slate-900 tracking-tight leading-[1.08]">
+                  Atif I. Malik
+                </h1>
+                <p className="text-lg sm:text-xl text-[#286252] font-semibold tracking-tight">
+                  Technology &amp; AI Executive <span className="text-slate-300 mx-1.5 font-normal">|</span> AI Product Innovator
+                </p>
+              </div>
+
+              {/* Supporting Copy */}
+              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+                <p>
+                  Technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms, and digital transformation across enterprise systems and healthcare AI.
+                </p>
+              </div>
+
+              {/* Verified Executive Roles */}
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="px-3.5 py-1.5 rounded-xl text-xs sm:text-[13px] font-semibold bg-white border border-slate-200/90 text-slate-800 shadow-2xs">
                   Chief Executive Officer, M3 Hive
                 </span>
-                <span className="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white/95 border border-slate-200/90 text-slate-800 shadow-2xs">
+                <span className="px-3.5 py-1.5 rounded-xl text-xs sm:text-[13px] font-semibold bg-white border border-slate-200/90 text-slate-800 shadow-2xs">
                   Founding CEO, Director &amp; Shareholder, 360 Technologies
                 </span>
+              </div>
+
+              {/* Action CTAs */}
+              <div className="flex flex-wrap items-center gap-4 pt-1">
+                <Button to="/contact" variant="primary" size="lg" showArrow>
+                  Discuss a Project
+                </Button>
+                <Button to="/ventures" variant="secondary" size="lg">
+                  Explore Ventures
+                </Button>
               </div>
             </div>
           </ScrollReveal>
