@@ -166,33 +166,6 @@ export const Collaboration: React.FC = () => {
             </ScrollReveal>
           ))}
         </div>
-
-        {/* Closing Action Banner */}
-        <ScrollReveal>
-          <div className="mt-16 p-8 sm:p-10 border border-line rounded-card bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
-            <div className="space-y-1 text-center sm:text-left">
-              <h3 className="font-display font-bold text-xl text-slate-900">
-                Ready to explore a structured engagement?
-              </h3>
-              <p className="text-sm text-slate-600">
-                Initiate a direct conversation around your operational challenge or project scope.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button to="/contact" variant="primary" size="md" showArrow>
-                Discuss a Project
-              </Button>
-              <Button
-                href="https://www.linkedin.com/in/aimalik/"
-                variant="secondary"
-                size="md"
-                isExternal
-              >
-                Connect on LinkedIn
-              </Button>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </div>
   );
