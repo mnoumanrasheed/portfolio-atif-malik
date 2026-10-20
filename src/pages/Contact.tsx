@@ -19,7 +19,7 @@ import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { HeroBackground } from '../components/ui/HeroBackground';
 import { BorderBeam } from '../components/ui/BorderBeam';
-import { AnimatedBeamDivider, AnimatedLineAccent } from '../components/ui/AnimatedLine';
+import { AnimatedBeamDivider } from '../components/ui/AnimatedLine';
 import { ExecutiveLogo } from '../components/ui/ExecutiveLogo';
 
 const ENQUIRY_TYPES = [
@@ -162,8 +162,6 @@ Note: Please do not transmit medical records, patient data, or confidential proj
               <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
                 Discuss a Project
               </h1>
-
-              <AnimatedLineAccent glowColor="cyan" className="mt-2 mb-3" />
 
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                 If you are exploring AI adoption, a product pilot, technology integration, research collaboration or a custom digital platform, share the challenge and the outcome you are working toward.

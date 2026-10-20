@@ -10,7 +10,6 @@ import { SectionHeader } from '../components/ui/SectionHeader';
 import { Button } from '../components/ui/Button';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { HeroBackground } from '../components/ui/HeroBackground';
-import { AnimatedLineAccent } from '../components/ui/AnimatedLine';
 
 export const Work: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
@@ -45,23 +44,22 @@ export const Work: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ScrollReveal>
             <div className="max-w-3xl space-y-6 sm:space-y-7">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
-                  <span className="w-2 h-2 rounded-full bg-[#286252]" />
-                  <span className="text-xs font-mono font-bold tracking-widest text-brand uppercase">
+              <div>
+                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#286252]/30 shadow-xs">
+                  <span className="w-2 h-2 rounded-full bg-[#286252] animate-pulse" />
+                  <span className="text-xs font-mono font-bold tracking-widest text-[#286252] uppercase">
                     M3 Hive Company Projects
                   </span>
-                </span>
-                <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider bg-white/85 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200/80">
-                  Documented Projects
-                </span>
+                  <span className="text-slate-300">|</span>
+                  <span className="text-xs font-medium text-slate-600">
+                    Documented Projects
+                  </span>
+                </div>
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
                 Selected Work &amp; Impact
               </h1>
-
-              <AnimatedLineAccent width="w-36 sm:w-48" height="h-[3px]" />
 
               <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-normal pt-1 max-w-2xl">
                 M3 Hive company projects demonstrating technical breadth across market intelligence, scientific software, bioinformatics, and data integration.
