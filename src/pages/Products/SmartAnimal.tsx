@@ -15,7 +15,7 @@ export const SmartAnimal: React.FC = () => {
         imageSrc="/images/heroes/hero-smartanimal.jpg"
         imageAlt="Agricultural Pasture & Connected Livestock Telemetry"
         glowColor="emerald"
-        className="pt-28 sm:pt-36 pb-16 sm:pb-24"
+        className="pt-28 sm:pt-36 pb-10 sm:pb-12"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -54,17 +54,17 @@ export const SmartAnimal: React.FC = () => {
         </div>
       </HeroBackground>
 
-      <div className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-6 pb-14 sm:pt-8 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Workflow Diagram */}
-        <div className="my-16">
+        <div className="mb-10 sm:mb-12">
           <ScrollReveal delay={0.1}>
             <SmartAnimalWorkflowDiagram />
           </ScrollReveal>
         </div>
 
         {/* Challenge vs Value Proposition Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-10 sm:my-12">
           {/* Challenge Box */}
           <ScrollReveal delay={0.15}>
             <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-10 h-full space-y-4 shadow-soft">
