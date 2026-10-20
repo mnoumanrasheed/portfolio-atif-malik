@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mic, Cpu, FileText, UserCheck, Database, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { Mic, Cpu, FileText, UserCheck, Database, ShieldCheck } from 'lucide-react';
 
 const steps = [
   ['01', 'Clinical Encounter', 'Ambient Dialogue Capture', 'Non-intrusive audio capture of the clinician-patient consultation without interfering with the physical examination or bedside rapport.', Mic],
@@ -17,20 +17,9 @@ export const NourDocWorkflowDiagram: React.FC = () => (
           <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#286252]">Clinical documentation system</span>
           <h4 className="mt-1 font-display text-lg font-bold text-slate-900">NourDoc clinical record pathway</h4>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <a
-            href="https://nour-doc.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 rounded-full border border-[#286252]/30 bg-emerald-50 px-3 py-1 text-[11px] font-bold text-[#286252] hover:bg-emerald-100/60 transition-colors"
-          >
-            <span>nour-doc.com</span>
-            <ArrowUpRight className="h-3 w-3" />
-          </a>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#286252]/20 bg-white px-3 py-1 text-[10px] font-bold text-[#286252]">
-            <ShieldCheck className="h-3.5 w-3.5" /> Physician review required
-          </span>
-        </div>
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-[#286252]/20 bg-white px-3 py-1 text-[10px] font-bold text-[#286252]">
+          <ShieldCheck className="h-3.5 w-3.5" /> Physician review required
+        </span>
       </div>
     </div>
     <div className="p-5 sm:p-7">
