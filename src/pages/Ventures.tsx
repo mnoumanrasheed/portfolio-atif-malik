@@ -247,11 +247,11 @@ export const Ventures: React.FC = () => {
                       </div>
 
                       <div className="pt-2 flex flex-wrap items-center gap-3">
-                        <Button to="/products/smart-animal" variant="primary" showArrow>
-                          Explore Smart Animal
+                        <Button to="/contact?interest=smart-animal" variant="primary" showArrow>
+                          Discuss a Project
                         </Button>
-                        <Button to="/contact?interest=smart-animal" variant="secondary" size="md">
-                          Discuss a Smart Animal Pilot
+                        <Button to="/products/smart-animal" variant="secondary" size="md">
+                          Explore Smart Animal
                         </Button>
                       </div>
                     </div>
