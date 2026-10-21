@@ -57,7 +57,7 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
             filter: 'blur(8px)',
             transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
           }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#06161B] text-white select-none overflow-hidden"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white text-slate-900 select-none overflow-hidden"
           aria-live="polite"
           aria-label="Loading Atif I. Malik Executive Portfolio"
         >
@@ -66,19 +66,19 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1.05 }}
             transition={{ duration: 1.4, ease: 'easeOut' }}
-            className="absolute w-[520px] h-[520px] rounded-full bg-[#286252]/25 blur-[110px] pointer-events-none"
+            className="absolute w-[520px] h-[520px] rounded-full bg-[#286252]/10 blur-[110px] pointer-events-none"
             aria-hidden="true"
           />
 
           {/* Architectural Grid Overlay */}
           <div
-            className="absolute inset-0 opacity-[0.035] pointer-events-none [background-image:linear-gradient(rgba(84,203,168,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(84,203,168,0.7)_1px,transparent_1px)] [background-size:40px_40px]"
+            className="absolute inset-0 opacity-[0.03] pointer-events-none [background-image:linear-gradient(rgba(40,98,82,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(40,98,82,0.6)_1px,transparent_1px)] [background-size:40px_40px]"
             aria-hidden="true"
           />
 
           {/* Top Specular Accent Line */}
           <div
-            className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54CBA8]/60 to-transparent"
+            className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#286252]/40 to-transparent"
             aria-hidden="true"
           />
 
@@ -95,20 +95,20 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
               <motion.div
                 animate={{
                   scale: [1, 1.08, 1],
-                  opacity: [0.2, 0.4, 0.2]
+                  opacity: [0.15, 0.3, 0.15]
                 }}
                 transition={{
                   duration: 2.4,
                   repeat: Infinity,
                   ease: 'easeInOut'
                 }}
-                className="absolute -inset-6 rounded-full bg-[#286252]/20 blur-xl pointer-events-none"
+                className="absolute -inset-6 rounded-full bg-[#286252]/10 blur-xl pointer-events-none"
               />
 
               <img
-                src="/logo-dark.png"
+                src="/logo-light.png"
                 alt="Atif I. Malik"
-                className="h-20 sm:h-24 w-auto object-contain relative z-10 drop-shadow-[0_8px_24px_rgba(40,98,82,0.35)]"
+                className="h-20 sm:h-24 w-auto object-contain relative z-10 drop-shadow-[0_8px_24px_rgba(40,98,82,0.12)]"
                 loading="eager"
               />
             </motion.div>
@@ -118,7 +118,7 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-              className="mt-5 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-[0.22em] text-[#54CBA8] text-center"
+              className="mt-5 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-[0.22em] text-[#286252] text-center"
             >
               Technology &amp; AI Executive &middot; AI Product Innovator
             </motion.p>
@@ -130,16 +130,16 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
               transition={{ duration: 0.5, delay: 0.15 }}
               className="mt-8 w-full max-w-[220px] space-y-2.5"
             >
-              <div className="h-[2px] w-full bg-white/10 rounded-full overflow-hidden relative">
+              <div className="h-[2px] w-full bg-slate-200/90 rounded-full overflow-hidden relative">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-[#286252] via-[#54CBA8] to-[#286252] rounded-full shadow-[0_0_12px_#54CBA8]"
+                  className="h-full bg-gradient-to-r from-[#286252] via-[#3a8b75] to-[#286252] rounded-full shadow-[0_0_8px_rgba(40,98,82,0.3)]"
                   style={{ width: `${progress}%` }}
                 />
               </div>
 
-              <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.16em] text-slate-400">
+              <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.16em] text-slate-500">
                 <span className="uppercase">Initializing</span>
-                <span className="text-[#54CBA8] font-semibold tabular-nums">{progress}%</span>
+                <span className="text-[#286252] font-bold tabular-nums">{progress}%</span>
               </div>
             </motion.div>
           </div>
