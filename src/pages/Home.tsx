@@ -103,7 +103,10 @@ export const Home: React.FC = () => {
                   alt=""
                   className="h-full w-full object-cover object-right"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#0c2f28]/12 via-transparent to-white/10" />
+                {/* Photo Background Opacity Overlay: Softens the outdoor trees so the portrait stands out with executive contrast */}
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-950/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-[#0c2f28]/15 mix-blend-multiply pointer-events-none" />
               </div>
             </div>
           </div>
