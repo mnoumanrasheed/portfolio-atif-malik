@@ -8,6 +8,7 @@ interface HeroBackgroundProps {
   imagePosition?: string;
   glowColor?: 'teal' | 'cyan' | 'indigo' | 'emerald' | 'amber';
   className?: string;
+  contentHeight?: boolean;
   isCompactHeight?: boolean;
   children?: React.ReactNode;
 }
@@ -17,9 +18,10 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
   imageAlt = 'Executive Architecture & Systems Background',
   overlayOpacity = 'medium',
   imageOpacity = 'opacity-100',
-  imagePosition = 'object-center',
+  imagePosition = 'object-right',
   glowColor = 'teal',
   className = '',
+  contentHeight = false,
   isCompactHeight = false,
   children
 }) => {
@@ -31,21 +33,21 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
     amber: 'from-amber-600/12 via-brand/8 to-transparent'
   }[glowColor];
 
-  // Directional contrast mask: Pure white canvas behind left text (0-48%) guaranteeing 100% crisp readability with zero graphic collision, smoothly dissolving to 100% transparent on the right
+  // Keep a light contrast layer only behind the left-aligned copy, so the imagery remains clear on the right.
   const overlayGradients = {
-    clear: 'from-white from-0% via-white via-38% sm:via-white/95 sm:via-48% to-transparent to-65%',
-    light: 'from-white from-0% via-white via-40% sm:via-white/95 sm:via-50% to-transparent to-66%',
-    medium: 'from-white from-0% via-white via-40% sm:via-white/95 sm:via-50% to-transparent to-68%',
-    deep: 'from-white from-0% via-white via-44% sm:via-white/95 sm:via-54% to-transparent to-72%'
+    clear: 'from-white/90 from-0% via-white/75 via-30% sm:via-white/55 sm:via-40% to-transparent to-54%',
+    light: 'from-white/95 from-0% via-white/85 via-34% sm:via-white/65 sm:via-44% to-transparent to-57%',
+    medium: 'from-white from-0% via-white/90 via-38% sm:via-white/75 sm:via-46% to-transparent to-60%',
+    deep: 'from-white from-0% via-white/95 via-42% sm:via-white/85 sm:via-50% to-transparent to-63%'
   }[overlayOpacity];
 
   return (
     <div 
-      className={`relative w-full h-[100vh] min-h-[100vh] max-h-[100vh] flex flex-col justify-center overflow-hidden border-b border-line pt-20 pb-8 sm:pt-24 sm:pb-10 text-left ${className}`}
+      className={`relative w-full ${contentHeight ? 'min-h-[100svh] h-auto max-h-none' : 'h-[100vh] min-h-[100vh] max-h-[100vh]'} flex flex-col justify-center overflow-hidden border-b border-line pt-20 pb-8 sm:pt-24 sm:pb-10 text-left ${className}`}
     >
-      {/* High-Clarity Background Image Container - Centered to avoid cutting & 100% Clear on the right */}
+      {/* Background image is right-aligned to leave space for the hero copy. */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-        {/* Crystal Clear High-Definition Photography Layer with Zero Haze & Centered Framing */}
+        {/* Clear photography, framed to the right by default. */}
         <img
           src={imageSrc}
           alt={imageAlt}
@@ -53,10 +55,7 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
           className={`w-full h-full object-cover ${imagePosition} filter saturate-[1.05] contrast-[1.05] brightness-[1.01] ${imageOpacity} transition-all duration-700 ease-out`}
         />
 
-        {/* Directional Contrast Mask:
-            Soft pure white on the left (0% to ~35%) guarantees 100% text readability.
-            Transitions smoothly to 100% transparent by ~60%, leaving the right half completely clear with zero opacity.
-        */}
+        {/* A short, soft left-side contrast mask preserves text readability. */}
         <div
           className={`absolute inset-0 bg-gradient-to-r ${overlayGradients} pointer-events-none`}
           aria-hidden="true"

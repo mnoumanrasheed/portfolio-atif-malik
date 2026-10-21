@@ -61,7 +61,7 @@ export const Work: React.FC = () => {
                 Selected Work &amp; Impact
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-normal pt-1 max-w-2xl">
+              <p className="text-lg sm:text-xl text-black leading-relaxed font-medium pt-1 max-w-2xl">
                 M3 Hive company projects demonstrating technical breadth across market intelligence, scientific software, bioinformatics, and data integration.
               </p>
 

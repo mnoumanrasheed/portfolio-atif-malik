@@ -43,7 +43,7 @@ export const Expertise: React.FC = () => {
               </div>
 
               {/* Supporting Copy Constrained to avoid overlap */}
-              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+              <div className="text-base sm:text-lg text-black leading-relaxed font-medium max-w-2xl">
                 <p>
                   {PERSPECTIVE.body}
                 </p>

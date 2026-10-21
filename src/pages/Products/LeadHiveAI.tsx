@@ -43,7 +43,7 @@ export const LeadHiveAI: React.FC = () => {
                 &quot;{product.positioningLine}&quot;
               </p>
 
-              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+              <div className="text-base sm:text-lg text-black leading-relaxed font-medium max-w-2xl">
                 <p>
                   {product.overview}
                 </p>

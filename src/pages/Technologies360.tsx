@@ -38,7 +38,7 @@ export const Technologies360: React.FC = () => {
                 </h1>
               </div>
 
-              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+              <div className="text-base sm:text-lg text-black leading-relaxed font-medium max-w-2xl">
                 <p>
                   Atif I. Malik is a Founding CEO, Director and Shareholder of 360 Technologies. 360 Technologies is presented as a separate company with a published history across enterprise systems, public-sector digitisation, data services and professional capability development.
                 </p>

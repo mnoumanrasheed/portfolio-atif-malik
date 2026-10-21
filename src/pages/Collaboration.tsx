@@ -91,7 +91,7 @@ export const Collaboration: React.FC = () => {
                 </h1>
               </div>
 
-              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+              <div className="text-base sm:text-lg text-black leading-relaxed font-medium max-w-2xl">
                 <p>
                   If you are exploring AI adoption, a product pilot, technology integration, research collaboration or custom digital engineering, share the challenge and the outcome you are working toward.
                 </p>

@@ -20,6 +20,7 @@ import { Button } from '../components/ui/Button';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { HeroBackground } from '../components/ui/HeroBackground';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import ceoPortrait from '../../photo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,12 +88,27 @@ export const Home: React.FC = () => {
         className="relative bg-white overflow-hidden"
       >
         <HeroBackground 
-          imageSrc="/images/heroes/hero-home.jpg" 
-          imageAlt="Executive Architectural Technology Space"
+          imageSrc="/images/heroes/hero-home.jpg"
+          imageAlt="Executive architectural technology space"
           glowColor="teal" 
+          contentHeight
           >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="max-w-3xl space-y-6 sm:space-y-7">
+          <div className="pointer-events-none relative order-2 mt-8 h-72 w-[min(90vw,24rem)] self-center lg:absolute lg:right-6 lg:top-1/2 lg:z-0 lg:order-none lg:mt-0 lg:h-[min(60vh,30rem)] lg:w-[min(30vw,23rem)] lg:-translate-y-1/2 xl:right-8 xl:h-[min(68vh,38rem)] xl:w-[min(34vw,29rem)]" aria-hidden="true">
+            <div className="absolute inset-3 translate-x-4 translate-y-4 rounded-[2.5rem] border border-[#286252]/30" />
+            <div className="absolute inset-1 rounded-[2.4rem] bg-[#286252]/20 blur-2xl" />
+            <div className="relative h-full rounded-[2.25rem] border border-white/80 bg-white/90 p-2.5 shadow-[0_32px_85px_rgba(8,45,37,0.30)]">
+              <div className="relative h-full overflow-hidden rounded-[1.85rem] bg-[#163f35]">
+                <img
+                  src={ceoPortrait}
+                  alt=""
+                  className="h-full w-full object-cover object-right"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#0c2f28]/12 via-transparent to-white/10" />
+              </div>
+            </div>
+          </div>
+          <div className="relative z-10 order-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-3xl space-y-6 sm:space-y-7 lg:max-w-[58%] xl:max-w-3xl">
               
               {/* Executive Identity Tag & Professional Descriptor */}
               <div>
@@ -111,12 +127,12 @@ export const Home: React.FC = () => {
               {/* Main Headline */}
               <div className="hero-headline">
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-                  {EXECUTIVE_PROFILE.heroHeadline}
+                  Building Intelligent Technology. Creating <span className="block">Real-World Impact.</span>
                 </h1>
               </div>
 
               {/* Supporting Copy */}
-              <div className="hero-statement text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+              <div className="hero-statement text-base sm:text-lg text-black leading-relaxed font-medium max-w-2xl">
                 <p>
                   {EXECUTIVE_PROFILE.heroStatement}
                 </p>

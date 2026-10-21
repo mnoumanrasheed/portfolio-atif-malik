@@ -163,7 +163,7 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                 Discuss a Project
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              <p className="text-base sm:text-lg text-black leading-relaxed font-medium">
                 If you are exploring AI adoption, a product pilot, technology integration, research collaboration or a custom digital platform, share the challenge and the outcome you are working toward.
               </p>
 

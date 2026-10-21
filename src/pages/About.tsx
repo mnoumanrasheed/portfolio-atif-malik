@@ -72,7 +72,7 @@ export const About: React.FC = () => {
               </div>
 
               {/* Supporting Copy */}
-              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+              <div className="text-base sm:text-lg text-black leading-relaxed font-medium max-w-2xl">
                 <p>
                   Technology entrepreneur and business leader focused on product development, applied artificial intelligence, data-driven platforms, and digital transformation across enterprise systems and healthcare AI.
                 </p>

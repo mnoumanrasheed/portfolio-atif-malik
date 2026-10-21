@@ -46,7 +46,7 @@ export const Ventures: React.FC = () => {
               </div>
 
               {/* Supporting Copy */}
-              <div className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
+              <div className="text-base sm:text-lg text-black leading-relaxed font-medium max-w-2xl">
                 <p>
                   M3 Hive serves as Atif I. Malik&apos;s primary company focus, leading product development, applied AI solutions, and digital platforms across healthcare, sales intelligence, and connected systems.
                 </p>
