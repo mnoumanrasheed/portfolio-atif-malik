@@ -96,8 +96,8 @@ export const Home: React.FC = () => {
           <div className="pointer-events-none relative order-2 mt-8 h-72 w-[min(90vw,24rem)] self-center lg:absolute lg:right-6 lg:top-1/2 lg:z-0 lg:order-none lg:mt-0 lg:h-[min(60vh,30rem)] lg:w-[min(30vw,23rem)] lg:-translate-y-1/2 xl:right-8 xl:h-[min(68vh,38rem)] xl:w-[min(34vw,29rem)]" aria-hidden="true">
             <div className="absolute inset-3 translate-x-4 translate-y-4 rounded-[2.5rem] border border-[#286252]/30" />
             <div className="absolute inset-1 rounded-[2.4rem] bg-[#286252]/20 blur-2xl" />
-            <div className="relative h-full rounded-[2.25rem] border border-white/80 bg-white/90 p-2.5 shadow-[0_32px_85px_rgba(8,45,37,0.30)]">
-              <div className="relative h-full overflow-hidden rounded-[1.85rem] bg-[#163f35]">
+            <div className="relative h-full rounded-[2rem] border border-white/80 bg-white/90 p-1 shadow-[0_24px_65px_rgba(8,45,37,0.25)]">
+              <div className="relative h-full overflow-hidden rounded-[1.75rem] bg-[#163f35]">
                 <img
                   src={ceoPortrait}
                   alt=""
