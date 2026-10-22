@@ -93,12 +93,7 @@ export const Home: React.FC = () => {
           contentHeight
           >
           <div className="pointer-events-none relative order-2 mt-8 h-72 w-[min(90vw,24rem)] self-center lg:absolute lg:right-6 lg:top-1/2 lg:z-0 lg:order-none lg:mt-0 lg:h-[min(60vh,30rem)] lg:w-[min(30vw,23rem)] lg:-translate-y-1/2 xl:right-8 xl:h-[min(68vh,38rem)] xl:w-[min(34vw,29rem)]" aria-hidden="true">
-            {/* Soft Translucent Opacity Backdrop behind photo */}
-            <div className="absolute -inset-4 sm:-inset-6 rounded-[2.75rem] bg-white/45 backdrop-blur-md shadow-sm" />
-            <div className="absolute inset-3 translate-x-4 translate-y-4 rounded-[2.5rem] border border-[#286252]/30" />
-            <div className="absolute inset-1 rounded-[2.4rem] bg-[#286252]/20 blur-2xl" />
-            <div className="relative h-full rounded-[2rem] border border-white/80 bg-white/90 p-px shadow-[0_24px_65px_rgba(8,45,37,0.25)]">
-              <div className="relative h-full overflow-hidden rounded-[1.75rem] bg-[#163f35]">
+            <div className="relative h-full overflow-hidden rounded-[1.75rem] border border-white/90">
                 <img
                   src="/images/atif-malik-profile.jpg"
                   alt=""
@@ -109,7 +104,6 @@ export const Home: React.FC = () => {
                   decoding="async"
                   className="h-full w-full object-cover object-right"
                 />
-              </div>
             </div>
           </div>
           <div className="relative z-10 order-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
