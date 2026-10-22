@@ -15,7 +15,7 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
     document.body.style.overflow = 'hidden';
 
     const startTime = performance.now();
-    const duration = 1350; // 1.35s smooth executive intro
+    const duration = 550;
 
     let animationFrameId: number;
 
@@ -33,7 +33,7 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
           setIsVisible(false);
           document.body.style.overflow = originalOverflow;
           onComplete?.();
-        }, 180);
+        }, 80);
       }
     };
 
@@ -55,7 +55,7 @@ export const ExecutivePreloader: React.FC<ExecutivePreloaderProps> = ({ onComple
             opacity: 0,
             y: '-3%',
             filter: 'blur(8px)',
-            transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
+            transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] }
           }}
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white text-slate-900 select-none overflow-hidden"
           aria-live="polite"

@@ -41,6 +41,8 @@ const PREFERRED_NEXT_STEPS = [
   'Written Correspondence'
 ] as const;
 
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY as string | undefined;
+
 export const Contact: React.FC = () => {
   const [searchParams] = useSearchParams();
 
@@ -57,6 +59,8 @@ export const Contact: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [prepared, setPrepared] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   // Map incoming URL parameters to enquiry type
   useEffect(() => {
@@ -78,6 +82,17 @@ export const Contact: React.FC = () => {
       setEnquiryType('Custom Product Engineering');
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY || document.querySelector('script[data-recaptcha-v3]')) return;
+
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(RECAPTCHA_SITE_KEY)}`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.recaptchaV3 = 'true';
+    document.head.appendChild(script);
+  }, []);
 
   // Structured brief for transmission
   const generatedBrief = `EXECUTIVE ENQUIRY : ATIF I. MALIK & M3 HIVE
@@ -124,10 +139,59 @@ Note: Please do not transmit medical records, patient data, or confidential proj
     return Object.keys(errs).length === 0;
   };
 
-  const handlePrepareBrief = (e: React.FormEvent) => {
+  const handleSubmitEnquiry = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    setPrepared(true);
+
+    if (!RECAPTCHA_SITE_KEY) {
+      setSubmitError('The contact form is being configured. Please try again shortly.');
+      return;
+    }
+
+    if (!window.grecaptcha) {
+      setSubmitError('Security verification is still loading. Please try again in a moment.');
+      return;
+    }
+
+    setSubmitError('');
+    setIsSubmitting(true);
+
+    try {
+      const recaptchaToken = await new Promise<string>((resolve, reject) => {
+        window.grecaptcha?.ready(() => {
+          window.grecaptcha?.execute(RECAPTCHA_SITE_KEY, { action: 'contact_enquiry' })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
+
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          organisation,
+          email,
+          enquiryType,
+          description,
+          preferredNextStep,
+          consent,
+          recaptchaToken,
+          website: ''
+        })
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.message || 'We could not send your enquiry. Please try again shortly.');
+      }
+
+      setPrepared(true);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'We could not send your enquiry. Please try again shortly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCopyBrief = async () => {
@@ -235,6 +299,32 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                   </a>
                 </div>
 
+                {/* Direct email correspondence */}
+                <div className="space-y-3 pt-2 border-t border-slate-100">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
+                    Direct Correspondence
+                  </span>
+                  <a
+                    href="mailto:atif.imran@gmail.com"
+                    className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 hover:bg-brand-wash hover:border-brand/40 transition-all flex items-center justify-between group shadow-2xs"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-brand shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-xs font-bold text-slate-900 group-hover:text-brand block transition-colors">
+                          Prefer email?
+                        </span>
+                        <span className="text-[11px] text-slate-500 block truncate">
+                          atif.imran@gmail.com
+                        </span>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-brand transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+                  </a>
+                </div>
+
                 {/* Privacy & Governance Notice */}
                 <div className="pt-2 flex items-start gap-2 text-xs text-slate-500 leading-relaxed border-t border-slate-100">
                   <Info className="w-4 h-4 text-brand shrink-0 mt-0.5" />
@@ -277,7 +367,7 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                           Structured Brief Ready
                         </h2>
                         <p className="text-sm text-slate-600 leading-relaxed">
-                          Your structured project enquiry brief has been compiled below. <strong>Please note: no direct email has been sent.</strong> You can copy this brief to your clipboard and send it via LinkedIn or direct executive correspondence.
+                          Your project enquiry has been sent securely to the M3 Hive team. A copy is shown below for your records.
                         </p>
                       </div>
 
@@ -328,7 +418,7 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                       </div>
                     </motion.div>
                   ) : (
-                    <form onSubmit={handlePrepareBrief} className="space-y-5" noValidate>
+                    <form onSubmit={handleSubmitEnquiry} className="space-y-5" noValidate>
                       
                       <div className="border-b border-slate-100 pb-4">
                         <h2 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
@@ -548,10 +638,11 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                       <div className="pt-2 flex flex-wrap items-center gap-3">
                         <button
                           type="submit"
+                          disabled={isSubmitting}
                           className="group inline-flex items-center gap-2.5 px-6 py-3 text-xs font-bold text-white bg-gradient-to-r from-brand via-[#2E6877] to-brand hover:from-[#2E6877] hover:to-brand rounded-full shadow-[0_4px_16px_rgba(55,122,138,0.28)] hover:shadow-[0_6px_22px_rgba(55,122,138,0.4)] transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-white/20 cursor-pointer"
                         >
                           <Send className="w-3.5 h-3.5 text-white/90" />
-                          <span>Prepare Enquiry Brief</span>
+                          <span>{isSubmitting ? 'Sending Enquiry...' : 'Send Project Enquiry'}</span>
                           <ArrowRight className="w-3.5 h-3.5 text-white/80 group-hover:translate-x-1 transition-transform" />
                         </button>
 
@@ -575,9 +666,15 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                         </Button>
                       </div>
 
-                      {/* Accurate Transmit Note */}
+                      {submitError && (
+                        <p className="text-xs text-red-600 leading-relaxed font-medium" role="alert">
+                          {submitError}
+                        </p>
+                      )}
+
+                      {/* Security and delivery note */}
                       <p className="text-[11px] text-slate-500 pt-1 leading-relaxed">
-                        Note: This form prepares a structured project brief for you to copy and share via LinkedIn or direct executive correspondence. No direct email is transmitted from this website.
+                        This form is protected by reCAPTCHA and sends your enquiry securely to the M3 Hive team. Please do not include medical records, patient data, or confidential project secrets.
                       </p>
 
                     </form>

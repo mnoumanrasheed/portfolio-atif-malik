@@ -57,3 +57,27 @@ npm run build
 # Preview production build locally
 npm run preview
 ```
+
+## Contact Form Delivery
+
+The PHP contact endpoint sends all project enquiries to `atif.imran@gmail.com` by default. On the production PHP host, add `atif-mail-config.php` one directory above `public_html` with the Resend and reCAPTCHA secrets; `ENQUIRY_RECIPIENT` is optional unless a different recipient is required.
+
+For cPanel, use PHP 8.1+ with the cURL extension enabled, then place the built `dist/` contents in `public_html`, ensuring `api/contact.php` remains at `public_html/api/contact.php`. The bundled `.htaccess` disables directory listings; merge it with any existing cPanel `.htaccess` rather than overwriting existing site rules. Create `~/atif-mail-config.php` (outside `public_html`) with restrictive permissions, for example:
+
+```php
+<?php
+return [
+  'RESEND_API_KEY' => 're_...',
+  'RECAPTCHA_SECRET_KEY' => '...',
+  'RECAPTCHA_HOSTNAME' => 'yourdomain.com',
+  'ALLOWED_ORIGIN' => 'https://yourdomain.com',
+  'ENQUIRY_FROM' => 'M3 Hive Enquiries <enquiries@yourdomain.com>',
+  // Optional: defaults are 5 submissions per IP every 15 minutes.
+  'CONTACT_RATE_LIMIT_MAX' => '5',
+  'CONTACT_RATE_LIMIT_WINDOW' => '900',
+];
+```
+
+Never upload that configuration file, Resend key, or reCAPTCHA secret to `public_html`, Git, or a frontend `.env` file. The Vite `VITE_RECAPTCHA_SITE_KEY` is the only key allowed in the browser bundle, because it is public by design.
+
+Before running the production build, create a local `.env.production` from `.env.example` and set `VITE_RECAPTCHA_SITE_KEY` to the public key registered for `yourdomain.com`; then run `npm run build` and upload the resulting `dist/` contents. This key is embedded at build time, so setting it only in cPanel after the upload will not enable the form.

@@ -160,20 +160,20 @@ export const Navbar: React.FC = () => {
     location.pathname.startsWith('/products/');
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 transition-all duration-200">
+    <header className="sticky top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 lg:px-8 transition-all duration-200">
       <div
-        className={`w-full transition-all duration-200 border-b ${
+        className={`max-w-7xl mx-auto overflow-visible rounded-2xl border transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md border-slate-200/90 shadow-xs py-2.5'
-            : 'bg-white border-slate-100 py-3 sm:py-3.5'
+            ? 'bg-white/95 backdrop-blur-xl border-slate-200/90 shadow-[0_18px_38px_-18px_rgba(15,23,42,0.18)] py-2'
+            : 'bg-white border-slate-200/80 shadow-[0_12px_32px_-18px_rgba(15,23,42,0.15)] py-2.5 sm:py-3'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="px-4 sm:px-5 lg:px-6 flex items-center justify-between">
           
           {/* Section 4: Brand Name on the Left */}
           <Link
             to="/"
-            className="group rounded-lg py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#286252]/40"
+            className="group rounded-lg py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
             aria-label="Atif I. Malik - Home"
           >
             <ExecutiveLogo size="sm" variant="horizontal" theme="light" showSubtitle={false} />
@@ -181,7 +181,7 @@ export const Navbar: React.FC = () => {
 
           {/* Main Navigation Tabs */}
           <nav
-            className="hidden lg:flex items-center gap-0.5 xl:gap-1.5"
+            className="hidden lg:flex items-center gap-1 xl:gap-1.5"
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredNav(null)}
           >
@@ -192,8 +192,8 @@ export const Navbar: React.FC = () => {
               className={({ isActive }) =>
                 `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
-                    ? 'text-[#286252] font-bold'
-                    : 'text-slate-700 hover:text-slate-950'
+                    ? 'text-brand bg-white shadow-xs font-bold'
+                    : 'text-slate-600 hover:text-slate-950 hover:bg-white'
                 }`
               }
             >
@@ -203,7 +203,7 @@ export const Navbar: React.FC = () => {
                   {(isActive || hoveredNav === 'About') && (
                     <motion.div
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#286252] rounded-full"
+                      className="absolute bottom-0.5 left-3 right-3 h-[2px] bg-brand-accent rounded-full"
                       transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                     />
                   )}
@@ -218,8 +218,8 @@ export const Navbar: React.FC = () => {
               className={({ isActive }) =>
                 `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
-                    ? 'text-[#286252] font-bold'
-                    : 'text-slate-700 hover:text-slate-950'
+                      ? 'text-brand bg-white shadow-xs font-bold'
+                      : 'text-slate-600 hover:text-slate-950 hover:bg-white'
                 }`
               }
             >
@@ -229,7 +229,7 @@ export const Navbar: React.FC = () => {
                   {(isActive || hoveredNav === 'Expertise') && (
                     <motion.div
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#286252] rounded-full"
+                      className="absolute bottom-0.5 left-3 right-3 h-[2px] bg-brand-accent rounded-full"
                       transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                     />
                   )}
@@ -251,8 +251,8 @@ export const Navbar: React.FC = () => {
                   className={({ isActive }) =>
                     `relative pl-3.5 pr-1 py-2 text-xs font-semibold rounded-l-lg transition-colors duration-150 ${
                       isActive || isVenturesActive
-                        ? 'text-[#286252] font-bold'
-                        : 'text-slate-700 hover:text-slate-950'
+                      ? 'text-brand bg-white shadow-xs font-bold'
+                      : 'text-slate-600 hover:text-slate-950 hover:bg-white'
                     }`
                   }
                 >
@@ -262,7 +262,7 @@ export const Navbar: React.FC = () => {
                       {(isVenturesActive || hoveredNav === 'Ventures') && (
                         <motion.div
                           layoutId="nav-underline"
-                          className="absolute bottom-0 left-2 right-0 h-[2px] bg-[#286252] rounded-full"
+                          className="absolute bottom-0.5 left-3 right-1 h-[2px] bg-brand-accent rounded-full"
                           transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                         />
                       )}
@@ -278,12 +278,12 @@ export const Navbar: React.FC = () => {
                   aria-haspopup="true"
                   aria-label="Toggle Ventures dropdown menu"
                   className={`pr-2.5 pl-0.5 py-2 rounded-r-lg transition-colors duration-150 focus-visible:outline-none ${
-                    isVenturesActive ? 'text-[#286252]' : 'text-slate-400 hover:text-slate-700'
+                    isVenturesActive ? 'text-brand' : 'text-slate-400 hover:text-slate-700'
                   }`}
                 >
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      venturesOpen ? 'rotate-180 text-[#286252]' : ''
+                      venturesOpen ? 'rotate-180 text-brand-accent' : ''
                     }`}
                   />
                 </button>
@@ -302,7 +302,7 @@ export const Navbar: React.FC = () => {
                     {/* Mouse gap bridge */}
                     <div className="absolute top-0 left-0 right-0 h-2.5 pointer-events-auto" />
 
-                    <div className="bg-white border border-slate-200/90 rounded-2xl p-2 shadow-[0_16px_36px_-8px_rgba(15,23,42,0.1)] overflow-hidden">
+                    <div className="bg-white border border-slate-200 rounded-2xl p-2 shadow-[0_20px_40px_-12px_rgba(15,23,42,0.18)] overflow-hidden">
                       <div className="space-y-0.5">
                         {venturesDropdownItems.map((item) => {
                           const isCurrent = location.pathname === item.path;
@@ -313,14 +313,14 @@ export const Navbar: React.FC = () => {
                               onClick={handleDropdownLinkClick}
                               className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all ${
                                 isCurrent
-                                  ? 'bg-brand-wash text-[#286252]'
+                                  ? 'bg-brand-wash text-brand'
                                   : 'hover:bg-slate-50 text-slate-800'
                               }`}
                             >
                               <div>
                                 <span
                                   className={`text-sm font-semibold block transition-colors ${
-                                    isCurrent ? 'text-[#286252]' : 'group-hover:text-[#286252]'
+                                    isCurrent ? 'text-brand' : 'group-hover:text-brand'
                                   }`}
                                 >
                                   {item.name}
@@ -329,7 +329,7 @@ export const Navbar: React.FC = () => {
                                   {item.desc}
                                 </span>
                               </div>
-                              <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#286252] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+                              <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-brand-accent group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                             </Link>
                           );
                         })}
@@ -340,10 +340,10 @@ export const Navbar: React.FC = () => {
                         <Link
                           to="/work"
                           onClick={handleDropdownLinkClick}
-                          className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-[#286252] hover:bg-slate-50 transition-all group"
+                          className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-brand hover:bg-slate-50 transition-all group"
                         >
                           <span>View All Selected Work</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#286252] group-hover:translate-x-0.5 transition-all" />
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-brand-accent group-hover:translate-x-0.5 transition-all" />
                         </Link>
                       </div>
 
@@ -360,8 +360,8 @@ export const Navbar: React.FC = () => {
               className={({ isActive }) =>
                 `relative px-3.5 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
-                    ? 'text-[#286252] font-bold'
-                    : 'text-slate-700 hover:text-slate-950'
+                    ? 'text-brand bg-white shadow-xs font-bold'
+                    : 'text-slate-600 hover:text-slate-950 hover:bg-white'
                 }`
               }
             >
@@ -371,7 +371,7 @@ export const Navbar: React.FC = () => {
                   {(isActive || hoveredNav === 'Selected Work') && (
                     <motion.div
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#286252] rounded-full"
+                      className="absolute bottom-0.5 left-3 right-3 h-[2px] bg-brand-accent rounded-full"
                       transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                     />
                   )}
@@ -386,8 +386,8 @@ export const Navbar: React.FC = () => {
               className={({ isActive }) =>
                 `relative px-3 py-2 text-xs font-semibold rounded-lg transition-colors duration-150 ${
                   isActive
-                    ? 'text-[#286252] font-bold'
-                    : 'text-slate-700 hover:text-slate-950'
+                    ? 'text-brand bg-white shadow-xs font-bold'
+                    : 'text-slate-600 hover:text-slate-950 hover:bg-white'
                 }`
               }
             >
@@ -397,7 +397,7 @@ export const Navbar: React.FC = () => {
                   {(isActive || hoveredNav === 'Collaboration') && (
                     <motion.div
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#286252] rounded-full"
+                      className="absolute bottom-0.5 left-3 right-3 h-[2px] bg-brand-accent rounded-full"
                       transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                     />
                   )}
@@ -411,7 +411,7 @@ export const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-[#286252] hover:bg-[#2E6877] rounded-full shadow-sm transition-all duration-200 transform hover:scale-[1.01] active:scale-[0.99]"
+              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-brand-accent hover:bg-[#65b99e] rounded-xl shadow-[0_6px_16px_rgba(56,132,112,0.22)] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Discuss a Project</span>
               <ArrowRight className="w-3.5 h-3.5 text-white/90" />
@@ -423,7 +423,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#286252] shadow-xs"
+              className="p-2 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
@@ -442,7 +442,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.99 }}
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden border-b border-slate-200 bg-white shadow-lg overflow-hidden"
+            className="lg:hidden mt-2 max-w-7xl mx-auto rounded-2xl border border-slate-200 bg-white shadow-[0_18px_38px_-18px_rgba(15,23,42,0.18)] overflow-hidden"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-2">
               
@@ -453,7 +453,7 @@ export const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
                     isActive
-                      ? 'text-[#286252] font-bold bg-brand-wash border border-[#286252]/20 shadow-2xs'
+                      ? 'text-brand font-bold bg-brand-wash border border-brand/20'
                       : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
                   }`
                 }
@@ -468,7 +468,7 @@ export const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
                     isActive
-                      ? 'text-[#286252] font-bold bg-brand-wash border border-[#286252]/20 shadow-2xs'
+                      ? 'text-brand font-bold bg-brand-wash border border-brand/20'
                       : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
                   }`
                 }
@@ -477,12 +477,12 @@ export const Navbar: React.FC = () => {
               </NavLink>
 
               {/* Ventures with Expandable Submenu */}
-              <div className="rounded-xl border border-slate-100 bg-slate-50/70 p-1">
+              <div className="rounded-xl border border-slate-100 bg-slate-50 p-1">
                 <div className="flex items-center justify-between">
                   <NavLink
                     to="/ventures"
                     onClick={() => setIsOpen(false)}
-                    className="flex-1 px-3 py-2 text-sm font-semibold text-slate-800 hover:text-[#286252]"
+                    className="flex-1 px-3 py-2 text-sm font-semibold text-slate-800 hover:text-brand"
                   >
                     Ventures
                   </NavLink>
@@ -495,7 +495,7 @@ export const Navbar: React.FC = () => {
                   >
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-200 ${
-                        mobileVenturesOpen ? 'rotate-180 text-[#286252]' : ''
+                        mobileVenturesOpen ? 'rotate-180 text-brand-accent' : ''
                       }`}
                     />
                   </button>
@@ -511,7 +511,7 @@ export const Navbar: React.FC = () => {
                         className={({ isActive }) =>
                           `flex items-start gap-2.5 p-2 rounded-lg transition-all border ${
                             isActive
-                              ? 'bg-brand-wash border-[#286252]/30 text-[#286252] font-bold'
+                              ? 'bg-brand-wash border-brand/30 text-brand font-bold'
                               : 'bg-white hover:bg-slate-100 border-slate-200/60 text-slate-700'
                           }`
                         }
@@ -527,10 +527,10 @@ export const Navbar: React.FC = () => {
                     <NavLink
                       to="/work"
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between p-2 rounded-lg bg-slate-100/70 hover:bg-slate-100 text-xs font-bold text-slate-800 hover:text-[#286252] transition-colors mt-1"
+                      className="flex items-center justify-between p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 hover:text-brand transition-colors mt-1"
                     >
                       <span>View All Selected Work</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                      <ArrowRight className="w-3.5 h-3.5 text-brand-accent" />
                     </NavLink>
                   </div>
                 )}
@@ -543,7 +543,7 @@ export const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
                     isActive
-                      ? 'text-[#286252] font-bold bg-brand-wash border border-[#286252]/20 shadow-2xs'
+                      ? 'text-brand font-bold bg-brand-wash border border-brand/20'
                       : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
                   }`
                 }
@@ -558,7 +558,7 @@ export const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `block px-3.5 py-2.5 text-sm font-semibold rounded-xl transition-all ${
                     isActive
-                      ? 'text-[#286252] font-bold bg-brand-wash border border-[#286252]/20 shadow-2xs'
+                      ? 'text-brand font-bold bg-brand-wash border border-brand/20'
                       : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950 border border-transparent'
                   }`
                 }
@@ -571,7 +571,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-[#286252] hover:bg-[#2E6877] shadow-sm text-center"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl text-xs font-bold text-deep bg-brand-accent hover:bg-[#65b99e] shadow-sm text-center"
                 >
                   <span>Discuss a Project</span>
                   <ArrowRight className="w-3.5 h-3.5 text-white/90" />

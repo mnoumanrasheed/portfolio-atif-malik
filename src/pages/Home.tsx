@@ -20,7 +20,6 @@ import { Button } from '../components/ui/Button';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { HeroBackground } from '../components/ui/HeroBackground';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
-import ceoPortrait from '../../photo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,17 +95,18 @@ export const Home: React.FC = () => {
           <div className="pointer-events-none relative order-2 mt-8 h-72 w-[min(90vw,24rem)] self-center lg:absolute lg:right-6 lg:top-1/2 lg:z-0 lg:order-none lg:mt-0 lg:h-[min(60vh,30rem)] lg:w-[min(30vw,23rem)] lg:-translate-y-1/2 xl:right-8 xl:h-[min(68vh,38rem)] xl:w-[min(34vw,29rem)]" aria-hidden="true">
             <div className="absolute inset-3 translate-x-4 translate-y-4 rounded-[2.5rem] border border-[#286252]/30" />
             <div className="absolute inset-1 rounded-[2.4rem] bg-[#286252]/20 blur-2xl" />
-            <div className="relative h-full rounded-[2rem] border border-white/80 bg-white/90 p-1 shadow-[0_24px_65px_rgba(8,45,37,0.25)]">
+            <div className="relative h-full rounded-[2rem] border border-white/80 bg-white/90 p-px shadow-[0_24px_65px_rgba(8,45,37,0.25)]">
               <div className="relative h-full overflow-hidden rounded-[1.75rem] bg-[#163f35]">
                 <img
-                  src={ceoPortrait}
+                  src="/images/atif-malik-profile.jpg"
                   alt=""
+                  width={720}
+                  height={720}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="h-full w-full object-cover object-right"
                 />
-                {/* Photo Background Opacity Overlay: Softens the outdoor trees so the portrait stands out with executive contrast */}
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-950/20 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-[#0c2f28]/15 mix-blend-multiply pointer-events-none" />
               </div>
             </div>
           </div>

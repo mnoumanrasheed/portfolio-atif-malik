@@ -52,6 +52,8 @@ export const HeroBackground: React.FC<HeroBackgroundProps> = ({
           src={imageSrc}
           alt={imageAlt}
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className={`w-full h-full object-cover ${imagePosition} filter saturate-[1.05] contrast-[1.05] brightness-[1.01] ${imageOpacity} transition-all duration-700 ease-out`}
         />
 

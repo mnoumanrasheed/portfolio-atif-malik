@@ -1,0 +1,16 @@
+Options -Indexes
+Options -MultiViews
+
+RewriteEngine On
+
+# Serve existing assets, directories and the PHP contact endpoint directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# React Router handles all other browser routes (for example /contact on refresh).
+RewriteRule ^ index.html [L]
+
+<FilesMatch "\.(?:env|ini|log|sql|bak|dist)$">
+    Require all denied
+</FilesMatch>
