@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -61,6 +61,9 @@ export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const recaptchaContainerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<number | null>(null);
 
   // Map incoming URL parameters to enquiry type
   useEffect(() => {
@@ -84,15 +87,63 @@ export const Contact: React.FC = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    if (!RECAPTCHA_SITE_KEY || document.querySelector('script[data-recaptcha-v3]')) return;
+    if (!RECAPTCHA_SITE_KEY) return;
 
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(RECAPTCHA_SITE_KEY)}`;
-    script.async = true;
-    script.defer = true;
-    script.dataset.recaptchaV3 = 'true';
-    document.head.appendChild(script);
-  }, []);
+    const renderWidget = () => {
+      if (!window.grecaptcha || !recaptchaContainerRef.current) return;
+      window.grecaptcha.ready(() => {
+        if (!recaptchaContainerRef.current || widgetIdRef.current !== null) return;
+        try {
+          recaptchaContainerRef.current.innerHTML = '';
+          const id = window.grecaptcha!.render(recaptchaContainerRef.current, {
+            sitekey: RECAPTCHA_SITE_KEY,
+            callback: (token: string) => {
+              setRecaptchaToken(token);
+              setErrors((prev) => {
+                if (!prev.recaptcha) return prev;
+                const next = { ...prev };
+                delete next.recaptcha;
+                return next;
+              });
+            },
+            'expired-callback': () => {
+              setRecaptchaToken('');
+            },
+            'error-callback': () => {
+              setRecaptchaToken('');
+            }
+          });
+          widgetIdRef.current = id;
+        } catch (err) {
+          console.error('reCAPTCHA v2 render error:', err);
+        }
+      });
+    };
+
+    const SCRIPT_URL = 'https://www.google.com/recaptcha/api.js?render=explicit';
+    const existingScript = document.querySelector(`script[src="${SCRIPT_URL}"]`) as HTMLScriptElement | null;
+
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = SCRIPT_URL;
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        renderWidget();
+      };
+      document.head.appendChild(script);
+    } else if (window.grecaptcha && typeof window.grecaptcha.render === 'function') {
+      renderWidget();
+    } else {
+      existingScript.addEventListener('load', renderWidget);
+    }
+
+    return () => {
+      if (existingScript) {
+        existingScript.removeEventListener('load', renderWidget);
+      }
+    };
+  }, [prepared]);
 
   // Structured brief for transmission
   const generatedBrief = `EXECUTIVE ENQUIRY : ATIF I. MALIK & M3 HIVE
@@ -135,6 +186,10 @@ Note: Please do not transmit medical records, patient data, or confidential proj
       errs.consent = 'Consent to be contacted is required before submission.';
     }
 
+    if (!recaptchaToken) {
+      errs.recaptcha = 'Please verify that you are not a robot.';
+    }
+
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -144,12 +199,12 @@ Note: Please do not transmit medical records, patient data, or confidential proj
     if (!validate()) return;
 
     if (!RECAPTCHA_SITE_KEY) {
-      setSubmitError('The contact form is being configured. Please try again shortly.');
+      setSubmitError('The contact form security verification is being configured. Please try again shortly.');
       return;
     }
 
-    if (!window.grecaptcha) {
-      setSubmitError('Security verification is still loading. Please try again in a moment.');
+    if (!recaptchaToken) {
+      setErrors(prev => ({ ...prev, recaptcha: 'Please complete the "I\'m not a robot" security check.' }));
       return;
     }
 
@@ -157,14 +212,6 @@ Note: Please do not transmit medical records, patient data, or confidential proj
     setIsSubmitting(true);
 
     try {
-      const recaptchaToken = await new Promise<string>((resolve, reject) => {
-        window.grecaptcha?.ready(() => {
-          window.grecaptcha?.execute(RECAPTCHA_SITE_KEY, { action: 'contact_enquiry' })
-            .then(resolve)
-            .catch(reject);
-        });
-      });
-
       const response = await fetch('/api/contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -183,9 +230,26 @@ Note: Please do not transmit medical records, patient data, or confidential proj
       const result = await response.json().catch(() => null);
 
       if (!response.ok || !result?.ok) {
+        if (window.grecaptcha && widgetIdRef.current !== null) {
+          try {
+            window.grecaptcha.reset(widgetIdRef.current);
+          } catch {
+            // ignore
+          }
+        }
+        setRecaptchaToken('');
         throw new Error(result?.message || 'We could not send your enquiry. Please try again shortly.');
       }
 
+      if (window.grecaptcha && widgetIdRef.current !== null) {
+        try {
+          window.grecaptcha.reset(widgetIdRef.current);
+        } catch {
+          // ignore
+        }
+      }
+      setRecaptchaToken('');
+      widgetIdRef.current = null;
       setPrepared(true);
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : 'We could not send your enquiry. Please try again shortly.');
@@ -630,6 +694,21 @@ Note: Please do not transmit medical records, patient data, or confidential proj
                           <p className="text-xs text-red-600 mt-1 flex items-center gap-1 pl-6 font-medium">
                             <AlertCircle className="w-3 h-3" />
                             <span>{errors.consent}</span>
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Google reCAPTCHA v2 Checkbox */}
+                      <div className="pt-2">
+                        <div
+                          ref={recaptchaContainerRef}
+                          className="min-h-[78px] flex items-center justify-start overflow-x-auto"
+                          aria-label="Google reCAPTCHA verification"
+                        />
+                        {errors.recaptcha && (
+                          <p className="text-xs text-red-600 mt-1.5 flex items-center gap-1 font-medium">
+                            <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                            <span>{errors.recaptcha}</span>
                           </p>
                         )}
                       </div>

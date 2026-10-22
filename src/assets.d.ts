@@ -8,6 +8,19 @@ declare module '*.png' {
 interface Window {
   grecaptcha?: {
     ready: (callback: () => void) => void;
-    execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    render: (
+      container: string | HTMLElement,
+      parameters: {
+        sitekey: string;
+        theme?: 'light' | 'dark';
+        size?: 'normal' | 'compact';
+        tabindex?: number;
+        callback?: (token: string) => void;
+        'expired-callback'?: () => void;
+        'error-callback'?: () => void;
+      }
+    ) => number;
+    reset: (opt_widget_id?: number) => void;
+    getResponse: (opt_widget_id?: number) => string;
   };
 }

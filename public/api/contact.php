@@ -184,7 +184,7 @@ $verifyStatus = curl_getinfo($verifyRequest, CURLINFO_RESPONSE_CODE);
 curl_close($verifyRequest);
 $verification = json_decode(is_string($verifyResponse) ? $verifyResponse : '', true);
 
-if ($verifyStatus !== 200 || !is_array($verification) || empty($verification['success']) || ($verification['action'] ?? '') !== 'contact_enquiry' || (float) ($verification['score'] ?? 0) < 0.5 || !hash_equals($allowedHostname, (string) ($verification['hostname'] ?? ''))) {
+if ($verifyStatus !== 200 || !is_array($verification) || empty($verification['success']) || !hash_equals($allowedHostname, (string) ($verification['hostname'] ?? ''))) {
     respond(400, ['ok' => false, 'message' => 'Security verification failed. Please refresh the page and try again.']);
 }
 
