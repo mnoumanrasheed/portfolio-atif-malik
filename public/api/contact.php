@@ -53,7 +53,9 @@ function enforceRateLimit(string $ip, int $limit, int $windowSeconds): void {
     $stored = stream_get_contents($handle);
     $timestamps = json_decode(is_string($stored) ? $stored : '[]', true);
     $timestamps = is_array($timestamps) ? $timestamps : [];
-    $timestamps = array_values(array_filter($timestamps, static fn ($timestamp): bool => is_int($timestamp) && $timestamp > $now - $windowSeconds));
+    $timestamps = array_values(array_filter($timestamps, static function ($timestamp) use ($now, $windowSeconds) {
+        return is_int($timestamp) && $timestamp > $now - $windowSeconds;
+    }));
 
     if (count($timestamps) >= $limit) {
         flock($handle, LOCK_UN);
